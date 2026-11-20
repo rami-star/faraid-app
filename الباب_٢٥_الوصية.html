@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, viewport-fit=cover">
+  <title>الباب ٢٥: الوصية (ص ١٣٠ – ١٣٦)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <style>
+    /* ضبط امتلاء صفحات الشرح بتوازن مثل ورقة الكتاب */
+    .pg.book-pg {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .pg.book-pg > * { flex-shrink: 0; }
+    #p130 .ti { width: min(36%, 180px); margin: .25em auto .55em; }
+    #p133.book-pg { justify-content: flex-start; gap: 18px; }
+
+    .u-bl {
+      color: #1f56a5;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-align: right !important;
+    }
+    .bl-t { color: #1f56a5; font-weight: 700; }
+    .gn-t { color: #2e7d32; font-weight: 500; }
+    .ay-t { color: #4b5d1d; font-weight: 500; }
+
+    /* ===== توحيد اتجاه جميع النصوص الرأسية في الباب (تُقرأ من الأعلى للأسفل مثل الكتاب) ===== */
+    .v-txt, .v-t, .v-ft {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      white-space: nowrap;
+      font-weight: 700;
+      color: #17375e;
+    }
+
+    /* ===== صناديق أحكام الوصية وأركانها الموصولة بخط أفقي (ص ١٣٠ – ١٣١) ===== */
+    .ws-banner {
+      background: #f2dcdb;
+      border: 1px solid #e36c09;
+      color: #943634;
+      font-weight: 700;
+      text-align: center;
+      padding: .3em .5em;
+      font-size: 1.02em;
+      margin-bottom: .55em;
+    }
+    .ws-rows { display: flex; flex-direction: column; gap: 9px; }
+    .ws-row { display: flex; align-items: center; }
+    .ws-lbl {
+      width: 15%;
+      background: #e2efda;
+      border: 1px solid #333;
+      color: #17375e;
+      font-weight: 700;
+      text-align: center;
+      padding: .45em .25em;
+      font-size: .92em;
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ws-line { width: 3%; height: 2px; background: #888; flex-shrink: 0; }
+    .ws-desc {
+      flex: 1;
+      background: #fff2cc;
+      border: 1px solid #333;
+      color: #000;
+      font-weight: 500;
+      padding: .38em .65em;
+      font-size: .88em;
+      line-height: 1.75;
+      text-align: center;
+    }
+    .ws-desc.r-align { text-align: right; }
+
+    /* ===== مثال ص ١٣١ ===== */
+    .bx.ws-ex { font-size: .84em; margin: .45em 0; }
+    .bx.ws-ex td { padding: .22em .18em; }
+    .bx.ws-ex .v-txt { background: #ebf1de; padding: .25em .08em; font-size: .9em; }
+    .bx.ws-ex .mh { background: #ebf1de; color: #17375e; font-weight: 700; }
+    .bx.ws-ex .nm { color: #17375e; font-weight: 700; }
+    .bx.ws-ex .ft-l { background: #c5d9f1; color: #17375e; font-weight: 700; font-size: .9em; line-height: 1.45; }
+    .bx.ws-ex .f { font-size: 1.05em; font-weight: 700; }
+
+    /* ===== تمارين ص ١٣٢ ===== */
+    #p132 .eg.e2 { gap: 22px 12px; margin: .4em 0 .9em; }
+    .ec table.x.ws-tr { font-size: .74em; }
+    .ec table.x.ws-tr th.t { font-weight: 700; color: #17375e; line-height: 1.35; padding: .18em .1em; }
+    .ec table.x.ws-tr th.v-t { background: #c5d9f1; padding: .25em .06em; font-size: .92em; }
+    .ec table.x.ws-tr td.nm { color: #111; font-weight: 700; }
+    .ec table.x.ws-tr td.fr-c { background: #ebf1de; font-weight: 700; }
+    .ec table.x.ws-tr .f { font-size: 1.02em; font-weight: 700; }
+    .ec table.x.ws-tr input { font-weight: 700; height: 100%; min-height: 1.85em; }
+    .ec table.x.ws-tr input:focus { outline: 2px solid #2f5597; outline-offset: -2px; background: #f4f8ff; }
+
+    /* ===== مثال ص ١٣٣ ===== */
+    #p133 .bx.ws-wide { font-size: .86em; margin: .4em 0; }
+    #p133 .bx.ws-wide td { padding: .24em .14em; }
+    #p133 .bx.ws-wide td.v-txt { background: #ebf1de; padding: .3em .08em; font-size: .92em; }
+    #p133 .bx.ws-wide td.mh { background: #ebf1de; color: #17375e; font-weight: 700; }
+    #p133 .bx.ws-wide td.v-ft {
+      background: #c5d9f1;
+      padding: .5em .12em;
+      font-size: .94em;
+      line-height: 1.55;
+      height: 118px;
+    }
+    #p133 .bx.ws-wide tr.sep-row td,
+    #p134 table.x.ws-tr2 tr.sep-row td {
+      border-top: 3px double #b03a2e !important;
+    }
+    #p133 .cr-rd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.65em;
+      height: 1.65em;
+      border: 1.5px solid #c0504d;
+      border-radius: 50%;
+      font-weight: 700;
+      color: #000;
+    }
+
+    /* ===== تمارين ص ١٣٤ ===== */
+    #p134 .ws-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    #p134 .eg.e1 { display: flex; flex-direction: column; gap: 22px; margin: .4em 0 .9em; }
+    #p134 table.x.ws-tr2 { font-size: .74em; min-width: 580px; }
+    #p134 table.x.ws-tr2 th.t { font-weight: 700; color: #17375e; line-height: 1.4; padding: .22em .1em; }
+    #p134 table.x.ws-tr2 th.v-t { background: #c5d9f1; padding: .25em .06em; font-size: .92em; }
+    #p134 table.x.ws-tr2 td.nm { color: #111; font-weight: 700; }
+    #p134 table.x.ws-tr2 td.fr-c { background: #ebf1de; font-weight: 700; }
+    #p134 table.x.ws-tr2 .f { font-size: 1.02em; font-weight: 700; }
+    #p134 table.x.ws-tr2 input { font-weight: 700; height: 100%; min-height: 1.85em; }
+    #p134 table.x.ws-tr2 input:focus { outline: 2px solid #2f5597; outline-offset: -2px; background: #f4f8ff; }
+
+    /* ===== مثالا وتمارين ص ١٣٥ و ص ١٣٦ ===== */
+    .bx.ws-mny { font-size: .85em; margin: .5em 0 1em; }
+    .bx.ws-mny td { padding: .24em .2em; }
+    .bx.ws-mny td.mh { background: #ebf1de; color: #17375e; font-weight: 700; }
+    .bx.ws-mny td.sh-tx {
+      background: #ebf1de;
+      color: #000;
+      font-weight: 500;
+      line-height: 1.85;
+      padding: .38em .55em;
+      text-align: center;
+    }
+    .bx.ws-mny td.v-ft {
+      background: #c5d9f1;
+      padding: .35em .1em;
+      font-size: .92em;
+      line-height: 1.45;
+    }
+    #p135 .eg.e3 { gap: 18px 10px; margin: .8em 0 .9em; }
+    #p136 .eg.e2 { gap: 20px 14px; margin: .8em 0 .9em; }
+    table.x.ws-m { font-size: .82em; }
+    table.x.ws-m th.t { font-weight: 700; color: #17375e; }
+    table.x.ws-m td.nm { color: #111; font-weight: 700; }
+    table.x.ws-m td.gv { background: #ebf1de; color: #000; font-weight: 700; }
+    table.x.ws-m .f { font-size: 1.02em; font-weight: 700; }
+    table.x.ws-m input { font-weight: 700; height: 100%; min-height: 1.85em; }
+    table.x.ws-m input:focus { outline: 2px solid #2f5597; outline-offset: -2px; background: #f4f8ff; }
+
+    /* ===== التجاوب مع الجوال ===== */
+    @media (max-width: 600px) {
+      #p132 .eg.e2, #p135 .eg.e3, #p136 .eg.e2 { grid-template-columns: 1fr !important; }
+      .ec table.x.ws-tr { font-size: .76em; }
+      .ws-lbl { width: 22%; font-size: .84em; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== صفحة ١٣٠ (تعريف وأدلة وأحكام الوصية) ==================== -->
+<section class="pg" id="p130">
+  <div>
+    <div class="hd">
+      <div class="no">١٣٠</div>
+      <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+      <div style="width:2.4em"></div>
+    </div>
+
+    <div class="ti">الوصــــية</div>
+  </div>
+
+  <div>
+    <div class="u-bl" style="margin-bottom:.45em">تعريف الوصية:</div>
+    <p class="pr" style="margin:.45em 0"><span class="bl-t">الوصية لغة:</span> هي الإيصال، من وصل الشيء بكذا أوصله به لأن الموصي وصل خير دنياهُ بخيرِ عقباهُ.</p>
+    <p class="pr" style="margin:.45em 0"><span class="bl-t">الوصية شرعاً:</span> هي تبرعٌ بحقٍ مضافٍ ولو تقديراً لما بعد الموت.</p>
+    <p class="pr" style="margin:.55em 0"><span class="bl-t">دليل الوصية من القرآن الكريم:</span> <span class="ay-t">قَالَ تَعَالَى: ﴿مِنْ بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ﴾ <small>النساء: ١١</small></span></p>
+    <p class="pr" style="margin:.55em 0"><span class="bl-t">دليل الوصية من السنة:</span> <span class="gn-t">ما جاء في الصحيحين من قوله ﷺ: (ما حق امرئٍ مسلم له شيء يوصي فيه يبيت ليلتين إلا ووصيته مكتوبةٌ عنده).</span></p>
+    <p class="pr" style="margin:.55em 0 .25em">وكانت الوصية في صدر الإسلام واجبة للوالدين والأقربين والدليل:</p>
+    <p class="pr ay-t" style="margin:.15em 0;text-align:center">قَالَ تَعَالَى: ﴿كُتِبَ عَلَيْكُمْ إِذَا حَضَرَ أَحَدَكُمُ الْمَوْتُ إِنْ تَرَكَ خَيْرًا الْوَصِيَّةُ لِلْوَالِدَيْنِ وَالْأَقْرَبِينَ بِالْمَعْرُوفِ حَقًّا عَلَى الْمُتَّقِينَ﴾ <small>البقرة: ١٨٠</small></p>
+    <p class="pr" style="margin:.25em 0">ثم نسخ الله تعالى وجوب الوصية بآية المواريث وبقي استحباب الوصية لمن لا يرث، وهذا قول الجمهور.</p>
+  </div>
+
+  <!-- أحكام الوصية -->
+  <div>
+    <div class="ws-banner">أحكام الوصية</div>
+    <div class="ws-rows">
+      <div class="ws-row">
+        <div class="ws-lbl">واجبة</div>
+        <div class="ws-line"></div>
+        <div class="ws-desc">إذا كان على الإنسان حق شرعي يخشى أن يضيع إن لم يوصِ به، كوديعة أو دين لله أو لآدمي</div>
+      </div>
+      <div class="ws-row">
+        <div class="ws-lbl">مستحبة</div>
+        <div class="ws-line"></div>
+        <div class="ws-desc">إذا كان للإنسان مال وافر وأبناؤه ليسوا بحاجة له، فهنا الأفضل أن يوصي وتكون للفقراء من القرابة أو غيرهم</div>
+      </div>
+      <div class="ws-row">
+        <div class="ws-lbl">مكروهة</div>
+        <div class="ws-line"></div>
+        <div class="ws-desc">إذا كان للإنسان أبناء وماله قليل وهم بحاجة لهذا المال، فهنا ترك المال للأبناء أولى من الوصية</div>
+      </div>
+      <div class="ws-row">
+        <div class="ws-lbl">محرمة</div>
+        <div class="ws-line"></div>
+        <div class="ws-desc">إذا كان فيها إضرار بالورثة أو قطيعة رحم</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== صفحة ١٣١ (أركان وشروط الوصية + مثال ١) ==================== -->
+<section class="pg" id="p131">
+  <div>
+    <div class="hd">
+      <div class="no">١٣١</div>
+      <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+      <div style="width:2.4em"></div>
+    </div>
+
+    <div class="ws-banner">أركان وشروط الوصية</div>
+    <div class="ws-rows">
+      <div class="ws-row">
+        <div class="ws-lbl">المُوصي</div>
+        <div class="ws-line"></div>
+        <div class="ws-desc">١) أن يكون عاقلاً. &nbsp;&nbsp; ٢) أن يكون حراً. &nbsp;&nbsp; ٣) أن يكون بالغاً.<br>٤) ألاّ يكون مكرهاً أو محجوراً عليه لفلس.</div>
+      </div>
+      <div class="ws-row">
+        <div class="ws-lbl">المُوصى له</div>
+        <div class="ws-line"></div>
+        <div class="ws-desc r-align">
+          ١) ألاّ يكون وارثاً <span class="gn-t">لقوله ﷺ (إن الله أعطى كل ذي حق حقه فلا وصية لوارث)، أخرجه ابن ماجه. وفي رواية لأحمد (إلا أن يجيز الورثة).</span><br>
+          ٢) أن يكون الموصى له موجوداً عند الوصية حقيقةً أو تقديراً، والتقدير مثل الحمل ويشترط فيه أن يولد لأقل من ستة أشهر من الوصية، وإذا مات الموصى له قبل موت الموصي بطلت الوصية.
+        </div>
+      </div>
+      <div class="ws-row">
+        <div class="ws-lbl">المُوصى به</div>
+        <div class="ws-line"></div>
+        <div class="ws-desc r-align">
+          ١) أن يكون من الثلث فأقل، <span class="gn-t">لقوله ﷺ لسعد بن أبي وقاص: (الثلث والثلث كثير...)، أخرجه البخاري في كتاب الوصايا.</span><br>
+          ٢) أن يكون مباحاً شرعاً غير محرّم، ومثال الوصية المحرمة (الوصية بالخنزير والخمر وغيره من المحرمات) وكل شيء جاز بيعه جازت وصيته، وعند تلف الموصى به قبل قبول الموصى له تبطل الوصية.
+        </div>
+      </div>
+      <div class="ws-row">
+        <div class="ws-lbl">الصيغة</div>
+        <div class="ws-line"></div>
+        <div class="ws-desc">١) إيجاب، ويكون من الموصي (قبل الموت). &nbsp;&nbsp; ٢) قبول، ويكون من الموصى له (بعد الموت).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- مثال (١): الإجازة أو الرد من الابن -->
+  <div>
+    <div class="u-bl" style="margin:.45em 0 .35em">١) إذا أوصى لزيد بالنصف ولعمرو بالسدس، فما نصيب كل منهما في حالة الإجازة أو الرد من الابن:</div>
+    <table class="bx ws-ex">
+      <colgroup>
+        <col style="width:7%"><col style="width:9%"><col style="width:12%"><col style="width:14%"><col style="width:7%"><col style="width:14%"><col style="width:18%"><col style="width:19%">
+      </colgroup>
+      <tr>
+        <td class="v-txt" rowspan="2">المحفوظ</td>
+        <td class="mh" colspan="2" rowspan="2">مثال</td>
+        <td class="t b">٢</td>
+        <td class="t b">٤</td>
+        <td class="t b">١</td>
+        <td class="t b big" rowspan="2">١٢</td>
+        <td class="t b big" rowspan="2">١٢</td>
+      </tr>
+      <tr>
+        <td class="t b">٦</td>
+        <td class="t b">٣</td>
+        <td class="t b">١٢</td>
+      </tr>
+      <tr>
+        <td class="gn" rowspan="2">٤</td>
+        <td class="gn"><span class="f"><i>١</i><b>٢</b></span></td>
+        <td class="nm">زيد</td>
+        <td class="gn">٣</td>
+        <td class="gn" rowspan="2">١</td>
+        <td class="gn">٣</td>
+        <td class="gn">٦</td>
+        <td class="gn">٣</td>
+      </tr>
+      <tr>
+        <td class="gn"><span class="f"><i>١</i><b>٦</b></span></td>
+        <td class="nm">عمرو</td>
+        <td class="gn">١</td>
+        <td class="gn">١</td>
+        <td class="gn">١</td>
+        <td class="gn">٢</td>
+      </tr>
+      <tr>
+        <td class="gn" colspan="2">الباقي</td>
+        <td class="nm">ابن</td>
+        <td class="gn">٢</td>
+        <td class="gn">٢</td>
+        <td class="gn">٨</td>
+        <td class="gn">٥</td>
+        <td class="gn">٧</td>
+      </tr>
+      <tr>
+        <td class="w" colspan="3"></td>
+        <td class="ft-l">الإجازة المطلقة</td>
+        <td class="ft-l" colspan="2">الرد المطلق</td>
+        <td class="ft-l">أجاز زيداً ورد عمراً</td>
+        <td class="ft-l">أجاز عمراً ورد زيداً</td>
+      </tr>
+    </table>
+
+    <p class="pr" style="margin:.4em 0 0"><span class="u-bl">طريقة العمل:</span> نعمل أولاً بالإجازة فيكون مجموع الوصايا أكثر من الثلث ثم نعمل مسألة الرد دائماً من (٣) الثلث لزيد وعمرو والثلثان للابن، ثم ننظر بين الثلث (١) وسهام زيد وعمرو فنجد أن بينهما تبايناً، ثم نضرب مجموع سهام زيد وعمرو في أصل مسألة الرد (٣) والناتج يكون هو أصل مسألة الرد المطلق، ثم ننظر بين أصل مسألة الإجازة وأصل مسألة الرد بالنسب الأربع.</p>
+  </div>
+</section>
+
+<!-- ==================== صفحة ١٣٢ (تمارين الإجازة والرد من الابن: ١ – ٦) ==================== -->
+<section class="pg" id="p132">
+  <div class="hd">
+    <div class="no">١٣٢</div>
+    <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+    <div style="width:2.4em"></div>
+  </div>
+
+  <div class="eg e2" id="g132-grid" data-group="g132"></div>
+
+  <button class="btn" data-chk="g132" type="button">تصحيح تمارين ص ١٣٢</button>
+  <div class="rs" id="g132-r" hidden></div>
+  <div class="prog" data-group="g132" id="g132-prog">
+    <div class="prog-txt">لم تُصحّح بعد — اضغط «تصحيح تمارين ص ١٣٢»</div>
+    <div class="prog-bar"><div class="prog-fill"></div></div>
+  </div>
+</section>
+
+
+<!-- ==================== صفحة ١٣٣ (مُصلَحة ومطابقة لصورة الكتاب) ==================== -->
+<section class="pg" id="p133">
+  <div>
+    <div class="hd">
+      <div class="no">١٣٣</div>
+      <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+      <div style="width:2.4em"></div>
+    </div>
+
+    <div class="u-bl" style="margin:.4em 0 .8em;text-align:left">٢) إذا أوصى لزيد بالنصف ولعمرو بالسدس وأجاز بعض الورثة الوصية ورد البعض:</div>
+
+    <table class="bx ws-wide">
+      <colgroup>
+        <col style="width:5%"><col style="width:7%"><col style="width:8%">
+        <col style="width:6%"><col style="width:6%"><col style="width:7%"><col style="width:6%"><col style="width:7%">
+        <col style="width:12%"><col style="width:12%"><col style="width:12%"><col style="width:12%">
+      </colgroup>
+      <tr>
+        <td class="v-txt" rowspan="2">المحفوظ</td>
+        <td class="mh" colspan="2" rowspan="2">مثال</td>
+        <td class="t b">٣</td>
+        <td class="t b">٢</td>
+        <td class="t b">٢</td>
+        <td class="t b">١٢</td>
+        <td class="t b">١</td>
+        <td class="t b big" rowspan="2">٣٦</td>
+        <td class="t b big" rowspan="2">٣٦</td>
+        <td class="t b big" rowspan="2">٣٦</td>
+        <td class="t b big" rowspan="2">٣٦</td>
+      </tr>
+      <tr>
+        <td class="t b">٦</td>
+        <td class="t b"><span class="cr-rd">٣</span></td>
+        <td class="t b">١٨</td>
+        <td class="t b">٣</td>
+        <td class="t b">٣٦</td>
+      </tr>
+      <tr>
+        <td class="gn" rowspan="2">٤</td>
+        <td class="gn"><span class="f"><i>١</i><b>٢</b></span></td>
+        <td class="nm">زيد</td>
+        <td class="gn">٣</td>
+        <td class="gn" rowspan="2"></td>
+        <td class="gn">٩</td>
+        <td class="gn" rowspan="2">١</td>
+        <td class="gn">٩</td>
+        <td class="gn">٩ + ٣</td>
+        <td class="gn">٩ + ٦</td>
+        <td class="gn">٩ + ٣</td>
+        <td class="gn">٩</td>
+      </tr>
+      <tr>
+        <td class="gn"><span class="f"><i>١</i><b>٦</b></span></td>
+        <td class="nm">عمرو</td>
+        <td class="gn">١</td>
+        <td class="gn">٣</td>
+        <td class="gn">٣</td>
+        <td class="gn">٣ + ١</td>
+        <td class="gn">٣ + ٢</td>
+        <td class="gn">٣</td>
+        <td class="gn">٣ + ٢</td>
+      </tr>
+      <tr class="sep-row">
+        <td class="gn" rowspan="2">٣</td>
+        <td class="gn"><span class="f"><i>١</i><b>٣</b></span></td>
+        <td class="nm">أم</td>
+        <td class="w" rowspan="2"><span class="cr-rd">٢</span></td>
+        <td class="gn">١</td>
+        <td class="gn">٢</td>
+        <td class="gn" rowspan="2">٢</td>
+        <td class="gn">٨</td>
+        <td class="gn">٤</td>
+        <td class="gn">٨</td>
+        <td class="gn">٤ + ١</td>
+        <td class="gn">٨</td>
+      </tr>
+      <tr>
+        <td class="gn">الباقي</td>
+        <td class="nm">أب</td>
+        <td class="gn">٢</td>
+        <td class="gn">٤</td>
+        <td class="gn">١٦</td>
+        <td class="gn">١٦</td>
+        <td class="gn">٨</td>
+        <td class="gn">١٦</td>
+        <td class="gn">٨ + ٦</td>
+      </tr>
+      <tr>
+        <td class="w" colspan="5"></td>
+        <td class="v-ft">الإجازة المطلقة</td>
+        <td class="v-ft" colspan="2">الرد المطلق</td>
+        <td class="v-ft">أجازت الأم الوصية<br>وردها الأب</td>
+        <td class="v-ft">أجاز الأب الوصية<br>وردتها الأم</td>
+        <td class="v-ft">أجازت الأم زيداً<br>دون عمرو</td>
+        <td class="v-ft">أجاز الأب عمراً<br>دون زيد</td>
+      </tr>
+    </table>
+  </div>
+
+  <p class="pr" style="margin:.4em 0 0"><span class="u-bl">طريقة العمل:</span> <span class="u-bl" style="color:#000">أولاً</span> نعمل مسألة للموصَى لهم، ثم نعمل مسألة أخرى للورثة، وننظر بين الباقي بعد الموصَى لهم وأصل مسألة الورثة بالنسب الأربع، وبعدها تكون أصل مسألة الإجازة المطلقة للورثة. <span class="u-bl" style="color:#000">ثانياً:</span> نعمل مسألة الرد المطلق للورثة وهي من (٣) الثلث (١) للموصَى لهم والثلثان (٢) للورثة ثم ننظر بين الثلث (١) وسهام الموصَى لهم وننظر بين (٢) وسهام الورثة بالنسب الأربع ونخرج المحفوظ ونضربه في أصل مسألة الرد (٣) وبعدها تكون أصل مسألة الرد المطلق للورثة. <span class="u-bl" style="color:#000">ثالثاً:</span> لو أجاز بعض الورثة ورد آخرون ننظر بين أصل مسألة الإجازة المطلقة وأصل مسألة الرد المطلق بالنسب الأربع، ونستخرج الجامعة الأخيرة للإجازة والرد وجزء السهم لكل منهما، ثم نضرب سهام الموصَى لهم في جزء السهم من مسألة الرد، ونضرب أيضاً سهم الوارث الذي رد في جزء السهم من مسألة الرد، وأما المجيز فنضرب سهمه في جزء السهم من مسألة الإجازة وننظر الفارق للمجيز من مسألة الإجازة والرد ونقسمها على الموصَى لهم على قدر سهامهم.</p>
+</section>
+
+<!-- ==================== صفحة ١٣٤ (مكتوبة بـ HTML مباشر ومطابقة للكتاب) ==================== -->
+<section class="pg" id="p134">
+  <div class="hd">
+    <div class="no">١٣٤</div>
+    <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+    <div style="width:2.4em"></div>
+  </div>
+
+  <div class="eg e1" data-group="g134">
+    <!-- مسألة (١) -->
+    <div class="ec">
+      <div class="ws-scroll">
+        <table class="x ws-tr2">
+          <colgroup>
+            <col style="width:4%"><col style="width:6%"><col style="width:7%">
+            <col style="width:6%"><col style="width:6%"><col style="width:7%"><col style="width:6%"><col style="width:7%">
+            <col style="width:12.75%"><col style="width:12.75%"><col style="width:12.75%"><col style="width:12.75%">
+          </colgroup>
+          <tr>
+            <th class="v-t" rowspan="2">المحفوظ</th>
+            <th class="t" colspan="2" rowspan="2">مسألة (١)</th>
+            <td class="in"><input data-g="g134" data-i="0" data-k="j1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="j2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="ji" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="mr" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="jr" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="0" data-k="t" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="0" data-k="g2" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="0" data-k="g3" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="0" data-k="g4" inputmode="numeric"></td>
+          </tr>
+          <tr>
+            <td class="in"><input data-g="g134" data-i="0" data-k="a1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="a2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="ai" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="br" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="ar" inputmode="numeric"></td>
+          </tr>
+          <tr>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="0" data-k="mh1" inputmode="numeric"></td>
+            <td class="fr-c"><span class="f"><i>١</i><b>٢</b></span></td>
+            <td class="nm">زيد</td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="m10" inputmode="numeric"></td>
+            <td class="w" rowspan="2"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="i0" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="0" data-k="r0" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="rm0" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="s0" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="b0" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="c0" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="d0" type="text"></td>
+          </tr>
+          <tr>
+            <td class="fr-c"><span class="f"><i>١</i><b>٤</b></span></td>
+            <td class="nm">عمرو</td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="m11" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="i1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="rm1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="s1" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="b1" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="c1" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="d1" type="text"></td>
+          </tr>
+          <tr class="sep-row">
+            <td class="in" rowspan="2"><input data-g="g134" data-i="0" data-k="mh2" inputmode="numeric"></td>
+            <td class="nm">أم</td>
+            <td class="w"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="0" data-k="rem" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="w2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="i2" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="0" data-k="r2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="rm2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="s2" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="b2" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="c2" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="d2" type="text"></td>
+          </tr>
+          <tr>
+            <td class="nm">بنت</td>
+            <td class="w"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="w3" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="i3" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="rm3" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="s3" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="b3" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="c3" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="0" data-k="d3" type="text"></td>
+          </tr>
+          <tr>
+            <th class="t" colspan="6">الإجازة المطلقة</th>
+            <th class="t" colspan="2">الرد المطلق</th>
+            <th class="t">أجازت الأم الوصية<br>وردتها البنت</th>
+            <th class="t">أجازت البنت الوصية<br>وردتها الأم</th>
+            <th class="t">أجازت الأم زيداً<br>دون عمرو</th>
+            <th class="t">أجازت البنت عمراً<br>دون زيد</th>
+          </tr>
+        </table>
+      </div>
+      <div class="mm" id="g134-0"></div>
+    </div>
+
+    <!-- مسألة (٢) -->
+    <div class="ec">
+      <div class="ws-scroll">
+        <table class="x ws-tr2">
+          <colgroup>
+            <col style="width:4%"><col style="width:6%"><col style="width:7%">
+            <col style="width:6%"><col style="width:6%"><col style="width:7%"><col style="width:6%"><col style="width:7%">
+            <col style="width:12.75%"><col style="width:12.75%"><col style="width:12.75%"><col style="width:12.75%">
+          </colgroup>
+          <tr>
+            <th class="v-t" rowspan="2">المحفوظ</th>
+            <th class="t" colspan="2" rowspan="2">مسألة (٢)</th>
+            <td class="in"><input data-g="g134" data-i="1" data-k="j1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="j2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="ji" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="mr" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="jr" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="1" data-k="t" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="1" data-k="g2" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="1" data-k="g3" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="1" data-k="g4" inputmode="numeric"></td>
+          </tr>
+          <tr>
+            <td class="in"><input data-g="g134" data-i="1" data-k="a1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="a2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="ai" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="br" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="ar" inputmode="numeric"></td>
+          </tr>
+          <tr>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="1" data-k="mh1" inputmode="numeric"></td>
+            <td class="fr-c"><span class="f"><i>١</i><b>٦</b></span></td>
+            <td class="nm">زيد</td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="m10" inputmode="numeric"></td>
+            <td class="w" rowspan="2"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="i0" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="1" data-k="r0" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="rm0" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="s0" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="b0" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="c0" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="d0" type="text"></td>
+          </tr>
+          <tr>
+            <td class="fr-c"><span class="f"><i>١</i><b>٥</b></span></td>
+            <td class="nm">عمرو</td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="m11" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="i1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="rm1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="s1" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="b1" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="c1" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="d1" type="text"></td>
+          </tr>
+          <tr class="sep-row">
+            <td class="in" rowspan="2"><input data-g="g134" data-i="1" data-k="mh2" inputmode="numeric"></td>
+            <td class="nm">زوج</td>
+            <td class="w"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="1" data-k="rem" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="w2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="i2" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="1" data-k="r2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="rm2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="s2" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="b2" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="c2" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="d2" type="text"></td>
+          </tr>
+          <tr>
+            <td class="nm">ابن</td>
+            <td class="w"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="w3" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="i3" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="rm3" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="s3" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="b3" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="c3" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="1" data-k="d3" type="text"></td>
+          </tr>
+          <tr>
+            <th class="t" colspan="6">الإجازة المطلقة</th>
+            <th class="t" colspan="2">الرد المطلق</th>
+            <th class="t">أجاز الزوج الوصية<br>وردها الابن</th>
+            <th class="t">أجاز الابن الوصية<br>وردها الزوج</th>
+            <th class="t">أجاز الزوج زيداً<br>دون عمرو</th>
+            <th class="t">أجاز الابن عمراً<br>دون زيد</th>
+          </tr>
+        </table>
+      </div>
+      <div class="mm" id="g134-1"></div>
+    </div>
+
+    <!-- مسألة (٣) -->
+    <div class="ec">
+      <div class="ws-scroll">
+        <table class="x ws-tr2">
+          <colgroup>
+            <col style="width:4%"><col style="width:6%"><col style="width:7%">
+            <col style="width:6%"><col style="width:6%"><col style="width:7%"><col style="width:6%"><col style="width:7%">
+            <col style="width:12.75%"><col style="width:12.75%"><col style="width:12.75%"><col style="width:12.75%">
+          </colgroup>
+          <tr>
+            <th class="v-t" rowspan="2">المحفوظ</th>
+            <th class="t" colspan="2" rowspan="2">مسألة (٣)</th>
+            <td class="in"><input data-g="g134" data-i="2" data-k="j1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="j2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="ji" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="mr" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="jr" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="2" data-k="t" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="2" data-k="g2" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="2" data-k="g3" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="2" data-k="g4" inputmode="numeric"></td>
+          </tr>
+          <tr>
+            <td class="in"><input data-g="g134" data-i="2" data-k="a1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="a2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="ai" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="br" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="ar" inputmode="numeric"></td>
+          </tr>
+          <tr>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="2" data-k="mh1" inputmode="numeric"></td>
+            <td class="fr-c"><span class="f"><i>٢</i><b>٥</b></span></td>
+            <td class="nm">زيد</td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="m10" inputmode="numeric"></td>
+            <td class="w" rowspan="2"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="i0" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="2" data-k="r0" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="rm0" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="s0" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="b0" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="c0" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="d0" type="text"></td>
+          </tr>
+          <tr>
+            <td class="fr-c"><span class="f"><i>١</i><b>٣</b></span></td>
+            <td class="nm">عمرو</td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="m11" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="i1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="rm1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="s1" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="b1" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="c1" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="d1" type="text"></td>
+          </tr>
+          <tr class="sep-row">
+            <td class="in" rowspan="2"><input data-g="g134" data-i="2" data-k="mh2" inputmode="numeric"></td>
+            <td class="nm">زوجة</td>
+            <td class="w"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="2" data-k="rem" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="w2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="i2" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g134" data-i="2" data-k="r2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="rm2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="s2" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="b2" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="c2" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="d2" type="text"></td>
+          </tr>
+          <tr>
+            <td class="nm">أخ ش</td>
+            <td class="w"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="w3" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="i3" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="rm3" inputmode="numeric"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="s3" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="b3" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="c3" type="text"></td>
+            <td class="in"><input data-g="g134" data-i="2" data-k="d3" type="text"></td>
+          </tr>
+          <tr>
+            <th class="t" colspan="6">الإجازة المطلقة</th>
+            <th class="t" colspan="2">الرد المطلق</th>
+            <th class="t">أجازت الزوجة الوصية<br>وردها الأخ ش</th>
+            <th class="t">أجاز الأخ الوصية<br>وردتها الزوجة</th>
+            <th class="t">أجازت الزوجة زيداً<br>دون عمرو</th>
+            <th class="t">أجاز الأخ عمراً<br>دون زيد</th>
+          </tr>
+        </table>
+      </div>
+      <div class="mm" id="g134-2"></div>
+    </div>
+  </div>
+
+  <button class="btn" data-chk="g134" type="button">تصحيح تمارين ص ١٣٤</button>
+  <div class="rs" id="g134-r" hidden></div>
+  <div class="prog" data-group="g134" id="g134-prog">
+    <div class="prog-txt">لم تُصحّح بعد — اضغط «تصحيح تمارين ص ١٣٤»</div>
+    <div class="prog-bar"><div class="prog-fill"></div></div>
+  </div>
+</section>
+
+<!-- ==================== صفحة ١٣٥ (الوصية بالأموال + تمارين ١ – ٦) ==================== -->
+
+<section class="pg" id="p135">
+  <div class="hd">
+    <div class="no">١٣٥</div>
+    <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+    <div style="width:2.4em"></div>
+  </div>
+
+  <div class="u-bl" style="margin:.25em 0 .45em;text-align:left">٣) الوصية إذا كانت بالأموال وليست بالسهام طريقة العمل كالآتي:</div>
+  <p class="pr" style="margin:.15em 0 .55em">توفي عن ابن وترك مبلغاً وقدره (٩٠٠) درهم وأوصى لزيد بـ (٤٠٠) درهم وأوصى لعمرو بـ (٢٠٠) درهم، ورد الابن الوصية.</p>
+
+  <!-- مثال الوصية بالأموال -->
+  <table class="bx ws-mny">
+    <colgroup>
+      <col style="width:8%"><col style="width:10%"><col style="width:5%"><col style="width:9%"><col style="width:9%"><col style="width:59%">
+    </colgroup>
+    <tr>
+      <td class="mh">مثال</td>
+      <td class="t b">٩٠٠</td>
+      <td class="t b">٣</td>
+      <td class="t b">٩٠٠</td>
+      <td class="t b">٩٠٠</td>
+      <td class="t">طريقة العمل</td>
+    </tr>
+    <tr>
+      <td class="nm">زيد</td>
+      <td class="gn">٤٠٠</td>
+      <td class="gn" rowspan="2">١</td>
+      <td class="gn" rowspan="2">٣٠٠</td>
+      <td class="gn">٢٠٠</td>
+      <td class="sh-tx" rowspan="4">نعمل مسألة الإجازة، ثم الرد، ونقسم التركة على ثلاثة ونعطي زيداً وعمراً الثلث والابن الثلثين، ثم نقسم الثلث على زيد وعمرو على قدر سهامهم من الإجازة بحيث نقسم ثلث التركة بعد الرد على مجموع سهام زيد وعمرو (٣٠٠ ÷ ٦٠٠ = ٠,٥) والناتج يضرب في سهم زيد وعمرو<br>(٠,٥ × ٤٠٠ = ٢٠٠) لزيد، (٠,٥ × ٢٠٠ = ١٠٠) لعمرو</td>
+    </tr>
+    <tr>
+      <td class="nm">عمرو</td>
+      <td class="gn">٢٠٠</td>
+      <td class="gn">١٠٠</td>
+    </tr>
+    <tr>
+      <td class="nm">ابن</td>
+      <td class="gn">٣٠٠</td>
+      <td class="gn">٢</td>
+      <td class="gn">٦٠٠</td>
+      <td class="gn">٦٠٠</td>
+    </tr>
+    <tr>
+      <td class="w"></td>
+      <td class="v-ft">الإجازة<br>المطلقة</td>
+      <td class="v-ft" colspan="2">الرد المطلق</td>
+      <td class="v-ft">سهم زيد<br>وعمرو</td>
+    </tr>
+  </table>
+
+  <!-- تمارين ص ١٣٥ (مسائل ١ – ٦ مباشرة) -->
+  <div class="eg e3" data-group="g135">
+    <!-- مسألة (١) -->
+    <div class="ec">
+      <table class="x ws-m">
+        <colgroup><col style="width:20%"><col style="width:22%"><col style="width:14%"><col style="width:22%"><col style="width:22%"></colgroup>
+        <tr><th class="t" colspan="5">مسألة (١)</th></tr>
+        <tr>
+          <td class="w"></td><td class="gv">٤٥٠</td>
+          <td class="in"><input data-g="g135" data-i="0" data-k="r0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="0" data-k="rm" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="0" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">زيد</td><td class="gv">١٥٠</td>
+          <td class="in" rowspan="2"><input data-g="g135" data-i="0" data-k="r1" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g135" data-i="0" data-k="m1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="0" data-k="s0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">عمرو</td><td class="gv">٣٠٠</td>
+          <td class="in"><input data-g="g135" data-i="0" data-k="s1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">ابن</td><td class="gv">٠</td>
+          <td class="in"><input data-g="g135" data-i="0" data-k="r2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="0" data-k="m2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="0" data-k="s2" inputmode="decimal"></td>
+        </tr>
+        <tr><th class="t" colspan="2">الإجازة المطلقة</th><th class="t" colspan="3">الرد المطلق</th></tr>
+      </table>
+      <div class="mm" id="g135-0"></div>
+    </div>
+
+    <!-- مسألة (٢) -->
+    <div class="ec">
+      <table class="x ws-m">
+        <colgroup><col style="width:20%"><col style="width:22%"><col style="width:14%"><col style="width:22%"><col style="width:22%"></colgroup>
+        <tr><th class="t" colspan="5">مسألة (٢)</th></tr>
+        <tr>
+          <td class="w"></td><td class="gv">١٢٠٠</td>
+          <td class="in"><input data-g="g135" data-i="1" data-k="r0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="1" data-k="rm" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="1" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">زيد</td><td class="gv">٦٠٠</td>
+          <td class="in" rowspan="2"><input data-g="g135" data-i="1" data-k="r1" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g135" data-i="1" data-k="m1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="1" data-k="s0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">عمرو</td><td class="gv">١٥٠</td>
+          <td class="in"><input data-g="g135" data-i="1" data-k="s1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">ابن</td><td class="gv">٤٥٠</td>
+          <td class="in"><input data-g="g135" data-i="1" data-k="r2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="1" data-k="m2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="1" data-k="s2" inputmode="decimal"></td>
+        </tr>
+        <tr><th class="t" colspan="2">الإجازة المطلقة</th><th class="t" colspan="3">الرد المطلق</th></tr>
+      </table>
+      <div class="mm" id="g135-1"></div>
+    </div>
+
+    <!-- مسألة (٣) -->
+    <div class="ec">
+      <table class="x ws-m">
+        <colgroup><col style="width:20%"><col style="width:22%"><col style="width:14%"><col style="width:22%"><col style="width:22%"></colgroup>
+        <tr><th class="t" colspan="5">مسألة (٣)</th></tr>
+        <tr>
+          <td class="w"></td><td class="gv">٧٥٠</td>
+          <td class="in"><input data-g="g135" data-i="2" data-k="r0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="2" data-k="rm" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="2" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">زيد</td><td class="gv">٤٤٠</td>
+          <td class="in" rowspan="2"><input data-g="g135" data-i="2" data-k="r1" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g135" data-i="2" data-k="m1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="2" data-k="s0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">عمرو</td><td class="gv">٦٠</td>
+          <td class="in"><input data-g="g135" data-i="2" data-k="s1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">ابن</td><td class="gv">٢٥٠</td>
+          <td class="in"><input data-g="g135" data-i="2" data-k="r2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="2" data-k="m2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="2" data-k="s2" inputmode="decimal"></td>
+        </tr>
+        <tr><th class="t" colspan="2">الإجازة المطلقة</th><th class="t" colspan="3">الرد المطلق</th></tr>
+      </table>
+      <div class="mm" id="g135-2"></div>
+    </div>
+
+    <!-- مسألة (٤) -->
+    <div class="ec">
+      <table class="x ws-m">
+        <colgroup><col style="width:20%"><col style="width:22%"><col style="width:14%"><col style="width:22%"><col style="width:22%"></colgroup>
+        <tr><th class="t" colspan="5">مسألة (٤)</th></tr>
+        <tr>
+          <td class="w"></td><td class="gv">٦٦٦</td>
+          <td class="in"><input data-g="g135" data-i="3" data-k="r0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="3" data-k="rm" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="3" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">زيد</td><td class="gv">٢٢٢</td>
+          <td class="in" rowspan="2"><input data-g="g135" data-i="3" data-k="r1" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g135" data-i="3" data-k="m1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="3" data-k="s0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">عمرو</td><td class="gv">٤٤٤</td>
+          <td class="in"><input data-g="g135" data-i="3" data-k="s1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">ابن</td><td class="gv">-</td>
+          <td class="in"><input data-g="g135" data-i="3" data-k="r2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="3" data-k="m2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="3" data-k="s2" inputmode="decimal"></td>
+        </tr>
+        <tr><th class="t" colspan="2">الإجازة المطلقة</th><th class="t" colspan="3">الرد المطلق</th></tr>
+      </table>
+      <div class="mm" id="g135-3"></div>
+    </div>
+
+    <!-- مسألة (٥) -->
+    <div class="ec">
+      <table class="x ws-m">
+        <colgroup><col style="width:20%"><col style="width:22%"><col style="width:14%"><col style="width:22%"><col style="width:22%"></colgroup>
+        <tr><th class="t" colspan="5">مسألة (٥)</th></tr>
+        <tr>
+          <td class="w"></td><td class="gv">١٤٥٥</td>
+          <td class="in"><input data-g="g135" data-i="4" data-k="r0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="4" data-k="rm" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="4" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">زيد</td><td class="gv">١٠٠٠</td>
+          <td class="in" rowspan="2"><input data-g="g135" data-i="4" data-k="r1" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g135" data-i="4" data-k="m1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="4" data-k="s0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">عمرو</td><td class="gv">٤٠٠</td>
+          <td class="in"><input data-g="g135" data-i="4" data-k="s1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">ابن</td><td class="gv">٥٥</td>
+          <td class="in"><input data-g="g135" data-i="4" data-k="r2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="4" data-k="m2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="4" data-k="s2" inputmode="decimal"></td>
+        </tr>
+        <tr><th class="t" colspan="2">الإجازة المطلقة</th><th class="t" colspan="3">الرد المطلق</th></tr>
+      </table>
+      <div class="mm" id="g135-4"></div>
+    </div>
+
+    <!-- مسألة (٦) -->
+    <div class="ec">
+      <table class="x ws-m">
+        <colgroup><col style="width:20%"><col style="width:22%"><col style="width:14%"><col style="width:22%"><col style="width:22%"></colgroup>
+        <tr><th class="t" colspan="5">مسألة (٦)</th></tr>
+        <tr>
+          <td class="w"></td><td class="gv">٩٠٠</td>
+          <td class="in"><input data-g="g135" data-i="5" data-k="r0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="5" data-k="rm" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="5" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">زيد</td><td class="gv">٢٠٠</td>
+          <td class="in" rowspan="2"><input data-g="g135" data-i="5" data-k="r1" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g135" data-i="5" data-k="m1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="5" data-k="s0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">عمرو</td><td class="gv">١٠٥</td>
+          <td class="in"><input data-g="g135" data-i="5" data-k="s1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">ابن</td><td class="gv">٥٩٥</td>
+          <td class="in"><input data-g="g135" data-i="5" data-k="r2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="5" data-k="m2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g135" data-i="5" data-k="s2" inputmode="decimal"></td>
+        </tr>
+        <tr><th class="t" colspan="2">الإجازة المطلقة</th><th class="t" colspan="3">الرد المطلق</th></tr>
+      </table>
+      <div class="mm" id="g135-5"></div>
+    </div>
+  </div>
+
+  <button class="btn" data-chk="g135" type="button">تصحيح تمارين ص ١٣٥</button>
+  <div class="rs" id="g135-r" hidden></div>
+  <div class="prog" data-group="g135" id="g135-prog">
+    <div class="prog-txt">لم تُصحّح بعد — اضغط «تصحيح تمارين ص ١٣٥»</div>
+    <div class="prog-bar"><div class="prog-fill"></div></div>
+  </div>
+</section>
+
+<!-- ==================== صفحة ١٣٦ (الوصية بالأموال وبالسهام + تمارين ١ – ٤) ==================== -->
+<!-- ==================== صفحة ١٣٦ (الوصية بالأموال وبالسهام + تمارين ١ – ٤ مباشرة) ==================== -->
+<section class="pg" id="p136">
+  <div class="hd">
+    <div class="no">١٣٦</div>
+    <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+    <div style="width:2.4em"></div>
+  </div>
+
+  <div class="u-bl" style="margin:.25em 0 .45em;text-align:right">٤) الوصية إذا كانت بالأموال وبالسهام طريقة العمل كالآتي:</div>
+  <p class="pr" style="margin:.15em 0 .55em">توفي عن ابن وترك مبلغاً وقدره (٦٠٠) درهم وأوصى لزيد بالنصف ولعمرو بـ (١٠٠) درهم، ورد الابن الوصية.</p>
+
+  <!-- مثال الوصية بالأموال وبالسهام -->
+  <table class="bx ws-mny">
+    <colgroup>
+      <col style="width:7%"><col style="width:8%"><col style="width:9%"><col style="width:5%"><col style="width:9%"><col style="width:9%"><col style="width:53%">
+    </colgroup>
+    <tr>
+      <td class="mh">مثال</td>
+      <td class="t">الوصية</td>
+      <td class="t b">٦٠٠</td>
+      <td class="t b">٣</td>
+      <td class="t b">٦٠٠</td>
+      <td class="t b">٦٠٠</td>
+      <td class="t">طريقة العمل</td>
+    </tr>
+    <tr>
+      <td class="nm">زيد</td>
+      <td class="gn"><span class="f"><i>١</i><b>٢</b></span></td>
+      <td class="gn">٣٠٠</td>
+      <td class="gn" rowspan="2">١</td>
+      <td class="gn" rowspan="2">٢٠٠</td>
+      <td class="gn">١٥٠</td>
+      <td class="sh-tx" rowspan="4">نعمل الإجازة ونعطي زيداً النصف من أصل التركة، ونعطي عمراً (١٠٠) من أصل التركة، ثم بعد ذلك نرد الوصية ويكون لزيد وعمرو (٢٠٠) وللابن (٤٠٠) ثم نقسم سهم زيد وعمرو بعد الرد على مجموع الوصايا من الإجازة ونعمل كما عملنا في السابق في الوصايا بالمال<br>(٢٠٠ ÷ ٤٠٠ = ٠,٥) والناتج يضرب في سهم زيد وعمرو<br>(٠,٥ × ٣٠٠ = ١٥٠) لزيد، (٠,٥ × ١٠٠ = ٥٠) لعمرو</td>
+    </tr>
+    <tr>
+      <td class="nm">عمرو</td>
+      <td class="gn">١٠٠</td>
+      <td class="gn">١٠٠</td>
+      <td class="gn">٥٠</td>
+    </tr>
+    <tr>
+      <td class="nm">ابن</td>
+      <td class="gn">-</td>
+      <td class="gn">٢٠٠</td>
+      <td class="gn">٢</td>
+      <td class="gn">٤٠٠</td>
+      <td class="gn">٤٠٠</td>
+    </tr>
+    <tr>
+      <td class="w" colspan="2"></td>
+      <td class="t" style="font-size:.86em;line-height:1.4">الإجازة<br>المطلقة</td>
+      <td class="t" colspan="2" style="font-size:.86em">الرد المطلق</td>
+      <td class="t" style="font-size:.86em;line-height:1.4">سهم زيد<br>وعمرو</td>
+    </tr>
+  </table>
+
+  <!-- تمارين ص ١٣٦ (مسائل ١ – ٤ مباشرة) -->
+  <div class="eg e2" data-group="g136">
+    <!-- مسألة (١) -->
+    <div class="ec">
+      <table class="x ws-m">
+        <colgroup><col style="width:15%"><col style="width:16%"><col style="width:18%"><col style="width:11%"><col style="width:20%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2">مسألة (١)</th>
+          <td class="gv">٩٠٠</td>
+          <td class="in"><input data-g="g136" data-i="0" data-k="r0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="0" data-k="rm" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="0" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">زيد</td>
+          <td class="gv"><span class="f"><i>١</i><b>٣</b></span></td>
+          <td class="in"><input data-g="g136" data-i="0" data-k="i0" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g136" data-i="0" data-k="r1" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g136" data-i="0" data-k="m1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="0" data-k="s0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">عمرو</td>
+          <td class="gv">١٠٠</td>
+          <td class="in"><input data-g="g136" data-i="0" data-k="i1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="0" data-k="s1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">ابن</td>
+          <td class="w"></td>
+          <td class="in"><input data-g="g136" data-i="0" data-k="i2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="0" data-k="r2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="0" data-k="m2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="0" data-k="s2" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="w" colspan="2"></td>
+          <th class="t">الإجازة</th>
+          <th class="t">الرد</th>
+          <td class="w"></td>
+          <td class="w"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g136-0"></div>
+    </div>
+
+    <!-- مسألة (٢) -->
+    <div class="ec">
+      <table class="x ws-m">
+        <colgroup><col style="width:15%"><col style="width:16%"><col style="width:18%"><col style="width:11%"><col style="width:20%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2">مسألة (٢)</th>
+          <td class="gv">١٥٠٠</td>
+          <td class="in"><input data-g="g136" data-i="1" data-k="r0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="1" data-k="rm" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="1" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">زيد</td>
+          <td class="gv"><span class="f"><i>١</i><b>٥</b></span></td>
+          <td class="in"><input data-g="g136" data-i="1" data-k="i0" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g136" data-i="1" data-k="r1" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g136" data-i="1" data-k="m1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="1" data-k="s0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">عمرو</td>
+          <td class="gv">٤٠٠</td>
+          <td class="in"><input data-g="g136" data-i="1" data-k="i1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="1" data-k="s1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">ابن</td>
+          <td class="w"></td>
+          <td class="in"><input data-g="g136" data-i="1" data-k="i2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="1" data-k="r2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="1" data-k="m2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="1" data-k="s2" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="w" colspan="2"></td>
+          <th class="t">الإجازة</th>
+          <th class="t">الرد</th>
+          <td class="w"></td>
+          <td class="w"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g136-1"></div>
+    </div>
+
+    <!-- مسألة (٣) -->
+    <div class="ec">
+      <table class="x ws-m">
+        <colgroup><col style="width:15%"><col style="width:16%"><col style="width:18%"><col style="width:11%"><col style="width:20%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2">مسألة (٣)</th>
+          <td class="gv">٣٣٠٠</td>
+          <td class="in"><input data-g="g136" data-i="2" data-k="r0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="2" data-k="rm" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="2" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">زيد</td>
+          <td class="gv">١٠٠٠</td>
+          <td class="in"><input data-g="g136" data-i="2" data-k="i0" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g136" data-i="2" data-k="r1" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g136" data-i="2" data-k="m1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="2" data-k="s0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">عمرو</td>
+          <td class="gv"><span class="f"><i>٢</i><b>٥</b></span></td>
+          <td class="in"><input data-g="g136" data-i="2" data-k="i1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="2" data-k="s1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">ابن</td>
+          <td class="w"></td>
+          <td class="in"><input data-g="g136" data-i="2" data-k="i2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="2" data-k="r2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="2" data-k="m2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="2" data-k="s2" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="w" colspan="2"></td>
+          <th class="t">الإجازة</th>
+          <th class="t">الرد</th>
+          <td class="w"></td>
+          <td class="w"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g136-2"></div>
+    </div>
+
+    <!-- مسألة (٤) -->
+    <div class="ec">
+      <table class="x ws-m">
+        <colgroup><col style="width:15%"><col style="width:16%"><col style="width:18%"><col style="width:11%"><col style="width:20%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2">مسألة (٤)</th>
+          <td class="gv">٥٠٠٠</td>
+          <td class="in"><input data-g="g136" data-i="3" data-k="r0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="3" data-k="rm" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="3" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">زيد</td>
+          <td class="gv">١٠٠</td>
+          <td class="in"><input data-g="g136" data-i="3" data-k="i0" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g136" data-i="3" data-k="r1" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g136" data-i="3" data-k="m1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="3" data-k="s0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">عمرو</td>
+          <td class="gv"><span class="f"><i>٣</i><b>١٠</b></span></td>
+          <td class="in"><input data-g="g136" data-i="3" data-k="i1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="3" data-k="s1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">ابن</td>
+          <td class="w"></td>
+          <td class="in"><input data-g="g136" data-i="3" data-k="i2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="3" data-k="r2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="3" data-k="m2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="3" data-k="s2" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="w" colspan="2"></td>
+          <th class="t">الإجازة</th>
+          <th class="t">الرد</th>
+          <td class="w"></td>
+          <td class="w"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g136-3"></div>
+    </div>
+  </div>
+
+  <button class="btn" data-chk="g136" type="button">تصحيح تمارين ص ١٣٦</button>
+  <div class="rs" id="g136-r" hidden></div>
+  <div class="prog" data-group="g136" id="g136-prog">
+    <div class="prog-txt">لم تُصحّح بعد — اضغط «تصحيح تمارين ص ١٣٦»</div>
+    <div class="prog-bar"><div class="prog-fill"></div></div>
+  </div>
+</section>
+<!-- رابط الانتقال إلى اللوحة الذكية -->
+<div class="nxt-box" id="next-gate">
+  <div class="nxt-links">
+    <a class="nxt-btn full" href="index.html">🏠 العودة إلى اللوحة الذكية</a>
+  </div>
+</div>
+
+<div id="kp" hidden></div>
+
+<script>
+  const arN = s => String(s).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
+  const frH = s => {
+    const [n, d] = s.split("/");
+    return `<span class="f"><i>${arN(n)}</i><b>${arN(d)}</b></span>`;
+  };
+
+  /* بيانات الفروض للعرض فقط في ص ١٣٢ */
+  const W132_META = [
+    ["1/2", "1/4"], // مسألة ١
+    ["1/3", "1/4"], // مسألة ٢
+    ["1/3", "2/3"], // مسألة ٣
+    ["1/3", "1/8"], // مسألة ٤
+    ["1/6", "1/4"], // مسألة ٥
+    ["1/6", "2/3"]  // مسألة ٦
+  ];
+
+  const EXD = {
+    /* ===== تمارين الإجازة والرد من الابن — صفحة ١٣٢ (٦ مسائل) ===== */
+    g132: [
+      /* مسألة (١): زيد ١/٢، عمرو ١/٤ (الإجازة ٤، الرد ٩، الجامعة ٣٦) */
+      {
+        t: 36, hs: [["زيد", 18], ["عمرو", 4], ["ابن", 14]],
+        c: { mh: 3, ji: 9, ai: 4, i0: 2, i1: 1, i2: 1, mr: 3, br: 3, r0: 1, r2: 2, jr: 4, ar: 9, rm0: 2, rm1: 1, rm2: 6, j2: 36, b0: 8, b1: 9, b2: 19 }
+      },
+      /* مسألة (٢): زيد ١/٣، عمرو ١/٤ (الإجازة ١٢، الرد ٢١، الجامعة ٨٤) */
+      {
+        t: 84, hs: [["زيد", 28], ["عمرو", 12], ["ابن", 44]],
+        c: { mh: 7, ji: 7, ai: 12, i0: 4, i1: 3, i2: 5, mr: 7, br: 3, r0: 1, r2: 2, jr: 4, ar: 21, rm0: 4, rm1: 3, rm2: 14, j2: 84, b0: 16, b1: 21, b2: 47 }
+      },
+      /* مسألة (٣): زيد ١/٣، عمرو ٢/٣ (الإجازة ٣، الرد ٩، الجامعة ٩) */
+      {
+        t: 9, hs: [["زيد", 3], ["عمرو", 2], ["ابن", 4]],
+        c: { mh: 3, ji: 3, ai: 3, i0: 1, i1: 2, i2: "|0|-", mr: 3, br: 3, r0: 1, r2: 2, jr: 1, ar: 9, rm0: 1, rm1: 2, rm2: 6, j2: 9, b0: 1, b1: 6, b2: 2 }
+      },
+      /* مسألة (٤): زيد ١/٣، عمرو ١/٨ (الإجازة ٢٤، الرد ٣٣، الجامعة ٢٦٤) */
+      {
+        t: 264, hs: [["زيد", 88], ["عمرو", 24], ["ابن", 152]],
+        c: { mh: 11, ji: 11, ai: 24, i0: 8, i1: 3, i2: 13, mr: 11, br: 3, r0: 1, r2: 2, jr: 8, ar: 33, rm0: 8, rm1: 3, rm2: 22, j2: 264, b0: 64, b1: 33, b2: 167 }
+      },
+      /* مسألة (٥): زيد ١/٦، عمرو ١/٤ (الإجازة ١٢، الرد ١٥، الجامعة ٦٠) */
+      {
+        t: 60, hs: [["زيد", 10], ["عمرو", 12], ["ابن", 38]],
+        c: { mh: 5, ji: 5, ai: 12, i0: 2, i1: 3, i2: 7, mr: 5, br: 3, r0: 1, r2: 2, jr: 4, ar: 15, rm0: 2, rm1: 3, rm2: 10, j2: 60, b0: 8, b1: 15, b2: 37 }
+      },
+      /* مسألة (٦): زيد ١/٦، عمرو ٢/٣ (الإجازة ٦، الرد ١٥، الجامعة ٣٠) */
+      {
+        t: 30, hs: [["زيد", 5], ["عمرو", 8], ["ابن", 17]],
+        c: { mh: 5, ji: 5, ai: 6, i0: 1, i1: 4, i2: 1, mr: 5, br: 3, r0: 1, r2: 2, jr: 2, ar: 15, rm0: 1, rm1: 4, rm2: 10, j2: 30, b0: 2, b1: 20, b2: 8 }
+      }
+    ]
+    /* === هنا سنضيف g134 و g135 و g136 للدفعة الثانية === */
+  };
+
+  /* توليد جداول تمارين ص ١٣٢ (٦ مسائل) */
+  (function buildG132() {
+    const grid = document.getElementById("g132-grid");
+    if (!grid) return;
+    grid.innerHTML = W132_META.map((fr, i) => `
+      <div class="ec">
+        <table class="x ws-tr">
+          <colgroup>
+            <col style="width:7%"><col style="width:11%"><col style="width:12%"><col style="width:12%"><col style="width:10%"><col style="width:12%"><col style="width:18%"><col style="width:18%">
+          </colgroup>
+          <tr>
+            <th class="v-t" rowspan="2">المحفوظ</th>
+            <th class="t" colspan="2" rowspan="2">مسألة (${arN(i + 1)})</th>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="ji" inputmode="numeric"></td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="mr" inputmode="numeric"></td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="jr" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g132" data-i="${i}" data-k="t" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g132" data-i="${i}" data-k="j2" inputmode="numeric"></td>
+          </tr>
+          <tr>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="ai" inputmode="numeric"></td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="br" inputmode="numeric"></td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="ar" inputmode="numeric"></td>
+          </tr>
+          <tr>
+            <td class="in" rowspan="2"><input data-g="g132" data-i="${i}" data-k="mh" inputmode="numeric"></td>
+            <td class="fr-c">${frH(fr[0])}</td>
+            <td class="nm">زيد</td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="i0" inputmode="numeric"></td>
+            <td class="in" rowspan="2"><input data-g="g132" data-i="${i}" data-k="r0" inputmode="numeric"></td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="rm0" inputmode="numeric"></td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="s0" inputmode="numeric"></td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="b0" inputmode="numeric"></td>
+          </tr>
+          <tr>
+            <td class="fr-c">${frH(fr[1])}</td>
+            <td class="nm">عمرو</td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="i1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="rm1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="s1" inputmode="numeric"></td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="b1" inputmode="numeric"></td>
+          </tr>
+          <tr>
+            <td class="fr-c" colspan="2">الباقي</td>
+            <td class="nm">ابن</td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="i2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="r2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="rm2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="s2" inputmode="numeric"></td>
+            <td class="in"><input data-g="g132" data-i="${i}" data-k="b2" inputmode="numeric"></td>
+          </tr>
+          <tr>
+            <th class="t" colspan="4">الإجازة المطلقة</th>
+            <th class="t" colspan="2">الرد المطلق</th>
+            <th class="t">أجاز زيداً<br>ورد عمراً</th>
+            <th class="t">أجاز عمراً<br>ورد زيداً</th>
+          </tr>
+        </table>
+        <div class="mm" id="g132-${i}"></div>
+      </div>
+    `).join("");
+  })();
+</script>
+<script src="js/script.js?v=3"></script>
+<script src="js/progress.js?v=3"></script>
+</body>
+</html>

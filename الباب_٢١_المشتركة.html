@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, viewport-fit=cover">
+  <title>الباب ٢١: المشتركة (ص ١١٧ – ١١٨)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <style>
+    /* ضبط امتلاء صفحة الشرح (١١٧) بتوازن مثل ورقة الكتاب */
+    #p117.book-pg {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #p117.book-pg > * { flex-shrink: 0; }
+    #p117 .ti { width: min(38%, 190px); margin: .25em auto .6em; }
+
+    .u-bl {
+      color: #1f56a5;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .bl-t { color: #1f56a5; font-weight: 700; }
+
+    /* فقرات تعريف المشتركة ومسمياتها */
+    .ms-info p {
+      margin: .22em 0;
+      line-height: 1.85;
+      text-align: justify;
+    }
+    .ms-info .ms-form {
+      color: #1f56a5;
+      font-weight: 700;
+    }
+
+    /* جدولا القول بعدم التشريك والقول بالتشريك متجاوران في ص ١١٧ */
+    .ms-pair {
+      display: grid;
+      grid-template-columns: 44% 53%;
+      justify-content: space-between;
+      align-items: stretch;
+      margin: .6em 0;
+    }
+    .ms-pair .bx {
+      font-size: .88em;
+      height: 100%;
+    }
+    .ms-pair .bx td {
+      padding: .24em .2em;
+    }
+    .ms-pair .bx .mh-hd {
+      background: #ebf1de;
+      color: #17375e;
+      font-weight: 700;
+      line-height: 1.65;
+      font-size: .92em;
+    }
+    .ms-pair .bx .v-txt {
+      background: #ebf1de;
+      color: #17375e;
+      font-weight: 700;
+      writing-mode: vertical-rl;
+      padding: .3em .1em;
+      font-size: .88em;
+      white-space: nowrap;
+    }
+    .ms-pair .bx .sh-mix {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 4px;
+    }
+    .ms-pair .bx .f {
+      font-size: 1.05em;
+      font-weight: 700;
+    }
+
+    /* شروط المشتركة أسفل ص ١١٧ */
+    .ms-cond {
+      list-style: none;
+      margin: .25em 0 .1em;
+      padding: 0;
+    }
+    .ms-cond li {
+      margin: .18em 0;
+      text-align: justify;
+      line-height: 1.82;
+    }
+
+    /* تمارين ص ١١٨ (١٢ مسألة في شبكة ٣ أعمدة باستخدام .eg.e3 و table.x الأصلية) */
+    .eg.e3 {
+      gap: 18px 12px;
+      margin: .4em 0 .9em;
+    }
+    .ec table.x.ms-ex {
+      font-size: .82em;
+    }
+    .ec table.x.ms-ex th.t {
+      font-weight: 700;
+      color: #17375e;
+    }
+    .ec table.x.ms-ex td.nm {
+      color: #111;
+      font-weight: 500;
+    }
+    .ec table.x.ms-ex input {
+      font-weight: 700;
+      height: 100%;
+      min-height: 1.85em;
+    }
+    .ec table.x.ms-ex input:focus {
+      outline: 2px solid #2f5597;
+      outline-offset: -2px;
+      background: #f4f8ff;
+    }
+    .ec table.x.ms-ex .mi {
+      min-height: 1.85em;
+      font-size: 1.05em;
+    }
+
+    @media (max-width: 600px) {
+      .ms-pair { grid-template-columns: 1fr; gap: 12px; }
+      .eg.e3 { grid-template-columns: 1fr !important; }
+      .ec table.x.ms-ex { font-size: .88em; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== صفحة ١١٧ (شرح ومثالا المشتركة) ==================== -->
+<section class="pg" id="p117">
+  <div>
+    <div class="hd">
+      <div class="no">١١٧</div>
+      <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+      <div style="width:2.4em"></div>
+    </div>
+
+    <div class="ti">المشتركة</div>
+
+    <div class="sy">يقول أبو عبد الله محمد بن علي بن محمد بن حسين الرحبي رحمه الله في المشتركة: -</div>
+    <table class="pm">
+      <tr>
+        <td>وَإِنْ تَجِدْ زَوْجًا وَأُمًّا وَرِثَا</td>
+        <td>وَإِخْوَةً لِلأُمِّ حَازُوا الثُّلُثَا</td>
+      </tr>
+      <tr>
+        <td>وَإِخْوَةً أَيْضًا لِأُمٍّ وَأَبِ</td>
+        <td>وَاسْتَغْرَقُوا الْمَالَ بِفَرْضِ النُّصُبِ</td>
+      </tr>
+      <tr>
+        <td>فَاجْعَلْهُمُ كُلَّهُمُ لِأُمِّ</td>
+        <td>وَاجْعَلْ أَبَاهُمْ حَجَرًا فِي الْيَمِّ</td>
+      </tr>
+      <tr>
+        <td>وَاقْسِمْ عَلَى الإِخْوَةِ ثُلُثَ التَّرِكَهْ</td>
+        <td>فَهَذِهِ الْمَسْأَلَةُ الْمُشْتَرِكَهْ</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="ms-info">
+    <p class="ms-form">صورتها (زوج وأم أو جدة وجمع من الإخوة لأم وأخ شقيق فأكثر).</p>
+    <p>سميت مشتركة لأن الإخوة الأشقاء يشتركون مع الأخوة لأم في الثلث.</p>
+    <p>وسميت عمرية لقضاء عمر ؓ بها ولها عدة مسميات: <span class="bl-t">(الحجرية – اليمّيّة – المشتركة – المشركة).</span></p>
+  </div>
+
+  <!-- جدولا القول بعدم التشريك والقول بالتشريك -->
+  <div class="ms-pair">
+    <!-- يميناً: القول بعدم التشريك -->
+    <table class="bx">
+      <colgroup>
+        <col style="width:20%"><col style="width:54%"><col style="width:26%">
+      </colgroup>
+      <tr>
+        <td class="mh-hd" colspan="2">القول بعدم التشريك قال به<br>(أبو حنيفة وأحمد) رحمهما الله</td>
+        <td class="t b big">٦</td>
+      </tr>
+      <tr>
+        <td class="gn"><span class="f"><i>١</i><b>٢</b></span></td>
+        <td class="nm">زوج</td>
+        <td class="gn">٣</td>
+      </tr>
+      <tr>
+        <td class="gn"><span class="f"><i>١</i><b>٦</b></span></td>
+        <td class="nm">أم</td>
+        <td class="gn">١</td>
+      </tr>
+      <tr>
+        <td class="gn" rowspan="2"><span class="f"><i>١</i><b>٣</b></span></td>
+        <td class="nm">أخ لأم</td>
+        <td class="gn">١</td>
+      </tr>
+      <tr>
+        <td class="nm">أخ لأم</td>
+        <td class="gn">١</td>
+      </tr>
+      <tr>
+        <td class="gn" rowspan="2">ب</td>
+        <td class="nm">أخ ش</td>
+        <td class="gn">–</td>
+      </tr>
+      <tr>
+        <td class="nm">أخت ش</td>
+        <td class="gn">–</td>
+      </tr>
+    </table>
+
+    <!-- يساراً: القول بالتشريك -->
+    <table class="bx">
+      <colgroup>
+        <col style="width:10%"><col style="width:19%"><col style="width:36%"><col style="width:16%"><col style="width:19%">
+      </colgroup>
+      <tr>
+        <td class="v-txt" rowspan="2">المحفوظ</td>
+        <td class="mh-hd" colspan="2" rowspan="2">القول بالتشريك قال به<br>(مالك والشافعي) رحمهما الله</td>
+        <td class="t b">٢</td>
+        <td class="t b big" rowspan="2">١٢</td>
+      </tr>
+      <tr>
+        <td class="t b">٦</td>
+      </tr>
+      <tr>
+        <td class="w" rowspan="2"></td>
+        <td class="gn"><span class="f"><i>١</i><b>٢</b></span></td>
+        <td class="nm">زوج</td>
+        <td class="gn">٣</td>
+        <td class="gn">٦</td>
+      </tr>
+      <tr>
+        <td class="gn"><span class="f"><i>١</i><b>٦</b></span></td>
+        <td class="nm">أم</td>
+        <td class="gn">١</td>
+        <td class="gn">٢</td>
+      </tr>
+      <tr>
+        <td class="gn" rowspan="4">٢</td>
+        <td class="gn" rowspan="4">
+          <div class="sh-mix">
+            <span class="f"><i>١</i><b>٣</b></span>
+            <span>٤</span>
+          </div>
+        </td>
+        <td class="nm">أخ لأم</td>
+        <td class="gn" rowspan="4">٢</td>
+        <td class="gn">١</td>
+      </tr>
+      <tr>
+        <td class="nm">أخ لأم</td>
+        <td class="gn">١</td>
+      </tr>
+      <tr>
+        <td class="nm">أخ ش</td>
+        <td class="gn">١</td>
+      </tr>
+      <tr>
+        <td class="nm">أخت ش</td>
+        <td class="gn">١</td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <div class="u-bl" style="margin-bottom:.25em">شروط المشتركة:</div>
+    <ul class="ms-cond">
+      <li>١) أن يكون الإخوة لأم اثنين فأكثر، فإن كان أخاً لأم واحداً فلا تشريك.</li>
+      <li>٢) أن يكون الإخوة أشقاء وليسوا إخوة لأب لأن الأم مختلفة.</li>
+      <li>٣) أن يكون الأشقاء ذكوراً أو ذكوراً وإناثاً، فلو كانت شقيقة أو شقيقات فأكثر فيفرض لهنّ وتعول المسألة.</li>
+      <li>٤) أن يوزع الثلث بين الإخوة والأخوات الأشقاء مع الإخوة لأم بالسوية ذكرهم وأنثاهم سواء.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== صفحة ١١٨ (تمارين المشتركة: مسائل ١ – ١٢) ==================== -->
+<section class="pg" id="p118">
+  <div class="hd">
+    <div class="no">١١٨</div>
+    <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+    <div style="width:2.4em"></div>
+  </div>
+
+  <div class="eg e3" data-group="g118">
+    <!-- مسألة (١): مشتركة (٦ -> ١٢) -->
+    <div class="ec">
+      <table class="x ms-ex">
+        <colgroup><col style="width:18%"><col style="width:44%"><col style="width:18%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2" rowspan="2">مسألة (١)</th>
+          <td class="in"><input data-g="g118" data-i="0" data-k="x" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g118" data-i="0" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g118" data-i="0" data-k="a" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="0" data-k="m0"></div></td>
+          <td class="nm">زوج</td>
+          <td class="in"><input data-g="g118" data-i="0" data-k="a0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="0" data-k="s0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="0" data-k="m1"></div></td>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g118" data-i="0" data-k="a1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="0" data-k="s1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="0" data-k="m2"></div></td>
+          <td class="nm">٣ أخ لأم</td>
+          <td class="in"><input data-g="g118" data-i="0" data-k="a2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="0" data-k="s2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="0" data-k="m3"></div></td>
+          <td class="nm">أخ ش</td>
+          <td class="in"><input inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="0" data-k="s3" inputmode="numeric"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g118-0"></div>
+    </div>
+
+    <!-- مسألة (٢): ليست مشتركة (٦ -> ٢٤) -->
+    <div class="ec">
+      <table class="x ms-ex">
+        <colgroup><col style="width:18%"><col style="width:44%"><col style="width:18%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2" rowspan="2">مسألة (٢)</th>
+          <td class="in"><input data-g="g118" data-i="1" data-k="x" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g118" data-i="1" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g118" data-i="1" data-k="a" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="1" data-k="m0"></div></td>
+          <td class="nm">زوج</td>
+          <td class="in"><input data-g="g118" data-i="1" data-k="a0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="1" data-k="s0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="1" data-k="m1"></div></td>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g118" data-i="1" data-k="a1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="1" data-k="s1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="1" data-k="m2"></div></td>
+          <td class="nm">أخ لأم</td>
+          <td class="in"><input data-g="g118" data-i="1" data-k="a2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="1" data-k="s2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="1" data-k="m3"></div></td>
+          <td class="nm">٤ أخ ش</td>
+          <td class="in"><input data-g="g118" data-i="1" data-k="a3" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="1" data-k="s3" inputmode="numeric"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g118-1"></div>
+    </div>
+
+    <!-- مسألة (٣): مشتركة (٦ -> ٢٤) -->
+    <div class="ec">
+      <table class="x ms-ex">
+        <colgroup><col style="width:18%"><col style="width:44%"><col style="width:18%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2" rowspan="2">مسألة (٣)</th>
+          <td class="in"><input data-g="g118" data-i="2" data-k="x" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g118" data-i="2" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g118" data-i="2" data-k="a" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="2" data-k="m0"></div></td>
+          <td class="nm">زوج</td>
+          <td class="in"><input data-g="g118" data-i="2" data-k="a0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="2" data-k="s0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="2" data-k="m1"></div></td>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g118" data-i="2" data-k="a1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="2" data-k="s1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="2" data-k="m2"></div></td>
+          <td class="nm">٧ أخت لأم</td>
+          <td class="in"><input data-g="g118" data-i="2" data-k="a2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="2" data-k="s2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="2" data-k="m3"></div></td>
+          <td class="nm">أخ ش</td>
+          <td class="in"><input inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="2" data-k="s3" inputmode="numeric"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g118-2"></div>
+    </div>
+
+    <!-- مسألة (٤): ليست مشتركة (١٢ بلا انكسار) -->
+    <div class="ec">
+      <table class="x ms-ex">
+        <colgroup><col style="width:18%"><col style="width:44%"><col style="width:18%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2" rowspan="2">مسألة (٤)</th>
+          <td class="in"><input inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g118" data-i="3" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="3" data-k="m0"></div></td>
+          <td class="nm">٣ زوجة</td>
+          <td class="in"><input data-g="g118" data-i="3" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="3" data-k="m1"></div></td>
+          <td class="nm">أم أم</td>
+          <td class="in"><input data-g="g118" data-i="3" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="3" data-k="m2"></div></td>
+          <td class="nm">٤ أخ لأم</td>
+          <td class="in"><input data-g="g118" data-i="3" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="3" data-k="m3"></div></td>
+          <td class="nm">أخ ش</td>
+          <td class="in"><input data-g="g118" data-i="3" data-k="s3" inputmode="numeric"></td>
+          <td class="in"><input inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="3" data-k="m4"></div></td>
+          <td class="nm">أخت ش</td>
+          <td class="in"><input data-g="g118" data-i="3" data-k="s4" inputmode="numeric"></td>
+          <td class="in"><input inputmode="numeric"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g118-3"></div>
+    </div>
+
+    <!-- مسألة (٥): مشتركة (٦ -> ٣٠) -->
+    <div class="ec">
+      <table class="x ms-ex">
+        <colgroup><col style="width:18%"><col style="width:44%"><col style="width:18%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2" rowspan="2">مسألة (٥)</th>
+          <td class="in"><input data-g="g118" data-i="4" data-k="x" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g118" data-i="4" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g118" data-i="4" data-k="a" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="4" data-k="m0"></div></td>
+          <td class="nm">زوج</td>
+          <td class="in"><input data-g="g118" data-i="4" data-k="a0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="4" data-k="s0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="4" data-k="m1"></div></td>
+          <td class="nm">أم أب</td>
+          <td class="in"><input data-g="g118" data-i="4" data-k="a1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="4" data-k="s1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="4" data-k="m2"></div></td>
+          <td class="nm">٢ أخ لأم</td>
+          <td class="in"><input data-g="g118" data-i="4" data-k="a2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="4" data-k="s2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="4" data-k="m3"></div></td>
+          <td class="nm">أخ ش</td>
+          <td class="in"><input inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="4" data-k="s3" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="4" data-k="m4"></div></td>
+          <td class="nm">٢ أخت ش</td>
+          <td class="in"><input inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="4" data-k="s4" inputmode="numeric"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g118-4"></div>
+    </div>
+
+    <!-- مسألة (٦): مشتركة (٦ -> ٣٦، الإخوة لأب محجوبون) -->
+    <div class="ec">
+      <table class="x ms-ex">
+        <colgroup><col style="width:18%"><col style="width:44%"><col style="width:18%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2" rowspan="2">مسألة (٦)</th>
+          <td class="in"><input data-g="g118" data-i="5" data-k="x" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g118" data-i="5" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g118" data-i="5" data-k="a" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="5" data-k="m0"></div></td>
+          <td class="nm">زوج</td>
+          <td class="in"><input data-g="g118" data-i="5" data-k="a0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="5" data-k="s0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="5" data-k="m1"></div></td>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g118" data-i="5" data-k="a1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="5" data-k="s1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="5" data-k="m2"></div></td>
+          <td class="nm">٦ أخت لأم</td>
+          <td class="in"><input data-g="g118" data-i="5" data-k="a2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="5" data-k="s2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="5" data-k="m3"></div></td>
+          <td class="nm">٦ أخ ش</td>
+          <td class="in"><input inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="5" data-k="s3" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="5" data-k="m4"></div></td>
+          <td class="nm">٦ أخ لأب</td>
+          <td class="in"><input inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="5" data-k="s4" inputmode="numeric"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g118-5"></div>
+    </div>
+
+    <!-- مسألة (٧): ليست مشتركة (عول من ٦ إلى ١٠ وتصحيح إلى ٥٠) -->
+    <div class="ec">
+      <table class="x ms-ex">
+        <colgroup><col style="width:18%"><col style="width:44%"><col style="width:18%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2" rowspan="2">مسألة (٧)</th>
+          <td class="in"><input data-g="g118" data-i="6" data-k="x" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g118" data-i="6" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g118" data-i="6" data-k="a" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="6" data-k="m0"></div></td>
+          <td class="nm">زوج</td>
+          <td class="in"><input data-g="g118" data-i="6" data-k="a0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="6" data-k="s0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="6" data-k="m1"></div></td>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g118" data-i="6" data-k="a1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="6" data-k="s1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="6" data-k="m2"></div></td>
+          <td class="nm">٥ أخ لأم</td>
+          <td class="in"><input data-g="g118" data-i="6" data-k="a2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="6" data-k="s2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="6" data-k="m3"></div></td>
+          <td class="nm">٤ أخت ش</td>
+          <td class="in"><input data-g="g118" data-i="6" data-k="a3" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="6" data-k="s3" inputmode="numeric"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g118-6"></div>
+    </div>
+
+    <!-- مسألة (٨): مشتركة (٦ -> ٤٢) -->
+    <div class="ec">
+      <table class="x ms-ex">
+        <colgroup><col style="width:18%"><col style="width:44%"><col style="width:18%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2" rowspan="2">مسألة (٨)</th>
+          <td class="in"><input data-g="g118" data-i="7" data-k="x" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g118" data-i="7" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g118" data-i="7" data-k="a" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="7" data-k="m0"></div></td>
+          <td class="nm">زوج</td>
+          <td class="in"><input data-g="g118" data-i="7" data-k="a0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="7" data-k="s0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="7" data-k="m1"></div></td>
+          <td class="nm">أم أب</td>
+          <td class="in"><input data-g="g118" data-i="7" data-k="a1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="7" data-k="s1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="7" data-k="m2"></div></td>
+          <td class="nm">٦ أخ لأم</td>
+          <td class="in"><input data-g="g118" data-i="7" data-k="a2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="7" data-k="s2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="7" data-k="m3"></div></td>
+          <td class="nm">٨ أخ ش</td>
+          <td class="in"><input inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="7" data-k="s3" inputmode="numeric"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g118-7"></div>
+    </div>
+
+    <!-- مسألة (٩): ليست مشتركة (٦ بلا انكسار) -->
+    <div class="ec">
+      <table class="x ms-ex">
+        <colgroup><col style="width:18%"><col style="width:44%"><col style="width:18%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2" rowspan="2">مسألة (٩)</th>
+          <td class="in"><input inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g118" data-i="8" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="8" data-k="m0"></div></td>
+          <td class="nm">زوج</td>
+          <td class="in"><input data-g="g118" data-i="8" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="8" data-k="m1"></div></td>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g118" data-i="8" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="8" data-k="m2"></div></td>
+          <td class="nm">أخت لأم</td>
+          <td class="in"><input data-g="g118" data-i="8" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="8" data-k="m3"></div></td>
+          <td class="nm">أخ ش</td>
+          <td class="in"><input data-g="g118" data-i="8" data-k="s3" inputmode="numeric"></td>
+          <td class="in"><input inputmode="numeric"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g118-8"></div>
+    </div>
+
+    <!-- مسألة (١٠): ليست مشتركة (عول من ٦ إلى ٩) -->
+    <div class="ec">
+      <table class="x ms-ex">
+        <colgroup><col style="width:18%"><col style="width:44%"><col style="width:18%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2" rowspan="2">مسألة (١٠)</th>
+          <td class="in"><input inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g118" data-i="9" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g118" data-i="9" data-k="a" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="9" data-k="m0"></div></td>
+          <td class="nm">زوج</td>
+          <td class="in"><input data-g="g118" data-i="9" data-k="a0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="9" data-k="s0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="9" data-k="m1"></div></td>
+          <td class="nm">أم أب</td>
+          <td class="in"><input data-g="g118" data-i="9" data-k="a1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="9" data-k="s1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="9" data-k="m2"></div></td>
+          <td class="nm">٢ أخت لأم</td>
+          <td class="in"><input data-g="g118" data-i="9" data-k="a2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="9" data-k="s2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="9" data-k="m3"></div></td>
+          <td class="nm">أخت ش</td>
+          <td class="in"><input data-g="g118" data-i="9" data-k="a3" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="9" data-k="s3" inputmode="numeric"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g118-9"></div>
+    </div>
+
+    <!-- مسألة (١١): ليست مشتركة (١٢ -> ٨٤) -->
+    <div class="ec">
+      <table class="x ms-ex">
+        <colgroup><col style="width:18%"><col style="width:44%"><col style="width:18%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2" rowspan="2">مسألة (١١)</th>
+          <td class="in"><input data-g="g118" data-i="10" data-k="x" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g118" data-i="10" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g118" data-i="10" data-k="a" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="10" data-k="m0"></div></td>
+          <td class="nm">زوجة</td>
+          <td class="in"><input data-g="g118" data-i="10" data-k="a0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="10" data-k="s0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="10" data-k="m1"></div></td>
+          <td class="nm">أم أم</td>
+          <td class="in"><input data-g="g118" data-i="10" data-k="a1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="10" data-k="s1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="10" data-k="m2"></div></td>
+          <td class="nm">أخ لأم</td>
+          <td class="in"><input data-g="g118" data-i="10" data-k="a2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="10" data-k="s2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="10" data-k="m3"></div></td>
+          <td class="nm">٧ أخ ش</td>
+          <td class="in"><input data-g="g118" data-i="10" data-k="a3" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="10" data-k="s3" inputmode="numeric"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g118-10"></div>
+    </div>
+
+    <!-- مسألة (١٢): ليست مشتركة (٦ -> ١٨، الإخوة لأب يسقطون) -->
+    <div class="ec">
+      <table class="x ms-ex">
+        <colgroup><col style="width:18%"><col style="width:44%"><col style="width:18%"><col style="width:20%"></colgroup>
+        <tr>
+          <th class="t" colspan="2" rowspan="2">مسألة (١٢)</th>
+          <td class="in"><input data-g="g118" data-i="11" data-k="x" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input data-g="g118" data-i="11" data-k="t" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g118" data-i="11" data-k="a" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="11" data-k="m0"></div></td>
+          <td class="nm">زوج</td>
+          <td class="in"><input data-g="g118" data-i="11" data-k="a0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="11" data-k="s0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="11" data-k="m1"></div></td>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g118" data-i="11" data-k="a1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="11" data-k="s1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="11" data-k="m2"></div></td>
+          <td class="nm">٣ أخت لأم</td>
+          <td class="in"><input data-g="g118" data-i="11" data-k="a2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="11" data-k="s2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="11" data-k="m3"></div></td>
+          <td class="nm">٣ أخ لأب</td>
+          <td class="in"><input inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="11" data-k="s3" inputmode="numeric"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g118-11"></div>
+    </div>
+  </div>
+
+  <button class="btn" data-chk="g118" type="button">تصحيح تمارين ص ١١٨</button>
+  <div class="rs" id="g118-r" hidden></div>
+  <div class="prog" data-group="g118" id="g118-prog">
+    <div class="prog-txt">لم تُصحّح بعد — اضغط «تصحيح تمارين ص ١١٨»</div>
+    <div class="prog-bar"><div class="prog-fill"></div></div>
+  </div>
+</section>
+
+<!-- رابط الانتقال إلى الباب التالي مباشرة -->
+<div class="nxt-box" id="next-gate">
+  <div class="nxt-links">
+    <a class="nxt-btn" id="next-ch-btn" href="الباب_٢٢_الجد_مع_الإخوة.html">الانتقال إلى الباب ٢٢: الجد مع الإخوة ←</a>
+    <a class="nxt-btn browse" href="index.html">🏠 اللوحة الذكية</a>
+  </div>
+</div>
+
+<div id="kp" hidden></div>
+
+<script>
+  const EXD = {
+    /* ===== تمارين باب المشتركة — صفحة ١١٨ (مسائل ١ – ١٢) ===== */
+    g118: [
+      /* مسألة (١): مشتركة — زوج، أم، ٣ أخ لأم، أخ ش (٦×٢ = ١٢) */
+      {
+        t: 12,
+        hs: [["زوج", 6, "1/2"], ["أم", 2, "1/6"], ["٣ أخ لأم", 3, "1/3"], ["أخ ش", 1, "1/3"]],
+        c: { x: 2, a: 6, a0: 3, a1: 1, a2: 2 }
+      },
+      /* مسألة (٢): ليست مشتركة (أخ لأم واحد) — ٦×٤ = ٢٤ */
+      {
+        t: 24,
+        hs: [["زوج", 12, "1/2"], ["أم", 4, "1/6"], ["أخ لأم", 4, "1/6"], ["٤ أخ ش", 4, "ب"]],
+        c: { x: 4, a: 6, a0: 3, a1: 1, a2: 1, a3: 1 }
+      },
+      /* مسألة (٣): مشتركة — زوج، أم، ٧ أخت لأم، أخ ش (٦×٤ = ٢٤) */
+      {
+        t: 24,
+        hs: [["زوج", 12, "1/2"], ["أم", 4, "1/6"], ["٧ أخت لأم", 7, "1/3"], ["أخ ش", 1, "1/3"]],
+        c: { x: 4, a: 6, a0: 3, a1: 1, a2: 2 }
+      },
+      /* مسألة (٤): ليست مشتركة (٣ زوجة) — ١٢ بلا انكسار */
+      {
+        t: 12,
+        hs: [["٣ زوجة", 3, "1/4"], ["أم أم", 2, "1/6"], ["٤ أخ لأم", 4, "1/3"], ["أخ ش", 2, "ب"], ["أخت ش", 1, "ب"]],
+        c: {}
+      },
+      /* مسألة (٥): مشتركة — زوج، أم أب، ٢ أخ لأم، أخ ش، ٢ أخت ش (٦×٥ = ٣٠) */
+      {
+        t: 30,
+        hs: [["زوج", 15, "1/2"], ["أم أب", 5, "1/6"], ["٢ أخ لأم", 4, "1/3"], ["أخ ش", 2, "1/3"], ["٢ أخت ش", 4, "1/3"]],
+        c: { x: 5, a: 6, a0: 3, a1: 1, a2: 2 }
+      },
+      /* مسألة (٦): مشتركة — ٦×٦ = ٣٦ (و٦ أخ لأب محجوبون بالأشقاء) */
+      {
+        t: 36,
+        hs: [["زوج", 18, "1/2"], ["أم", 6, "1/6"], ["٦ أخت لأم", 6, "1/3"], ["٦ أخ ش", 6, "1/3"], ["٦ أخ لأب", 0, "م"]],
+        c: { x: 6, a: 6, a0: 3, a1: 1, a2: 2 }
+      },
+      /* مسألة (٧): ليست مشتركة (شقيقات إناث فقط) — عول من ٦ إلى ١٠ وتصحيح ١٠×٥ = ٥٠ */
+      {
+        t: 50,
+        hs: [["زوج", 15, "1/2"], ["أم", 5, "1/6"], ["٥ أخ لأم", 10, "1/3"], ["٤ أخت ش", 20, "2/3"]],
+        c: { x: 5, a: 10, a0: 3, a1: 1, a2: 2, a3: 4 }
+      },
+      /* مسألة (٨): مشتركة — زوج، أم أب، ٦ أخ لأم، ٨ أخ ش (٦×٧ = ٤٢) */
+      {
+        t: 42,
+        hs: [["زوج", 21, "1/2"], ["أم أب", 7, "1/6"], ["٦ أخ لأم", 6, "1/3"], ["٨ أخ ش", 8, "1/3"]],
+        c: { x: 7, a: 6, a0: 3, a1: 1, a2: 2 }
+      },
+      /* مسألة (٩): ليست مشتركة (أخت لأم واحدة) — ٦ بلا انكسار */
+      {
+        t: 6,
+        hs: [["زوج", 3, "1/2"], ["أم", 1, "1/6"], ["أخت لأم", 1, "1/6"], ["أخ ش", 1, "ب"]],
+        c: {}
+      },
+      /* مسألة (١٠): ليست مشتركة (شقيقة واحدة فقط) — عول من ٦ إلى ٩ بلا انكسار */
+      {
+        t: 9,
+        hs: [["زوج", 3, "1/2"], ["أم أب", 1, "1/6"], ["٢ أخت لأم", 2, "1/3"], ["أخت ش", 3, "1/2"]],
+        c: { a: 6, a0: 3, a1: 1, a2: 2, a3: 3 }
+      },
+      /* مسألة (١١): ليست مشتركة (زوجة وأخ لأم واحد) — ١٢×٧ = ٨٤ */
+      {
+        t: 84,
+        hs: [["زوجة", 21, "1/4"], ["أم أم", 14, "1/6"], ["أخ لأم", 14, "1/6"], ["٧ أخ ش", 35, "ب"]],
+        c: { x: 7, a: 12, a0: 3, a1: 2, a2: 2, a3: 5 }
+      },
+      /* مسألة (١٢): ليست مشتركة (إخوة لأب يسقطون) — ٦×٣ = ١٨ */
+      {
+        t: 18,
+        hs: [["زوج", 9, "1/2"], ["أم", 3, "1/6"], ["٣ أخت لأم", 6, "1/3"], ["٣ أخ لأب", 0, "ب"]],
+        c: { x: 3, a: 6, a0: 3, a1: 1, a2: 2 }
+      }
+    ]
+  };
+</script>
+<script src="js/script.js?v=3"></script>
+<script src="js/progress.js?v=3"></script>
+</body>
+</html>

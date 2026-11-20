@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, viewport-fit=cover">
+  <title>الباب ١٧: الخنثى المشكل والمفقود (ص ١٠٣ – ١٠٥)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <style>
+    /* تنسيقات تكميلية محدودة لباب الخنثى والمفقود دون تعارض مع style.css */
+    .u-bl {
+      color: #1f56a5;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* جداول الشرح والملاحظات (تعتمد على .bx من style.css) */
+    .bx.km-m { margin: .8em auto; font-size: .9em; }
+    .bx .pk-m { background: #f2dcdb; color: #7b1f1f; font-weight: 700; }
+    .bx .gt-t { background: #ebf1de; color: #17375e; font-weight: 700; line-height: 1.65; }
+    .bx .tb-tx { background: #ebf1de; color: #000; font-weight: 500; line-height: 1.85; padding: .45em .7em; }
+    .bx .kw { color: #1f56a5; font-weight: 700; }
+
+    /* جدولا الرموز المتجاوران أسفل ص ١٠٣ */
+    .sym-pair {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 14px;
+      margin: 1.1em auto .3em;
+    }
+    .sym-pair .bx { margin: 0; font-size: .86em; }
+    .sym-pair .sym-r { width: 56%; }
+    .sym-pair .sym-l { width: 44%; }
+
+    /* ضبط المسافات وتنسيق خانة الموقوف (ق) داخل .eg.e2 و table.x الأصلية */
+    .eg.e2 { gap: 16px 14px; margin: 1.1em 0 .6em; }
+    .ec table.x { font-size: .82em; }
+    .ec table.x th.t { font-weight: 700; }
+    .ec table.x td.nm { color: #17375e; font-weight: 700; }
+    .ec table.x td.w { background: #fff; }
+    .ec table.x td.km-q { background: #fff; padding: 0 2px; }
+    .ec table.x .q-in {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      height: 100%;
+    }
+    .ec table.x .q-in span { color: #000; font-weight: 700; white-space: nowrap; }
+    .ec table.x .q-in input { width: 2.1em; font-weight: 700; }
+    .ec table.x input { font-weight: 700; }
+    .ec table.x input:focus { outline: 2px solid #2f5597; outline-offset: -2px; background: #f4f8ff; }
+
+    @media (max-width: 560px) {
+      .sym-pair { flex-direction: column; gap: 10px; }
+      .sym-pair .sym-r, .sym-pair .sym-l { width: 100%; }
+      .bx.km-m { font-size: .8em; }
+      .ec table.x { font-size: .84em; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== صفحة ١٠٣ (شرح ومثال الخنثى المشكل) ==================== -->
+<section class="pg" id="p103">
+  <div class="hd">
+    <div class="no">١٠٣</div>
+    <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+    <div style="width:2.4em"></div>
+  </div>
+
+  <div class="ti" style="width:min(48%,240px)">الخنثى المشكل والمفقود</div>
+
+  <div class="sy">يقول أبو عبد الله محمد بن علي بن محمد بن حسين الرحبي رحمه الله في الخنثى المشكل والمفقود والحمل: -</div>
+  <table class="pm">
+    <tr>
+      <td>وَإِنْ يَكُنْ فِي مُسْتَحِقِّ الْمَالِ</td>
+      <td>خُنْثَى صَحِيحٌ بَيِّنُ الإِشْكَالِ</td>
+    </tr>
+    <tr>
+      <td>فَاقْسِمْ عَلَى الأَقَلِّ وَالْيَقِينِ</td>
+      <td>تَحْظَ بِحَقِّ الْقِسْمَةِ التبيين</td>
+    </tr>
+    <tr>
+      <td>وَاحْكُمْ عَلَى الْمَفْقُودِ حُكْمَ الْخُنْثَى</td>
+      <td>إِنْ ذَكَرًا يَكُونُ أَوْ هُوَ أُنْثَى</td>
+    </tr>
+    <tr>
+      <td>وَهَكَذَا حُكْمُ ذَوَاتِ الْحَمْلِ</td>
+      <td>فَابْنِ عَلَى الْيَقِينِ وَالأَقَلِّ</td>
+    </tr>
+  </table>
+
+  <p class="pr"><span class="u-bl">الخنثى المشكل:</span> هو من جُهل حاله فلا يُعلم أذكر أم أنثى.</p>
+  <p class="pr"><span class="u-bl">طريقة العمل:</span> يعمل للخنثى مسألتان الأولى باعتبار أنه ذكر والأخرى باعتبار أنه أنثى ويعامل جميع الورثة بالأضر والباقي يوقف لحين ظهور الحالة وهذا <span style="color:#1f56a5">عند الشافعية</span> وهو المعمول به في الكتاب.</p>
+
+  <!-- مثال بالتوقيف عند الشافعية -->
+  <table class="bx km-m">
+    <colgroup>
+      <col style="width:22%">
+      <col style="width:12%">
+      <col style="width:12%">
+      <col style="width:20%">
+      <col style="width:17%">
+      <col style="width:17%">
+    </colgroup>
+    <tr>
+      <td class="gt-t" rowspan="2">مثال بالتوقيف<br>عند الشافعية</td>
+      <td class="t b">١</td>
+      <td class="t b">١</td>
+      <td class="t">الجامعة</td>
+      <td class="t" colspan="2">تقسيم الموقوف</td>
+    </tr>
+    <tr>
+      <td class="t b big">٢٤</td>
+      <td class="t b big">٢٤</td>
+      <td class="t b big">٢٤</td>
+      <td class="t b big">٢٤</td>
+      <td class="t b big">٢٤</td>
+    </tr>
+    <tr>
+      <td class="nm">زوجة</td>
+      <td class="gn">٣</td>
+      <td class="gn">٣</td>
+      <td class="gn">٣</td>
+      <td class="gn">٣</td>
+      <td class="gn">٣</td>
+    </tr>
+    <tr>
+      <td class="nm">أم</td>
+      <td class="gn">٤</td>
+      <td class="gn">٤</td>
+      <td class="gn">٤</td>
+      <td class="gn">٤</td>
+      <td class="gn">٤</td>
+    </tr>
+    <tr>
+      <td class="nm">ولد خنثى مشكل</td>
+      <td class="gn">١٧</td>
+      <td class="gn">١٢</td>
+      <td class="gn">١٢</td>
+      <td class="gn">١٧</td>
+      <td class="gn">١٢</td>
+    </tr>
+    <tr>
+      <td class="nm">عم ش</td>
+      <td class="gn">٠</td>
+      <td class="gn">٥</td>
+      <td class="gn">٠</td>
+      <td class="gn">٠</td>
+      <td class="gn">٥</td>
+    </tr>
+    <tr>
+      <td class="t">(ابن أو بنت)</td>
+      <td class="t">ذكر</td>
+      <td class="t">أنثى</td>
+      <td class="t">الموقوف (٥)</td>
+      <td class="t">على أنه ذكر</td>
+      <td class="t">على أنه أنثى</td>
+    </tr>
+  </table>
+
+  <!-- جدولا الملاحظة والرموز متجاوران مثل الكتاب -->
+  <div class="sym-pair">
+    <table class="bx sym-r">
+      <colgroup>
+        <col style="width:20%"><col style="width:15%"><col style="width:65%">
+      </colgroup>
+      <tr>
+        <td class="pk-m" rowspan="4">ملاحظة</td>
+        <td class="pk-m" colspan="2">الرموز بالنسبة للخنثى</td>
+      </tr>
+      <tr>
+        <td class="t">ذ</td>
+        <td class="gn">يشير إلى أن الوارث ذكر</td>
+      </tr>
+      <tr>
+        <td class="t">ن</td>
+        <td class="gn">يشير إلى أن الوارث أنثى</td>
+      </tr>
+      <tr>
+        <td class="t">ق</td>
+        <td class="gn">يشير إلى الموقوف بعد المسألتين</td>
+      </tr>
+    </table>
+
+    <table class="bx sym-l">
+      <colgroup>
+        <col style="width:18%"><col style="width:82%">
+      </colgroup>
+      <tr>
+        <td class="pk-m" colspan="2">الرموز بالنسبة للمفقود</td>
+      </tr>
+      <tr>
+        <td class="t">ح</td>
+        <td class="gn">يشير إلى أن الوارث حي</td>
+      </tr>
+      <tr>
+        <td class="t">م</td>
+        <td class="gn">يشير إلى أن الوارث ميت</td>
+      </tr>
+      <tr>
+        <td class="t">ق</td>
+        <td class="gn">يشير إلى الموقوف بعد المسألتين</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== صفحة ١٠٤ (ملاحظة وتنبيه وتمارين الخنثى ١ - ٤) ==================== -->
+<section class="pg" id="p104">
+  <div class="hd">
+    <div class="no">١٠٤</div>
+    <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+    <div style="width:2.4em"></div>
+  </div>
+
+  <!-- جدول ملاحظة أنواع الخنثى -->
+  <table class="bx km-m" style="margin-top:.3em">
+    <colgroup>
+      <col style="width:13%"><col style="width:45%"><col style="width:42%">
+    </colgroup>
+    <tr>
+      <td class="pk-m" rowspan="4">ملاحظة</td>
+      <td class="t">ولد خنثى مشكل وهو</td>
+      <td class="gn">ابن أو بنت</td>
+    </tr>
+    <tr>
+      <td class="t">ولد ابن خنثى مشكل وهو</td>
+      <td class="gn">ابن ابن أو بنت ابن</td>
+    </tr>
+    <tr>
+      <td class="t">ولد أبوين خنثى مشكل وهو</td>
+      <td class="gn">أخ شقيق أو أخت شقيقة</td>
+    </tr>
+    <tr>
+      <td class="t">ولد أب خنثى مشكل وهو</td>
+      <td class="gn">أخ لأب أو أخت لأب</td>
+    </tr>
+  </table>
+
+  <!-- جدول تنبيه النسب الأربع -->
+  <table class="bx km-m">
+    <colgroup>
+      <col style="width:13%"><col style="width:87%">
+    </colgroup>
+    <tr>
+      <td class="pk-m">تنبيه</td>
+      <td class="tb-tx">
+        ينظر بين أصول المسائل بالنسب الأربع في الخنثى والمفقود والحمل، فإن كان بين أصول المسائل <span class="kw">تماثل</span> نأخذ أحدهما، <span class="kw">وبالتداخل</span> نأخذ الأكبر، <span class="kw">وبالتباين</span> نضرب جميعهما في بعض، <span class="kw">وبالتوافق</span> نضرب وفق أحدهما في كامل الآخر، ثم تكون الجامعة الأخيرة لجميع المسائل.
+      </td>
+    </tr>
+  </table>
+
+  <!-- تمارين الخنثى: شبكتان متجاورتان في كل صف باستخدام eg e2 و table.x الأصلية -->
+  <div class="eg e2" data-group="g104">
+    <!-- مسألة (١) -->
+    <div class="ec">
+      <table class="x">
+        <colgroup>
+          <col style="width:27%"><col style="width:11%"><col style="width:11%"><col style="width:21%"><col style="width:15%"><col style="width:15%">
+        </colgroup>
+        <tr>
+          <th class="t">مسألة (١)</th>
+          <td class="in"><input data-g="g104" data-i="0" data-k="f1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="f2" inputmode="numeric"></td>
+          <th class="t">الجامعة</th>
+          <th class="t" colspan="2">تقسيم الموقوف</th>
+        </tr>
+        <tr>
+          <th class="t">أصل المسألة</th>
+          <td class="in"><input data-g="g104" data-i="0" data-k="b1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="b2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="t" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="td" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="tn" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">بنت</td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="d0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="n0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="qd0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="qn0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">ولد خنثى</td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="d1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="n1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="qd1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="qn1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">ابن ابن</td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="d2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="n2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="qd2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="0" data-k="qn2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <th class="t">ابن أو بنت</th>
+          <th class="t">ذ</th>
+          <th class="t">ن</th>
+          <td class="in km-q"><div class="q-in"><span>ق (</span><input data-g="g104" data-i="0" data-k="q" inputmode="numeric"><span>)</span></div></td>
+          <th class="t">ذ</th>
+          <th class="t">ن</th>
+        </tr>
+      </table>
+      <div class="mm" id="g104-0"></div>
+    </div>
+
+    <!-- مسألة (٢) -->
+    <div class="ec">
+      <table class="x">
+        <colgroup>
+          <col style="width:27%"><col style="width:11%"><col style="width:11%"><col style="width:21%"><col style="width:15%"><col style="width:15%">
+        </colgroup>
+        <tr>
+          <th class="t">مسألة (٢)</th>
+          <td class="in"><input data-g="g104" data-i="1" data-k="f1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="f2" inputmode="numeric"></td>
+          <th class="t">الجامعة</th>
+          <th class="t" colspan="2">تقسيم الموقوف</th>
+        </tr>
+        <tr>
+          <th class="t">أصل المسألة</th>
+          <td class="in"><input data-g="g104" data-i="1" data-k="b1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="b2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="t" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="td" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="tn" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">بنت</td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="d0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="n0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="qd0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="qn0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">ولد ابن خنثى</td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="d1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="n1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="qd1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="qn1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">عم ش</td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="d2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="n2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="qd2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="1" data-k="qn2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <th class="t l">ابن ابن أو بنت ابن</th>
+          <th class="t">ذ</th>
+          <th class="t">ن</th>
+          <td class="in km-q"><div class="q-in"><span>ق (</span><input data-g="g104" data-i="1" data-k="q" inputmode="numeric"><span>)</span></div></td>
+          <th class="t">ذ</th>
+          <th class="t">ن</th>
+        </tr>
+      </table>
+      <div class="mm" id="g104-1"></div>
+    </div>
+
+    <!-- مسألة (٣) -->
+    <div class="ec">
+      <table class="x">
+        <colgroup>
+          <col style="width:27%"><col style="width:11%"><col style="width:11%"><col style="width:21%"><col style="width:15%"><col style="width:15%">
+        </colgroup>
+        <tr>
+          <th class="t">مسألة (٣)</th>
+          <td class="in"><input data-g="g104" data-i="2" data-k="f1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="f2" inputmode="numeric"></td>
+          <th class="t">الجامعة</th>
+          <th class="t" colspan="2">تقسيم الموقوف</th>
+        </tr>
+        <tr>
+          <th class="t">أصل المسألة</th>
+          <td class="in"><input data-g="g104" data-i="2" data-k="b1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="b2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="t" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="td" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="tn" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="d0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="n0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="qd0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="qn0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">زوج</td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="d1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="n1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="qd1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="qn1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">ولد أبوين خنثى</td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="d2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="n2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="qd2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="2" data-k="qn2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <th class="t">أخ أو أخت ش</th>
+          <th class="t">ذ</th>
+          <th class="t">ن</th>
+          <td class="in km-q"><div class="q-in"><span>ق (</span><input data-g="g104" data-i="2" data-k="q" inputmode="numeric"><span>)</span></div></td>
+          <th class="t">ذ</th>
+          <th class="t">ن</th>
+        </tr>
+      </table>
+      <div class="mm" id="g104-2"></div>
+    </div>
+
+    <!-- مسألة (٤) -->
+    <div class="ec">
+      <table class="x">
+        <colgroup>
+          <col style="width:27%"><col style="width:11%"><col style="width:11%"><col style="width:21%"><col style="width:15%"><col style="width:15%">
+        </colgroup>
+        <tr>
+          <th class="t">مسألة (٤)</th>
+          <td class="in"><input data-g="g104" data-i="3" data-k="f1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="f2" inputmode="numeric"></td>
+          <th class="t">الجامعة</th>
+          <th class="t" colspan="2">تقسيم الموقوف</th>
+        </tr>
+        <tr>
+          <th class="t">أصل المسألة</th>
+          <td class="in"><input data-g="g104" data-i="3" data-k="b1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="b2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="t" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="td" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="tn" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">أخ لأم</td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="d0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="n0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="qd0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="qn0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="d1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="n1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="qd1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="qn1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">ولد أب خنثى</td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="d2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="n2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="qd2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g104" data-i="3" data-k="qn2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <th class="t">أخ أو أخت لأب</th>
+          <th class="t">ذ</th>
+          <th class="t">ن</th>
+          <td class="in km-q"><div class="q-in"><span>ق (</span><input data-g="g104" data-i="3" data-k="q" inputmode="numeric"><span>)</span></div></td>
+          <th class="t">ذ</th>
+          <th class="t">ن</th>
+        </tr>
+      </table>
+      <div class="mm" id="g104-3"></div>
+    </div>
+  </div>
+
+  <button class="btn" data-chk="g104" type="button">تصحيح تمارين ص ١٠٤</button>
+  <div class="rs" id="g104-r" hidden></div>
+  <div class="prog" data-group="g104" id="g104-prog">
+    <div class="prog-txt">لم تُصحّح بعد — اضغط «تصحيح تمارين ص ١٠٤»</div>
+    <div class="prog-bar"><div class="prog-fill"></div></div>
+  </div>
+</section>
+
+<!-- ==================== صفحة ١٠٥ (شرح ومثال وتمارين المفقود ١ - ٤) ==================== -->
+<section class="pg" id="p105">
+  <div class="hd">
+    <div class="no">١٠٥</div>
+    <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+    <div style="width:2.4em"></div>
+  </div>
+
+  <p class="pr"><span class="u-bl">المفقود:</span> وهو من انقطع خبره فلم يُعلم له حياة ولا موت.</p>
+  <p class="pr"><span class="u-bl">طريقة العمل:</span> نعمل للمفقود مسألتين الأولى باعتبار أنه حي، والثانية باعتبار أنه ميت، ثم نعمل جامعة للمسألتين ونعامل جميع الورثة بالأضر حتى تظهر حالة المفقود أو يحكم القاضي بموته.</p>
+
+  <!-- مثال المفقود مطابق للكتاب -->
+  <table class="bx km-m">
+    <colgroup>
+      <col style="width:22%">
+      <col style="width:13%">
+      <col style="width:13%">
+      <col style="width:20%">
+      <col style="width:16%">
+      <col style="width:16%">
+    </colgroup>
+    <tr>
+      <td class="gt-t" rowspan="2">مثال</td>
+      <td class="t b">٢</td>
+      <td class="t b">٣</td>
+      <td class="t">الجامعة</td>
+      <td class="t" colspan="2">تقسيم الموقوف</td>
+    </tr>
+    <tr>
+      <td class="t b big">٣</td>
+      <td class="t b big">٢</td>
+      <td class="t b big">٦</td>
+      <td class="t b big">٦</td>
+      <td class="t b big">٦</td>
+    </tr>
+    <tr>
+      <td class="nm">بنت</td>
+      <td class="gn">١</td>
+      <td class="gn">١</td>
+      <td class="gn">٢</td>
+      <td class="gn">٢</td>
+      <td class="gn">٣</td>
+    </tr>
+    <tr>
+      <td class="nm">ابن مفقود</td>
+      <td class="gn">٢</td>
+      <td class="gn">٠</td>
+      <td class="gn">٠</td>
+      <td class="gn">٤</td>
+      <td class="gn">٠</td>
+    </tr>
+    <tr>
+      <td class="nm">عم ش</td>
+      <td class="gn">-</td>
+      <td class="gn">١</td>
+      <td class="gn">٠</td>
+      <td class="gn">٠</td>
+      <td class="gn">٣</td>
+    </tr>
+    <tr>
+      <td class="w"></td>
+      <td class="t">حي</td>
+      <td class="t">ميت</td>
+      <td class="t">الموقوف (٤)</td>
+      <td class="t">على أنه حي</td>
+      <td class="t">على أنه ميت</td>
+    </tr>
+    <tr>
+      <td class="t" colspan="6">توقف (٤) حتى تظهر الحالة أو يحكم القاضي بموته</td>
+    </tr>
+  </table>
+
+  <!-- تمارين المفقود باستخدام eg e2 و table.x الأصلية -->
+  <div class="eg e2" data-group="g105">
+    <!-- مسألة (١) -->
+    <div class="ec">
+      <table class="x">
+        <colgroup>
+          <col style="width:27%"><col style="width:11%"><col style="width:11%"><col style="width:21%"><col style="width:15%"><col style="width:15%">
+        </colgroup>
+        <tr>
+          <th class="t">مسألة (١)</th>
+          <td class="in"><input data-g="g105" data-i="0" data-k="f1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="f2" inputmode="numeric"></td>
+          <th class="t">الجامعة</th>
+          <th class="t" colspan="2">تقسيم الموقوف</th>
+        </tr>
+        <tr>
+          <th class="t">أصل المسألة</th>
+          <td class="in"><input data-g="g105" data-i="0" data-k="b1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="b2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="t" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="th" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="tm" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">بنت</td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="h0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="m0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="qh0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="qm0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">بنت ابن</td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="h1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="m1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="qh1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="qm1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">ابن ابن مفقود</td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="h2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="m2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="qh2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="0" data-k="qm2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="w"></td>
+          <th class="t">ح</th>
+          <th class="t">م</th>
+          <td class="in km-q"><div class="q-in"><span>ق (</span><input data-g="g105" data-i="0" data-k="q" inputmode="numeric"><span>)</span></div></td>
+          <th class="t">ح</th>
+          <th class="t">م</th>
+        </tr>
+      </table>
+      <div class="mm" id="g105-0"></div>
+    </div>
+
+    <!-- مسألة (٢) -->
+    <div class="ec">
+      <table class="x">
+        <colgroup>
+          <col style="width:27%"><col style="width:11%"><col style="width:11%"><col style="width:21%"><col style="width:15%"><col style="width:15%">
+        </colgroup>
+        <tr>
+          <th class="t">مسألة (٢)</th>
+          <td class="in"><input data-g="g105" data-i="1" data-k="f1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="f2" inputmode="numeric"></td>
+          <th class="t">الجامعة</th>
+          <th class="t" colspan="2">تقسيم الموقوف</th>
+        </tr>
+        <tr>
+          <th class="t">أصل المسألة</th>
+          <td class="in"><input data-g="g105" data-i="1" data-k="b1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="b2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="t" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="th" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="tm" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="h0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="m0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="qh0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="qm0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">أخ لأم مفقود</td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="h1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="m1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="qh1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="qm1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">عم ش</td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="h2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="m2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="qh2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="1" data-k="qm2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="w"></td>
+          <th class="t">ح</th>
+          <th class="t">م</th>
+          <td class="in km-q"><div class="q-in"><span>ق (</span><input data-g="g105" data-i="1" data-k="q" inputmode="numeric"><span>)</span></div></td>
+          <th class="t">ح</th>
+          <th class="t">م</th>
+        </tr>
+      </table>
+      <div class="mm" id="g105-1"></div>
+    </div>
+
+    <!-- مسألة (٣) -->
+    <div class="ec">
+      <table class="x">
+        <colgroup>
+          <col style="width:27%"><col style="width:11%"><col style="width:11%"><col style="width:21%"><col style="width:15%"><col style="width:15%">
+        </colgroup>
+        <tr>
+          <th class="t">مسألة (٣)</th>
+          <td class="in"><input data-g="g105" data-i="2" data-k="f1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="f2" inputmode="numeric"></td>
+          <th class="t">الجامعة</th>
+          <th class="t" colspan="2">تقسيم الموقوف</th>
+        </tr>
+        <tr>
+          <th class="t">أصل المسألة</th>
+          <td class="in"><input data-g="g105" data-i="2" data-k="b1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="b2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="t" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="th" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="tm" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">زوج مفقود</td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="h0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="m0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="qh0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="qm0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">أخت ش</td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="h1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="m1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="qh1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="qm1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">أخت لأب</td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="h2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="m2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="qh2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="2" data-k="qm2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="w"></td>
+          <th class="t">ح</th>
+          <th class="t">م</th>
+          <td class="in km-q"><div class="q-in"><span>ق (</span><input data-g="g105" data-i="2" data-k="q" inputmode="numeric"><span>)</span></div></td>
+          <th class="t">ح</th>
+          <th class="t">م</th>
+        </tr>
+      </table>
+      <div class="mm" id="g105-2"></div>
+    </div>
+
+    <!-- مسألة (٤) -->
+    <div class="ec">
+      <table class="x">
+        <colgroup>
+          <col style="width:27%"><col style="width:11%"><col style="width:11%"><col style="width:21%"><col style="width:15%"><col style="width:15%">
+        </colgroup>
+        <tr>
+          <th class="t">مسألة (٤)</th>
+          <td class="in"><input data-g="g105" data-i="3" data-k="f1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="f2" inputmode="numeric"></td>
+          <th class="t">الجامعة</th>
+          <th class="t" colspan="2">تقسيم الموقوف</th>
+        </tr>
+        <tr>
+          <th class="t">أصل المسألة</th>
+          <td class="in"><input data-g="g105" data-i="3" data-k="b1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="b2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="t" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="th" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="tm" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">زوجة</td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="h0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="m0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="qh0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="qm0" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="h1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="m1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="qh1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="qm1" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="nm">أب مفقود</td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="h2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="m2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="qh2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g105" data-i="3" data-k="qm2" inputmode="numeric"></td>
+        </tr>
+        <tr>
+          <td class="w"></td>
+          <th class="t">ح</th>
+          <th class="t">م</th>
+          <td class="in km-q"><div class="q-in"><span>ق (</span><input data-g="g105" data-i="3" data-k="q" inputmode="numeric"><span>)</span></div></td>
+          <th class="t">ح</th>
+          <th class="t">م</th>
+        </tr>
+      </table>
+      <div class="mm" id="g105-3"></div>
+    </div>
+  </div>
+
+  <button class="btn" data-chk="g105" type="button">تصحيح تمارين ص ١٠٥</button>
+  <div class="rs" id="g105-r" hidden></div>
+  <div class="prog" data-group="g105" id="g105-prog">
+    <div class="prog-txt">لم تُصحّح بعد — اضغط «تصحيح تمارين ص ١٠٥»</div>
+    <div class="prog-bar"><div class="prog-fill"></div></div>
+  </div>
+</section>
+
+<!-- رابط الانتقال إلى الباب التالي مباشرة -->
+<div class="nxt-box" id="next-gate">
+  <div class="nxt-links">
+    <a class="nxt-btn" id="next-ch-btn" href="الباب_١٨_الحمل.html">الانتقال إلى الباب ١٨: الحمل ←</a>
+    <a class="nxt-btn browse" href="index.html">🏠 اللوحة الذكية</a>
+  </div>
+</div>
+
+<div id="kp" hidden></div>
+
+<script>
+  const Z = "|0|-";   // يقبل الخانة فارغة أو ٠ أو - (للمحجوب أو الميت)
+  const ONE = "١|1|"; // يقبل جزء السهم ١ أو تركه فارغاً
+
+  const EXD = {
+    /* ===== تمارين الخنثى المشكل — صفحة ١٠٤ ===== */
+    g104: [
+      /* مسألة (١): بنت، ولد خنثى، ابن ابن (تماثل: ٣ و ٣ -> الجامعة ٣) */
+      {
+        t: 3,
+        hs: [["بنت", 1], ["ولد خنثى", 1], ["ابن ابن", null]],
+        c: {
+          f1: ONE, f2: ONE, b1: 3, b2: 3, td: 3, tn: 3,
+          d0: 1, d1: 2, d2: Z,
+          n0: 1, n1: 1, n2: 1,
+          s2: Z,
+          qd0: 1, qd1: 2, qd2: Z,
+          qn0: 1, qn1: 1, qn2: 1,
+          q: 1
+        }
+      },
+      /* مسألة (٢): بنت، ولد ابن خنثى، عم ش (تداخل: ٢ و ٦ -> الجامعة ٦) */
+      {
+        t: 6,
+        hs: [["بنت", 3], ["ولد ابن خنثى", 1], ["عم ش", null]],
+        c: {
+          f1: 3, f2: ONE, b1: 2, b2: 6, td: 6, tn: 6,
+          d0: 1, d1: 1, d2: Z,
+          n0: 3, n1: 1, n2: 2,
+          s2: Z,
+          qd0: 3, qd1: 3, qd2: Z,
+          qn0: 3, qn1: 1, qn2: 2,
+          q: 2
+        }
+      },
+      /* مسألة (٣): أم، زوج، ولد أبوين خنثى (توافق: ٦ و ٨ عولاً -> الجامعة ٢٤) */
+      {
+        t: 24,
+        hs: [["أم", 6], ["زوج", 9], ["ولد أبوين خنثى", 4]],
+        c: {
+          f1: 4, f2: 3, b1: 6, b2: 8, td: 24, tn: 24,
+          d0: 2, d1: 3, d2: 1,
+          n0: 2, n1: 3, n2: 3,
+          qd0: 8, qd1: 12, qd2: 4,
+          qn0: 6, qn1: 9, qn2: 9,
+          q: 5
+        }
+      },
+      /* مسألة (٤): أخ لأم، أم، ولد أب خنثى (تباين: ٦ و ٥ رداً -> الجامعة ٣٠) */
+      {
+        t: 30,
+        hs: [["أخ لأم", 5], ["أم", 5], ["ولد أب خنثى", 18]],
+        c: {
+          f1: 5, f2: 6, b1: 6, b2: 5, td: 30, tn: 30,
+          d0: 1, d1: 1, d2: 4,
+          n0: 1, n1: 1, n2: 3,
+          qd0: 5, qd1: 5, qd2: 20,
+          qn0: 6, qn1: 6, qn2: 18,
+          q: 2
+        }
+      }
+    ],
+
+    /* ===== تمارين المفقود — صفحة ١٠٥ ===== */
+    g105: [
+      /* مسألة (١): بنت، بنت ابن، ابن ابن مفقود (توافق: ٦ و ٤ رداً -> الجامعة ١٢) */
+      {
+        t: 12,
+        hs: [["بنت", 6], ["بنت ابن", 2], ["ابن ابن مفقود", null]],
+        c: {
+          f1: 2, f2: 3, b1: 6, b2: 4, th: 12, tm: 12,
+          h0: 3, h1: 1, h2: 2,
+          m0: 3, m1: 1, m2: Z,
+          s2: Z,
+          qh0: 6, qh1: 2, qh2: 4,
+          qm0: 9, qm1: 3, qm2: Z,
+          q: 4
+        }
+      },
+      /* مسألة (٢): أم، أخ لأم مفقود، عم ش (تداخل: ٦ و ٣ -> الجامعة ٦) */
+      {
+        t: 6,
+        hs: [["أم", 2], ["أخ لأم مفقود", null], ["عم ش", 3]],
+        c: {
+          f1: ONE, f2: 2, b1: 6, b2: 3, th: 6, tm: 6,
+          h0: 2, h1: 1, h2: 3,
+          m0: 1, m1: Z, m2: 2,
+          s1: Z,
+          qh0: 2, qh1: 1, qh2: 3,
+          qm0: 2, qm1: Z, qm2: 4,
+          q: 1
+        }
+      },
+      /* مسألة (٣): زوج مفقود، أخت ش، أخت لأب (تباين: ٧ عولاً و ٤ رداً -> الجامعة ٢٨) */
+      {
+        t: 28,
+        hs: [["زوج مفقود", null], ["أخت ش", 12], ["أخت لأب", 4]],
+        c: {
+          f1: 4, f2: 7, b1: 7, b2: 4, th: 28, tm: 28,
+          h0: 3, h1: 3, h2: 1,
+          m0: Z, m1: 3, m2: 1,
+          s0: Z,
+          qh0: 12, qh1: 12, qh2: 4,
+          qm0: Z, qm1: 21, qm2: 7,
+          q: 12
+        }
+      },
+      /* مسألة (٤): زوجة، أم، أب مفقود (تماثل: ٤ و ٤ -> الجامعة ٤) */
+      {
+        t: 4,
+        hs: [["زوجة", 1], ["أم", 1], ["أب مفقود", null]],
+        c: {
+          f1: ONE, f2: ONE, b1: 4, b2: 4, th: 4, tm: 4,
+          h0: 1, h1: 1, h2: 2,
+          m0: 1, m1: 3, m2: Z,
+          s2: Z,
+          qh0: 1, qh1: 1, qh2: 2,
+          qm0: 1, qm1: 3, qm2: Z,
+          q: 2
+        }
+      }
+    ]
+  };
+</script>
+<script src="js/script.js?v=3"></script>
+<script src="js/progress.js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم - الفوائد في تسهيل مسائل الفرائض</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1d56d8">
+  <link rel="apple-touch-icon" href="images/test.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+
+    :root {
+      --primary: #1d56d8;
+      --primary-light: #e3edff;
+      --success: #1e8449;
+      --success-light: #eafaf1;
+      --danger: #c0392b;
+      --danger-light: #fdecea;
+      --bg: #f8f9fc;
+      --card-bg: #ffffff;
+      --text-dark: #121826;
+      --text-muted: #6c7589;
+      --border: #eef1f6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Tajawal', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-dark);
+      padding-bottom: 95px;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      position: relative;
+      box-shadow: 0 0 25px rgba(0,0,0,0.05);
+    }
+
+    .container {
+      padding: 28px 20px 16px;
+    }
+
+    .top-label {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .welcome-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .welcome-title span {
+      color: var(--primary);
+    }
+
+    .welcome-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* بطاقة المسار الحالي */
+    .current-track {
+      background-color: var(--primary-light);
+      border-radius: 20px;
+      padding: 22px 20px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(29, 86, 216, 0.12);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .current-track:active {
+      transform: scale(0.99);
+    }
+
+    .track-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #1b2e59;
+      margin-bottom: 16px;
+    }
+
+    .progress-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      direction: ltr;
+    }
+
+    .progress-pct {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #1b2e59;
+      min-width: 42px;
+    }
+
+    .progress-bar-bg {
+      flex: 1;
+      height: 12px;
+      background-color: #cddff8;
+      border-radius: 99px;
+      overflow: hidden;
+      direction: rtl;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background-color: var(--primary);
+      border-radius: 99px;
+      transition: width 0.4s ease;
+    }
+
+    /* عنوان قسم متابعة التعلم */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    .view-all {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .search-box {
+      display: none;
+      margin-bottom: 16px;
+    }
+
+    .search-box.active {
+      display: block;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid #d8e0f0;
+      font-size: 1rem;
+      outline: none;
+      background: #fff;
+    }
+
+    /* بطاقات الأبواب */
+    .unit-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .unit-card {
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: 0.2s;
+    }
+
+    .unit-info {
+      flex: 1;
+    }
+
+    .unit-name {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .unit-meta {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .btn-continue {
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      background-color: #f1f4f9;
+      color: #2b3a55;
+      transition: 0.2s;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+    }
+
+    .unit-card.active-unit {
+      border-color: #bfd3ff;
+    }
+
+    .unit-card.active-unit .btn-continue {
+      background-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(29, 86, 216, 0.25);
+    }
+
+    .unit-card.done-unit .btn-continue {
+      background-color: var(--success-light);
+      color: var(--success);
+    }
+
+    /* ================= شاشة حسابي ================= */
+    #accountView {
+      display: none;
+    }
+
+    .acc-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      margin-bottom: 16px;
+    }
+
+    .acc-card-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .name-edit-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .name-edit-row input {
+      flex: 1;
+      padding: 11px 14px;
+      border: 1.5px solid #d8e0f0;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      outline: none;
+    }
+
+    .name-edit-row input:focus {
+      border-color: var(--primary);
+    }
+
+    .btn-save {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 0 20px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    /* شبكة الإحصائيات */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .stat-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 8px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .stat-num {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .stat-lbl {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    /* أزرار الإجراءات في حسابي */
+    .action-btn {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border: 1px solid #d8e0f0;
+      background: #f8faff;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      transition: 0.2s;
+    }
+
+    .action-btn:last-child {
+      margin-bottom: 0;
+    }
+
+    .action-btn.whatsapp {
+      background: #eafaf1;
+      border-color: #b7ebc6;
+      color: #1e8449;
+    }
+
+    .action-btn.cert {
+      background: var(--primary-light);
+      border-color: #bfd3ff;
+      color: var(--primary);
+    }
+
+    .action-btn.danger {
+      background: var(--danger-light);
+      border-color: #f5c6cb;
+      color: var(--danger);
+    }
+
+    /* نافذة الشهادة */
+    .cert-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 300;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .cert-modal.show {
+      display: flex;
+    }
+
+    .cert-box {
+      background: #fffdf9;
+      border: 6px double #b8862a;
+      border-radius: 16px;
+      padding: 28px 20px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .cert-box h3 {
+      color: #14241e;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .cert-box p {
+      color: #444;
+      line-height: 1.8;
+      font-size: 0.98rem;
+      margin-bottom: 14px;
+    }
+
+    .cert-student {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #1d56d8;
+      margin: 10px 0;
+    }
+
+    /* الإشعارات */
+    .toast {
+      position: fixed;
+      bottom: 85px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #1e293b;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s ease;
+      z-index: 250;
+      white-space: nowrap;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* شريط التنقل السفلي */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      background-color: #ffffff;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0 14px;
+      z-index: 100;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: #8c96a9;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .nav-item.active {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .nav-item svg {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="top-label">
+      <span id="pageTopLabel">لوحة التحكم</span>
+    </div>
+
+    <!-- ================= الشاشة الرئيسية واستكشاف ================= -->
+    <div id="mainView">
+      <h1 class="welcome-title">
+        مرحباً بعودتك،<br>
+        
+        <span id="studentName"><span id="welcome-name">طالبنا</span>!</span>
+      </h1>
+      <p class="welcome-sub">هل أنت مستعد لمواصلة التعلم اليوم؟</p>
+
+      <!-- المسار الحالي -->
+      <div class="current-track" id="currentTrackCard">
+        <div class="track-title" id="currentTrackTitle">المسار الحالي: الباب ١: المدخل لعلم الفرائض</div>
+        <div class="progress-row">
+          <span class="progress-pct" id="overallPct">0%</span>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="overallBar" style="width: 0%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- قسم متابعة التعلم -->
+      <div class="section-header">
+        <h2 class="section-title">متابعة التعلم</h2>
+        <a class="view-all" id="toggleAllBtn">عرض الكل</a>
+      </div>
+
+      <div class="search-box" id="searchBox">
+        <input type="text" id="searchInput" placeholder="ابحث عن باب أو موضوع...">
+      </div>
+
+      <div class="unit-list" id="unitList"></div>
+    </div>
+
+    <!-- ================= شاشة حسابي ================= -->
+    <div id="accountView">
+      <!-- ١. تعديل اسم الطالب -->
+      <div class="acc-card">
+        <div class="acc-card-title">بيانات الطالب</div>
+        <div class="name-edit-row">
+          <input type="text" id="nameInput" placeholder="أدخل اسمك الكامل...">
+          <button class="btn-save" onclick="saveStudentName()">حفظ</button>
+        </div>
+      </div>
+      <!-- ٢. ملخص الإحصائيات الدقيقة -->
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-num" id="statChapters">0 / 25</div>
+          <div class="stat-lbl">الأبواب المكتملة</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num" id="statGroups">0</div>
+          <div class="stat-lbl">التدريبات المنجزة</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num" id="statPct">0%</div>
+          <div class="stat-lbl">نسبة الإنجاز</div>
+        </div>
+      </div>
+      
+      <div class="card" style="text-align:center; padding:18px; margin-top:14px; background:#fff; border-radius:14px; box-shadow:0 2px 10px rgba(0,0,0,.05);">
+        <h3 style="margin:0 0 10px; color:#17375e; font-size:17px;">اختبار الشهادة الختامي</h3>
+        <p id="exam-lock-msg" style="margin:0 0 14px; color:#c62828; font-size:14px; font-weight:700; line-height:1.6;">
+          🔒 يجب إكمال جميع الأبواب والتدريبات (١٠٠٪) لفتح اختبار الشهادة.
+        </p>
+        <a id="btn-start-exam" href="exam.html" style="display:block; width:100%; padding:13px 16px; background:#9aa5b1; color:#fff; text-decoration:none; border-radius:10px; font-weight:700; font-size:15px; pointer-events:none; opacity:.7;">
+          🔒 اختبار الشهادة (مغلق)
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="toast" id="lockToast"></div>
+
+  <!-- شريط التنقل السفلي -->
+  <nav class="bottom-nav">
+    <a class="nav-item active" onclick="switchTab('home', this)">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <span>الرئيسية</span>
+    </a>
+    <a class="nav-item" onclick="switchTab('explore', this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>استكشاف</span>
+    </a>
+    <a class="nav-item" onclick="switchTab('account', this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>حسابي</span>
+    </a>
+  </nav>
+
+  <script>
+    // إزالة أي بقايا سابقة لوضع المعلم
+    localStorage.removeItem("faraid_teacher");
+
+    
+
+    const chapters = [
+      { id: 1,  title: "الباب ١: المدخل لعلم الفرائض",       meta: "قراءة وتمارين",     file: "الباب_١_المدخل.html" },
+      { id: 2,  title: "الباب ٢: أصحاب النصف",               meta: "تمارين تفاعلية",    file: "الباب_٢_أصحاب_النصف.html" },
+      { id: 3,  title: "الباب ٣: أصحاب الربع",               meta: "تمارين تفاعلية",    file: "الباب_٣_أصحاب_الربع.html" },
+      { id: 4,  title: "الباب ٤: أصحاب الثمن",               meta: "تمارين تفاعلية",    file: "الباب_٤_أصحاب_الثمن.html" },
+      { id: 5,  title: "الباب ٥: أصحاب الثلثين",             meta: "تمارين تفاعلية",    file: "الباب_٥_أصحاب_الثلثين.html" },
+      { id: 6,  title: "الباب ٦: أصحاب الثلث",               meta: "تمارين تفاعلية",    file: "الباب_٦_أصحاب_الثلث.html" },
+      { id: 7,  title: "الباب ٧: أصحاب السدس",               meta: "تمارين تفاعلية",    file: "الباب_٧_أصحاب_السدس.html" },
+      { id: 8,  title: "الباب ٨: أحوال الجدات",              meta: "قراءة وتمارين",     file: "الباب_٨_أحوال_الجدات.html" },
+      { id: 9,  title: "الباب ٩: التعصيب",                   meta: "قراءة وتمارين",     file: "الباب_٩_التعصيب.html" },
+      { id: 10, title: "الباب ١٠: الحجب",                    meta: "قراءة وتمارين",     file: "الباب_١٠_الحجب.html" },
+      { id: 11, title: "الباب ١١: العول",                    meta: "شبابيك الفرائض",    file: "الباب_١١_العول.html" },
+      { id: 12, title: "الباب ١٢: الرد",                     meta: "شبابيك الفرائض",    file: "الباب_١٢_الرد.html" },
+      { id: 13, title: "الباب ١٣: الانكسار على جنس واحد",    meta: "شبابيك الفرائض",    file: "الباب_١٣_الانكسار_على_جنس_واحد.html" },
+      { id: 14, title: "الباب ١٤: الانكسار على أجناس",       meta: "شبابيك الفرائض",    file: "الباب_١٤_الانكسار_على_أجناس.html" },
+      { id: 15, title: "الباب ١٥: المناسخات",                meta: "شبابيك الفرائض",    file: "الباب_١٥_المناسخات.html" },
+      { id: 16, title: "الباب ١٦: قسمة التركات",             meta: "مسائل تطبيقية",     file: "الباب_١٦_قسمة_التركات.html" },
+      { id: 17, title: "الباب ١٧: الخنثى المشكل والمفقود",   meta: "مسائل تطبيقية",     file: "الباب_١٧_الخنثى_والمفقود.html" },
+      { id: 18, title: "الباب ١٨: الحمل",                    meta: "مسائل تطبيقية",     file: "الباب_١٨_الحمل.html" },
+      { id: 19, title: "الباب ١٩: الهدمى والغرقى ونحوهم",    meta: "مسائل تطبيقية",     file: "الباب_١٩_الهدمى_والغرقى.html" },
+      { id: 20, title: "الباب ٢٠: ميراث ذوي الأرحام",        meta: "مسائل تطبيقية",     file: "الباب_٢٠_ذوو_الأرحام.html" },
+      { id: 21, title: "الباب ٢١: المشتركة",                 meta: "قراءة وأمثلة",      file: "الباب_٢١_المشتركة.html" },
+      { id: 22, title: "الباب ٢٢: الجد مع الإخوة",           meta: "شبابيك الفرائض",    file: "الباب_٢٢_الجد_مع_الإخوة.html" },
+      { id: 23, title: "الباب ٢٣: المعادّة",                 meta: "شبابيك الفرائض",    file: "الباب_٢٣_المعادة.html" },
+      { id: 24, title: "الباب ٢٤: الأكدرية",                 meta: "شبابيك الفرائض",    file: "الباب_٢٤_الأكدرية.html" },
+      { id: 25, title: "الباب ٢٥: الوصية",                   meta: "مسائل تطبيقية",     file: "الباب_٢٥_الوصية.html" }
+    ];
+
+    function nv(s) {
+      return parseInt(String(s).replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d)), 10);
+    }
+
+    function unitNum(name) {
+      try { name = decodeURIComponent(name); } catch (e) {}
+      const m = /(?:الباب|الوحدة)[_\s-]*([٠-٩0-9]+)/.exec(name);
+      return m ? nv(m[1]) : null;
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById("lockToast");
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => t.classList.remove("show"), 2600);
+    }
+
+    // قراءة التقدم الفعلي المحفوظ عبر progress.js (مفاتيح miras_done_ و miras_prog_)
+    function isChapterDone(ch) {
+      if (localStorage.getItem("miras_done_" + ch.id) === "1") return true;
+      if (localStorage.getItem("faraid_ch_done_" + ch.id) === "1") return true;
+      if (localStorage.getItem("ch_done_" + ch.id) === "1") return true;
+
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (!k || !k.startsWith("miras_prog_") || unitNum(k.slice(11)) !== ch.id) continue;
+        try {
+          const st = JSON.parse(localStorage.getItem(k) || "{}");
+          const ks = Object.keys(st);
+          if (ks.length && ks.every(g => st[g] && ((st[g].total && st[g].ok === st[g].total) || st[g].done))) {
+            return true;
+          }
+        } catch (e) {}
+      }
+      return false;
+    }
+
+    function countDoneGroups() {
+      let doneGroups = 0;
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (!k || !k.startsWith("miras_prog_")) continue;
+        try {
+          const st = JSON.parse(localStorage.getItem(k) || "{}");
+          Object.keys(st).forEach(g => {
+            if (st[g] && ((st[g].total && st[g].ok === st[g].total) || st[g].done)) {
+              doneGroups++;
+            }
+          });
+        } catch (e) {}
+      }
+      return doneGroups;
+    }
+
+    function computeProgress() {
+      let currentIdx = 0;
+      let foundActive = false;
+      let doneCount = 0;
+
+      chapters.forEach((ch, idx) => {
+        const prevUnlocked = (idx === 0) || (chapters[idx - 1].status === "done");
+        const done = isChapterDone(ch);
+
+        if (done) {
+          ch.status = "done";
+          doneCount++;
+        } else if (prevUnlocked && !foundActive) {
+          ch.status = "active";
+          currentIdx = idx;
+          foundActive = true;
+        } else {
+          ch.status = "locked";
+        }
+      });
+
+      if (!foundActive) {
+        currentIdx = chapters.length - 1;
+      }
+
+      const pct = Math.round((doneCount / chapters.length) * 100);
+      const doneGroups = countDoneGroups();
+      const currentCh = chapters[currentIdx];
+
+      document.getElementById("currentTrackTitle").textContent = "المسار الحالي: " + currentCh.title;
+      document.getElementById("overallPct").textContent = pct + "%";
+      document.getElementById("overallBar").style.width = pct + "%";
+      document.getElementById("currentTrackCard").onclick = () => {
+        window.location.href = currentCh.file;
+      };
+
+      // تحديث إحصائيات شاشة حسابي
+      // تحديث إحصائيات شاشة حسابي
+      document.getElementById("statChapters").textContent = doneCount + " / " + chapters.length;
+      document.getElementById("statGroups").textContent = doneGroups;
+      document.getElementById("statPct").textContent = pct + "%";
+      updateExamLock(pct);
+
+      return { doneCount, doneGroups, pct };
+    }
+
+    let showAll = false;
+    const unitListEl = document.getElementById("unitList");
+    const toggleAllBtn = document.getElementById("toggleAllBtn");
+
+    function renderUnits(filterText = "") {
+      computeProgress();
+      unitListEl.innerHTML = "";
+      const filtered = chapters.filter(c => c.title.includes(filterText));
+
+      // في العرض المختصر نُظهر الباب الحالي والبابين التاليين له لتسهيل المتابعة
+      let listToShow;
+      if (showAll || filterText) {
+        listToShow = filtered;
+      } else {
+        const activeIdx = filtered.findIndex(c => c.status === "active");
+        const start = activeIdx >= 0 ? activeIdx : Math.max(0, filtered.length - 3);
+        listToShow = filtered.slice(start, start + 3);
+      }
+
+      listToShow.forEach((ch) => {
+        const card = document.createElement("div");
+        const statusClass = ch.status === "done" ? " done-unit" : (ch.status === "active" ? " active-unit" : "");
+        card.className = "unit-card" + statusClass;
+
+        const btnText = ch.status === "done" ? "✓ مكتمل" : (ch.status === "active" ? "متابعة" : "📖 قراءة");
+        const metaText = ch.status === "locked" ? (ch.meta + " • التدريبات 🔒") : ch.meta;
+
+        card.innerHTML = `
+          <div class="unit-info">
+            <div class="unit-name">${ch.title}</div>
+            <div class="unit-meta">${metaText}</div>
+          </div>
+          <a href="${ch.file}" class="btn-continue">${btnText}</a>
+        `;
+
+        unitListEl.appendChild(card);
+      });
+
+      toggleAllBtn.textContent = showAll ? "عرض أقل" : "عرض الكل";
+    }
+
+    toggleAllBtn.addEventListener("click", () => {
+      showAll = !showAll;
+      renderUnits(document.getElementById("searchInput").value.trim());
+    });
+
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+      renderUnits(e.target.value.trim());
+    });
+
+    function switchTab(tab, el) {
+      document.querySelectorAll(".nav-item").forEach(i => i.classList.remove("active"));
+      el.classList.add("active");
+
+      const mainView = document.getElementById("mainView");
+      const accountView = document.getElementById("accountView");
+      const sb = document.getElementById("searchBox");
+      const topLbl = document.getElementById("pageTopLabel");
+
+      if (tab === "account") {
+        mainView.style.display = "none";
+        accountView.style.display = "block";
+        topLbl.textContent = "حسابي وإحصائيات التعلم";
+        document.getElementById("nameInput").value = localStorage.getItem("faraid_user") || "رامي";
+        computeProgress();
+      } else {
+        accountView.style.display = "none";
+        mainView.style.display = "block";
+        topLbl.textContent = "لوحة التحكم";
+        if (tab === "explore") {
+          sb.classList.add("active");
+          showAll = true;
+          renderUnits();
+          document.getElementById("searchInput").focus();
+        } else {
+          sb.classList.remove("active");
+          showAll = false;
+          renderUnits();
+        }
+      }
+    }
+
+    // ١. حفظ اسم الطالب
+    function saveStudentName() {
+      const val = document.getElementById("nameInput").value.trim();
+      if (val) {
+        localStorage.setItem("faraid_user", val);
+        document.getElementById("studentName").textContent = val + "!";
+        showToast("✓ تم حفظ الاسم بنجاح");
+      }
+    }
+
+    // ٢. مشاركة تقرير الإنجاز عبر واتساب
+    function shareWhatsAppReport() {
+      const stats = computeProgress();
+      const name = localStorage.getItem("faraid_user") || "رامي";
+      const doneList = chapters.filter(c => c.status === "done").map(c => "✅ " + c.title).join("\n");
+      const msg = `📖 *تقرير إنجاز كتاب الفوائد في تسهيل مسائل الفرائض*\n` +
+                  `👤 الطالب: ${name}\n` +
+                  `📊 نسبة الإنجاز: ${stats.pct}% (${stats.doneCount} من ${chapters.length} باباً)\n` +
+                  `📝 التدريبات المنجزة: ${stats.doneGroups}\n\n` +
+                  (doneList ? `*الأبواب المنجزة:*\n${doneList}` : `لم يتم إكمال أي باب بنسبة ١٠٠٪ بعد.`);
+      window.open("https://wa.me/?text=" + encodeURIComponent(msg), "_blank");
+    }
+
+    // ٣. شهادة الإتمام
+    function openCertificate() {
+      const stats = computeProgress();
+      if (stats.pct < 100) {
+        showToast("🎓 تفتح الشهادة بعد إتمام جميع أبواب الكتاب بنسبة ١٠٠٪");
+        return;
+      }
+      document.getElementById("certStudentName").textContent = localStorage.getItem("faraid_user") || "رامي";
+      document.getElementById("certModal").classList.add("show");
+    }
+
+    // ٤. نسخ واستعادة كود التقدم
+    function exportProgressCode() {
+      const data = {};
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k.startsWith("miras_") || k.startsWith("faraid") || k.startsWith("g") || k.startsWith("ch_")) {
+          data[k] = localStorage.getItem(k);
+        }
+      }
+      const code = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+      navigator.clipboard.writeText(code).then(() => {
+        showToast("📋 تم نسخ كود حفظ التقدم إلى الحافظة");
+      }).catch(() => {
+        prompt("انسخ هذا الكود للاحتفاظ بتقدمك:", code);
+      });
+    }
+
+    function importProgressCode() {
+      const code = prompt("الصق كود التقدم المحفوظ هنا:");
+      if (!code || !code.trim()) return;
+      try {
+        const data = JSON.parse(decodeURIComponent(escape(atob(code.trim()))));
+        Object.entries(data).forEach(([k, v]) => {
+          if (k !== "faraid_teacher") localStorage.setItem(k, v);
+        });
+        const savedName = localStorage.getItem("faraid_user");
+        if (savedName) document.getElementById("studentName").textContent = savedName + "!";
+        renderUnits();
+        showToast("✓ تمت استعادة التقدم بنجاح");
+      } catch (e) {
+        showToast("❌ الكود غير صالح");
+      }
+    }
+
+    // ٥. تصفير التقدم
+    function resetAllProgress() {
+      if (!confirm("هل أنت متأكد من مسح جميع الإجابات وتصفير التقدم للبدء من جديد؟")) return;
+      const name = localStorage.getItem("faraid_user");
+      localStorage.clear();
+      if (name) localStorage.setItem("faraid_user", name);
+      renderUnits();
+      showToast("🗑️ تم تصفير التقدم بنجاح");
+    }
+
+    // تحميل الاسم المحفوظ عند الفتح
+    const savedName = localStorage.getItem("faraid_user");
+    if (savedName) document.getElementById("studentName").textContent = savedName + "!";
+
+    renderUnits();
+    window.addEventListener("pageshow", () => renderUnits(document.getElementById("searchInput").value.trim()));
+
+    function updateExamLock(percent) {
+  const btn = document.getElementById("btn-start-exam");
+  const msg = document.getElementById("exam-lock-msg");
+  if (!btn || !msg) return;
+
+  if (Number(percent) >= 100) {
+    localStorage.setItem("miras_book_completed", "1");
+    btn.style.background = "#17375e";
+    btn.style.pointerEvents = "auto";
+    btn.style.opacity = "1";
+    btn.textContent = "🎓 الدخول إلى اختبار الشهادة";
+    msg.style.color = "#2e7d32";
+    msg.textContent = "✓ أحسنت! أتممت الكتاب والتدريبات، يمكنك الآن دخول الاختبار.";
+  } else {
+    localStorage.removeItem("miras_book_completed");
+    btn.style.background = "#9aa5b1";
+    btn.style.pointerEvents = "none";
+    btn.style.opacity = "0.7";
+    btn.textContent = "🔒 اختبار الشهادة (مغلق)";
+    msg.style.color = "#c62828";
+    msg.textContent = `🔒 يجب إكمال جميع الأبواب والتدريبات (١٠٠٪) لفتح الاختبار — إنجازك الحالي: ${percent}٪`;
+  }
+}
+  </script>
+<script src="js/student.js?v=2"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
+  }
+</script>
+</body>
+</html>

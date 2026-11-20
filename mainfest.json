@@ -1,0 +1,27 @@
+{
+    "name": "الفوائد في تسهيل مسائل الفرائض",
+    "short_name": "الفرائض",
+    "description": "كتاب تفاعلي وتدريبات واختبار شهادة في علم الفرائض",
+    "lang": "ar",
+    "dir": "rtl",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#f8f9fc",
+    "theme_color": "#1d56d8",
+    "icons": [
+      {
+        "src": "img/icon-192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "img/icon-512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ]
+  }
