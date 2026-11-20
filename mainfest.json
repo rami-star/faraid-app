@@ -5,20 +5,20 @@
   "icons": [
     {
       "src": "images/icon-192.jpg",
-      "type": "image/png",
+      "type": "image/jpeg",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
       "src": "images/icon-512.jpg",
-      "type": "image/png",
+      "type": "image/jpeg",
       "sizes": "512x512",
       "purpose": "any maskable"
     }
   ],
   "screenshots": [
     {
-      "src": "images/cover400.png",
+      "src": "images/cover-400.png",
       "type": "image/png",
       "sizes": "400x500",
       "form_factor": "narrow",
