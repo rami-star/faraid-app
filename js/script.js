@@ -1333,3 +1333,21 @@ document.addEventListener("click", e => {
   }
 })();
 
+/* تفعيل زر Enter في العمود الأول (.mi) على اللابتوب */
+document.addEventListener("keydown", e => {
+  if (!ki || (kp && kp.hidden)) return;
+
+  if (e.key === "Enter") {
+    e.preventDefault();
+    moveToNextMi(ki);
+  } else if (e.key === "Backspace" || e.key === "Delete") {
+    e.preventDefault();
+    ki.innerHTML = "";
+    delete ki.dataset.v;
+    ki.style.outline = "";
+  } else if (e.key === "Escape") {
+    e.preventDefault();
+    closeKp();
+  }
+});
+
