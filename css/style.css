@@ -171,9 +171,7 @@ html{scroll-padding-top:3em}body{margin:0;background:#d9dde3;color:#111;font-fam
 /* التجاوب مع الجوالات والأجهزة الصغيرة */
 @media (max-width: 520px) {
   .cvr {
-    padding-right: 70px;
     padding-left: 10px;
-    min-height: 600px;
   }
   .cvr-bord {
     width: 50px;
@@ -198,7 +196,7 @@ html{scroll-padding-top:3em}body{margin:0;background:#d9dde3;color:#111;font-fam
   font-weight:700; font-size:1.55em; color:#1a2e28;
 }
 @media (max-width:520px){
-  .cvr{padding-right:60px; min-height:600px}
+  
   .cvr-bord{width:50px}
   .cvr .t1{font-size:2.7em}
   .cvr .t2{font-size:1.5em}
@@ -623,18 +621,22 @@ html{scroll-padding-top:3em}body{margin:0;background:#d9dde3;color:#111;font-fam
       .asaba-tbl { height: 640px; font-size: .7em; }
     }
 
-    /* ==========================================================================
-   نظام احتواء صفحات الشرح والأمثلة كاملة في الشاشة (Auto-Fit) مع التكبير
-   ========================================================================== */
-
 /* حاوية الضبط التلقائي التي تمنع وجود فراغات تحت الصفحة المصغرة */
+html, body {
+  overflow-x: clip;
+}
+
 .pg-stage {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   margin: 10px auto;
-  overflow: visible;
+  overflow: hidden;
+}
+
+.pg-stage:has(.is-zoomed) {
+  overflow-x: auto;
 }
 
 /* أبعاد ورقة الكتاب القياسية لصفحات الشرح والأمثلة فقط */
@@ -729,8 +731,9 @@ html{scroll-padding-top:3em}body{margin:0;background:#d9dde3;color:#111;font-fam
   margin: 0 auto !important;
   display: grid !important;
   grid-template-columns: repeat(60, minmax(0, 1fr)) !important;
-  gap: 6px !important;
-  padding: 10px 8px calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+  row-gap: 7px !important;
+  column-gap: 0 !important;
+  padding: 10px 5px calc(10px + env(safe-area-inset-bottom, 0px)) !important;
   background: linear-gradient(#e9eff8, #d9e3f2) !important;
   border-top: 2px solid #2f5597 !important;
   border-radius: 18px 18px 0 0 !important;
@@ -743,7 +746,6 @@ html{scroll-padding-top:3em}body{margin:0;background:#d9dde3;color:#111;font-fam
   display: none !important;
 }
 
-/* توسيط الكيبورد على شاشات اللابتوب العريضة فقط، وملء الشاشة ١٠٠٪ على الجوال */
 @media (min-width: 900px) {
   #kp {
     max-width: 560px !important;
@@ -751,7 +753,7 @@ html{scroll-padding-top:3em}body{margin:0;background:#d9dde3;color:#111;font-fam
 }
 
 #kp button {
-  margin: 0 !important;
+  margin: 0 3px !important;
   min-width: 0 !important;
   min-height: 40px !important;
   height: auto !important;
