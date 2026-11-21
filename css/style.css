@@ -1038,3 +1038,25 @@ html, body {
   margin: 0 !important;
   padding: 0 !important;
 }
+
+/* توضيح وتكبير أرقام عمود الأصل والسهام في مسائل التمارين */
+.ec input[data-k="t"],
+.ec input[data-k^="s"] {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+  padding: 0 2px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* تمييز بسيط لرقم أصل المسألة في الأعلى بلون كحلي واضح */
+.ec input[data-k="t"] {
+  color: #1e3a5f;
+}
+
+/* حجم مناسب للجداول العريضة جداً (مثل المناسخات) حتى لا تضيق الخانات */
+.sw15 .ec input[data-k="t"],
+.sw15 .ec input[data-k^="s"] {
+  font-size: 15px;
+}
