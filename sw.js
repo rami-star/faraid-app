@@ -7,8 +7,7 @@ const CORE_ASSETS = [
   "./css/style.css",
   "./js/script.js",
   "./js/student.js",
-  "./js/exam-data.js",
-  "./img/cert-template.jpg"
+  "./js/exam-data.js"
 ];
 
 self.addEventListener("install", (e) => {
