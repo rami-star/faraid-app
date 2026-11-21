@@ -306,7 +306,7 @@ const bookPageFit = (function () {
 
       if (stage && stage.classList.contains("pg-stage")) {
         stage.style.height = Math.ceil(naturalH * finalScale) + "px";
-        stage.style.overflowX = (naturalW * finalScale > availW + 4) ? "auto" : "visible";
+        stage.style.overflowX = (naturalW * finalScale > availW + 4) ? "auto" : "hidden";
       }
     });
   }
@@ -658,6 +658,7 @@ const moveToNextMi = currentEl => {
   const idx = list.indexOf(currentEl);
   const nextEl = list[(idx + 1) % list.length];
   if (nextEl) {
+    if (!nextEl.hasAttribute("tabindex")) nextEl.tabIndex = 0;
     kpOpenedAt = Date.now();
     nextEl.focus();
     openKpFor(nextEl);
@@ -665,6 +666,7 @@ const moveToNextMi = currentEl => {
 };
 
 if (kp) {
+  kp.hidden = true;
   kp.innerHTML =
     ["1/2", "1/3", "1/4", "1/6", "1/8", "2/3", "1/3ب", "1/6+ب", "مقاسمة"]
       .map(v => `<button type="button" class="w" data-v="${v}">${MKV[v]}</button>`).join("") +
@@ -722,7 +724,7 @@ document.addEventListener("click", e => {
 window.addEventListener("scroll", () => {
   if (!kp || kp.hidden || !ki) return;
   if (Date.now() - kpOpenedAt < 650) return;
-  const box = ki.closest(".eg") || ki.closest(".ec") || ki;
+  const box = ki.closest(".ec") || ki;
   const r = box.getBoundingClientRect();
   const visibleBottom = window.innerHeight - kp.offsetHeight;
   if (r.bottom < 0 || r.top > visibleBottom) {
