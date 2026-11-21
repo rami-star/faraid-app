@@ -649,7 +649,31 @@ const openKpFor = el => {
 };
 
 const moveToNextMi = currentEl => {
-  const scope = currentEl.closest(".eg") || currentEl.closest(".ec") || currentEl.closest("section.pg") || document;
+  const card = currentEl.closest(".ec");
+  if (card) {
+    const cardMis = Array.from(card.querySelectorAll(".mi")).filter(el => {
+      const td = el.closest("td");
+      return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
+    });
+    const idxInCard = cardMis.indexOf(currentEl);
+    if (idxInCard > -1 && idxInCard < cardMis.length - 1) {
+      const nextMi = cardMis[idxInCard + 1];
+      if (!nextMi.hasAttribute("tabindex")) nextMi.tabIndex = 0;
+      kpOpenedAt = Date.now();
+      nextMi.focus();
+      openKpFor(nextMi);
+      return;
+    }
+    const firstInput = card.querySelector('input[data-k="t"]:not(:disabled), input:not(:disabled)');
+    if (firstInput) {
+      closeKp();
+      firstInput.focus();
+      firstInput.select();
+      return;
+    }
+  }
+
+  const scope = currentEl.closest(".eg") || currentEl.closest("section.pg") || document;
   const list = Array.from(scope.querySelectorAll(".mi")).filter(el => {
     const td = el.closest("td");
     return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");

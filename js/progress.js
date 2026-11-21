@@ -111,15 +111,23 @@
         }
         (x.hs || []).forEach(function (h, k) {
           if (h[1] !== null && h[1] !== undefined) {
-            var qs = q("s" + k);
+            var qs = null;
+            for (var js = k; js >= 0 && !qs; js--) {
+              var elS = q("s" + js);
+              if (elS && (!elS.closest("td") || elS.closest("td").style.display !== "none")) qs = elS;
+            }
             good = (!!qs && String(qs.value || "").trim() !== "" && nv(qs.value) === h[1]) && good;
           }
           if (h[2]) {
             var qm = null;
-            for (var j = k; j >= 0 && !qm; j--) qm = q("m" + j);
+            for (var j = k; j >= 0 && !qm; j--) {
+              var elM = q("m" + j);
+              if (elM && (!elM.closest("td") || elM.closest("td").style.display !== "none")) qm = elM;
+            }
             good = (!!qm && ns(qm.dataset.v) === ns(h[2])) && good;
           }
         });
+        
         Object.keys(x.c || {}).forEach(function (key) {
           var el = q(key);
           var val = x.c[key];
