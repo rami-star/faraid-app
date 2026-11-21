@@ -564,7 +564,7 @@ function unmergeCellS(inp) {
   td.rowSpan = 1;
 }
 
-function checkMandatoryMergeS(g, i, item, table, card) {
+function checkMandatoryMergeS(g, i, item, table, card, started) {
   const rows = getShareRows(table);
   const required = item.mergeS || [];
   let ok = true;
@@ -585,18 +585,20 @@ function checkMandatoryMergeS(g, i, item, table, card) {
 
   const key = `${g}-${i}-s`;
   if (!ok) {
-    mergeErrCount[key] = (mergeErrCount[key] || 0) + 1;
-    required.flat().forEach(rIdx => {
-      if (rows[rIdx] && rows[rIdx].inp) {
-        rows[rIdx].inp.style.outlineOffset = "-2px";
-        rows[rIdx].inp.style.outline = "2px solid #c0392b";
+    if (started) {
+      mergeErrCount[key] = (mergeErrCount[key] || 0) + 1;
+      required.flat().forEach(rIdx => {
+        if (rows[rIdx] && rows[rIdx].inp) {
+          rows[rIdx].inp.style.outlineOffset = "-2px";
+          rows[rIdx].inp.style.outline = "2px solid #c0392b";
+        }
+      });
+      if (required.length > 0 && mergeErrCount[key] >= 3 && card && !card.querySelector(".merge-hint")) {
+        const hint = document.createElement("div");
+        hint.className = "merge-hint";
+        hint.textContent = "💡 تلميح: هذه المسألة تحتاج إلى دمج بعض خانات السهام باستخدام زر «دمج السهام ↕».";
+        card.appendChild(hint);
       }
-    });
-    if (required.length > 0 && mergeErrCount[key] >= 3 && card && !card.querySelector(".merge-hint")) {
-      const hint = document.createElement("div");
-      hint.className = "merge-hint";
-      hint.textContent = "💡 تلميح: هذه المسألة تحتاج إلى دمج بعض خانات السهام باستخدام زر «دمج السهام ↕».";
-      card.appendChild(hint);
     }
   } else {
     mergeErrCount[key] = 0;
@@ -938,8 +940,8 @@ document.addEventListener("click", e => {
     const table = tEl && tEl.closest("table");
     const card = tEl && tEl.closest(".ec");
     if (table && (started || (x.merge && x.merge.length) || (x.mergeS && x.mergeS.length))) {
-      const mergeOk = checkMandatoryMerge(g, i, x, table, card);
-      const mergeSOk = checkMandatoryMergeS(g, i, x, table, card);
+      const mergeOk = checkMandatoryMerge(g, i, x, table, card, started);
+      const mergeSOk = checkMandatoryMergeS(g, i, x, table, card, started);
       if (!mergeOk || !mergeSOk) {
         good = false;
         if (started) bad = true;
@@ -1197,55 +1199,52 @@ document.addEventListener("click", e => {
 })();
 
 
-/* انتقال زر التالي في كيبورد الجوال من آخر خانة رقمية في الشباك إلى أول فرض في الشباك التالي */
-document.addEventListener("keydown", (e) => {
-  if (e.key !== "Enter" && e.key !== "Tab") return;
-  const inp = e.target;
-  if (!inp || inp.tagName !== "INPUT") return;
+/* انتقال زر التالي في كيبورد الجوال (أندرويد/آيفون) من آخر خانة رقمية إلى أول فرض في الشباك التالي */
+(function () {
+  let lastTapTime = 0;
+  let lastInput = null;
 
-  const card = inp.closest(".ec");
-  if (!card) return;
+  document.addEventListener("pointerdown", () => { lastTapTime = Date.now(); }, true);
+  document.addEventListener("touchstart", () => { lastTapTime = Date.now(); }, { capture: true, passive: true });
 
-  const visibleInputs = Array.from(card.querySelectorAll("input:not(:disabled)")).filter(el => {
-    const td = el.closest("td");
-    return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
+  document.addEventListener("focusin", (e) => {
+    const inp = e.target;
+    if (!inp || inp.tagName !== "INPUT") return;
+
+    const prevInp = lastInput;
+    lastInput = inp;
+
+    /* إذا ضغط الطالب بإصبعه مباشرة على الخانة فلا تتدخل */
+    if (Date.now() - lastTapTime < 350) return;
+    if (!prevInp || prevInp === inp) return;
+
+    const prevCard = prevInp.closest(".ec");
+    const curCard = inp.closest(".ec");
+    if (!prevCard || !curCard || prevCard === curCard) return;
+
+    const prevInputs = Array.from(prevCard.querySelectorAll("input:not(:disabled)")).filter(el => {
+      const td = el.closest("td");
+      return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
+    });
+
+    /* إذا كان الطالب في آخر خانة رقمية من الشباك السابق وانتقل عبر زر التالي في الكيبورد */
+    if (prevInputs.length && prevInputs[prevInputs.length - 1] === prevInp) {
+      const firstMi = Array.from(curCard.querySelectorAll(".mi")).find(el => {
+        const td = el.closest("td");
+        return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
+      });
+      if (firstMi) {
+        lastInput = null;
+        inp.blur();
+        if (!firstMi.hasAttribute("tabindex")) firstMi.tabIndex = 0;
+        setTimeout(() => {
+          firstMi.focus();
+          if (typeof openKpFor === "function") openKpFor(firstMi);
+        }, 60);
+      }
+    }
   });
-
-  const idx = visibleInputs.indexOf(inp);
-  if (idx === -1) return;
-
-  e.preventDefault();
-
-  /* إذا بقيت خانة رقمية في نفس الشباك انتقل إليها */
-  if (idx < visibleInputs.length - 1) {
-    visibleInputs[idx + 1].focus();
-    visibleInputs[idx + 1].select();
-    return;
-  }
-
-  /* إذا كانت هذه آخر خانة رقمية في الشباك: انتقل لأول فرض في الشباك التالي */
-  const scope = card.closest(".eg") || card.closest("section.pg") || document;
-  const cards = Array.from(scope.querySelectorAll(".ec"));
-  const nextCard = cards[cards.indexOf(card) + 1];
-  if (!nextCard) {
-    inp.blur();
-    return;
-  }
-
-  const firstMi = Array.from(nextCard.querySelectorAll(".mi")).find(el => {
-    const td = el.closest("td");
-    return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
-  });
-
-  if (firstMi) {
-    inp.blur();
-    if (!firstMi.hasAttribute("tabindex")) firstMi.tabIndex = 0;
-    setTimeout(() => {
-      firstMi.focus();
-      if (typeof openKpFor === "function") openKpFor(firstMi);
-    }, 60);
-  }
-});
+})();
 
 /* ===== الحفظ والاستعادة التلقائية لخانات الجداول (الأرقام والفروض) ===== */
 (function () {

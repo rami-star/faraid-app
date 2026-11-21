@@ -1,4 +1,4 @@
-const CACHE_NAME = "faraid-app-v8";
+const CACHE_NAME = "faraid-app-v9";
 
 const CORE_ASSETS = [
   "./",
