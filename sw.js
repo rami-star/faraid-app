@@ -1,4 +1,4 @@
-const CACHE_NAME = "faraid-app-v2";
+const CACHE_NAME = "faraid-app-v3";
 const CORE_ASSETS = [
   "./",
   "./index.html",
@@ -41,6 +41,9 @@ self.addEventListener("fetch", (e) => {
         }
         return res;
       })
-      .catch(() => caches.match(e.request))
+      .catch(async () => {
+        const cached = await caches.match(e.request);
+        return cached || new Response("Offline", { status: 503, statusText: "Offline" });
+      })
   );
 });
