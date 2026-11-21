@@ -299,7 +299,7 @@ const bookPageFit = (function () {
       const baseScale = useWidthFit
         ? Math.min(availW / naturalW, 1.15)
         : Math.min(availW / naturalW, availH / naturalH, 1.1);
-        
+
       const finalScale = Math.max(0.35, Math.min(2.2, baseScale * zoomFactor));
       pg.style.transform = `scale(${finalScale})`;
       pg.classList.toggle("is-zoomed", finalScale > baseScale + 0.05 || zoomMode === "width");
@@ -617,9 +617,12 @@ document.addEventListener("focusin", e => {
   }
 });
 
+let kpOpenedAt = 0;
+
 const closeKp = () => {
   if (!kp) return;
   kp.hidden = true;
+  if (ki && document.activeElement === ki) ki.blur();
   ki = null;
   document.body.style.paddingBottom = "";
 };
@@ -636,12 +639,38 @@ const showCard = el => requestAnimationFrame(() => {
   }
 });
 
+const openKpFor = el => {
+  if (!kp || !el) return;
+  ki = el;
+  kpOpenedAt = Date.now();
+  kp.hidden = false;
+  document.body.style.paddingBottom = (kp.offsetHeight + 24) + "px";
+  showCard(el);
+};
+
+const moveToNextMi = currentEl => {
+  const scope = currentEl.closest(".eg") || currentEl.closest(".ec") || currentEl.closest("section.pg") || document;
+  const list = Array.from(scope.querySelectorAll(".mi")).filter(el => {
+    const td = el.closest("td");
+    return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
+  });
+  if (!list.length) return;
+  const idx = list.indexOf(currentEl);
+  const nextEl = list[(idx + 1) % list.length];
+  if (nextEl) {
+    kpOpenedAt = Date.now();
+    nextEl.focus();
+    openKpFor(nextEl);
+  }
+};
+
 if (kp) {
   kp.innerHTML =
     ["1/2", "1/3", "1/4", "1/6", "1/8", "2/3", "1/3ب", "1/6+ب", "مقاسمة"]
-      .map(v => `<button class="w" data-v="${v}">${MKV[v]}</button>`).join("") +
+      .map(v => `<button type="button" class="w" data-v="${v}">${MKV[v]}</button>`).join("") +
     ["ع", "ب", "م", "غ", "ر"]
-      .map(v => `<button data-v="${v}">${v}</button>`).join("") +
+      .map(v => `<button type="button" data-v="${v}">${v}</button>`).join("") +
+    `<button type="button" data-a="next" title="الانتقال للخانة التالية">التالي ◄</button>` +
     `<button type="button" class="kp-merge" data-a="merge">دمج ↕</button>` +
     `<button type="button" class="kp-unmerge" data-a="unmerge">فك ⤢</button>` +
     `<button type="button" data-a="d">⌫</button>` +
@@ -653,6 +682,7 @@ if (kp) {
     if (!b) return;
     if (b.dataset.a === "x") return closeKp();
     if (!ki) return;
+    if (b.dataset.a === "next") return moveToNextMi(ki);
     if (b.dataset.a === "merge") return mergeDown(ki);
     if (b.dataset.a === "unmerge") return unmergeCell(ki);
     if (b.dataset.a === "d") {
@@ -669,20 +699,36 @@ if (kp) {
 
 document.addEventListener("focusin", e => {
   const t = e.target;
-  if (t.classList && t.classList.contains("mi") && kp) {
-    ki = t;
-    kp.hidden = false;
-    document.body.style.paddingBottom = (kp.offsetHeight + 24) + "px";
-    showCard(t);
+  if (t && t.classList && t.classList.contains("mi") && kp) {
+    openKpFor(t);
   } else if (!kp || !kp.contains(t)) {
     closeKp();
   }
 });
 
 document.addEventListener("click", e => {
-  const t = e.target.closest && e.target.closest(".mi");
-  if (t) t.focus();
+  const miEl = e.target.closest && e.target.closest(".mi");
+  if (miEl && kp) {
+    miEl.focus();
+    openKpFor(miEl);
+    return;
+  }
+  if (kp && !kp.hidden && !kp.contains(e.target)) {
+    closeKp();
+  }
 });
+
+/* إخفاء الكيبورد تلقائياً عند التمرير بعيداً عن التدريب إلى صفحات الشرح */
+window.addEventListener("scroll", () => {
+  if (!kp || kp.hidden || !ki) return;
+  if (Date.now() - kpOpenedAt < 650) return;
+  const box = ki.closest(".eg") || ki.closest(".ec") || ki;
+  const r = box.getBoundingClientRect();
+  const visibleBottom = window.innerHeight - kp.offsetHeight;
+  if (r.bottom < 0 || r.top > visibleBottom) {
+    closeKp();
+  }
+}, { passive: true });
 
 document.addEventListener("input", e => {
   const t = e.target;
