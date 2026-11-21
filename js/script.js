@@ -1196,3 +1196,118 @@ document.addEventListener("click", e => {
   });
 })();
 
+
+/* انتقال زر التالي في كيبورد الجوال من آخر خانة رقمية في الشباك إلى أول فرض في الشباك التالي */
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Enter" && e.key !== "Tab") return;
+  const inp = e.target;
+  if (!inp || inp.tagName !== "INPUT") return;
+
+  const card = inp.closest(".ec");
+  if (!card) return;
+
+  const visibleInputs = Array.from(card.querySelectorAll("input:not(:disabled)")).filter(el => {
+    const td = el.closest("td");
+    return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
+  });
+
+  const idx = visibleInputs.indexOf(inp);
+  if (idx === -1) return;
+
+  e.preventDefault();
+
+  /* إذا بقيت خانة رقمية في نفس الشباك انتقل إليها */
+  if (idx < visibleInputs.length - 1) {
+    visibleInputs[idx + 1].focus();
+    visibleInputs[idx + 1].select();
+    return;
+  }
+
+  /* إذا كانت هذه آخر خانة رقمية في الشباك: انتقل لأول فرض في الشباك التالي */
+  const scope = card.closest(".eg") || card.closest("section.pg") || document;
+  const cards = Array.from(scope.querySelectorAll(".ec"));
+  const nextCard = cards[cards.indexOf(card) + 1];
+  if (!nextCard) {
+    inp.blur();
+    return;
+  }
+
+  const firstMi = Array.from(nextCard.querySelectorAll(".mi")).find(el => {
+    const td = el.closest("td");
+    return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
+  });
+
+  if (firstMi) {
+    inp.blur();
+    if (!firstMi.hasAttribute("tabindex")) firstMi.tabIndex = 0;
+    setTimeout(() => {
+      firstMi.focus();
+      if (typeof openKpFor === "function") openKpFor(firstMi);
+    }, 60);
+  }
+});
+
+/* ===== الحفظ والاستعادة التلقائية لخانات الجداول (الأرقام والفروض) ===== */
+(function () {
+  const pageKey = (location.pathname.split("/").pop() || "bab").replace(/\.html?$/i, "");
+  const draftKey = "miras_draft_" + pageKey;
+
+  function fieldKey(el) {
+    return [el.dataset.g, el.dataset.i, el.dataset.k].join("|");
+  }
+
+  function loadDraft() {
+    try { return JSON.parse(localStorage.getItem(draftKey)) || {}; } catch (e) { return {}; }
+  }
+
+  function saveDraft() {
+    const data = {};
+    document.querySelectorAll("input[data-g][data-i][data-k]").forEach(el => {
+      const val = String(el.value || "").trim();
+      if (val !== "") data[fieldKey(el)] = val;
+    });
+    document.querySelectorAll(".mi[data-g][data-i][data-k]").forEach(el => {
+      const val = el.dataset.v || "";
+      if (val !== "") data[fieldKey(el)] = val;
+    });
+    try { localStorage.setItem(draftKey, JSON.stringify(data)); } catch (e) {}
+  }
+
+  function restoreDraft() {
+    const data = loadDraft();
+    if (!Object.keys(data).length) return;
+
+    document.querySelectorAll("input[data-g][data-i][data-k]").forEach(el => {
+      const val = data[fieldKey(el)];
+      if (val !== undefined) el.value = val;
+    });
+
+    document.querySelectorAll(".mi[data-g][data-i][data-k]").forEach(el => {
+      const val = data[fieldKey(el)];
+      if (val !== undefined) {
+        el.dataset.v = val;
+        el.innerHTML = (typeof MKV !== "undefined" && MKV[val]) ? MKV[val] : val;
+      }
+    });
+  }
+
+  /* حفظ فوري عند الكتابة في خانات الأرقام */
+  document.addEventListener("input", (e) => {
+    if (e.target && e.target.matches("input[data-g][data-i][data-k]")) saveDraft();
+  });
+
+  /* حفظ فوري عند الاختيار أو المسح من كيبورد الفروض */
+  document.addEventListener("click", (e) => {
+    if (e.target && e.target.closest("#kp, .kp")) {
+      setTimeout(saveDraft, 20);
+    }
+  });
+
+  /* استعادة الإجابات تلقائياً عند فتح الباب */
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", restoreDraft);
+  } else {
+    restoreDraft();
+  }
+})();
+
