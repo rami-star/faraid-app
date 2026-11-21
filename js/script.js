@@ -1333,18 +1333,24 @@ document.addEventListener("click", e => {
   }
 })();
 
-/* تفعيل زر Enter في العمود الأول (.mi) على اللابتوب */
+/* تفعيل زر Enter وكتابة الحروف (ع، ب، م، غ، ر) مباشرة في العمود الأول على اللابتوب */
 document.addEventListener("keydown", e => {
   if (!ki || (kp && kp.hidden)) return;
+
+  if (["ع", "ب", "م", "غ", "ر"].includes(e.key)) {
+    e.preventDefault();
+    const btn = kp.querySelector(`button[data-v="${e.key}"]`);
+    if (btn) btn.click();
+    return;
+  }
 
   if (e.key === "Enter") {
     e.preventDefault();
     moveToNextMi(ki);
   } else if (e.key === "Backspace" || e.key === "Delete") {
     e.preventDefault();
-    ki.innerHTML = "";
-    delete ki.dataset.v;
-    ki.style.outline = "";
+    const delBtn = kp.querySelector('button[data-a="d"]');
+    if (delBtn) delBtn.click();
   } else if (e.key === "Escape") {
     e.preventDefault();
     closeKp();
