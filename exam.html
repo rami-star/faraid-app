@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>اختبار الشهادة — علم الفرائض</title>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
     * { box-sizing: border-box; }
@@ -246,20 +246,25 @@
       background: #fff; padding: 16px; border-radius: 12px;
       border: 2px solid #2e7d32;
     }
-    .cert-box {
-      position: relative; width: 100%; max-width: 820px; margin: 12px auto;
-      font-family: "Amiri", "Traditional Arabic", serif;
-      color: #1a3b7c; font-weight: 700;
-    }
+    
     .cert-box img { width: 100%; display: block; border-radius: 6px; }
     .cert-field { position: absolute; text-align: center; white-space: nowrap; }
 
-    /* موضع اسم الطالب */
-    #cert-name  { top: 30.5%; left: 41%; width: 39%; font-size: clamp(16px, 2.8vw, 28px); }
-    /* موضع التاريخ الهجري (يمين) */
-    #cert-hijri { top: 63%; right: 16.5%; width: 15%; font-size: clamp(12px, 1.8vw, 18px); direction: ltr; }
-    /* موضع التاريخ الميلادي (يسار) */
-    #cert-greg  { top: 63%; left: 11.5%; width: 17%; font-size: clamp(12px, 1.8vw, 18px); direction: ltr; }
+  
+    .cert-box {
+  position: relative; width: 100%; max-width: 820px; margin: 12px auto;
+  font-family: "Amiri", "Traditional Arabic", serif;
+  color: #1b3f9c; font-weight: 700;
+}
+
+#cert-name {
+  top: 25.5%; left: 46%; width: 39%;
+  font-family: "Aref Ruqaa", "Amiri", serif;
+  font-size: clamp(20px, 3.6vw, 36px);
+  color: #1b3f9c;
+}
+#cert-hijri { top: 60.5%; right: 15%; width: 15%; font-size: clamp(12px, 1.8vw, 18px); direction: rtl; }
+#cert-greg  { top: 61%; left: 10%; width: 17%; font-size: clamp(12px, 1.8vw, 18px); direction: ltr; }
 
     .btn-print {
       padding: 10px 24px; border: none; border-radius: 10px;
@@ -276,7 +281,7 @@
         position: fixed; inset: 0; width: 100%; max-width: none; margin: 0;
         display: flex; align-items: center; justify-content: center;
       }
-      #cert-name  { font-size: 32px; }
+      #cert-name  { font-size: 40px; }
       #cert-hijri, #cert-greg { font-size: 20px; }
     }
   </style>
@@ -288,16 +293,16 @@
     <a href="index.html">العودة للرئيسية</a>
   </div>
 
-  <div id="summary-box">
-    <div id="cert-section">
-      <div id="cert-print-area" class="cert-box">
-        <img src="img/cert-template.jpg" alt="شهادة إلكترونية">
-        <div id="cert-name" class="cert-field"></div>
-        <div id="cert-hijri" class="cert-field"></div>
-        <div id="cert-greg" class="cert-field"></div>
-      </div>
-      <button type="button" class="btn-print" onclick="window.print()">طباعة الشهادة / حفظ PDF</button>
+  <div id="summary-box"></div>
+
+  <div id="cert-section">
+    <div id="cert-print-area" class="cert-box">
+      <img src="./images/certificate_electronic.jpg" alt="شهادة إلكترونية">
+      <div id="cert-name" class="cert-field"></div>
+      <div id="cert-hijri" class="cert-field"></div>
+      <div id="cert-greg" class="cert-field"></div>
     </div>
+    <button type="button" class="btn-print" onclick="window.print()">طباعة الشهادة / حفظ PDF</button>
   </div>
 
   <div class="tabs">
@@ -323,7 +328,10 @@
 <script src="js/exam-data.js?v=4"></script>
 <script>
 
-/* منع الدخول للاختبار قبل إكمال الكتاب ١٠٠٪ (مع استثناء رابط التجربة للمشرف) */
+(function () {
+  "use strict";
+
+  /* منع الدخول للاختبار قبل إكمال الكتاب ١٠٠٪ (مع استثناء رابط التجربة للمشرف) */
   if (!location.search.includes("testcert=1") && !location.search.includes("admin=1")) {
     if (localStorage.getItem("miras_book_completed") !== "1") {
       alert("عذراً، لا يمكنك دخول الاختبار قبل إكمال جميع الأبواب والتدريبات (١٠٠٪).");
@@ -331,8 +339,6 @@
       return;
     }
   }
-(function () {
-  "use strict";
 
   const STORAGE_KEY = "miras_cert_exam_v3";
   const arNum = s => String(s).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
@@ -924,7 +930,7 @@
           const d = parts.find(p => p.type === "day")?.value || "";
           const m = parts.find(p => p.type === "month")?.value || "";
           const y = parts.find(p => p.type === "year")?.value || "";
-          hijriDate = `${y} / ${m} / ${d}`;
+          hijriDate = `${d} / ${m} / ${y}`;
         } catch (_) {
           hijriDate = "";
         }
@@ -954,7 +960,7 @@
     location.reload();
   };
 
-  /* ===== وضع معاينة وضبط الشهادة (افتح exam.html?testcert=1) ===== */
+  /* ===== وضع معاينة وضبط الشهادة (افتح exam.html?testcert=1) 
   if (location.search.includes("testcert=1")) {
     const certSec = document.getElementById("cert-section");
     if (certSec) {
@@ -963,7 +969,7 @@
       const elGreg  = document.getElementById("cert-greg");
 
       elName.textContent  = "رامي فرج صالح";
-      elHijri.textContent = "١٤٤٧ / ٨ / ١٧";
+      elHijri.textContent = "١٧ / ٨ / ١٤٤٧";
       elGreg.textContent  = "5 / 2 / 2026";
       certSec.style.display = "block";
 
@@ -977,15 +983,22 @@
       `;
       certSec.appendChild(tuner);
 
+      
+      const valEn = id => toEn(document.getElementById(id).value);
+
       const applyPos = () => {
-        elName.style.top    = document.getElementById("t-nt").value + "%";
-        elName.style.left   = document.getElementById("t-nl").value + "%";
-        elHijri.style.top   = document.getElementById("t-ht").value + "%";
-        elHijri.style.right = document.getElementById("t-hr").value + "%";
-        elGreg.style.top    = document.getElementById("t-gt").value + "%";
-        elGreg.style.left   = document.getElementById("t-gl").value + "%";
+        elName.style.top    = valEn("t-nt") + "%";
+        elName.style.left   = valEn("t-nl") + "%";
+        elHijri.style.top   = valEn("t-ht") + "%";
+        elHijri.style.right = valEn("t-hr") + "%";
+        elGreg.style.top    = valEn("t-gt") + "%";
+        elGreg.style.left   = valEn("t-gl") + "%";
       };
-      tuner.addEventListener("input", applyPos);
+
+      tuner.addEventListener("input", e => {
+        e.stopPropagation(); // منع script.js من تحويل أرقام الأداة إلى عربية
+        applyPos();
+      });
 
       document.getElementById("t-copy").onclick = () => {
         const css = `#cert-name  { top: ${document.getElementById("t-nt").value}%; left: ${document.getElementById("t-nl").value}%; width: 39%; font-size: clamp(16px, 2.8vw, 28px); }\n` +
@@ -994,7 +1007,7 @@
         navigator.clipboard.writeText(css).then(() => alert("تم نسخ الكود! الصقه مكان القيم القديمة داخل <style>."));
       };
     }
-  }
+  }====*/
 })();
 </script>
 <script src="js/student.js?v=2"></script>

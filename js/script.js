@@ -844,6 +844,24 @@ document.addEventListener("keydown", e => {
   if (target) {
     target.focus();
     target.select();
+  } else if (e.key === "Enter") {
+    const card = t.closest(".ec");
+    const scope = card && (card.closest(".eg") || card.closest("section.pg") || document);
+    if (card && scope) {
+      const cards = Array.from(scope.querySelectorAll(".ec"));
+      const nextCard = cards[cards.indexOf(card) + 1];
+      const firstMi = nextCard && Array.from(nextCard.querySelectorAll(".mi")).find(el => {
+        const td = el.closest("td");
+        return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
+      });
+      if (firstMi) {
+        e.stopImmediatePropagation();
+        t.blur();
+        if (!firstMi.hasAttribute("tabindex")) firstMi.tabIndex = 0;
+        firstMi.focus();
+        openKpFor(firstMi);
+      }
+    }
   }
 });
 
