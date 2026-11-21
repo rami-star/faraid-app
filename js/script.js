@@ -1246,7 +1246,8 @@ document.addEventListener("click", e => {
   });
 })();
 
-/* ===== الحفظ والاستعادة التلقائية لخانات الجداول (الأرقام والفروض) ===== */
+
+/* ===== الحفظ والاستعادة التلقائية لخانات الجداول (الأرقام + الفروض + الدمج) ===== */
 (function () {
   const pageKey = (location.pathname.split("/").pop() || "bab").replace(/\.html?$/i, "");
   const draftKey = "miras_draft_" + pageKey;
@@ -1264,10 +1265,18 @@ document.addEventListener("click", e => {
     document.querySelectorAll("input[data-g][data-i][data-k]").forEach(el => {
       const val = String(el.value || "").trim();
       if (val !== "") data[fieldKey(el)] = val;
+      const td = el.closest("td");
+      if (td && td.style.display !== "none" && (td.rowSpan || 1) > 1 && /^s\d+$/.test(el.dataset.k || "")) {
+        data["__s|" + fieldKey(el)] = td.rowSpan;
+      }
     });
     document.querySelectorAll(".mi[data-g][data-i][data-k]").forEach(el => {
       const val = el.dataset.v || "";
       if (val !== "") data[fieldKey(el)] = val;
+      const td = el.closest("td");
+      if (td && td.style.display !== "none" && (td.rowSpan || 1) > 1) {
+        data["__m|" + fieldKey(el)] = td.rowSpan;
+      }
     });
     try { localStorage.setItem(draftKey, JSON.stringify(data)); } catch (e) {}
   }
@@ -1276,11 +1285,25 @@ document.addEventListener("click", e => {
     const data = loadDraft();
     if (!Object.keys(data).length) return;
 
+    /* ١. استعادة دمج خانات الفروض والسهام أولاً */
+    document.querySelectorAll(".mi[data-g][data-i][data-k]").forEach(el => {
+      const span = data["__m|" + fieldKey(el)];
+      if (span > 1 && typeof mergeDown === "function") {
+        for (let k = 1; k < span; k++) mergeDown(el);
+      }
+    });
+    document.querySelectorAll("input[data-g][data-i][data-k]").forEach(el => {
+      const span = data["__s|" + fieldKey(el)];
+      if (span > 1 && typeof mergeDownS === "function") {
+        for (let k = 1; k < span; k++) mergeDownS(el);
+      }
+    });
+
+    /* ٢. استعادة الأرقام والفروض */
     document.querySelectorAll("input[data-g][data-i][data-k]").forEach(el => {
       const val = data[fieldKey(el)];
       if (val !== undefined) el.value = val;
     });
-
     document.querySelectorAll(".mi[data-g][data-i][data-k]").forEach(el => {
       const val = data[fieldKey(el)];
       if (val !== undefined) {
@@ -1295,14 +1318,14 @@ document.addEventListener("click", e => {
     if (e.target && e.target.matches("input[data-g][data-i][data-k]")) saveDraft();
   });
 
-  /* حفظ فوري عند الاختيار أو المسح من كيبورد الفروض */
+  /* حفظ فوري عند الاختيار أو الدمج أو الفك من كيبورد الفروض أو شريط دمج السهام */
   document.addEventListener("click", (e) => {
-    if (e.target && e.target.closest("#kp, .kp")) {
+    if (e.target && e.target.closest("#kp, .kp, #kp-s")) {
       setTimeout(saveDraft, 20);
     }
   });
 
-  /* استعادة الإجابات تلقائياً عند فتح الباب */
+  /* استعادة الإجابات والدمج تلقائياً عند فتح الباب */
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", restoreDraft);
   } else {

@@ -1039,24 +1039,24 @@ html, body {
   padding: 0 !important;
 }
 
-/* توضيح وتكبير أرقام عمود الأصل والسهام في مسائل التمارين */
-.ec input[data-k="t"],
-.ec input[data-k^="s"] {
-  font-size: 17px;
-  font-weight: 700;
-  color: #111827;
-  padding: 0 2px;
-  text-align: center;
-  line-height: 1.2;
+
+/* فرض تكبير وتغليظ أرقام عمود الأصل والسهام */
+.ec table td input[data-k="t"],
+.ec table td input[data-k^="s"] {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  font-family: system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif !important;
+  color: #111827 !important;
+  padding: 0 2px !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
 }
 
-/* تمييز بسيط لرقم أصل المسألة في الأعلى بلون كحلي واضح */
-.ec input[data-k="t"] {
-  color: #1e3a5f;
+.ec table td input[data-k="t"] {
+  color: #1e3a5f !important;
 }
 
-/* حجم مناسب للجداول العريضة جداً (مثل المناسخات) حتى لا تضيق الخانات */
-.sw15 .ec input[data-k="t"],
-.sw15 .ec input[data-k^="s"] {
-  font-size: 15px;
+.sw15 .ec table td input[data-k="t"],
+.sw15 .ec table td input[data-k^="s"] {
+  font-size: 15px !important;
 }
