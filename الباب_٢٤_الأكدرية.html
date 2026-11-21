@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, viewport-fit=cover">
+  <title>الباب ٢٤: الأكدرية (ص ١٢٨ – ١٢٩)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <style>
+    /* ضبط امتلاء صفحة الشرح (١٢٨) بتوازن مثل ورقة الكتاب */
+    #p128.book-pg {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #p128.book-pg > * { flex-shrink: 0; }
+    #p128 .ti { width: min(36%, 180px); margin: .25em auto .55em; }
+
+    .u-bl {
+      color: #1f56a5;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .bl-t { color: #1f56a5; font-weight: 700; }
+
+    /* جدولا القول بعدم الأكدرية والقول بالأكدرية متجاوران في ص ١٢٨ */
+    .ak-pair {
+      display: grid;
+      grid-template-columns: 42% 55%;
+      justify-content: space-between;
+      align-items: stretch;
+      margin: .5em 0;
+    }
+    .ak-pair .bx { font-size: .88em; height: 100%; }
+    .ak-pair .bx td { padding: .24em .2em; }
+    .ak-pair .bx .ah-hd {
+      background: #ebf1de;
+      color: #17375e;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+    .ak-pair .bx .v-txt {
+      background: #ebf1de;
+      color: #17375e;
+      font-weight: 700;
+      writing-mode: vertical-rl;
+      padding: .3em .1em;
+      font-size: .88em;
+      white-space: nowrap;
+    }
+    .ak-pair .bx .ft-tx {
+      background: #ebf1de;
+      color: #17375e;
+      font-weight: 500;
+      font-size: .88em;
+      line-height: 1.65;
+      padding: .3em .4em;
+    }
+    .ak-pair .bx .f { font-size: 1.05em; font-weight: 700; }
+
+    /* شروط الأكدرية (عمودان في ص ١٢٨ مثل الكتاب) */
+    .ak-cond {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .25em 16px;
+      list-style: none;
+      margin: .25em 0 .1em;
+      padding: 0;
+    }
+    .ak-cond li { line-height: 1.8; }
+
+    /* تمارين ص ١٢٩ (١٢ مسألة في شبكة ٤ أعمدة .eg الأصلية) */
+    #p129 .eg { gap: 18px 10px; margin: 1.2em 0 .9em; }
+    .ec table.x.ak-tr { font-size: .82em; }
+    .ec table.x.ak-tr th.t { font-weight: 700; color: #17375e; }
+    .ec table.x.ak-tr td.nm { color: #111; font-weight: 500; }
+    .ec table.x.ak-tr input { font-weight: 700; height: 100%; min-height: 1.85em; }
+    .ec table.x.ak-tr input:focus { outline: 2px solid #2f5597; outline-offset: -2px; background: #f4f8ff; }
+
+    @media (max-width: 600px) {
+      .ak-pair { grid-template-columns: 1fr; gap: 12px; }
+      .ak-cond { grid-template-columns: 1fr; }
+      #p129 .eg { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== صفحة ١٢٨ (شرح ومثالا الأكدرية) ==================== -->
+<section class="pg" id="p128">
+  <div>
+    <div class="hd">
+      <div class="no">١٢٨</div>
+      <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+      <div style="width:2.4em"></div>
+    </div>
+
+    <div class="ti">الأكدرية</div>
+
+    <div class="sy">يقول أبو عبد الله محمد بن علي بن محمد بن حسين الرحبي رحمه الله في الأكدرية: -</div>
+    <table class="pm">
+      <tr>
+        <td>وَالْأُخْتُ لَا فَرْضَ مَعَ الْجَدِّ لَهَا</td>
+        <td>فِيمَا عَدَا مَسْأَلَةً كَمَّلَهَا</td>
+      </tr>
+      <tr>
+        <td>زَوْجٌ وَأُمٌّ وَهُمَا تَمَامُهَا</td>
+        <td>فَاعْلَمْ فَخَيْرُ أُمَّةٍ عَلَّامُهَا</td>
+      </tr>
+      <tr>
+        <td>تُعْرَفُ يَا صَاحِ بِالأَكْدَرِيَّهْ</td>
+        <td>وَهْيَ بِأَنْ تَعْرِفَهَا حَرِيَّهْ</td>
+      </tr>
+      <tr>
+        <td>فَيُفْرَضُ النِّصْفُ لَهَا وَالسُّدْسُ لَهْ</td>
+        <td>حَتَّى تَعُولَ بِالْفُرُوضِ الْمُجْمَلَهْ</td>
+      </tr>
+      <tr>
+        <td>ثُمَّ يَعُودَانِ إِلَى الْمُقَاسَمَهْ</td>
+        <td>كَمَا مَضَى فَاحْفَظْهُ وَاشْكُرْ نَاظِمَهْ</td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <p class="pr"><span class="bl-t">صورتها: زوج وأم وجد وأخت شقيقة أو لأب:</span></p>
+    <p class="pr">وسميت بالأكدرية لأنها كدَّرت على زيد بن ثابت رضي الله عنه أصوله باعتبار أن الأخت الشقيقة أو لأب لا تأخذ شيئاً إذا لم يبق للجد إلا السدس.</p>
+  </div>
+
+  <!-- جدولا القول بعدم الأكدرية والقول بالأكدرية -->
+  <div class="ak-pair">
+    <!-- يميناً: القول بعدم الأكدرية -->
+    <table class="bx">
+      <colgroup>
+        <col style="width:22%"><col style="width:52%"><col style="width:26%">
+      </colgroup>
+      <tr>
+        <td class="ah-hd" colspan="2">القول بعدم الأكدرية</td>
+        <td class="t b big">٦</td>
+      </tr>
+      <tr>
+        <td class="gn"><span class="f"><i>١</i><b>٢</b></span></td>
+        <td class="nm">زوج</td>
+        <td class="gn">٣</td>
+      </tr>
+      <tr>
+        <td class="gn"><span class="f"><i>١</i><b>٣</b></span></td>
+        <td class="nm">أم</td>
+        <td class="gn">٢</td>
+      </tr>
+      <tr>
+        <td class="gn">ب</td>
+        <td class="nm">جد</td>
+        <td class="gn">١</td>
+      </tr>
+      <tr>
+        <td class="gn">م</td>
+        <td class="nm">أخت ش</td>
+        <td class="gn">٠</td>
+      </tr>
+      <tr>
+        <td class="ft-tx" colspan="3">أخذ به الإمام أبو حنيفة ورواية عن أحمد</td>
+      </tr>
+    </table>
+
+    <!-- يساراً: القول بالأكدرية -->
+    <table class="bx">
+      <colgroup>
+        <col style="width:10%"><col style="width:16%"><col style="width:32%"><col style="width:10%"><col style="width:12%"><col style="width:20%">
+      </colgroup>
+      <tr>
+        <td class="v-txt" rowspan="2">المحفوظ</td>
+        <td class="ah-hd" colspan="2" rowspan="2">القول بالأكدرية</td>
+        <td class="t b" colspan="2">٣</td>
+        <td class="t b big" rowspan="2">٢٧</td>
+      </tr>
+      <tr>
+        <td class="dg"><s>٦</s></td>
+        <td class="t b">٩</td>
+      </tr>
+      <tr>
+        <td class="w" rowspan="2"></td>
+        <td class="gn"><span class="f"><i>١</i><b>٢</b></span></td>
+        <td class="nm">زوج</td>
+        <td class="gn" colspan="2">٣</td>
+        <td class="gn">٩</td>
+      </tr>
+      <tr>
+        <td class="gn"><span class="f"><i>١</i><b>٣</b></span></td>
+        <td class="nm">أم</td>
+        <td class="gn" colspan="2">٢</td>
+        <td class="gn">٦</td>
+      </tr>
+      <tr>
+        <td class="gn" rowspan="2">٣</td>
+        <td class="gn"><span class="f"><i>١</i><b>٦</b></span></td>
+        <td class="nm">جد</td>
+        <td class="gn" colspan="2">١</td>
+        <td class="gn">٨</td>
+      </tr>
+      <tr>
+        <td class="gn"><span class="f"><i>١</i><b>٢</b></span></td>
+        <td class="nm">أخت لأب</td>
+        <td class="gn" colspan="2">٣</td>
+        <td class="gn">٤</td>
+      </tr>
+      <tr>
+        <td class="ft-tx" colspan="6">قول زيد بن ثابت ؓ وأخذ به المالكية والشافعية<br>والمشهور عند الحنابلة</td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <div class="u-bl" style="margin-bottom:.25em">شروط الأكدرية:</div>
+    <ul class="ak-cond">
+      <li>١) أن يكون في المسألة زوج لا زوجة.</li>
+      <li>٢) أن تكون في المسألة أم لا جدة.</li>
+      <li>٣) أن يكون في المسألة جد لا أب.</li>
+      <li>٤) أن تكون في المسألة أخت شقيقة أو لأب واحدة فقط.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== صفحة ١٢٩ (شرح مبسط للأكدرية + تمارين ١ – ١٢) ==================== -->
+<section class="pg" id="p129">
+  <div class="hd">
+    <div class="no">١٢٩</div>
+    <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+    <div style="width:2.4em"></div>
+  </div>
+
+  <p class="pr"><span class="u-bl">شرح مبسط للأكدرية:</span> نفرض للزوج النصف وللأم الثلث من أصل المسألة (٦) ولم يبق في المسألة إلا السدس، فننظر للجد مع الأخت الشقيقة أو لأب فيكون الأفضل للجد المقاسمة ولكن المقاسمة تنقصه عن السدس. فنعطي الجد السدس وتسقط الأخت وهذه قاعدة الجد مع الإخوة، ولكن هنا في الأكدرية اختلف الحال فنفرض للأخت النصف من أصل المسألة (٦) حتى تعول المسألة إلى (٩)، ثم يتقاسم الجد مع الأخت للذكر مثل حظ الأنثيين ونضرب أصل المسألة العائلة إلى (٩) في (٣) فيكون المصح من (٢٧). فنضرب سهم الزوج في (٣) فيكون له (٩)، ونضرب سهم الأم في (٣) ويصبح لها (٦)، ثم نضم سهم الجد مع الأخت فيصبح المجموع (٤) ونضربها في (٣) ويكون الناتج (١٢) للجد منها (٨) وللأخت منها (٤) فيكون للذكر مثل حظ الأنثيين.</p>
+
+  <!-- تمارين الأكدرية (مسائل ١ – ١٢) -->
+  <div class="eg" id="g129-grid" data-group="g129"></div>
+
+  <button class="btn" data-chk="g129" type="button">تصحيح تمارين ص ١٢٩</button>
+  <div class="rs" id="g129-r" hidden></div>
+  <div class="prog" data-group="g129" id="g129-prog">
+    <div class="prog-txt">لم تُصحّح بعد — اضغط «تصحيح تمارين ص ١٢٩»</div>
+    <div class="prog-bar"><div class="prog-fill"></div></div>
+  </div>
+</section>
+
+<!-- رابط الانتقال إلى الباب التالي مباشرة -->
+<div class="nxt-box" id="next-gate">
+  <div class="nxt-links">
+    <a class="nxt-btn" id="next-ch-btn" href="الباب_٢٥_الوصية.html">الانتقال إلى الباب ٢٥: الوصية ←</a>
+    <a class="nxt-btn browse" href="index.html">🏠 اللوحة الذكية</a>
+  </div>
+</div>
+
+<div id="kp" hidden></div>
+
+<script>
+  const Z = "|0|-";
+  const arN = s => String(s).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
+
+  const EXD = {
+    /* ===== تمارين باب الأكدرية — صفحة ١٢٩ (١٢ مسألة) ===== */
+    g129: [
+      /* ١: زوج، أم، جد، أخت ش — أكدرية (٩ -> ٢٧) */
+      { t: 9, hs: [["زوج", 3], ["أم", 2], ["جد", 1], ["أخت ش", 3]],
+        c: { ts: 27, c0: 9, c1: 6, c2: 8, c3: 4 } },
+
+      /* ٢: زوج، أم، جد، أخت لأب — أكدرية (٩ -> ٢٧) */
+      { t: 9, hs: [["زوج", 3], ["أم", 2], ["جد", 1], ["أخت لأب", 3]],
+        c: { ts: 27, c0: 9, c1: 6, c2: 8, c3: 4 } },
+
+      /* ٣: زوجة، أم، جد، أخت ش — ليست أكدرية (١٢ -> ٣٦) */
+      { t: 12, hs: [["زوجة", 3], ["أم", 4], ["جد", null], ["أخت ش", null]],
+        c: { ts: 36, c0: 9, c1: 12, c2: 10, c3: 5, s2: "|5|٥", s3: "|5|٥" } },
+
+      /* ٤: زوج، أم أم، جد، أخت لأب — ليست أكدرية (٦ -> ١٨) */
+      { t: 6, hs: [["زوج", 3], ["أم أم", 1], ["جد", null], ["أخت لأب", null]],
+        c: { ts: 18, c0: 9, c1: 3, c2: 4, c3: 2, s2: "|2|٢", s3: "|2|٢" } },
+
+      /* ٥: زوج، أم، أب أب أب، أخت ش — أكدرية (٩ -> ٢٧) */
+      { t: 9, hs: [["زوج", 3], ["أم", 2], ["أب أب أب", 1], ["أخت ش", 3]],
+        c: { ts: 27, c0: 9, c1: 6, c2: 8, c3: 4 } },
+
+      /* ٦: زوج، أم، جد، ٢ أخت ش — ليست أكدرية (٦ -> ١٢) */
+      { t: 6, hs: [["زوج", 3], ["أم", 1], ["جد", null], ["٢ أخت ش", null]],
+        c: { ts: 12, c0: 6, c1: 2, c2: 2, c3: 2, s2: "|2|٢", s3: "|2|٢" } },
+
+      /* ٧: زوج، أم أب أب، أب أب، أخت ش — ليست أكدرية (٦ -> ١٨) */
+      { t: 6, hs: [["زوج", 3], ["أم أب أب", 1], ["أب أب", null], ["أخت ش", null]],
+        c: { ts: 18, c0: 9, c1: 3, c2: 4, c3: 2, s2: "|2|٢", s3: "|2|٢" } },
+
+      /* ٨: زوجة، أم، جد، ٢ أخت لأب — ليست أكدرية (١٢ -> ٤٨) */
+      { t: 12, hs: [["زوجة", 3], ["أم", 2], ["جد", null], ["٢ أخت لأب", null]],
+        c: { ts: 48, c0: 12, c1: 8, c2: 14, c3: 14, s2: "|7|٧", s3: "|7|٧" } },
+
+      /* ٩: زوج، أم، جد، أخت ش، أخت لأب — ليست أكدرية (٦ بلا تصحيح) */
+      { t: 6, hs: [["زوج", 3], ["أم", 1], ["جد", 1], ["أخت ش", 1], ["أخت لأب", 0]],
+        c: { ts: Z, c0: Z, c1: Z, c2: Z, c3: Z, c4: Z } },
+
+      /* ١٠: زوجة، أم، أب، أخت لأب، ٢ ابن أخ ش — عمرية (٤ بلا تصحيح) */
+      { t: 4, hs: [["زوجة", 1], ["أم", 1], ["أب", 2], ["أخت لأب", 0], ["٢ ابن أخ ش", 0]],
+        c: { ts: Z, c0: Z, c1: Z, c2: Z, c3: Z, c4: Z } },
+
+      /* ١١: زوج، أم، جد، أخت ش، ٢ أخت لأب — ليست أكدرية (٦ بلا تصحيح) */
+      { t: 6, hs: [["زوج", 3], ["أم", 1], ["جد", 1], ["أخت ش", 1], ["٢ أخت لأب", 0]],
+        c: { ts: Z, c0: Z, c1: Z, c2: Z, c3: Z, c4: Z } },
+
+      /* ١٢: زوج، أم، أب أب أب، أخت ش، ابن أخ ش — أكدرية (٩ -> ٢٧، ابن الأخ محجوب) */
+      { t: 9, hs: [["زوج", 3], ["أم", 2], ["أب أب أب", 1], ["أخت ش", 3], ["ابن أخ ش", 0]],
+        c: { ts: 27, c0: 9, c1: 6, c2: 8, c3: 4, c4: Z } }
+    ]
+  };
+
+  /* توليد جداول تمارين ص ١٢٩ (١٢ مسألة) */
+  (function buildG129() {
+    const grid = document.getElementById("g129-grid");
+    if (!grid) return;
+    grid.innerHTML = EXD.g129.map((item, i) => `
+      <div class="ec">
+        <table class="x ak-tr">
+          <colgroup><col style="width:56%"><col style="width:22%"><col style="width:22%"></colgroup>
+          <tr>
+            <th class="t">مسألة (${arN(i + 1)})</th>
+            <td class="in"><input data-g="g129" data-i="${i}" data-k="t" inputmode="numeric"></td>
+            <td class="in"><input data-g="g129" data-i="${i}" data-k="ts" inputmode="numeric"></td>
+          </tr>
+          ${item.hs.map((h, k) => `
+          <tr>
+            <td class="nm">${h[0]}</td>
+            <td class="in"><input data-g="g129" data-i="${i}" data-k="s${k}" inputmode="numeric"></td>
+            <td class="in"><input data-g="g129" data-i="${i}" data-k="c${k}" inputmode="numeric"></td>
+          </tr>`).join("")}
+        </table>
+        <div class="mm" id="g129-${i}"></div>
+      </div>
+    `).join("");
+  })();
+</script>
+<script src="js/script.js?v=3"></script>
+<script src="js/progress.js?v=3"></script>
+</body>
+</html>

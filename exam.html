@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبار الشهادة — علم الفرائض</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 14px;
+      font-family: "Tajawal", "Segoe UI", Tahoma, sans-serif;
+      background: #f5f7fb; color: #17375e;
+    }
+    .wrap { max-width: 1020px; margin: 0 auto; }
+    .top-bar {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 10px; background: #17375e; color: #fff;
+      padding: 13px 18px; border-radius: 12px; margin-bottom: 14px;
+    }
+    .top-bar h1 { margin: 0; font-size: 18px; }
+    .top-bar a {
+      color: #fff; text-decoration: none; font-size: 13px;
+      background: rgba(255,255,255,.18); padding: 6px 12px; border-radius: 8px;
+    }
+
+    /* التبويبات */
+    .tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .tab-btn {
+      flex: 1 1 180px; padding: 10px 12px; border: 1px solid #b8c9e8;
+      background: #fff; color: #17375e; border-radius: 10px;
+      font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit;
+    }
+    .tab-btn.active { background: #17375e; color: #fff; border-color: #17375e; }
+    .sec { display: none; }
+    .sec.active { display: block; }
+
+    /* بطاقة السؤال */
+    .q-card {
+      background: #fff; border: 1px solid #d5e0f2; border-radius: 12px;
+      padding: 15px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(23,55,94,.04);
+    }
+    .q-title { font-weight: 700; font-size: 15px; margin-bottom: 12px; line-height: 1.7; }
+    .q-badge {
+      display: inline-block; background: #e8f0fe; color: #17375e;
+      padding: 2px 8px; border-radius: 6px; font-size: 12px; margin-left: 6px;
+    }
+
+    /* النظري */
+    .opts { display: flex; flex-direction: column; gap: 7px; }
+    .opts.tf { flex-direction: row; }
+    .opts.tf .opt-lbl { flex: 1; justify-content: center; font-weight: 700; }
+    .opt-lbl {
+      display: flex; align-items: center; gap: 8px; padding: 9px 12px;
+      border: 1px solid #d5e0f2; border-radius: 8px; cursor: pointer; font-size: 14px;
+    }
+    .opt-lbl:hover { background: #f4f8ff; }
+
+    /* ===== تنسيق الشبابيك العام بخط Amiri ===== */
+    .tbl-scroll { overflow-x: auto; padding-bottom: 6px; }
+    table.shabak {
+      width: auto; margin: 0 auto;
+      border-collapse: collapse; border: 2px solid #000;
+      background: #fff; font-family: "Amiri", "Traditional Arabic", serif;
+      font-size: 19px;
+    }
+    table.shabak th, table.shabak td {
+      border: 1px solid #555; text-align: center; height: 42px; padding: 0;
+    }
+    table.shabak input {
+      width: 100%; min-width: 0; height: 100%; border: none; background: transparent;
+      text-align: center; font-weight: 700; color: #000; outline: none;
+      font-family: "Amiri", "Traditional Arabic", serif; font-size: 19px;
+    }
+    table.shabak input:focus { background: rgba(47, 85, 151, 0.12); }
+    table.shabak input.err-inp { background: rgba(198, 40, 40, 0.16) !important; box-shadow: inset 0 0 0 1.5px #c62828; }
+
+    /* ===== ١) الشباك الأساسي + التركات ===== */
+    table.shabak th.col-ansiba { background: #e8f0fe; width: 82px; font-weight: 700; color: #000; }
+    table.shabak th.col-heirs  { background: #fff; min-width: 145px; font-weight: 700; color: #000; }
+    table.shabak td.cell-ansiba { background: #e8f0fe; width: 82px; }
+    table.shabak td.cell-heir   { background: #fff; font-weight: 700; color: #000; padding: 0 12px; white-space: nowrap; }
+    table.shabak td.cell-origin { background: #a8f0d1; width: 62px; }
+    table.shabak td.cell-share  { background: #fffbe6; width: 62px; }
+    table.shabak td.cell-origin input,
+    table.shabak td.cell-share input { width: 58px; }
+    table.shabak td.cell-js     { background: #fff; height: 34px; }
+    table.shabak td.cell-js input { color: #d35400; font-size: 17px; width: 58px; }
+
+    table.shabak td.cell-extra-total { background: #a8f0d1; width: 92px; max-width: 92px; padding: 0 4px; }
+    table.shabak td.cell-extra       { background: #f8fbff; width: 92px; max-width: 92px; padding: 0 4px; }
+    table.shabak td.cell-extra-total input,
+    table.shabak td.cell-extra input { width: 84px; }
+
+    /* خلية الأصل المقسومة (للعول أو الرد) */
+    td.awl-cell {
+      position: relative; padding: 0 !important;
+      background-color: #a8f0d1;
+      background-image: linear-gradient(to bottom right, transparent calc(50% - 1px), #c0504d 50%, transparent calc(50% + 1px));
+    }
+    td.awl-cell.plain-bg { background-color: #fff; }
+    td.awl-cell .awl-wrap { display: flex; flex-direction: column; height: 42px; justify-content: space-between; }
+    td.awl-cell input { height: 21px !important; font-size: 15px !important; line-height: 1; padding: 0 4px; width: 100% !important; }
+    td.awl-cell input.orig-old { text-align: right; color: #555; }
+    td.awl-cell input.orig-new { text-align: left; color: #b71c1c; }
+
+    /* خانة الفرض (.mi) */
+    table.shabak .mi {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; height: 100%; min-height: 40px;
+      cursor: pointer; font-weight: 700; color: #000; outline: none;
+      font-family: "Amiri", "Traditional Arabic", serif; font-size: 19px;
+    }
+    table.shabak .mi:focus { background: rgba(47, 85, 151, 0.14); }
+
+    /* ===== ٢) هيكل الحمل والمفقود والخنثى ===== */
+    table.est-tbl th.est-heirs-h { background: #e8f0fe; min-width: 135px; font-weight: 700; color: #000; padding: 0 10px; }
+    table.est-tbl td.est-heir    { background: #e8f0fe; font-weight: 700; color: #000; padding: 0 12px; white-space: nowrap; }
+    table.est-tbl td.est-js      { background: #fff; width: 54px; height: 34px; }
+    table.est-tbl td.est-js input { color: #1b8a3a; font-size: 17px; width: 50px; }
+    table.est-tbl td.est-orig    { background: #fff; width: 54px; }
+    table.est-tbl td.est-orig.first-orig { background: #e8f0fe; }
+    table.est-tbl td.est-share   { background: #fffbe6; width: 54px; }
+    table.est-tbl td.est-orig input,
+    table.est-tbl td.est-share input { width: 50px; }
+
+    table.est-tbl th.est-jam-h,
+    table.est-tbl td.est-jam-orig,
+    table.est-tbl td.est-jam-share { width: 82px; max-width: 82px; }
+    table.est-tbl th.est-jam-h    { background: #d9f7e6; font-weight: 700; color: #000; font-size: 19px; padding: 0 6px; white-space: nowrap; }
+    table.est-tbl td.est-jam-orig { background: #d9f7e6; }
+    table.est-tbl td.est-jam-share { background: #fff; }
+    table.est-tbl td.est-jam-orig input,
+    table.est-tbl td.est-jam-share input { width: 76px; }
+
+    table.est-tbl th.est-mq-h    { background: #fff; font-weight: 700; color: #000; padding: 0 8px; font-size: 17px; white-space: nowrap; }
+    table.est-tbl td.est-mq-orig { background: #fff; }
+    table.est-tbl td.est-mq-orig input { width: 88px; }
+    table.est-tbl td.est-mq-share { background: #fff; width: 54px; }
+    table.est-tbl td.est-mq-share input { width: 50px; }
+
+    table.est-tbl tr.est-foot th,
+    table.est-tbl tr.est-foot td {
+      background: #fff5ba; font-weight: 700; color: #000; font-size: 17px; padding: 0 6px; white-space: nowrap;
+    }
+    .mq-q-wrap { display: inline-flex; align-items: center; justify-content: center; gap: 2px; }
+    .mq-q-wrap input { width: 28px !important; height: 26px !important; border-bottom: 1px dashed #666 !important; font-size: 16px !important; }
+
+    /* ===== ٣) هيكل ذوي الأرحام (أهل التنزيل — س٢٠) ===== */
+    table.tz-tbl th.tz-heirs-h  { background: #dfeaff; color: #17375e; min-width: 130px; padding: 0 12px; font-weight: 700; }
+    table.tz-tbl th.tz-tanzil-h { background: #dfeaff; color: #000; min-width: 96px; padding: 0 10px; font-weight: 700; }
+    table.tz-tbl td.tz-orig     { background: #dfeaff; width: 66px; }
+    table.tz-tbl td.tz-orig input { width: 60px; }
+    table.tz-tbl td.tz-heir     { background: #fff; font-weight: 700; color: #17375e; padding: 0 12px; white-space: nowrap; }
+    table.tz-tbl td.tz-tanzil   { background: #f6fce8; width: 96px; }
+    table.tz-tbl td.tz-tanzil input { width: 88px; color: #17375e; font-size: 18px; }
+    table.tz-tbl td.tz-share    { background: #e8f4ff; width: 66px; }
+    table.tz-tbl td.tz-share input { width: 60px; }
+
+    /* ===== ٤) هيكل المناسخات ===== */
+    table.mun-tbl { font-size: 17px; }
+    table.mun-tbl th, table.mun-tbl td { height: 38px; min-width: 52px; }
+    table.mun-tbl input { width: 52px; font-size: 17px; }
+    table.mun-tbl th.mun-h-blue { background: #dfeaff; color: #17375e; font-weight: 700; padding: 0 8px; white-space: nowrap; }
+    table.mun-tbl th.mun-blank-h { min-width: 68px; }
+    table.mun-tbl td.mun-heir   { background: #dfeaff; color: #17375e; font-weight: 700; padding: 0 10px; white-space: nowrap; min-width: 90px; }
+    table.mun-tbl td.mun-js     { background: #fff; }
+    table.mun-tbl td.mun-js input { color: #d35400; font-size: 16px; }
+    table.mun-tbl td.mun-jam-js { background: #d9f7e6; }
+    table.mun-tbl td.mun-jam-js input { color: #d35400; font-size: 16px; }
+    table.mun-tbl th.mun-jam-h  { background: #d9f7e6; color: #000; font-weight: 700; padding: 0 8px; }
+    table.mun-tbl td.mun-jam    { background: #d9f7e6; min-width: 64px; }
+    table.mun-tbl td.mun-jam input { width: 62px; }
+    table.mun-tbl td.mun-dead   { background: #fde8e8; color: #aaa; font-weight: 700; }
+    table.mun-tbl td.mun-dead-tag { background: #fde8e8; color: #c62828; font-weight: 700; white-space: nowrap; padding: 0 6px; }
+    table.mun-tbl td.mun-new    { background: #dfeaff; color: #17375e; font-weight: 700; white-space: nowrap; padding: 0 6px; }
+    table.mun-tbl td.mun-rel    { background: #fff; min-width: 68px; }
+    table.mun-tbl td.mun-rel input { width: 66px; font-size: 15px; color: #17375e; font-weight: 700; }
+    table.mun-tbl td.mun-empty  { background: #fff; }
+    table.mun-tbl th.mun-pct-h  { background: #d9f7e6; color: #000; font-weight: 700; padding: 0 8px; }
+    table.mun-tbl td.mun-pct-total,
+    table.mun-tbl { font-size: 17px; width: auto !important; }
+    table.mun-tbl th.mun-pct-h,
+    table.mun-tbl td.mun-pct-total,
+    table.mun-tbl td.mun-pct { width: 66px; max-width: 66px; }
+    table.mun-tbl th.mun-pct-h { background: #d9f7e6; color: #000; font-weight: 700; padding: 0 6px; white-space: nowrap; }
+    table.mun-tbl td.mun-pct-total,
+    table.mun-tbl td.mun-pct { background: #e8fcef; }
+    table.mun-tbl td.mun-pct-total input,
+    table.mun-tbl td.mun-pct input { width: 62px; font-size: 16px; }
+
+    /* حالة التصحيح */
+    .q-card.ok { border-color: #2e7d32; background: #f6fff7; }
+    .q-card.bad { border-color: #c62828; background: #fff8f8; }
+    .q-res { margin-top: 8px; text-align: center; font-size: 13px; font-weight: 700; }
+    .q-card.ok .q-res { color: #2e7d32; }
+    .q-card.bad .q-res { color: #c62828; }
+
+    .footer-actions {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+      margin: 22px 0 36px;
+    }
+    .btn-main {
+      padding: 12px 28px; border: none; border-radius: 10px;
+      background: #17375e; color: #fff; font-size: 15px; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+    }
+    .btn-sec {
+      padding: 12px 18px; border: 1px solid #c62828; border-radius: 10px;
+      background: #fff; color: #c62828; font-size: 14px; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+    }
+    #summary-box {
+      display: none; text-align: center; padding: 18px; margin-bottom: 16px;
+      background: #fff; border: 2px solid #17375e; border-radius: 12px;
+    }
+    .empty-note {
+      text-align: center; padding: 28px; color: #667; background: #fff;
+      border-radius: 12px; border: 1px dashed #b8c9e8;
+    }
+
+    /* ===== تحسين عرض الجداول على الجوال ===== */
+    @media (max-width: 600px) {
+      body { padding: 8px; }
+      .q-card { padding: 11px 10px; }
+      table.shabak[data-type="basic"] { width: 100%; font-size: 16px; }
+      table.shabak[data-type="basic"] th,
+      table.shabak[data-type="basic"] td { height: 38px; }
+      table.shabak[data-type="basic"] th.col-ansiba,
+      table.shabak[data-type="basic"] td.cell-ansiba { width: 58px; min-width: 58px; }
+      table.shabak[data-type="basic"] .mi { font-size: 16px; min-height: 36px; }
+      table.shabak[data-type="basic"] th.col-heirs { min-width: 100px; }
+      table.shabak[data-type="basic"] td.cell-heir {
+        white-space: normal; line-height: 1.3; padding: 4px 6px; font-size: 16px;
+      }
+      table.shabak[data-type="basic"] td.cell-origin,
+      table.shabak[data-type="basic"] td.cell-share { width: 52px; min-width: 52px; }
+      table.shabak[data-type="basic"] td.cell-origin input,
+      table.shabak[data-type="basic"] td.cell-share input { width: 100%; font-size: 16px; }
+    }
+
+    /* ===== الشهادة الإلكترونية والطباعة ===== */
+    #cert-section {
+      display: none; text-align: center; margin: 16px 0;
+      background: #fff; padding: 16px; border-radius: 12px;
+      border: 2px solid #2e7d32;
+    }
+    .cert-box {
+      position: relative; width: 100%; max-width: 820px; margin: 12px auto;
+      font-family: "Amiri", "Traditional Arabic", serif;
+      color: #1a3b7c; font-weight: 700;
+    }
+    .cert-box img { width: 100%; display: block; border-radius: 6px; }
+    .cert-field { position: absolute; text-align: center; white-space: nowrap; }
+
+    /* موضع اسم الطالب */
+    #cert-name  { top: 30.5%; left: 41%; width: 39%; font-size: clamp(16px, 2.8vw, 28px); }
+    /* موضع التاريخ الهجري (يمين) */
+    #cert-hijri { top: 63%; right: 16.5%; width: 15%; font-size: clamp(12px, 1.8vw, 18px); direction: ltr; }
+    /* موضع التاريخ الميلادي (يسار) */
+    #cert-greg  { top: 63%; left: 11.5%; width: 17%; font-size: clamp(12px, 1.8vw, 18px); direction: ltr; }
+
+    .btn-print {
+      padding: 10px 24px; border: none; border-radius: 10px;
+      background: #2e7d32; color: #fff; font-size: 15px; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+    }
+
+    @media print {
+      @page { size: landscape; margin: 0; }
+      body { padding: 0; background: #fff; }
+      body * { visibility: hidden; }
+      #cert-print-area, #cert-print-area * { visibility: visible; }
+      #cert-print-area {
+        position: fixed; inset: 0; width: 100%; max-width: none; margin: 0;
+        display: flex; align-items: center; justify-content: center;
+      }
+      #cert-name  { font-size: 32px; }
+      #cert-hijri, #cert-greg { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top-bar">
+    <h1>اختبار الشهادة الختامي — علم الفرائض</h1>
+    <a href="index.html">العودة للرئيسية</a>
+  </div>
+
+  <div id="summary-box">
+    <div id="cert-section">
+      <div id="cert-print-area" class="cert-box">
+        <img src="img/cert-template.jpg" alt="شهادة إلكترونية">
+        <div id="cert-name" class="cert-field"></div>
+        <div id="cert-hijri" class="cert-field"></div>
+        <div id="cert-greg" class="cert-field"></div>
+      </div>
+      <button type="button" class="btn-print" onclick="window.print()">طباعة الشهادة / حفظ PDF</button>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-sec="sec-theory">١) القسم النظري (<span id="cnt-theory">٠</span>)</button>
+    <button class="tab-btn" data-sec="sec-basic">٢) الفروض والانكسار (<span id="cnt-basic">٠</span>)</button>
+    <button class="tab-btn" data-sec="sec-special">٣) التقديرات والتنزيل والتركات (<span id="cnt-special">٠</span>)</button>
+    <button class="tab-btn" data-sec="sec-munasakhat">٤) المناسخات (<span id="cnt-munasakhat">٠</span>)</button>
+  </div>
+
+  <div id="sec-theory" class="sec active"></div>
+  <div id="sec-basic" class="sec"></div>
+  <div id="sec-special" class="sec"></div>
+  <div id="sec-munasakhat" class="sec"></div>
+
+  <div class="footer-actions">
+    <button type="button" class="btn-main" id="btn-grade">تصحيح الاختبار وحفظ النتيجة</button>
+    <button type="button" class="btn-sec" id="btn-reset">مسح الإجابات</button>
+  </div>
+</div>
+
+<div id="kp" hidden></div>
+
+<script src="js/exam-data.js?v=4"></script>
+<script>
+
+/* منع الدخول للاختبار قبل إكمال الكتاب ١٠٠٪ (مع استثناء رابط التجربة للمشرف) */
+  if (!location.search.includes("testcert=1") && !location.search.includes("admin=1")) {
+    if (localStorage.getItem("miras_book_completed") !== "1") {
+      alert("عذراً، لا يمكنك دخول الاختبار قبل إكمال جميع الأبواب والتدريبات (١٠٠٪).");
+      location.replace("index.html");
+      return;
+    }
+  }
+(function () {
+  "use strict";
+
+  const STORAGE_KEY = "miras_cert_exam_v3";
+  const arNum = s => String(s).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
+  const toEn = s => String(s || "")
+    .replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d))
+    .replace(/[,،\s]/g, "")
+    .trim();
+  const toVal = raw => {
+    const t = toEn(raw);
+    return (t === "" || t === "م" || t === "-" || t === "ت") ? 0 : Number(t);
+  };
+  const toPct = raw => {
+    const t = String(raw || "")
+      .replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d))
+      .replace(/[,،]/g, ".")
+      .replace(/[%٪\s]/g, "")
+      .trim();
+    return t === "" ? NaN : Number(t);
+  };
+  const normAr = s => String(s || "")
+    .replace(/[أإآ]/g, "ا")
+    .replace(/ة/g, "ه")
+    .replace(/ى/g, "ي")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const DATA = window.EXAM_DATA || { theory: [], basic: [], special: [], munasakhat: [] };
+
+  document.getElementById("cnt-theory").textContent = arNum(DATA.theory.length);
+  document.getElementById("cnt-basic").textContent = arNum(DATA.basic.length);
+  document.getElementById("cnt-special").textContent = arNum(DATA.special.length);
+  document.getElementById("cnt-munasakhat").textContent = arNum(DATA.munasakhat.length);
+
+  /* ١. بناء القسم النظري */
+  const theoryBox = document.getElementById("sec-theory");
+  DATA.theory.forEach((item, idx) => {
+    const isMulti = item.type === "multi";
+    const inputType = isMulti ? "checkbox" : "radio";
+    const optsClass = item.type === "tf" ? "opts tf" : "opts";
+    const hint = isMulti ? ` <span style="font-size:12px;color:#2f5597">(اختر جميع الإجابات الصحيحة)</span>` : "";
+
+    const card = document.createElement("div");
+    card.className = "q-card";
+    card.id = "card-" + item.id;
+    card.innerHTML = `
+      <div class="q-title"><span class="q-badge">س${arNum(idx + 1)}</span> ${item.q}${hint}</div>
+      <div class="${optsClass}">
+        ${item.opts.map((o, i) => `
+          <label class="opt-lbl">
+            <input type="${inputType}" name="${item.id}" value="${i}">
+            <span>${o}</span>
+          </label>`).join("")}
+      </div>
+      <div class="q-res"></div>
+    `;
+    theoryBox.appendChild(card);
+  });
+
+  /* أ) الشباك الأساسي + التركات */
+  function buildBasicTable(q) {
+    const showJsRow = q.cols > 1 || q.hasJsRow;
+    const hasExtra = !!(q.extraCol);
+    let jsRow = "";
+    if (showJsRow) {
+      let jsCells = "";
+      for (let c = 0; c < q.cols; c++) {
+        jsCells += `<td class="cell-js">${c < q.cols - 1 ? `<input type="text" class="js-inp" data-col="${c}">` : ""}</td>`;
+      }
+      const extraJs = hasExtra ? `<td class="cell-js"><input type="text" class="extra-js-inp"></td>` : "";
+      jsRow = `<tr><th class="col-ansiba" rowspan="2">الأنصباء</th><th class="col-heirs" rowspan="2">الورثة</th>${jsCells}${extraJs}</tr>`;
+    }
+
+    let originCells = "";
+    for (let c = 0; c < q.cols; c++) {
+      if (q.awlCol === c) {
+        originCells += `
+          <td class="cell-origin awl-cell">
+            <div class="awl-wrap">
+              <input type="text" class="orig-old" data-col="${c}">
+              <input type="text" class="orig-inp orig-new" data-col="${c}">
+            </div>
+          </td>`;
+      } else {
+        originCells += `<td class="cell-origin"><input type="text" class="orig-inp" data-col="${c}"></td>`;
+      }
+    }
+
+    const extraTotalTd = hasExtra ? `<td class="cell-extra-total"><input type="text" class="extra-total-inp"></td>` : "";
+    const headRow = showJsRow
+      ? `${jsRow}<tr>${originCells}${extraTotalTd}</tr>`
+      : `<tr><th class="col-ansiba">الأنصباء</th><th class="col-heirs">الورثة</th>${originCells}${extraTotalTd}</tr>`;
+
+    let rowsHtml = "";
+    q.heirs.forEach((heir, r) => {
+      let shareCells = "";
+      for (let c = 0; c < q.cols; c++) {
+        const kAttr = (c === q.cols - 1) ? `data-k="s${r}"` : "";
+        shareCells += `<td class="cell-share"><input type="text" class="share-inp" ${kAttr} data-row="${r}" data-col="${c}"></td>`;
+      }
+      const extraTd = hasExtra ? `<td class="cell-extra"><input type="text" class="extra-inp" data-row="${r}"></td>` : "";
+      rowsHtml += `
+        <tr>
+          <td class="cell-ansiba"><div class="mi" tabindex="0" data-row="${r}"></div></td>
+          <td class="cell-heir">${heir}</td>
+          ${shareCells}
+          ${extraTd}
+        </tr>`;
+    });
+
+    return `<table class="shabak" data-qid="${q.id}" data-type="basic">${headRow}${rowsHtml}</table>`;
+  }
+
+  /* ب) هيكل الحمل والمفقود والخنثى */
+  function buildEstimationTable(q) {
+    const n = q.cases.length;
+    const mqSplit = !!q.hasMawqoofSplit;
+    const mqFoot  = q.hasMawqoofFooter !== false;
+
+    const row1 = `
+      <tr>
+        <th rowspan="2" class="est-heirs-h">الورثة</th>
+        ${q.cases.map((_, c) => `<td class="est-js"><input type="text" data-est-js="${c}"></td>`).join("")}
+        <th class="est-jam-h">الجامعة</th>
+        ${mqSplit ? `<th colspan="${n}" class="est-mq-h">تقسيم الموقوف</th>` : ""}
+      </tr>`;
+
+    const row2 = `
+      <tr>
+        ${q.cases.map((_, c) => `<td class="est-orig ${c === 0 ? "first-orig" : ""}"><input type="text" data-est-orig="${c}"></td>`).join("")}
+        <td class="est-jam-orig"><input type="text" class="jam-orig-inp"></td>
+        ${mqSplit ? `<td colspan="${n}" class="est-mq-orig"><input type="text" class="mq-total-inp"></td>` : ""}
+      </tr>`;
+
+    const bodyRows = q.heirs.map((heir, r) => `
+      <tr>
+        <td class="est-heir">${heir}</td>
+        ${q.cases.map((_, c) => `<td class="est-share"><input type="text" data-est-r="${r}" data-est-c="${c}"></td>`).join("")}
+        <td class="est-jam-share"><input type="text" class="jam-share-inp" data-row="${r}"></td>
+        ${mqSplit ? q.cases.map((_, c) => `<td class="est-mq-share"><input type="text" class="mq-share-inp" data-row="${r}" data-mc="${c}"></td>`).join("") : ""}
+      </tr>`).join("");
+
+    const footRow = `
+      <tr class="est-foot">
+        <th>التقديرات</th>
+        ${q.cases.map(lbl => `<td>${lbl}</td>`).join("")}
+        <td>${mqFoot ? `<span class="mq-q-wrap">ق (<input type="text" class="mq-q-inp">)</span>` : "العمل بالحالين"}</td>
+        ${mqSplit ? q.cases.map(lbl => `<td>${lbl}</td>`).join("") : ""}
+      </tr>`;
+
+    return `<table class="shabak est-tbl" data-qid="${q.id}" data-type="estimation">${row1}${row2}${bodyRows}${footRow}</table>`;
+  }
+
+  /* ج) هيكل ذوي الأرحام (أهل التنزيل — س٢٠) */
+  function buildTanzilTable(q) {
+    const head = `
+      <tr>
+        <th class="tz-heirs-h">الورثة</th>
+        <th class="tz-tanzil-h">التنزيل</th>
+        <td class="tz-orig"><input type="text" class="tz-orig-inp"></td>
+      </tr>`;
+
+    const body = q.rows.map((rowObj, r) => {
+      const tzCell = rowObj.tanzil !== undefined
+        ? `<td class="tz-tanzil" rowspan="${rowObj.tanzilSpan || 1}"><input type="text" class="tz-inp" data-tz-row="${r}"></td>`
+        : "";
+      return `
+        <tr>
+          <td class="tz-heir">${rowObj.heir}</td>
+          ${tzCell}
+          <td class="tz-share"><input type="text" class="tz-share-inp" data-row="${r}"></td>
+        </tr>`;
+    }).join("");
+
+    return `<table class="shabak tz-tbl" data-qid="${q.id}" data-type="tanzil">${head}${body}</table>`;
+  }
+
+  /* د) هيكل المناسخات (بدون عناوين الوفاة + دعم عمود النسبة) */
+  function buildMunasakhaTable(q) {
+    const D = q.deaths;
+
+    const origCell = (isSplit, attrNew, attrOld) => isSplit
+      ? `<td class="awl-cell plain-bg"><div class="awl-wrap"><input type="text" class="orig-old" ${attrOld}><input type="text" class="orig-new" ${attrNew}></div></td>`
+      : `<td><input type="text" ${attrNew}></td>`;
+
+    /* الصف ١: التصحيح */
+    let r1 = `<th class="mun-h-blue">التصحيح</th><td class="mun-js"><input type="text" data-m-first-js="1"></td>`;
+    D.forEach((d, idx) => {
+      const isLast = idx === D.length - 1;
+      r1 += `<th rowspan="2" class="mun-h-blue mun-blank-h"></th>`;
+      r1 += `<td class="mun-js"><input type="text" data-m-js="${idx}"></td>`;
+      r1 += isLast
+        ? `<th class="mun-jam-h">الجامعة</th>`
+        : `<td class="mun-jam-js"><input type="text" data-m-jam-js="${idx}"></td>`;
+    });
+    if (q.hasPct) r1 += `<th class="mun-pct-h">النسبة</th>`;
+
+    /* الصف ٢: أصل المسألة */
+    let r2 = `<th class="mun-h-blue">أصل المسألة</th>`;
+    r2 += origCell(q.firstSplitOrigin, `data-m-first-orig="1"`, `data-m-first-old="1"`);
+    D.forEach((d, idx) => {
+      const isLast = idx === D.length - 1;
+      r2 += origCell(d.splitOrigin, `data-m-orig="${idx}"`, `data-m-old="${idx}"`);
+      r2 += `<td class="mun-jam"><input type="text" data-m-jam="${idx}" ${isLast ? `class="mun-final-jam"` : ""}></td>`;
+    });
+    if (q.hasPct) r2 += `<td class="mun-pct-total"><input type="text" data-m-pct-tot="1"></td>`;
+
+    /* صفوف الورثة */
+    const deadAt = {};
+    D.forEach((d, idx) => { deadAt[d.deadRow] = idx; });
+
+    const bodyRows = q.rows.map((rowObj, r) => {
+      const startD = rowObj.startDeath ?? -1;
+      const diedIdx = (deadAt[r] !== undefined) ? deadAt[r] : 999;
+
+      let cells = startD === -1
+        ? `<td class="mun-heir">${rowObj.name}</td><td><input type="text" data-m-fshare="${r}"></td>`
+        : `<td class="mun-empty"></td><td class="mun-empty"></td>`;
+
+      D.forEach((d, idx) => {
+        const isLast = idx === D.length - 1;
+        const isDeadNow = (idx === diedIdx);
+        const isAlreadyDead = (idx > diedIdx);
+
+        if (isAlreadyDead) {
+          cells += `<td class="mun-dead">-</td><td class="mun-dead">-</td><td class="mun-dead">-</td>`;
+          return;
+        }
+        if (isDeadNow) {
+          cells += `<td class="mun-dead-tag">${d.deadTag}</td><td class="mun-dead">-</td><td class="mun-dead">-</td>`;
+          return;
+        }
+        if (idx < startD) {
+          cells += `<td class="mun-empty"></td><td class="mun-empty"></td><td class="mun-jam"></td>`;
+          return;
+        }
+
+        const labelTd = (idx === startD)
+          ? `<td class="mun-new">${rowObj.name}</td>`
+          : `<td class="mun-rel"><input type="text" class="mun-rel-inp"></td>`;
+        const subShareTd = `<td><input type="text" data-m-sub="${idx}-${r}"></td>`;
+        const jamTd = `<td class="mun-jam"><input type="text" data-m-jshare="${idx}-${r}" ${isLast ? `class="mun-final-share" data-row="${r}"` : ""}></td>`;
+        cells += labelTd + subShareTd + jamTd;
+      });
+
+      if (q.hasPct) {
+        cells += (diedIdx < 999)
+          ? `<td class="mun-dead">-</td>`
+          : `<td class="mun-pct"><input type="text" data-m-pct="${r}"></td>`;
+      }
+
+      return `<tr>${cells}</tr>`;
+    }).join("");
+
+    return `<table class="shabak mun-tbl" data-qid="${q.id}" data-type="munasakha"><tr>${r1}</tr><tr>${r2}</tr>${bodyRows}</table>`;
+  }
+
+  /* عرض أقسام الشبابيك */
+  function renderSection(list, containerId, startNum) {
+    const box = document.getElementById(containerId);
+    if (!list.length) {
+      box.innerHTML = `<div class="empty-note">لا توجد مسائل في هذا القسم حالياً.</div>`;
+      return;
+    }
+    list.forEach((q, idx) => {
+      const card = document.createElement("div");
+      card.className = "q-card ec";
+      card.id = "card-" + q.id;
+
+      let tblHtml = "";
+      if (q.type === "estimation") tblHtml = buildEstimationTable(q);
+      else if (q.type === "tanzil") tblHtml = buildTanzilTable(q);
+      else if (q.type === "munasakha") tblHtml = buildMunasakhaTable(q);
+      else tblHtml = buildBasicTable(q);
+
+      card.innerHTML = `
+        <div class="q-title"><span class="q-badge">س${arNum(startNum + idx)}</span> ${q.title}</div>
+        <div class="tbl-scroll">${tblHtml}</div>
+        <div class="q-res"></div>
+      `;
+      box.appendChild(card);
+    });
+  }
+
+  const nBasicStart = DATA.theory.length + 1;
+  const nSpecStart  = nBasicStart + DATA.basic.length;
+  const nMunStart   = nSpecStart + DATA.special.length;
+
+  renderSection(DATA.basic, "sec-basic", nBasicStart);
+  renderSection(DATA.special, "sec-special", nSpecStart);
+  renderSection(DATA.munasakhat, "sec-munasakhat", nMunStart);
+
+  /* التبويبات */
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll(".tab-btn, .sec").forEach(el => el.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.sec).classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+  });
+
+  /* الحفظ والاسترجاع التلقائي */
+  const allShabak = [...DATA.basic, ...DATA.special, ...DATA.munasakhat];
+
+  function saveDraft() {
+    const state = { theory: {}, shabak: {} };
+    DATA.theory.forEach(q => {
+      if (q.type === "multi") {
+        state.theory[q.id] = Array.from(document.querySelectorAll(`input[name="${q.id}"]:checked`)).map(el => el.value);
+      } else {
+        const chk = document.querySelector(`input[name="${q.id}"]:checked`);
+        if (chk) state.theory[q.id] = chk.value;
+      }
+    });
+    allShabak.forEach(q => {
+      const tbl = document.querySelector(`table.shabak[data-qid="${q.id}"]`);
+      if (!tbl) return;
+      state.shabak[q.id] = {
+        inputs: Array.from(tbl.querySelectorAll("input")).map(i => i.value),
+        mis: Array.from(tbl.querySelectorAll(".mi")).map(m => m.dataset.v || "")
+      };
+    });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (_) {}
+  }
+
+  function loadDraft() {
+    try {
+      const state = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+      if (state.theory) {
+        Object.entries(state.theory).forEach(([id, val]) => {
+          if (Array.isArray(val)) {
+            val.forEach(v => { const el = document.querySelector(`input[name="${id}"][value="${v}"]`); if (el) el.checked = true; });
+          } else {
+            const r = document.querySelector(`input[name="${id}"][value="${val}"]`); if (r) r.checked = true;
+          }
+        });
+      }
+      if (state.shabak) {
+        Object.entries(state.shabak).forEach(([id, obj]) => {
+          const tbl = document.querySelector(`table.shabak[data-qid="${id}"]`);
+          if (!tbl) return;
+          const inps = tbl.querySelectorAll("input");
+          (obj.inputs || []).forEach((v, i) => { if (inps[i]) inps[i].value = v; });
+          const mis = tbl.querySelectorAll(".mi");
+          (obj.mis || []).forEach((v, i) => {
+            if (mis[i] && v) {
+              mis[i].dataset.v = v;
+              mis[i].innerHTML = (typeof MKV !== "undefined" && MKV[v]) ? MKV[v] : v;
+            }
+          });
+        });
+      }
+    } catch (_) {}
+  }
+
+  document.addEventListener("input", e => {
+    if (e.target.classList) e.target.classList.remove("err-inp");
+    saveDraft();
+  });
+  document.addEventListener("change", saveDraft);
+  document.addEventListener("click", e => { if (e.target.closest("#kp")) setTimeout(saveDraft, 40); });
+  window.addEventListener("load", loadDraft);
+
+  /* دالة فحص خلية واحدة مع تظليل الخطأ */
+  function chkNum(el, exp) {
+    if (!el) return false;
+    const pass = toVal(el.value) === exp;
+    if (!pass) el.classList.add("err-inp");
+    return pass;
+  }
+
+  /* ===== التصحيح الشامل لجميع المدخلات ===== */
+  document.getElementById("btn-grade").onclick = async () => {
+    let score = 0;
+    const total = DATA.theory.length + allShabak.length;
+
+    /* ١. النظري */
+    DATA.theory.forEach(q => {
+      const card = document.getElementById("card-" + q.id);
+      let ok = false;
+      if (q.type === "multi") {
+        const checked = Array.from(document.querySelectorAll(`input[name="${q.id}"]:checked`)).map(el => Number(el.value)).sort();
+        const expected = [...q.ans].sort();
+        ok = checked.length === expected.length && checked.every((v, i) => v === expected[i]);
+      } else {
+        const chk = document.querySelector(`input[name="${q.id}"]:checked`);
+        ok = !!chk && Number(chk.value) === q.ans;
+      }
+      card.classList.toggle("ok", ok);
+      card.classList.toggle("bad", !ok);
+      card.querySelector(".q-res").textContent = ok ? "✓ إجابة صحيحة" : "✗ إجابة غير صحيحة";
+      if (ok) score++;
+    });
+
+    /* ٢. الشبابيك — فحص كامل لكل الخانات */
+    allShabak.forEach(q => {
+      const card = document.getElementById("card-" + q.id);
+      const tbl = card.querySelector("table.shabak");
+      tbl.querySelectorAll("input.err-inp").forEach(el => el.classList.remove("err-inp"));
+      let ok = true;
+
+      if (q.type === "estimation") {
+        /* فحص جزء السهم وأصول التقديرات وسهامها */
+        if (q.expectedJs) {
+          q.expectedJs.forEach((exp, c) => {
+            if (!chkNum(tbl.querySelector(`input[data-est-js="${c}"]`), exp)) ok = false;
+          });
+        }
+        if (q.expectedOrigs) {
+          q.expectedOrigs.forEach((exp, c) => {
+            if (!chkNum(tbl.querySelector(`input[data-est-orig="${c}"]`), exp)) ok = false;
+          });
+        }
+        if (q.expectedCaseShares) {
+          q.expectedCaseShares.forEach((rowArr, r) => {
+            rowArr.forEach((exp, c) => {
+              if (!chkNum(tbl.querySelector(`input[data-est-r="${r}"][data-est-c="${c}"]`), exp)) ok = false;
+            });
+          });
+        }
+        /* فحص الجامعة وسهامها والموقوف */
+        if (!chkNum(tbl.querySelector(".jam-orig-inp"), q.expectedJam)) ok = false;
+        q.expectedJamShares.forEach((exp, r) => {
+          if (!chkNum(tbl.querySelector(`.jam-share-inp[data-row="${r}"]`), exp)) ok = false;
+        });
+        if (q.hasMawqoofFooter !== false && q.expectedMawqoof !== undefined) {
+          if (!chkNum(tbl.querySelector(".mq-q-inp"), q.expectedMawqoof)) ok = false;
+        }
+        if (q.hasMawqoofSplit) {
+          if (!chkNum(tbl.querySelector(".mq-total-inp"), q.expectedMawqoof)) ok = false;
+          if (q.expectedMawqoofShares) {
+            q.expectedMawqoofShares.forEach((rowArr, r) => {
+              rowArr.forEach((exp, c) => {
+                if (!chkNum(tbl.querySelector(`.mq-share-inp[data-row="${r}"][data-mc="${c}"]`), exp)) ok = false;
+              });
+            });
+          }
+        }
+
+      } else if (q.type === "tanzil") {
+        if (!chkNum(tbl.querySelector(".tz-orig-inp"), q.expectedOrigin)) ok = false;
+        q.rows.forEach((rowObj, r) => {
+          if (!chkNum(tbl.querySelector(`.tz-share-inp[data-row="${r}"]`), rowObj.share)) ok = false;
+          if (rowObj.tanzil !== undefined) {
+            const inp = tbl.querySelector(`.tz-inp[data-tz-row="${r}"]`);
+            if (!inp || normAr(inp.value) !== normAr(rowObj.tanzil)) {
+              if (inp) inp.classList.add("err-inp");
+              ok = false;
+            }
+          }
+        });
+
+      } else if (q.type === "munasakha") {
+        /* المسألة الأولى */
+        if (q.firstJs !== undefined && !chkNum(tbl.querySelector(`input[data-m-first-js="1"]`), q.firstJs)) ok = false;
+        if (q.firstSplitOrigin && q.firstOldOrigin !== undefined) {
+          if (!chkNum(tbl.querySelector(`input[data-m-first-old="1"]`), q.firstOldOrigin)) ok = false;
+        }
+        if (q.firstOrigin !== undefined && !chkNum(tbl.querySelector(`input[data-m-first-orig="1"]`), q.firstOrigin)) ok = false;
+        q.rows.forEach((rowObj, r) => {
+          if ((rowObj.startDeath ?? -1) === -1) {
+            if (!chkNum(tbl.querySelector(`input[data-m-fshare="${r}"]`), rowObj.firstShare || 0)) ok = false;
+          }
+        });
+
+        /* جميع الوفيات والجامعات الوسطى والنهائية */
+        q.deaths.forEach((d, idx) => {
+          const isLast = idx === q.deaths.length - 1;
+          if (d.js !== undefined && !chkNum(tbl.querySelector(`input[data-m-js="${idx}"]`), d.js)) ok = false;
+          if (d.splitOrigin && d.oldOrigin !== undefined) {
+            if (!chkNum(tbl.querySelector(`input[data-m-old="${idx}"]`), d.oldOrigin)) ok = false;
+          }
+          if (d.origin !== undefined && !chkNum(tbl.querySelector(`input[data-m-orig="${idx}"]`), d.origin)) ok = false;
+
+          /* سهام المسألة الفرعية لكل حي */
+          tbl.querySelectorAll(`input[data-m-sub^="${idx}-"]`).forEach(inp => {
+            const r = Number(inp.dataset.mSub.split("-")[1]);
+            const exp = (d.subShares && d.subShares[r]) ? d.subShares[r] : 0;
+            if (!chkNum(inp, exp)) ok = false;
+          });
+
+          if (!isLast && d.jamJs !== undefined) {
+            if (!chkNum(tbl.querySelector(`input[data-m-jam-js="${idx}"]`), d.jamJs)) ok = false;
+          }
+
+          /* الجامعة وسهامها (مع دعم الاختصار في الجامعة الأخيرة مثل س١٠٤) */
+          const jamInp = tbl.querySelector(`input[data-m-jam="${idx}"]`);
+          const jShareInps = Array.from(tbl.querySelectorAll(`input[data-m-jshare^="${idx}-"]`));
+
+          if (isLast && d.altJam !== undefined) {
+            const matchMain = toVal(jamInp.value) === d.jam &&
+              jShareInps.every(inp => toVal(inp.value) === ((d.jamShares && d.jamShares[Number(inp.dataset.mJshare.split("-")[1])]) || 0));
+            const matchAlt = toVal(jamInp.value) === d.altJam &&
+              jShareInps.every(inp => toVal(inp.value) === ((d.altJamShares && d.altJamShares[Number(inp.dataset.mJshare.split("-")[1])]) || 0));
+            if (!matchMain && !matchAlt) {
+              ok = false;
+              if (toVal(jamInp.value) !== d.jam && toVal(jamInp.value) !== d.altJam) jamInp.classList.add("err-inp");
+              jShareInps.forEach(inp => {
+                const r = Number(inp.dataset.mJshare.split("-")[1]);
+                const e1 = (d.jamShares && d.jamShares[r]) || 0;
+                const e2 = (d.altJamShares && d.altJamShares[r]) || 0;
+                if (toVal(inp.value) !== e1 && toVal(inp.value) !== e2) inp.classList.add("err-inp");
+              });
+            }
+          } else {
+            if (d.jam !== undefined && !chkNum(jamInp, d.jam)) ok = false;
+            jShareInps.forEach(inp => {
+              const r = Number(inp.dataset.mJshare.split("-")[1]);
+              const exp = (d.jamShares && d.jamShares[r]) ? d.jamShares[r] : 0;
+              if (!chkNum(inp, exp)) ok = false;
+            });
+          }
+        });
+
+        /* عمود النسبة المئوية (إن وُجد مثل س٩٠) */
+        if (q.hasPct) {
+          const totInp = tbl.querySelector(`input[data-m-pct-tot="1"]`);
+          const tv = toPct(totInp ? totInp.value : "");
+          if (isNaN(tv) || Math.abs(tv - (q.pctTotal || 100)) > 0.05) {
+            if (totInp) totInp.classList.add("err-inp");
+            ok = false;
+          }
+          Object.entries(q.expectedPct || {}).forEach(([r, exp]) => {
+            const inp = tbl.querySelector(`input[data-m-pct="${r}"]`);
+            const v = toPct(inp ? inp.value : "");
+            if (isNaN(v) || Math.abs(v - exp) > 0.05) {
+              if (inp) inp.classList.add("err-inp");
+              ok = false;
+            }
+          });
+        }
+
+      } else {
+        /* الشباك الأساسي + التركات */
+        const lastCol = q.cols - 1;
+        if (q.expectedOldOrigin !== undefined && q.awlCol !== undefined) {
+          if (!chkNum(tbl.querySelector(`.orig-old[data-col="${q.awlCol}"]`), q.expectedOldOrigin)) ok = false;
+        }
+        if (!chkNum(tbl.querySelector(`.orig-inp[data-col="${lastCol}"]`), q.expectedOrigin)) ok = false;
+        q.expectedShares.forEach((exp, r) => {
+          if (!chkNum(tbl.querySelector(`.share-inp[data-row="${r}"][data-col="${lastCol}"]`), exp)) ok = false;
+        });
+        if (q.extraCol) {
+          if (q.extraCol.expectedTotal !== undefined) {
+            if (!chkNum(tbl.querySelector(".extra-total-inp"), q.extraCol.expectedTotal)) ok = false;
+          }
+          q.extraCol.expected.forEach((exp, r) => {
+            if (!chkNum(tbl.querySelector(`.extra-inp[data-row="${r}"]`), exp)) ok = false;
+          });
+        }
+      }
+
+      card.classList.toggle("ok", ok);
+      card.classList.toggle("bad", !ok);
+      card.querySelector(".q-res").textContent = ok ? "✓ أحسنت، جميع المدخلات صحيحة" : "✗ راجع الخانات المظللة بالأحمر";
+      if (ok) score++;
+    });
+
+    const pct = total ? Math.round((score / total) * 100) : 0;
+    const passed = pct >= 90;
+    const sum = document.getElementById("summary-box");
+    sum.style.display = "block";
+    sum.innerHTML = `
+      <h2 style="margin:0 0 6px">النتيجة: ${arNum(score)} / ${arNum(total)} (${arNum(pct)}٪)</h2>
+      <p style="margin:0;font-weight:700;color:${passed ? "#2e7d32" : "#c62828"}">
+        ${passed ? "مبارك! اجتزت الاختبار بنجاح وتستحق الشهادة الإلكترونية." : "درجة النجاح المطلوبة ٩٠٪ فأكثر — يمكنك مراجعة البطاقات الحمراء وإعادة المحاولة."}
+      </p>
+    `;
+
+    /* إظهار الشهادة الإلكترونية عند تحقيق ٩٠٪ فأكثر */
+    const certSec = document.getElementById("cert-section");
+    if (certSec) {
+      if (passed) {
+        let studentName = "";
+        if (window.MirasStudent && typeof window.MirasStudent.get === "function") {
+          studentName = (window.MirasStudent.get().name || "").trim();
+        }
+        if (!studentName) {
+          studentName = prompt("أدخل اسمك الكامل كما تريده أن يظهر في الشهادة:") || "الطالب";
+        }
+
+        const now = new Date();
+        const gregDate = `${now.getDate()} / ${now.getMonth() + 1} / ${now.getFullYear()}`;
+        let hijriDate = "";
+        try {
+          const parts = new Intl.DateTimeFormat("ar-SA-u-ca-islamic", {
+            day: "numeric", month: "numeric", year: "numeric"
+          }).formatToParts(now);
+          const d = parts.find(p => p.type === "day")?.value || "";
+          const m = parts.find(p => p.type === "month")?.value || "";
+          const y = parts.find(p => p.type === "year")?.value || "";
+          hijriDate = `${y} / ${m} / ${d}`;
+        } catch (_) {
+          hijriDate = "";
+        }
+
+        document.getElementById("cert-name").textContent = studentName;
+        document.getElementById("cert-hijri").textContent = hijriDate;
+        document.getElementById("cert-greg").textContent = gregDate;
+        certSec.style.display = "block";
+      } else {
+        certSec.style.display = "none";
+      }
+    }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    if (window.MirasStudent) {
+      await window.MirasStudent.sync({
+        examScore: pct + "%",
+        certStatus: passed ? "ناجح — مستحق للشهادة" : "لم يجتز بعد"
+      });
+    }
+  };
+
+  document.getElementById("btn-reset").onclick = () => {
+    if (!confirm("هل تريد مسح جميع إجاباتك في الاختبار؟")) return;
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  };
+
+  /* ===== وضع معاينة وضبط الشهادة (افتح exam.html?testcert=1) ===== */
+  if (location.search.includes("testcert=1")) {
+    const certSec = document.getElementById("cert-section");
+    if (certSec) {
+      const elName  = document.getElementById("cert-name");
+      const elHijri = document.getElementById("cert-hijri");
+      const elGreg  = document.getElementById("cert-greg");
+
+      elName.textContent  = "رامي فرج صالح";
+      elHijri.textContent = "١٤٤٧ / ٨ / ١٧";
+      elGreg.textContent  = "5 / 2 / 2026";
+      certSec.style.display = "block";
+
+      const tuner = document.createElement("div");
+      tuner.style.cssText = "margin:12px auto;padding:12px;max-width:720px;background:#f4f8ff;border:1px dashed #17375e;border-radius:10px;font-size:13px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;";
+      tuner.innerHTML = `
+        <div><b>الاسم:</b> أعلى <input type="number" step="0.5" id="t-nt" value="30.5" style="width:55px">٪ | يسار <input type="number" step="0.5" id="t-nl" value="41" style="width:55px">٪</div>
+        <div><b>الهجري:</b> أعلى <input type="number" step="0.5" id="t-ht" value="63" style="width:55px">٪ | يمين <input type="number" step="0.5" id="t-hr" value="16.5" style="width:55px">٪</div>
+        <div><b>الميلادي:</b> أعلى <input type="number" step="0.5" id="t-gt" value="63" style="width:55px">٪ | يسار <input type="number" step="0.5" id="t-gl" value="11.5" style="width:55px">٪</div>
+        <button type="button" id="t-copy" style="padding:6px 12px;background:#17375e;color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:700;">نسخ كود CSS</button>
+      `;
+      certSec.appendChild(tuner);
+
+      const applyPos = () => {
+        elName.style.top    = document.getElementById("t-nt").value + "%";
+        elName.style.left   = document.getElementById("t-nl").value + "%";
+        elHijri.style.top   = document.getElementById("t-ht").value + "%";
+        elHijri.style.right = document.getElementById("t-hr").value + "%";
+        elGreg.style.top    = document.getElementById("t-gt").value + "%";
+        elGreg.style.left   = document.getElementById("t-gl").value + "%";
+      };
+      tuner.addEventListener("input", applyPos);
+
+      document.getElementById("t-copy").onclick = () => {
+        const css = `#cert-name  { top: ${document.getElementById("t-nt").value}%; left: ${document.getElementById("t-nl").value}%; width: 39%; font-size: clamp(16px, 2.8vw, 28px); }\n` +
+                    `#cert-hijri { top: ${document.getElementById("t-ht").value}%; right: ${document.getElementById("t-hr").value}%; width: 15%; font-size: clamp(12px, 1.8vw, 18px); direction: ltr; }\n` +
+                    `#cert-greg  { top: ${document.getElementById("t-gt").value}%; left: ${document.getElementById("t-gl").value}%; width: 17%; font-size: clamp(12px, 1.8vw, 18px); direction: ltr; }`;
+        navigator.clipboard.writeText(css).then(() => alert("تم نسخ الكود! الصقه مكان القيم القديمة داخل <style>."));
+      };
+    }
+  }
+})();
+</script>
+<script src="js/student.js?v=2"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

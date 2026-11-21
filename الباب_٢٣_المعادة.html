@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, viewport-fit=cover">
+  <title>الباب ٢٣: المعادّة (ص ١٢٦ – ١٢٧)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <style>
+    /* ضبط امتلاء صفحة الشرح (١٢٦) بتوازن مثل ورقة الكتاب */
+    #p126.book-pg {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #p126.book-pg > * { flex-shrink: 0; }
+    #p126 .ti { width: min(36%, 180px); margin: .25em auto .55em; }
+
+    .u-bl {
+      color: #1f56a5;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* جدولا مثالي المعادّة مع عمود الشرح في ص ١٢٦ */
+    .bx.md-ex { font-size: .88em; margin: .5em 0; }
+    .bx.md-ex td { padding: .24em .25em; }
+    .bx.md-ex .nm { color: #17375e; font-weight: 700; }
+    .bx.md-ex .sh-tx {
+      background: #ebf1de;
+      color: #000;
+      font-weight: 500;
+      line-height: 1.85;
+      padding: .35em .6em;
+      text-align: center;
+    }
+
+    /* الزيديات الأربع في ص ١٢٧ */
+    .zd-hd {
+      background: #ebf1de;
+      border: 1px solid #e36c09;
+      color: #1f56a5;
+      font-weight: 700;
+      text-align: center;
+      padding: .3em .5em;
+      font-size: .95em;
+      margin-bottom: -1px;
+    }
+    .zd-pair {
+      display: grid;
+      grid-template-columns: 44% 53%;
+      justify-content: space-between;
+      align-items: stretch;
+      margin-bottom: 14px;
+    }
+    .zd-pair .bx { font-size: .84em; height: 100%; }
+    .zd-pair .bx td { padding: .2em .15em; }
+    .zd-pair .bx .zh {
+      background: #ebf1de;
+      color: #17375e;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+    .zd-pair .bx .nm { color: #17375e; font-weight: 700; }
+
+    /* الملاحظة في ص ١٢٧ */
+    .bx .pk-m { background: #f2dcdb; color: #7b1f1f; font-weight: 700; }
+    .bx .qa-tx { background: #ebf1de; color: #000; font-weight: 500; line-height: 1.85; padding: .35em .6em; text-align: center; }
+
+    /* تمارين ص ١٢٧ (٨ مسائل في شبكة ٤ أعمدة .eg الأصلية) */
+    #p127 .eg { gap: 16px 10px; margin: 1.1em 0 .9em; }
+    .ec table.x.md-tr { font-size: .82em; }
+    .ec table.x.md-tr th.t { font-weight: 700; color: #17375e; }
+    .ec table.x.md-tr td.nm { color: #111; font-weight: 500; }
+    .ec table.x.md-tr input { font-weight: 700; height: 100%; min-height: 1.85em; }
+    .ec table.x.md-tr input:focus { outline: 2px solid #2f5597; outline-offset: -2px; background: #f4f8ff; }
+
+    @media (max-width: 600px) {
+      .zd-pair { grid-template-columns: 1fr; gap: 10px; }
+      #p127 .eg { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== صفحة ١٢٦ (شرح ومثالا المعادّة) ==================== -->
+<section class="pg" id="p126">
+  <div>
+    <div class="hd">
+      <div class="no">١٢٦</div>
+      <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+      <div style="width:2.4em"></div>
+    </div>
+
+    <div class="ti">المعادّة</div>
+
+    <div class="sy">يقول أبو عبد الله محمد بن علي بن محمد بن حسين الرحبي رحمه الله في المعادة: -</div>
+    <table class="pm">
+      <tr>
+        <td>وَاحْسُبْ بَنِي الأَبِ لَدَى الأَعْدَادِ</td>
+        <td>وَارْفُضْ بَنِي الأُمِّ مَعَ الأَجْدَادِ</td>
+      </tr>
+      <tr>
+        <td>وَاحْكُمْ عَلَى الإِخْوَةِ بَعْدَ الْعَدِّ</td>
+        <td>حُكْمَكَ فِيهِمْ عِنْدَ فَقْدِ الْجَدِّ</td>
+      </tr>
+      <tr>
+        <td>وَاسْقِطْ بَنِي الإِخْوَةِ بِالأَجْدَادِ</td>
+        <td>حُكْمًا بِعَدْلٍ ظَاهِرِ الإِرْشَادِ</td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <p class="pr"><span class="u-bl">المعادّة:</span> وهي أن يُعدَّ الإخوة لأب مع الإخوة الأشقاء على الجد.</p>
+
+    <div class="u-bl" style="margin:.6em 0 .2em">شروط المعادّة:</div>
+    <p class="pr" style="margin:.15em 0">١) أن يكون مع الجد في المسألة إخوة أشقاء وإخوة لأب.</p>
+    <p class="pr" style="margin:.15em 0">٢) أن يكون عدد الإخوة الأشقاء مع الجد أقل من ضعفه دون أصحاب الفروض، فإن كان عدد الإخوة الأشقاء ضعف أو أكثر من ضعف الجد ففي هذه الحالة لا يكون للإخوة لأب على الجد تأثير.</p>
+  </div>
+
+  <div>
+    <!-- مثال (١) -->
+    <table class="bx md-ex">
+      <colgroup>
+        <col style="width:16%"><col style="width:7%"><col style="width:7%"><col style="width:70%">
+      </colgroup>
+      <tr>
+        <td class="t" rowspan="2">مثال (١)</td>
+        <td class="t b" rowspan="2">٣</td>
+        <td class="t b" rowspan="2">٣</td>
+        <td class="t">الشرح</td>
+      </tr>
+      <tr>
+        <td class="sh-tx" rowspan="4">ننظر إلى الجد مع الإخوة على أن الأخوة صنف واحد فنجد أنه يتساوى للجد الأمران الثلث والمقاسمة فيعطى الجد الثلث ثم ننظر إلى الإخوة ويعاملون على أن الجد غير موجود فنجد أن الأخ الشقيق يحجب الأخ لأب فيأخذ الباقي.</td>
+      </tr>
+      <tr>
+        <td class="nm">جد</td><td class="gn">١</td><td class="gn">١</td>
+      </tr>
+      <tr>
+        <td class="nm">أخ ش</td><td class="gn">١</td><td class="gn">٢</td>
+      </tr>
+      <tr>
+        <td class="nm">أخ لأب</td><td class="gn">١</td><td class="gn">-</td>
+      </tr>
+    </table>
+
+    <!-- مثال (٢) -->
+    <table class="bx md-ex" style="margin-top:14px">
+      <colgroup>
+        <col style="width:16%"><col style="width:7%"><col style="width:7%"><col style="width:70%">
+      </colgroup>
+      <tr>
+        <td class="t" rowspan="2">مثال (٢)</td>
+        <td class="t b" rowspan="2">٦</td>
+        <td class="t b" rowspan="2">٦</td>
+        <td class="t">الشرح</td>
+      </tr>
+      <tr>
+        <td class="sh-tx" rowspan="4">ننظر إلى الجد مع الإخوة على أنهم صنف واحد فيتساوى للجد الأمران الثلث والمقاسمة فيعطى الجد الثلث أو المقاسمة ثم ننظر إلى الإخوة ويعاملون على أن الجد غير موجود فنجد أن الأختين الشقيقتين تأخذان الثلثين مع الأخ لأب فتعطى الأختان الثلثين من أصل المسألة ولا يبقى للأخ لأب شيء.</td>
+      </tr>
+      <tr>
+        <td class="nm">جد</td><td class="gn">٢</td><td class="gn">٢</td>
+      </tr>
+      <tr>
+        <td class="nm">٢ أخت ش</td><td class="gn">٢</td><td class="gn">٤</td>
+      </tr>
+      <tr>
+        <td class="nm">أخ لأب</td><td class="gn">٢</td><td class="gn">-</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== صفحة ١٢٧ (الزيديات الأربع + ملاحظة + تمارين ١ – ٨) ==================== -->
+<section class="pg" id="p127">
+  <div class="hd">
+    <div class="no">١٢٧</div>
+    <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+    <div style="width:2.4em"></div>
+  </div>
+
+  <!-- الزيديات الأربع: الصف الأول (عشرية زيد + عشرينية زيد) -->
+  <div class="zd-hd">الزيديات الأربع: وسميت بهذا الاسم لتصدي زيد بن ثابت رضي الله عنه لحلها</div>
+  <div class="zd-pair">
+    <!-- أولاً: عشرية زيد -->
+    <table class="bx">
+      <colgroup><col style="width:52%"><col style="width:24%"><col style="width:24%"></colgroup>
+      <tr>
+        <td class="zh" rowspan="2">أولاً:<br>عشرية زيد</td>
+        <td class="t b">٢</td>
+        <td class="t b" rowspan="2">١٠</td>
+      </tr>
+      <tr><td class="t b">٥</td></tr>
+      <tr><td class="nm">جد</td><td class="gn">٢</td><td class="gn">٤</td></tr>
+      <tr><td class="nm">أخت ش</td><td class="gn" rowspan="2">٣</td><td class="gn">٥</td></tr>
+      <tr><td class="nm">أخ لأب</td><td class="gn">١</td></tr>
+    </table>
+
+    <!-- ثانياً: عشرينية زيد -->
+    <table class="bx">
+      <colgroup><col style="width:43%"><col style="width:19%"><col style="width:19%"><col style="width:19%"></colgroup>
+      <tr>
+        <td class="zh" rowspan="2">ثانياً:<br>عشرينية زيد</td>
+        <td class="t b">٢</td>
+        <td class="t b">٢</td>
+        <td class="t b" rowspan="2">٢٠</td>
+      </tr>
+      <tr><td class="t b">٥</td><td class="t b">١٠</td></tr>
+      <tr><td class="nm">جد</td><td class="gn">٢</td><td class="gn">٤</td><td class="gn">٨</td></tr>
+      <tr><td class="nm">أخت ش</td><td class="gn" rowspan="2">٣</td><td class="gn">٥</td><td class="gn">١٠</td></tr>
+      <tr><td class="nm">٢ أخت لأب</td><td class="gn">١</td><td class="gn">٢</td></tr>
+    </table>
+  </div>
+
+  <!-- الزيديات الأربع: الصف الثاني (تسعينية زيد + مختصرة زيد) -->
+  <div class="zd-pair" style="margin-top:10px">
+    <!-- ثالثاً: تسعينية زيد -->
+    <table class="bx">
+      <colgroup><col style="width:46%"><col style="width:18%"><col style="width:18%"><col style="width:18%"></colgroup>
+      <tr>
+        <td class="zh" rowspan="2">ثالثاً:<br>تسعينية زيد</td>
+        <td class="t b">٣</td>
+        <td class="t b">٥</td>
+        <td class="t b" rowspan="2">٩٠</td>
+      </tr>
+      <tr><td class="t b">٦</td><td class="t b">١٨</td></tr>
+      <tr><td class="nm">أم</td><td class="gn">١</td><td class="gn">٣</td><td class="gn">١٥</td></tr>
+      <tr><td class="nm">جد</td><td class="gn" rowspan="3">٥</td><td class="gn">٥</td><td class="gn">٢٥</td></tr>
+      <tr><td class="nm">أخت ش</td><td class="gn">٩</td><td class="gn">٤٥</td></tr>
+      <tr><td class="nm">٥ أخت لأب</td><td class="gn">١</td><td class="gn">٥</td></tr>
+    </table>
+
+    <!-- رابعاً: مختصرة زيد -->
+    <table class="bx">
+      <colgroup><col style="width:38%"><col style="width:15%"><col style="width:15%"><col style="width:16%"><col style="width:16%"></colgroup>
+      <tr>
+        <td class="zh" rowspan="2">رابعاً:<br>مختصرة زيد</td>
+        <td class="t b">٦</td>
+        <td class="t b">٣</td>
+        <td class="t b" rowspan="2">١٠٨</td>
+        <td class="t b" rowspan="2">٥٤</td>
+      </tr>
+      <tr><td class="t b">٦</td><td class="t b">٣٦</td></tr>
+      <tr><td class="nm">أم</td><td class="gn">١</td><td class="gn">٦</td><td class="gn">١٨</td><td class="gn">٩</td></tr>
+      <tr><td class="nm">جد</td><td class="gn" rowspan="3">٥</td><td class="gn">١٠</td><td class="gn">٣٠</td><td class="gn">١٥</td></tr>
+      <tr><td class="nm">أخت ش</td><td class="gn">١٨</td><td class="gn">٥٤</td><td class="gn">٢٧</td></tr>
+      <tr><td class="nm">٣ أخت لأب</td><td class="gn">٢</td><td class="gn">٦</td><td class="gn">٣</td></tr>
+    </table>
+  </div>
+
+  <!-- ملاحظة -->
+  <table class="bx" style="margin:.9em auto;font-size:.88em">
+    <colgroup><col style="width:11%"><col style="width:89%"></colgroup>
+    <tr>
+      <td class="pk-m">ملاحظة</td>
+      <td class="qa-tx">إذا كان مع الجد شقيقة واحدة وكان الباقي بعد نصيبه أقل من النصف أخذته الشقيقة ولا عول<br>أو كان مع الجد شقيقتان فأكثر وكان الباقي بعد نصيب الجد أقل من ثلثان أخذنه ولا عول.</td>
+    </tr>
+  </table>
+
+  <!-- تمارين المعادّة (مسائل ١ – ٨) -->
+  <div class="eg" id="g127-grid" data-group="g127"></div>
+
+  <button class="btn" data-chk="g127" type="button">تصحيح تمارين ص ١٢٧</button>
+  <div class="rs" id="g127-r" hidden></div>
+  <div class="prog" data-group="g127" id="g127-prog">
+    <div class="prog-txt">لم تُصحّح بعد — اضغط «تصحيح تمارين ص ١٢٧»</div>
+    <div class="prog-bar"><div class="prog-fill"></div></div>
+  </div>
+</section>
+
+<!-- رابط الانتقال إلى الباب التالي مباشرة -->
+<div class="nxt-box" id="next-gate">
+  <div class="nxt-links">
+    <a class="nxt-btn" id="next-ch-btn" href="الباب_٢٤_الأكدرية.html">الانتقال إلى الباب ٢٤: الأكدرية ←</a>
+    <a class="nxt-btn browse" href="index.html">🏠 اللوحة الذكية</a>
+  </div>
+</div>
+
+<div id="kp" hidden></div>
+
+<script>
+  const Z = "|0|-";
+  const arN = s => String(s).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
+
+  const EXD = {
+    /* ===== تمارين باب المعادّة — صفحة ١٢٧ (٨ مسائل) ===== */
+    g127: [
+      /* ١: جد، أخ ش، أخ لأب (٣ -> ٣: ١، ٢، ٠) */
+      { t: 3, hs: [["جد", 1], ["أخ ش", 1], ["أخ لأب", 1]],
+        c: { ts: 3, c0: 1, c1: 2, c2: Z } },
+
+      /* ٢: جد، أخت ش، أخ لأب — عشرية زيد (٥ -> ١٠: ٤، ٥، ١) */
+      { t: 5, hs: [["جد", 2], ["أخت ش", null], ["أخ لأب", null]],
+        c: { ts: 10, c0: 4, c1: 5, c2: 1, s1: "|3|٣", s2: "|3|٣" } },
+
+      /* ٣: جد، أخ ش، أخت لأب (٥ -> ٥: ٢، ٣، ٠) */
+      { t: 5, hs: [["جد", 2], ["أخ ش", 2], ["أخت لأب", 1]],
+        c: { ts: 5, c0: 2, c1: 3, c2: Z } },
+
+      /* ٤: جد، ٢ أخت ش، أخ لأب (٦ -> ٦: ٢، ٤، ٠) */
+      { t: 6, hs: [["جد", 2], ["٢ أخت ش", 2], ["أخ لأب", 2]],
+        c: { ts: 6, c0: 2, c1: 4, c2: Z } },
+
+      /* ٥: زوج، جد، أخت ش، ٢ أخ لأب (٦: ٣، ١، ٢، ٠) */
+      { t: 6, hs: [["زوج", 3], ["جد", 1], ["أخت ش", 2], ["٢ أخ لأب", 0]],
+        c: { ts: Z, c0: Z, c1: Z, c2: Z, c3: Z } },
+
+      /* ٦: أم، جد، أخت ش، أخ لأب (٦: ١، ٢، ٣، ٠) */
+      { t: 6, hs: [["أم", 1], ["جد", 2], ["أخت ش", 3], ["أخ لأب", 0]],
+        c: { ts: Z, c0: Z, c1: Z, c2: Z, c3: Z } },
+
+      /* ٧: زوجة، جد، ٢ أخت ش، ٢ أخت لأب (٤: ١، ١، ٢، ٠) */
+      { t: 4, hs: [["زوجة", 1], ["جد", 1], ["٢ أخت ش", 2], ["٢ أخت لأب", 0]],
+        c: { ts: Z, c0: Z, c1: Z, c2: Z, c3: Z } },
+
+      /* ٨: بنت، جد، أخ ش، أخ لأب (٦: ٣، ١، ٢، ٠) */
+      { t: 6, hs: [["بنت", 3], ["جد", 1], ["أخ ش", 2], ["أخ لأب", 0]],
+        c: { ts: Z, c0: Z, c1: Z, c2: Z, c3: Z } }
+    ]
+  };
+
+  /* توليد جداول تمارين ص ١٢٧ (٨ مسائل) */
+  (function buildG127() {
+    const grid = document.getElementById("g127-grid");
+    if (!grid) return;
+    grid.innerHTML = EXD.g127.map((item, i) => `
+      <div class="ec">
+        <table class="x md-tr">
+          <colgroup><col style="width:56%"><col style="width:22%"><col style="width:22%"></colgroup>
+          <tr>
+            <th class="t">مسألة (${arN(i + 1)})</th>
+            <td class="in"><input data-g="g127" data-i="${i}" data-k="t" inputmode="numeric"></td>
+            <td class="in"><input data-g="g127" data-i="${i}" data-k="ts" inputmode="numeric"></td>
+          </tr>
+          ${item.hs.map((h, k) => `
+          <tr>
+            <td class="nm">${h[0]}</td>
+            <td class="in"><input data-g="g127" data-i="${i}" data-k="s${k}" inputmode="numeric"></td>
+            <td class="in"><input data-g="g127" data-i="${i}" data-k="c${k}" inputmode="numeric"></td>
+          </tr>`).join("")}
+        </table>
+        <div class="mm" id="g127-${i}"></div>
+      </div>
+    `).join("");
+  })();
+</script>
+<script src="js/script.js?v=3"></script>
+<script src="js/progress.js?v=3"></script>
+</body>
+</html>

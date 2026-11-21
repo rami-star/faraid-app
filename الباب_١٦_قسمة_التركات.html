@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>الباب ١٦: قسمة التركات والنسبة المئوية (ص ٩٩ – ١٠٢)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <style>
+    /* تنسيقات خاصة بجداول قسمة التركات والنسبة المئوية (ص ٩٩ - ١٠٢) */
+    .tk-sec-hdr {
+      color: #c0504d;
+      font-weight: 700;
+      font-size: 1.05em;
+      margin: .6em 0 .3em;
+    }
+    .tk-q {
+      color: #1f3b73;
+      font-weight: 700;
+    }
+    .bx.tk-ex td, .bx.tk-ex th {
+      padding: .28em .35em;
+      font-size: .92em;
+    }
+    .bx.tk-ex .calc {
+      background: #ebf1de;
+      color: #000;
+      font-weight: 700;
+      text-align: center;
+      direction: rtl;
+      font-size: .92em;
+      line-height: 1.65;
+    }
+    .bx.tk-ex .calc-sub {
+      display: block;
+      font-weight: 700;
+      color: #17375e;
+      font-size: .9em;
+    }
+
+    /* جدول الفائدة الثلاثي في ص ٩٩ */
+    .nt-ways {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2em 0 .4em;
+      font-size: .9em;
+      text-align: center;
+    }
+    .nt-ways td {
+      border: 1px solid #e36c09;
+      padding: .35em .5em;
+      vertical-align: middle;
+    }
+    .nt-ways .f-side {
+      background: #f2dcdb;
+      color: #7b1f1f;
+      font-weight: 700;
+      width: 4.2em;
+      font-size: 1.05em;
+    }
+    .nt-ways .f-top {
+      background: #ebf1de;
+      color: #17375e;
+      font-weight: 700;
+    }
+    .nt-ways .f-num {
+      background: #f2dcdb;
+      color: #7b1f1f;
+      font-weight: 700;
+      width: 4.5em;
+    }
+    .nt-ways .f-desc {
+      background: #ebf1de;
+      color: #000;
+      font-weight: 700;
+    }
+    .nt-ways .f-law {
+      background: #c5d9f1;
+      color: #17375e;
+      font-weight: 700;
+      width: 34%;
+    }
+
+    /* جداول تدريبات ص ١٠١ و ١٠٢ */
+    .tk-ex-wrap {
+      margin: .85em 0 1.2em;
+      overflow-x: auto;
+    }
+    .bx.tk-solve {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: .84em;
+      text-align: center;
+    }
+    .bx.tk-solve td, .bx.tk-solve th {
+      border: 1px solid #e36c09;
+      padding: .15em .2em;
+      height: 2.05em;
+      vertical-align: middle;
+    }
+    .bx.tk-solve td.in {
+      background: #fff;
+      padding: 0;
+    }
+    .bx.tk-solve input {
+      width: 100%;
+      height: 100%;
+      min-height: 1.95em;
+      box-sizing: border-box;
+      border: 0;
+      background: transparent;
+      text-align: center;
+      font: inherit;
+      font-weight: 700;
+      color: #000;
+      padding: 0 2px;
+    }
+    .bx.tk-solve input:focus {
+      outline: 2px solid #2f5597;
+      outline-offset: -2px;
+      background: #f4f8ff;
+    }
+    .bx.tk-solve .tot-lbl {
+      background: #f2dcdb;
+      color: #17375e;
+      font-weight: 700;
+      font-size: .88em;
+    }
+    .ms-title {
+      color: #1f3b73;
+      font-weight: 700;
+      font-size: 1.02em;
+      margin: .7em 0 .35em;
+      line-height: 1.75;
+    }
+    .ms-title .ms-num {
+      color: #c0392b;
+    }
+
+    @media (max-width: 560px) {
+      .bx.tk-ex td, .bx.tk-ex th { font-size: .76em; padding: .2em .15em; }
+      .bx.tk-solve { font-size: .74em; }
+      .nt-ways { font-size: .78em; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== صفحة ٩٩ ==================== -->
+<section class="pg" id="p99">
+  <div class="hd">
+    <div class="no">٩٩</div>
+    <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+    <div style="width:2.4em"></div>
+  </div>
+
+  <div class="tk-sec-hdr">كيفية تقسيم التركة على الورثة وتنقسم إلى قسمين:</div>
+  <p class="pr"><span class="tk-q">القسم الأول:</span> ما يمكن قسمته بالعد كالنقود والمكيلات والموزونات والمعدودات والمذروعات المتساوية بالصفة والقيمة، ففي هذه الحالة نقسم التركة على الجامعة والناتج يضرب في سهم كل وارث.</p>
+  <p class="pr"><span class="tk-q">القسم الثاني:</span> ما لا يمكن قسمته بالعد والوزن ونحوه كالعقارات والحيوانات والسيارات، فتسمى تركةً مشاعةً أي غير قابلة للقسمة، ففي هذه الحالة تقسم بالتصالح بين الورثة أو تقسم بالنسبة المئوية أو بالقراريط، ويقل العمل بالقيراط في عصرنا هذا وسيأتي تفصيل كامل عنه في مجموع الفوائد.</p>
+
+  <!-- مثال (١) -->
+  <table class="bx tk-ex" style="margin-top:1em">
+    <colgroup>
+      <col style="width:13%">
+      <col style="width:14%">
+      <col style="width:16%">
+      <col style="width:57%">
+    </colgroup>
+    <tr>
+      <td class="gt b" rowspan="2" style="color:#17375e;font-size:1.05em">مثال (١)</td>
+      <td class="t">مسألة الورثة</td>
+      <td class="t">التركة مالاً</td>
+      <td class="t b" rowspan="2" style="font-weight:400;font-size:1.02em;line-height:1.8">
+        طريقة العمل في تقسيم التركات الصحيحة واستخراج الناتج<br>عدداً صحيحاً
+      </td>
+    </tr>
+    <tr>
+      <td class="t b big">٤</td>
+      <td class="t b big">١٠٠٠</td>
+    </tr>
+    <tr>
+      <td class="nm">زوجة</td>
+      <td class="gn">١</td>
+      <td class="gn">٢٥٠</td>
+      <td class="calc">(١٠٠٠ ÷ ٤ = ٢٥٠) &nbsp; (٢٥٠ × ١ = ٢٥٠)</td>
+    </tr>
+    <tr>
+      <td class="nm">أم</td>
+      <td class="gn">١</td>
+      <td class="gn">٢٥٠</td>
+      <td class="calc">(١٠٠٠ ÷ ٤ = ٢٥٠) &nbsp; (٢٥٠ × ١ = ٢٥٠)</td>
+    </tr>
+    <tr>
+      <td class="nm">أب</td>
+      <td class="gn">٢</td>
+      <td class="gn">٥٠٠</td>
+      <td class="calc">(١٠٠٠ ÷ ٤ = ٢٥٠) &nbsp; (٢٥٠ × ٢ = ٥٠٠)</td>
+    </tr>
+  </table>
+
+  <!-- مثال (٢) -->
+  <table class="bx tk-ex" style="margin-top:1.2em">
+    <colgroup>
+      <col style="width:13%">
+      <col style="width:14%">
+      <col style="width:16%">
+      <col style="width:57%">
+    </colgroup>
+    <tr>
+      <td class="gt b" rowspan="2" style="color:#17375e;font-size:1.05em">مثال (٢)</td>
+      <td class="t">مسألة الورثة</td>
+      <td class="t">التركة مالاً</td>
+      <td class="t b" rowspan="2" style="font-weight:400;font-size:1.02em;line-height:1.8">
+        طريقة العمل في تقسيم التركات وفيها كسر واستخراج الناتج<br>عدداً فيه كسر
+      </td>
+    </tr>
+    <tr>
+      <td class="t b big">٦</td>
+      <td class="t b big">٩٩٩,٩٩</td>
+    </tr>
+    <tr>
+      <td class="nm">زوج</td>
+      <td class="gn">٣</td>
+      <td class="gn">٥٠٠</td>
+      <td class="calc">(٩٩٩,٩٩ ÷ ٦ = ١٦٦,٦٦٥) &nbsp; (١٦٦,٦٧ × ٣ = ٥٠٠)</td>
+    </tr>
+    <tr>
+      <td class="nm">أم</td>
+      <td class="gn">١</td>
+      <td class="gn">١٦٦,٦٧</td>
+      <td class="calc">(٩٩٩,٩٩ ÷ ٦ = ١٦٦,٦٦٥) &nbsp; (١٦٦,٦٧ × ١ = ١٦٦,٦٧)</td>
+    </tr>
+    <tr>
+      <td class="nm">أب</td>
+      <td class="gn">٢</td>
+      <td class="gn">٣٣٣,٣٣</td>
+      <td class="calc">(٩٩٩,٩٩ ÷ ٦ = ١٦٦,٦٦٥) &nbsp; (١٦٦,٦٧ × ٢ = ٣٣٣,٣٣)</td>
+    </tr>
+  </table>
+
+  <table class="nt-ways">
+    <tr>
+      <td class="f-side" rowspan="4">فائدة</td>
+      <td class="f-top" colspan="3">توجد ثلاثة طرق أساسية لتقسيم التركات أو النسبة المئوية أو غيرها من المقسومات على الورثة.</td>
+    </tr>
+    <tr>
+      <td class="f-num">أولاً</td>
+      <td class="f-desc">تقسم التركة على الجامعة والناتج يضرب في سهم كل وارث</td>
+      <td class="f-law">التركة ÷ الجامعة × سهم الوارث</td>
+    </tr>
+    <tr>
+      <td class="f-num">ثانياً</td>
+      <td class="f-desc">يضرب سهم كل وارث في التركة والناتج يقسم على الجامعة</td>
+      <td class="f-law">سهم الوارث × التركة ÷ الجامعة</td>
+    </tr>
+    <tr>
+      <td class="f-num">ثالثاً</td>
+      <td class="f-desc">يقسم سهم كل وارث على الجامعة والناتج يضرب في التركة</td>
+      <td class="f-law">سهم الوارث ÷ الجامعة × التركة</td>
+    </tr>
+  </table>
+</section>
+
+<!-- ==================== صفحة ١٠٠ ==================== -->
+<section class="pg" id="p100">
+  <div class="hd">
+    <div class="no">١٠٠</div>
+    <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+    <div style="width:2.4em"></div>
+  </div>
+
+  <div class="ti" style="width:min(75%,260px)">تعريف النسبة المئوية</div>
+  <p class="pr">وهي ما يستخدم في كل تركة مشاعة لا تقبل القسمة، ويعمل بها لمعرفة نصيب الوارث في التركة، وتستخدم بدل القيراط لسهولتها.</p>
+  <p class="pr"><span style="color:#c0504d;font-weight:700">مثال:</span> توفي رجل عن أربعة أبناء وترك سيارة، وهي مما لا تقبل القسمة فإما أن تبقى وتقسم بالنسبة المئوية ويكون نصيب كل وارث منهم (<span class="tk-q">٢٥٪</span>)، أو تباع مثلاً بمبلغ (<span class="tk-q">٤٠٠٠٠</span>) درهم وتقسم مالاً ويكون نصيب كل وارث منهم (<span class="tk-q">١٠٠٠٠ درهم</span>).</p>
+
+  <div class="tk-sec-hdr" style="margin-top:1em">كيفية تقسيم النسبة المئوية ٪ :</div>
+  <p class="pr">نضرب سهم الوارث في (<span class="tk-q">١٠٠</span>) والناتج يقسم على أصل مسألة الورثة، ويعمل كذلك إذا كانت التركة مالاً، فنضرب نصيب الوارث من التركة في (<span class="tk-q">١٠٠</span>) والناتج يقسم على مجموع التركة فنعرف نصيب كل وارث بالنسبة المئوية.</p>
+
+  <div class="tk-sec-hdr" style="color:#1f3b73;margin-top:1em">مثال: إذا كانت الأسهم معلومة والنسبة المئوية مجهولة.</div>
+
+  <table class="bx tk-ex">
+    <colgroup>
+      <col style="width:16%">
+      <col style="width:12%">
+      <col style="width:16%">
+      <col style="width:56%">
+    </colgroup>
+    <tr>
+      <td class="t">الورثة</td>
+      <td class="t big">١٢</td>
+      <td class="pk b big">١٠٠٪</td>
+      <td class="pk b" style="color:#7b1f1f">طريقة التقسيم بالنسبة المئوية ٪</td>
+    </tr>
+    <tr>
+      <td class="nm">زوجة</td>
+      <td class="gn">٣</td>
+      <td class="gn">٢٥</td>
+      <td class="calc">
+        (٣ × ١٠٠ = ٣٠٠) &nbsp; (٣٠٠ ÷ ١٢ = ٢٥٪)
+        <span class="calc-sub">للزوجة خمسة وعشرون بالمئة.</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="nm">أم أم</td>
+      <td class="gn">٢</td>
+      <td class="gn">١٦,٦٧</td>
+      <td class="calc">
+        (٢ × ١٠٠ = ٢٠٠) &nbsp; (٢٠٠ ÷ ١٢ = ١٦,٦٧٪)
+        <span class="calc-sub">لأم الأم ستة عشر بالمئة وسبعة وستون جزءاً من المئة.</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="nm">أخت ش</td>
+      <td class="gn">٦</td>
+      <td class="gn">٥٠</td>
+      <td class="calc">
+        (٦ × ١٠٠ = ٦٠٠) &nbsp; (٦٠٠ ÷ ١٢ = ٥٠٪)
+        <span class="calc-sub">للأخت الشقيقة خمسون بالمئة.</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="nm">عم لأب</td>
+      <td class="gn">١</td>
+      <td class="gn">٨,٣٣</td>
+      <td class="calc">
+        (١ × ١٠٠ = ١٠٠) &nbsp; (١٠٠ ÷ ١٢ = ٨,٣٣٪)
+        <span class="calc-sub">للعم ثمانية بالمئة وثلاثة وثلاثون جزءاً من المئة.</span>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<!-- ==================== صفحة ١٠١ (تمارين ١ - ٣) ==================== -->
+<section class="pg" id="p101">
+  <div class="hd">
+    <div class="no">١٠١</div>
+    <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+    <div style="width:2.4em"></div>
+  </div>
+
+  <div class="bar">سؤال: حل المسائل ومن ثم قم بتقسيم التركات على حسب الموجود في كل جدول.</div>
+
+  <div class="eg" data-group="g101" style="display:block">
+    <!-- مسألة (١) -->
+    <div class="tk-ex-wrap ec">
+      <table class="bx tk-solve">
+        <colgroup>
+          <col style="width:18%"><col style="width:14%"><col style="width:17%"><col style="width:17%"><col style="width:17%"><col style="width:17%">
+        </colgroup>
+        <tr>
+          <td class="pk b" rowspan="2">مسألة (١)</td>
+          <td class="t">مسألة الورثة</td>
+          <td class="pk b">تقسيم النسبة</td>
+          <td class="t">تقسيم المال</td>
+          <td class="pk b">تقسيم المساحة</td>
+          <td class="t">تقسيم الوزن</td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g101" data-i="0" data-k="t" inputmode="decimal"></td>
+          <td class="pk b">١٠٠٪</td>
+          <td class="t">٤٠٠٠ درهم</td>
+          <td class="pk b">١٠٠٠ م٢</td>
+          <td class="t">٦٠٠ ك</td>
+        </tr>
+        <tr>
+          <td class="nm">زوجة</td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="s0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="p0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="m0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="a0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="w0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="s1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="p1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="m1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="a1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="w1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">أب</td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="s2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="p2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="m2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="a2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="w2" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="tot-lbl">تأكد من المجموع</td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="st" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="pt" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="mt" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="at" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="0" data-k="wt" inputmode="decimal"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g101-0"></div>
+    </div>
+
+    <!-- مسألة (٢) -->
+    <div class="tk-ex-wrap ec">
+      <table class="bx tk-solve">
+        <colgroup>
+          <col style="width:18%"><col style="width:14%"><col style="width:17%"><col style="width:17%"><col style="width:17%"><col style="width:17%">
+        </colgroup>
+        <tr>
+          <td class="pk b" rowspan="2">مسألة (٢)</td>
+          <td class="t">مسألة الورثة</td>
+          <td class="pk b">تقسيم النسبة</td>
+          <td class="t">تقسيم المال</td>
+          <td class="pk b">تقسيم المساحة</td>
+          <td class="t">تقسيم الوزن</td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g101" data-i="1" data-k="t" inputmode="decimal"></td>
+          <td class="pk b">١٠٠٪</td>
+          <td class="t">١٢٠٠٠ درهم</td>
+          <td class="pk b">٩٠٠٠ م٢</td>
+          <td class="t">١٢٠٠ ك</td>
+        </tr>
+        <tr>
+          <td class="nm">زوج</td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="s0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="p0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="m0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="a0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="w0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="s1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="p1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="m1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="a1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="w1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">أب</td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="s2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="p2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="m2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="a2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="w2" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="tot-lbl">تأكد من المجموع</td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="st" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="pt" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="mt" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="at" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="1" data-k="wt" inputmode="decimal"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g101-1"></div>
+    </div>
+
+    <!-- مسألة (٣) -->
+    <div class="tk-ex-wrap ec">
+      <table class="bx tk-solve">
+        <colgroup>
+          <col style="width:18%"><col style="width:14%"><col style="width:17%"><col style="width:17%"><col style="width:17%"><col style="width:17%">
+        </colgroup>
+        <tr>
+          <td class="pk b" rowspan="2">مسألة (٣)</td>
+          <td class="t">مسألة الورثة</td>
+          <td class="pk b">تقسيم النسبة</td>
+          <td class="t">تقسيم المال</td>
+          <td class="pk b">تقسيم المساحة</td>
+          <td class="t">تقسيم الوزن</td>
+        </tr>
+        <tr>
+          <td class="in"><input data-g="g101" data-i="2" data-k="t" inputmode="decimal"></td>
+          <td class="pk b">١٠٠٪</td>
+          <td class="t">٢٢٧٧٠٠ درهم</td>
+          <td class="pk b">٥٥٧٠٠ م٢</td>
+          <td class="t">١٤٠٠٠ ك</td>
+        </tr>
+        <tr>
+          <td class="nm">زوجة</td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="s0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="p0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="m0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="a0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="w0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">أم أم أم</td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="s1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="p1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="m1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="a1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="w1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">بنت ابن</td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="s2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="p2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="m2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="a2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="w2" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">بنت ابن ابن</td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="s3" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="p3" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="m3" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="a3" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="w3" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">بنت ابن ابن</td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="s4" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="p4" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="m4" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="a4" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="w4" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">ابن ابن ابن ابن</td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="s5" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="p5" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="m5" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="a5" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="w5" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="tot-lbl">تأكد من المجموع</td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="st" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="pt" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="mt" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="at" inputmode="decimal"></td>
+          <td class="in"><input data-g="g101" data-i="2" data-k="wt" inputmode="decimal"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g101-2"></div>
+    </div>
+  </div>
+
+  <button class="btn" data-chk="g101" type="button">تصحيح تمارين ص ١٠١</button>
+  <div class="rs" id="g101-r" hidden></div>
+  <div class="prog" data-group="g101" id="g101-prog">
+    <div class="prog-txt">لم تُصحّح بعد — اضغط «تصحيح تمارين ص ١٠١»</div>
+    <div class="prog-bar"><div class="prog-fill"></div></div>
+  </div>
+</section>
+
+<!-- ==================== صفحة ١٠٢ (مسألة ٤ و ٥) ==================== -->
+<section class="pg" id="p102">
+  <div class="hd">
+    <div class="no">١٠٢</div>
+    <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
+    <div style="width:2.4em"></div>
+  </div>
+
+  <div class="eg" data-group="g102" style="display:block">
+    <!-- مسألة (٤) -->
+    <div class="ms-title">
+      <span class="ms-num">مسألة (٤):</span> توفيت عن زوج وأم وأب، ثم توفي الأب عن أم وأخت شقيقة وبقية ورثة الميت الأول، ثم توفيت الأم عن أم وأخ لأم، حل المسألة ثم قسم التركة بالنسبة المئوية وبالمال.
+    </div>
+
+    <div class="tk-ex-wrap ec">
+      <table class="bx tk-solve">
+        <colgroup>
+          <col style="width:12%"><col style="width:8%"><col style="width:11%"><col style="width:8%"><col style="width:8%"><col style="width:11%"><col style="width:8%"><col style="width:8%"><col style="width:12%"><col style="width:14%">
+        </colgroup>
+        <tr>
+          <td class="t">التصحيح</td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="c_m1" inputmode="decimal"></td>
+          <td class="gt"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="c_m2" inputmode="decimal"></td>
+          <td class="t">ج (١)</td>
+          <td class="gt"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="c_m3" inputmode="decimal"></td>
+          <td class="t">ج (٢)</td>
+          <td class="pk b">تقسيم النسبة</td>
+          <td class="t">تقسيم المال</td>
+        </tr>
+        <tr>
+          <td class="t">أصل المسألة</td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="b_m1" inputmode="decimal"></td>
+          <td class="gt"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="b_m2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="j1" inputmode="decimal"></td>
+          <td class="gt"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="b_m3" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="t" inputmode="decimal"></td>
+          <td class="pk b">١٠٠٪</td>
+          <td class="t">٢٣٥٦٨٠٠</td>
+        </tr>
+        <tr>
+          <td class="nm">زوج</td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="m1_0" inputmode="decimal"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="j1_0" inputmode="decimal"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="s0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="p0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="m0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="m1_1" inputmode="decimal"></td>
+          <td class="nm">زوجة</td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="m2_1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="j1_1" inputmode="decimal"></td>
+          <td class="pk b">ت (٣)</td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+        </tr>
+        <tr>
+          <td class="nm">أب</td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="m1_2" inputmode="decimal"></td>
+          <td class="pk b">ت (٢)</td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+        </tr>
+        <tr>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="m2_3" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="j1_3" inputmode="decimal"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="s1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="p1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="m1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="nm">أخت ش</td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="m2_4" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="j1_4" inputmode="decimal"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="s2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="p2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="m2" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="m3_5" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="s3" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="p3" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="m3" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="nm">أخ لأم</td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="m3_6" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="s4" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="p4" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="m4" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="tot-lbl" colspan="7">تأكد من المجموع</td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="st" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="pt" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="mt" inputmode="decimal"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g102-0"></div>
+    </div>
+
+    <!-- مسألة (٥) -->
+    <div class="ms-title" style="margin-top:1.1em">
+      <span class="ms-num">مسألة (٥):</span> توفي عن زوجة هي بنت عمه وبنت وبنت ابن وأم وأب، ثم توفيت الزوجة عن بقية ورثة الميت الأول، ثم توفيت البنت عن زوج وبنت وبنت ابن وبقية ورثة الميت الأول، حل المسألة ثم قسم التركة بالنسبة المئوية وبالمال.
+    </div>
+
+    <div class="tk-ex-wrap ec">
+      <table class="bx tk-solve">
+        <colgroup>
+          <col style="width:12%"><col style="width:8%"><col style="width:11%"><col style="width:8%"><col style="width:8%"><col style="width:11%"><col style="width:8%"><col style="width:8%"><col style="width:12%"><col style="width:14%">
+        </colgroup>
+        <tr>
+          <td class="t">التصحيح</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="c_m1" inputmode="decimal"></td>
+          <td class="gt"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="c_m2" inputmode="decimal"></td>
+          <td class="t">ج (١)</td>
+          <td class="gt"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="c_m3" inputmode="decimal"></td>
+          <td class="t">ج (٢)</td>
+          <td class="pk b">تقسيم النسبة</td>
+          <td class="t">تقسيم المال</td>
+        </tr>
+        <tr>
+          <td class="t">أصل المسألة</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="b_m1" inputmode="decimal"></td>
+          <td class="gt"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="b_m2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="j1" inputmode="decimal"></td>
+          <td class="gt"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="b_m3" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="t" inputmode="decimal"></td>
+          <td class="pk b">١٠٠٪</td>
+          <td class="t">٤٥٥٠٣٣٠</td>
+        </tr>
+        <tr>
+          <td class="nm">زوجة</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m1_0" inputmode="decimal"></td>
+          <td class="pk b">ت (٢)</td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+        </tr>
+        <tr>
+          <td class="nm">بنت</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m1_1" inputmode="decimal"></td>
+          <td class="nm">بنت</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m2_1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="j1_1" inputmode="decimal"></td>
+          <td class="pk b">ت (٣)</td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+        </tr>
+        <tr>
+          <td class="nm">بنت ابن</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m1_2" inputmode="decimal"></td>
+          <td class="nm">بنت ابن</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m2_2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="j1_2" inputmode="decimal"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="s0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="p0" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m0" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">أم</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m1_3" inputmode="decimal"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="j1_3" inputmode="decimal"></td>
+          <td class="nm">أم أب</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m3_3" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="s1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="p1" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m1" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="nm">أب</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m1_4" inputmode="decimal"></td>
+          <td class="nm">عم ش</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m2_4" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="j1_4" inputmode="decimal"></td>
+          <td class="nm">أب أب</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m3_4" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="s2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="p2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m2" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="nm">زوج</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m3_5" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="s3" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="p3" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m3" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="nm">بنت</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m3_6" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="s4" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="p4" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m4" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="gt"></td>
+          <td class="nm">بنت ابن</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m3_7" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="s5" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="p5" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="m5" inputmode="decimal"></td>
+        </tr>
+        <tr>
+          <td class="tot-lbl" colspan="7">تأكد من المجموع</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="st" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="pt" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="mt" inputmode="decimal"></td>
+        </tr>
+      </table>
+      <div class="mm" id="g102-1"></div>
+    </div>
+  </div>
+
+  <button class="btn" data-chk="g102" type="button">تصحيح تمارين ص ١٠٢</button>
+  <div class="rs" id="g102-r" hidden></div>
+  <div class="prog" data-group="g102" id="g102-prog">
+    <div class="prog-txt">لم تُصحّح بعد — اضغط «تصحيح تمارين ص ١٠٢»</div>
+    <div class="prog-bar"><div class="prog-fill"></div></div>
+  </div>
+</section>
+
+<div class="nxt-box" id="next-gate">
+  <div class="nxt-links">
+    <a class="nxt-btn browse" href="الباب_١٧_الخنثى_والمفقود.html">🔓الانتقال إلى باب: الخنثى المشكل والحمل</a>
+    <a class="nxt-btn browse" href="index.html">🏠 اللوحة الذكية</a>
+  </div>
+</div>
+
+<div id="kp" hidden></div>
+
+<script>
+  /* دالة مساعدة لتوليد صيغ الأعداد العشرية بجميع الفواصل الممكنة (، أو , أو . أو ٫) */
+  function decOpts(...vals) {
+    const out = new Set();
+    vals.forEach(v => {
+      const s = String(v).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
+      if (s.includes(".")) {
+        [",", ".", "٫", "،"].forEach(sep => out.add(s.replace(".", sep)));
+      } else {
+        out.add(s);
+      }
+    });
+    return Array.from(out).join("|");
+  }
+
+  const EXD = {
+    /* بيانات تصحيح صفحة ١٠١ (مسألة ١، ٢، ٣) */
+    g101: [
+      /* مسألة (١): زوجة، أم، أب (أصلها ٤) */
+      {
+        t: 4,
+        hs: [["زوجة", 1], ["أم", 1], ["أب", 2]],
+        c: {
+          p0: 25, p1: 25, p2: 50,
+          m0: 1000, m1: 1000, m2: 2000,
+          a0: 250, a1: 250, a2: 500,
+          w0: 150, w1: 150, w2: 300,
+          st: 4, pt: 100, mt: 4000, at: 1000, wt: 600
+        }
+      },
+      /* مسألة (٢): زوج، أم، أب (أصلها ٦) */
+      {
+        t: 6,
+        hs: [["زوج", 3], ["أم", 1], ["أب", 2]],
+        c: {
+          p0: 50,
+          p1: decOpts("16.67", "16.66"),
+          p2: decOpts("33.33", "33.34"),
+          m0: 6000, m1: 2000, m2: 4000,
+          a0: 4500, a1: 1500, a2: 3000,
+          w0: 600, w1: 200, w2: 400,
+          st: 6,
+          pt: decOpts("100", "99.99"),
+          mt: 12000, at: 9000, wt: 1200
+        }
+      },
+      /* مسألة (٣): زوجة (٣)، أم أم أم (٤)، بنت ابن (١٢)، بنتا ابن ابن (٢، ٢)، ابن ابن ابن ابن (١) — أصلها ٢٤ */
+      {
+        t: 24,
+        hs: [
+          ["زوجة", 3],
+          ["أم أم أم", 4],
+          ["بنت ابن", 12],
+          ["بنت ابن ابن", 2],
+          ["بنت ابن ابن", 2],
+          ["ابن ابن ابن ابن", 1]
+        ],
+        c: {
+          p0: decOpts("12.5", "12.50", "12.51"),
+          p1: decOpts("16.67", "16.66", "16.68"),
+          p2: decOpts("50", "50.04"),
+          p3: decOpts("8.33", "8.34"),
+          p4: decOpts("8.33", "8.34"),
+          p5: decOpts("4.17", "4.16"),
+          m0: decOpts("28462.5", "28462.50"),
+          m1: decOpts("37950"),
+          m2: decOpts("113850"),
+          m3: decOpts("18975"),
+          m4: decOpts("18975"),
+          m5: decOpts("9487.5", "9487.50"),
+          a0: decOpts("6962.5", "6962.49", "6962.50"),
+          a1: decOpts("9283.33", "9283.32"),
+          a2: decOpts("27850", "27849.96"),
+          a3: decOpts("4641.67", "4641.66"),
+          a4: decOpts("4641.67", "4641.66"),
+          a5: decOpts("2320.83"),
+          w0: decOpts("1750", "1749.99"),
+          w1: decOpts("2333.33", "2333.32"),
+          w2: decOpts("7000", "6999.96"),
+          w3: decOpts("1166.67", "1166.66"),
+          w4: decOpts("1166.67", "1166.66"),
+          w5: decOpts("583.33"),
+          st: 24,
+          pt: decOpts("100", "99.99"),
+          mt: 227700,
+          at: decOpts("55700", "55699.99"),
+          wt: decOpts("14000", "13999.99")
+        }
+      }
+    ],
+
+    /* بيانات تصحيح صفحة ١٠٢ (مسألة ٤ و ٥) */
+    g102: [
+      /* مسألة (٤): الجامعة النهائية ٢٣٤ */
+      {
+        t: 234,
+        hs: [
+          ["زوج", 117],
+          ["أم الأب", 24],
+          ["أخت ش", 36],
+          ["أم الأم", 38],
+          ["أخ لأم", 19]
+        ],
+        c: {
+          c_m1: "|13", b_m1: 6, m1_0: 3, m1_1: 1, m1_2: 2,
+          c_m2: "13|2", b_m2: "12|13", m2_1: 3, m2_3: 4, m2_4: 6,
+          j1: 78, j1_0: 39, j1_1: 19, j1_3: 8, j1_4: 12,
+          c_m3: "3|19", b_m3: "3|6", m3_5: 2, m3_6: 1,
+          p0: decOpts("50", "50.00"),
+          p1: decOpts("10.26", "10.25"),
+          p2: decOpts("15.38", "15.39"),
+          p3: decOpts("16.24", "16.23"),
+          p4: decOpts("8.12"),
+          m0: decOpts("1178400", "1178400.21"),
+          m1: decOpts("241723.08", "241723.12"),
+          m2: decOpts("362584.62", "362584.68"),
+          m3: decOpts("382728.21", "382728.27"),
+          m4: decOpts("191364.1", "191364.10", "191364.14"),
+          st: 234,
+          pt: decOpts("100", "99.99"),
+          mt: decOpts("2356800")
+        }
+      },
+      /* مسألة (٥): الجامعة النهائية ٢٧٠ */
+      {
+        t: 270,
+        hs: [
+          ["بنت ابن", 45],
+          ["أم / أم أب", 58],
+          ["أب / عم ش / أب أب", 68],
+          ["زوج", 27],
+          ["بنت", 54],
+          ["بنت ابن", 18]
+        ],
+        c: {
+          c_m1: "27|2", b_m1: "24|27", m1_0: 3, m1_1: 12, m1_2: 4, m1_3: 4, m1_4: 4,
+          c_m2: "|1|2", b_m2: 6, m2_1: 3, m2_2: 1, m2_4: 2,
+          j1: 54, j1_1: 27, j1_2: 9, j1_3: 8, j1_4: 10,
+          c_m3: "15|9", b_m3: "12|15", m3_3: 2, m3_4: 2, m3_5: 3, m3_6: 6, m3_7: 2,
+          p0: decOpts("16.67", "16.66"),
+          p1: decOpts("21.48"),
+          p2: decOpts("25.19", "25.18"),
+          p3: decOpts("10", "10.00"),
+          p4: decOpts("20", "20.00"),
+          p5: decOpts("6.67", "6.66"),
+          m0: decOpts("758388.33", "758388.15"),
+          m1: decOpts("977478.29", "977478.06"),
+          m2: decOpts("1146009.04", "1146008.76"),
+          m3: decOpts("455033", "455032.89"),
+          m4: decOpts("910066", "910065.78"),
+          m5: decOpts("303355.33", "303355.26"),
+          st: 270,
+          pt: decOpts("100", "99.99", "100.01"),
+          mt: decOpts("4550330")
+        }
+      }
+    ]
+  };
+</script>
+<script src="js/script.js?v=3"></script>
+<script src="js/progress.js?v=3"></script>
+</body>
+</html>
