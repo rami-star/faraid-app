@@ -1,0 +1,35 @@
+{
+    "short_name": "الفرائض",
+    "name": "الفوائد في تسهيل مسائل الفرائض",
+    "description": "تطبيق تفاعلي لتعليم علم المواريث والتدريب على مسائل الفرائض والمناسخات",
+    "icons": [
+      {
+        "src": "images/icon-192.png",
+        "type": "image/png",
+        "sizes": "192x192",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "images/icon-512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "any maskable"
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "images/cover-400.png",
+        "type": "image/png",
+        "sizes": "400x500",
+        "form_factor": "narrow",
+        "label": "غلاف كتاب الفوائد في تسهيل مسائل الفرائض"
+      }
+    ],
+    "start_url": "index.html",
+    "background_color": "#0d2329",
+    "theme_color": "#0d2329",
+    "display": "standalone",
+    "orientation": "portrait",
+    "dir": "rtl",
+    "lang": "ar"
+  }
