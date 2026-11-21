@@ -713,97 +713,103 @@ html{scroll-padding-top:3em}body{margin:0;background:#d9dde3;color:#111;font-fam
   .pg.book-pg { transform: none !important; width: 100% !important; max-width: 100% !important; }
 }
 
-/* أزرار الدمج وفك الدمج في الكيبورد المصغر */
-#kp .kp-merge {
-  background: #e8f0fe;
-  color: #17375e;
-  border-color: #2f5597;
-  font-weight: 700;
-}
-#kp .kp-unmerge {
-  background: #fdecea;
-  color: #8b1e1e;
-  border-color: #c0504d;
-  font-weight: 700;
-}
-/* تلميح الدمج بعد ٣ أخطاء */
-.merge-hint {
-  margin-top: 6px;
-  padding: 6px 10px;
-  background: #fff8e1;
-  border: 1px solid #f0b429;
-  border-radius: 6px;
-  color: #7c4d00;
-  font-size: .85em;
-  font-weight: 700;
-  text-align: center;
-}
-
 /* ===== إخفاء شريط تكبير الصفحة نهائياً ===== */
 #zoom-ctrl {
   display: none !important;
 }
 
-/* ===== تصغير وتنسيق الكيبورد المصغر (#kp) ===== */
+/* ===== لوحة المفاتيح (#kp) بعرض الشاشة الكامل بدون فراغ جانبي ===== */
 #kp {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
   display: grid !important;
-  grid-template-columns: repeat(15, 1fr) !important;
-  gap: 5px !important;
-  padding: 8px 8px 10px !important;
-  max-width: 340px !important;
-  width: min(94vw, 340px) !important;
+  grid-template-columns: repeat(60, minmax(0, 1fr)) !important;
+  gap: 6px !important;
+  padding: 10px 8px calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+  background: linear-gradient(#e9eff8, #d9e3f2) !important;
+  border-top: 2px solid #2f5597 !important;
+  border-radius: 18px 18px 0 0 !important;
+  box-shadow: 0 -6px 18px rgba(31, 59, 115, 0.22) !important;
+  box-sizing: border-box !important;
+  z-index: 9999 !important;
 }
+
 #kp[hidden] {
   display: none !important;
 }
 
+/* توسيط الكيبورد على شاشات اللابتوب العريضة فقط، وملء الشاشة ١٠٠٪ على الجوال */
+@media (min-width: 900px) {
+  #kp {
+    max-width: 560px !important;
+  }
+}
+
 #kp button {
-  min-height: 36px !important;
+  margin: 0 !important;
+  min-width: 0 !important;
+  min-height: 40px !important;
   height: auto !important;
   padding: 4px 2px !important;
-  font-size: 13px !important;
-  border-radius: 8px !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  border-radius: 9px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
 }
 
-/* صفوف الكسور (٣ أزرار في كل صف) */
+/* صفوف الكسور: ٣ أزرار في كل صف (٢٠ × ٣ = ٦٠) */
 #kp button.w {
-  grid-column: span 5 !important;
+  grid-column: span 20 !important;
 }
 
-/* صف الرموز: ع، ب، م، غ، ر (٥ أزرار في صف واحد) */
+/* صف الرموز: ع، ب، م، غ، ر (١٢ × ٥ = ٦٠) */
 #kp button[data-v]:not(.w) {
-  grid-column: span 3 !important;
+  grid-column: span 12 !important;
+  font-size: 16px !important;
+}
+
+/* الصف السفلي: التالي + دمج + فك + مسح + تم (١٤ + ١٢ + ١١ + ١٠ + ١٣ = ٦٠) */
+#kp button[data-a="next"] {
+  grid-column: span 14 !important;
+  background: linear-gradient(#eef6ff, #d6e8ff) !important;
+  color: #17375e !important;
+  border: 1px solid #5683bf !important;
+  border-bottom: 3px solid #3c6aa6 !important;
+  font-size: 13px !important;
+}
+
+#kp button.kp-merge {
+  grid-column: span 12 !important;
+  background: #e8f0fe !important;
+  color: #17375e !important;
+  border: 1px solid #2f5597 !important;
+  font-size: 12px !important;
+}
+
+#kp button.kp-unmerge {
+  grid-column: span 11 !important;
+  background: #fdecea !important;
+  color: #8b1e1e !important;
+  border: 1px solid #c0504d !important;
+  font-size: 12px !important;
+}
+
+#kp button[data-a="d"] {
+  grid-column: span 10 !important;
   font-size: 15px !important;
 }
 
-/* الصف السفلي: دمج + فك + مسح + تم (كلها في صف واحد مرتب) */
-#kp button.kp-merge {
-  grid-column: span 4 !important;
-  background: #e8f0fe;
-  color: #17375e;
-  border: 1px solid #2f5597;
-  font-weight: 700;
-  font-size: 12px !important;
-}
-#kp button.kp-unmerge {
-  grid-column: span 4 !important;
-  background: #fdecea;
-  color: #8b1e1e;
-  border: 1px solid #c0504d;
-  font-weight: 700;
-  font-size: 12px !important;
-}
-#kp button[data-a="d"] {
-  grid-column: span 3 !important;
-  font-size: 15px !important;
-}
 #kp button[data-a="x"] {
-  grid-column: span 4 !important;
+  grid-column: span 13 !important;
   font-size: 13px !important;
-  font-weight: 700;
 }
 
 /* تلميح الدمج بعد ٣ أخطاء */
