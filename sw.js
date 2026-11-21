@@ -1,11 +1,11 @@
-const CACHE_NAME = "faraid-app-v1";
+const CACHE_NAME = "faraid-app-v2";
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./exam.html",
   "./manifest.json",
-  "./css/style.css?=v1",
-  "./js/script.js?=v1",
+  "./css/style.css",
+  "./js/script.js",
   "./js/student.js",
   "./js/exam-data.js"
 ];
