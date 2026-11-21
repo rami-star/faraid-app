@@ -4,8 +4,8 @@ const CORE_ASSETS = [
   "./index.html",
   "./exam.html",
   "./manifest.json",
-  "./css/style.css"?=v1,
-  "./js/script.js"?v1,
+  "./css/style.css?=v1",
+  "./js/script.js?=v1",
   "./js/student.js",
   "./js/exam-data.js"
 ];
