@@ -1389,3 +1389,25 @@ document.addEventListener("keydown", e => {
   }
 });
 
+
+/* رفع شريط دمج السهام (#kp-s) تلقائياً فوق كيبورد الجوال */
+(function () {
+  if (!window.visualViewport) return;
+
+  function keepBarAboveKeyboard() {
+    const bar = document.getElementById("kp-s");
+    if (!bar || bar.hidden) return;
+
+    const vv = window.visualViewport;
+    // حساب ارتفاع الكيبورد الظاهر حالياً
+    const kbHeight = Math.max(0, window.innerHeight - (vv.height + vv.offsetTop));
+
+    bar.style.top = "auto";
+    bar.style.bottom = (kbHeight + 12) + "px";
+  }
+
+  window.visualViewport.addEventListener("resize", keepBarAboveKeyboard);
+  window.visualViewport.addEventListener("scroll", keepBarAboveKeyboard);
+  document.addEventListener("focusin", () => setTimeout(keepBarAboveKeyboard, 120));
+})();
+
