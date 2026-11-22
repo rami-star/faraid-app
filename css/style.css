@@ -1084,3 +1084,11 @@ html, body {
 .pg-stage > .pg:not(:has(.eg)):not(#pc1) {
   margin: 0 !important;
 }
+
+/* شطب أصل المسألة القديم في تمارين العول بخط أحمر تلقائياً عند الكتابة */
+.ec table:has(tr:first-child th[rowspan="2"]) tr:nth-child(2) td:only-child input {
+  text-decoration: line-through !important;
+  text-decoration-color: #d92b2b !important;
+  text-decoration-thickness: 2px !important;
+  color: #555 !important;
+}

@@ -277,51 +277,155 @@
 </div><button class="btn" data-chk="g58">تصحيح التمارين</button><div class="rs" id="g58-r" hidden></div><div class="prog" data-group="g58"><div class="prog-txt">لم تُصحّح بعد — اضغط «تصحيح التمارين»</div><div class="prog-bar"><div class="prog-fill"></div></div></div>
 </section>
 
-<section class="pg" id="p61"><div class="hd"><div class="no">٦١</div><div class="bt">الفوائد في تسهيل مسائل الفرائض</div><div style="width:2.4em"></div></div>
-<div class="bar">جدول مراجعة لجميع حالات الورثة</div>
-<div style="overflow-x:auto"><table class="ex" style="text-align:right;font-size:.88em;width:100%"><tr><th>الورثة</th><th>حالاتهم</th><th>شروطهم</th></tr><tr><td class="h">الزوج</td><td>النصف</td><td>عدم وجود الفرع الوارث</td></tr>
-<tr><td class="h"></td><td>الربع</td><td>وجود الفرع الوارث</td></tr>
-<tr><td class="h">الزوجة</td><td>الربع</td><td>عدم وجود الفرع الوارث</td></tr>
-<tr><td class="h"></td><td>الثمن</td><td>وجود الفرع الوارث</td></tr>
-<tr><td class="h">الأب</td><td>السدس والباقي تعصيبا</td><td>وجود الفرع الوارث من الذكور</td></tr>
-<tr><td class="h"></td><td>السدس والباقي</td><td>وجود الفرع الوارث من الإناث</td></tr>
-<tr><td class="h"></td><td>الباقي تعصيبا</td><td>بعدم وجود الفرع من الذكور وعدم وجود الأب</td></tr>
-<tr><td class="h">الجد (أبو الأب وإن علا)</td><td>الباقي تعصيبا</td><td>بعدم وجود الفرع من الذكور وعدم وجود الأب وأبي الأب</td></tr>
-<tr><td class="h"></td><td>الباقي تعصيبا الأعلى</td><td>بعدم وجود الفرع من الذكور وعدم وجود الأب وأبي الأب وأبي الأعلى</td></tr>
-<tr><td class="h">الأم</td><td>الثلث</td><td>عدم وجود الفرع الوارث أو جمع من الإخوة</td></tr>
-<tr><td class="h"></td><td>السدس</td><td>وجود الفرع الوارث أو جمع من الإخوة</td></tr>
-<tr><td class="h"></td><td>ثلث الباقي</td><td>أن تكون إحدى العمريتين</td></tr>
-<tr><td class="h">الجدة (أم الأم)</td><td>السدس</td><td>عدم وجود الأم</td></tr>
-<tr><td class="h">الجدة (أم الأب)</td><td>السدس</td><td>عدم وجود الأم والأب</td></tr>
-<tr><td class="h">البنت</td><td>النصف</td><td>عدم وجود المماثل أو المعصب</td></tr>
-<tr><td class="h">بنتان فأكثر</td><td>الثلثان</td><td>وجود المماثل وعدم وجود المعصب</td></tr>
-<tr><td class="h">بنت ابن</td><td>النصف</td><td>عدم المماثل أو المعصب أو فرع أعلى منها</td></tr></table></div>
+<section class="pg" id="p61">
+  <style>
+    #p61 .rev-tbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .86em;
+      margin-top: .4em;
+    }
+    #p61 .rev-tbl th,
+    #p61 .rev-tbl td {
+      border: 1px solid #d9822b;
+      padding: .28em .45em;
+      vertical-align: middle;
+      line-height: 1.6;
+    }
+    #p61 .rev-tbl tr.rev-title th {
+      background: #f2dcdb;
+      color: #7b1f1f;
+      font-size: 1.12em;
+      font-weight: 700;
+      text-align: center;
+      padding: .35em;
+    }
+    #p61 .rev-tbl tr.rev-hdr th {
+      background: #c6d9f1;
+      color: #111;
+      font-weight: 700;
+      text-align: center;
+    }
+    #p61 .rev-tbl td.c1 {
+      width: 20%;
+      background: #ebf1de;
+      color: #111;
+      font-weight: 700;
+      text-align: center;
+    }
+    #p61 .rev-tbl td.c2 {
+      width: 17%;
+      background: #c6d9f1;
+      color: #1f56a5;
+      font-weight: 700;
+      text-align: center;
+    }
+    #p61 .rev-tbl td.c3 {
+      width: 63%;
+      background: #ebf1de;
+      color: #111;
+      text-align: right;
+    }
+  </style>
+
+  <div class="hd"><div class="no">٦١</div><div class="bt">الفوائد في تسهيل مسائل الفرائض</div><div style="width:2.4em"></div></div>
+
+  <div style="overflow-x:auto">
+    <table class="rev-tbl">
+      <tr class="rev-title"><th colspan="3">جدول مراجعة لجميع حالات الورثة</th></tr>
+      <tr class="rev-hdr"><th>الورثة</th><th>حالاتهم</th><th>شروطهم</th></tr>
+
+      <tr><td class="c1" rowspan="2">الزوج</td><td class="c2">النصف</td><td class="c3">عدم وجود الفرع الوارث</td></tr>
+      <tr><td class="c2">الربع</td><td class="c3">وجود الفرع الوارث</td></tr>
+
+      <tr><td class="c1" rowspan="2">الزوجة</td><td class="c2">الربع</td><td class="c3">عدم وجود الفرع الوارث</td></tr>
+      <tr><td class="c2">الثمن</td><td class="c3">وجود الفرع الوارث</td></tr>
+
+      <tr><td class="c1" rowspan="3">الأب</td><td class="c2">السدس</td><td class="c3">وجود الفرع الوارث من الذكور</td></tr>
+      <tr><td class="c2">السدس والباقي</td><td class="c3">وجود الفرع الوارث من الإناث</td></tr>
+      <tr><td class="c2">الباقي تعصيبا</td><td class="c3">بعدم وجود الفرع الوارث من الذكور</td></tr>
+
+      <tr><td class="c1" rowspan="3">الجد<br>(أبو الأب)<br>وإن علا</td><td class="c2">السدس</td><td class="c3">وجود الفرع الوارث من الذكور وعدم وجود الأب</td></tr>
+      <tr><td class="c2">السدس والباقي</td><td class="c3">وجود الفرع الوارث من الإناث وعدم وجود الأب</td></tr>
+      <tr><td class="c2">الباقي تعصيبا</td><td class="c3">بعدم وجود الفرع الوارث من الذكور وعدم وجود الأب وأبي الأب الأعلى</td></tr>
+
+      <tr><td class="c1" rowspan="3">الأم</td><td class="c2">الثلث</td><td class="c3">عدم وجود الفرع الوارث أو جمع من الإخوة</td></tr>
+      <tr><td class="c2">السدس</td><td class="c3">وجود الفرع الوارث أو جمع من الإخوة</td></tr>
+      <tr><td class="c2">ثلث الباقي</td><td class="c3">أن تكون إحدى العمريتين</td></tr>
+
+      <tr><td class="c1">الجدة (أم الأم)</td><td class="c2">السدس</td><td class="c3">عدم وجود الأم</td></tr>
+      <tr><td class="c1">الجدة (أم الأب)</td><td class="c2">السدس</td><td class="c3">عدم وجود الأم</td></tr>
+      <tr><td class="c1">البنت</td><td class="c2">النصف</td><td class="c3">عدم وجود المماثل أو المعصب</td></tr>
+      <tr><td class="c1">بنتان فأكثر</td><td class="c2">الثلثين</td><td class="c3">وجود المماثل وعدم وجود المعصب</td></tr>
+      <tr><td class="c1">بنت ابن</td><td class="c2">النصف</td><td class="c3">عدم المماثل أو المعصب أو فرع أعلى منها</td></tr>
+      <tr><td class="c1">بنتا ابن فأكثر</td><td class="c2">الثلثين</td><td class="c3">وجود المماثل وعدم المعصب أو فرع أعلى منهم</td></tr>
+      <tr><td class="c1">بنت ابن فأكثر</td><td class="c2">السدس</td><td class="c3">وجود بنت واحدة أعلى منها لها النصف وعدم وجود المعصب لها</td></tr>
+      <tr><td class="c1">أخت ش</td><td class="c2">النصف</td><td class="c3">عدم وجود المماثل أو المعصب أو الفرع الوارث أو الأصل الوارث من الذكور</td></tr>
+      <tr><td class="c1">أختان ش فأكثر</td><td class="c2">الثلثين</td><td class="c3">وجود المماثل وعدم وجود المعصب أو الفرع الوارث أو الأصل الوارث من الذكور</td></tr>
+      <tr><td class="c1">أخت ش فأكثر</td><td class="c2">الباقي تعصيبا</td><td class="c3">إذا كانت مع الفرع الوارث من الإناث</td></tr>
+    </table>
+  </div>
 </section>
 
-<section class="pg" id="p62"><div class="hd"><div class="no">٦٢</div><div class="bt">الفوائد في تسهيل مسائل الفرائض</div><div style="width:2.4em"></div></div>
-<div style="overflow-x:auto"><table class="ex" style="text-align:right;font-size:.88em;width:100%"><tr><th>الورثة</th><th>حالاتهم</th><th>شروطهم</th></tr><tr><td class="h">بنتا ابن فأكثر</td><td>الثلثين</td><td>وجود المماثل وعدم المعصب</td></tr>
-<tr><td class="h">بنت ابن فأكثر</td><td>السدس</td><td>وجود بنت واحدة أعلى منها وعدم وجود المعصب لها</td></tr>
-<tr><td class="h">أخت ش</td><td>النصف</td><td>عدم وجود المماثل أو المعصب أو الفرع الوارث أو الأصل الوارث من الذكور</td></tr>
-<tr><td class="h">أختان ش فأكثر</td><td>الثلثين</td><td>وجود المماثل وعدم المعصب والفرع والأصل</td></tr>
-<tr><td class="h">أخت ش فأكثر</td><td>الباقي تعصيبا</td><td>إذا كانت مع الفرع الوارث من الإناث</td></tr>
-<tr><td class="h">أخت لأب</td><td>النصف</td><td>عدم وجود المماثل أو المعصب أو الفرع الوارث أو الأصل الوارث من الذكور وعدم وجود أخت ش واحدة</td></tr>
-<tr><td class="h">أختان لأب فأكثر</td><td>الثلثين</td><td>وجود المماثل وعدم المعصب والفرع والأصل وعدم وجود أخت ش</td></tr>
-<tr><td class="h">أخت لأب فأكثر</td><td>السدس</td><td>وجود أخت ش واحدة وعدم وجود الفرع والأصل</td></tr>
-<tr><td class="h">أخت لأب فأكثر</td><td>الباقي تعصيبا</td><td>إذا كانت مع الفرع الوارث من الإناث</td></tr>
-<tr><td class="h">الإخوة لأم</td><td>السدس</td><td>واحد منهم</td></tr>
-<tr><td class="h"></td><td>الثلث</td><td>جمع منهم يتساوون فيه</td></tr>
-<tr><td class="h">أخ أو أخت (لأم)</td><td>السدس</td><td>أن يكون منفردا وعدم وجود الفرع الوارث أو الأصل الوارث من الذكور</td></tr>
-<tr><td class="h">الابن</td><td>الباقي تعصيبا</td><td>يقدم على جميع الورثة في التعصيب</td></tr>
-<tr><td class="h">ابن الابن وإن نزل</td><td>الباقي تعصيبا</td><td>عدم وجود ابن أو ابن أعلى منه في الدرجة</td></tr>
-<tr><td class="h">أخ ش</td><td>الباقي تعصيبا</td><td>عدم وجود الفرع من الذكور أو الأصل الوارث من الذكور</td></tr>
-<tr><td class="h">أخ لأب</td><td>الباقي تعصيبا</td><td>إذا كانت عصبة مع الغير يُحجب بالأخ الشقيق وبالأخت الشقيقة إذا كانت عصبة مع الغير</td></tr>
-<tr><td class="h">ابن أخ ش</td><td>الباقي تعصيبا</td><td>كانت عصبة مع الغير يُحجب بالأخ لأب وبالأخت لأب إذا كانت عصبة مع الغير والدرجة</td></tr>
-<tr><td class="h">ابن أخ لأب</td><td>الباقي تعصيبا</td><td>يُحجب بابن الأخ الشقيق المساوي له في الدرجة والأعلى منه</td></tr>
-<tr><td class="h">عم ش</td><td>الباقي تعصيبا</td><td>يُحجب بابن الأخ لأب وبمن يُحجب به ابن الأخ لأب</td></tr>
-<tr><td class="h">عم لأب</td><td>الباقي تعصيبا</td><td>يُحجب بالعم الشقيق وبابن العم لأب وبابن الأخ لأب</td></tr>
-<tr><td class="h">ابن عم ش</td><td>الباقي تعصيبا</td><td>يُحجب بعم لأب وبابن العم لأب وبابن الأخ لأب</td></tr>
-<tr><td class="h">ابن عم لأب</td><td>الباقي تعصيبا</td><td>يُحجب بابن العم الشقيق المساوي له في الدرجة والأعلى منه</td></tr>
-<tr><td class="h">معتق أو معتقة</td><td>الباقي تعصيبا</td><td>كل عاصب بالسبب يُحجب بكل عاصب بالنسب</td></tr></table></div>
+<section class="pg" id="p62">
+  <style>
+    #p62 .rev-tbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .86em;
+      margin-top: .4em;
+    }
+    #p62 .rev-tbl td {
+      border: 1px solid #d9822b;
+      padding: .28em .45em;
+      vertical-align: middle;
+      line-height: 1.6;
+    }
+    #p62 .rev-tbl td.c1 {
+      width: 20%;
+      background: #ebf1de;
+      color: #111;
+      font-weight: 700;
+      text-align: center;
+    }
+    #p62 .rev-tbl td.c2 {
+      width: 17%;
+      background: #c6d9f1;
+      color: #1f56a5;
+      font-weight: 700;
+      text-align: center;
+    }
+    #p62 .rev-tbl td.c3 {
+      width: 63%;
+      background: #ebf1de;
+      color: #111;
+      text-align: right;
+    }
+  </style>
+
+  <div class="hd"><div class="no">٦٢</div><div class="bt">الفوائد في تسهيل مسائل الفرائض</div><div style="width:2.4em"></div></div>
+
+  <div style="overflow-x:auto">
+    <table class="rev-tbl">
+      <tr><td class="c1">أخت لأب</td><td class="c2">النصف</td><td class="c3">عدم وجود المماثل أو المعصب أو الفرع الوارث أو الأصل الوارث من الذكور أو أخ شقيق أو أخت شقيقة</td></tr>
+      <tr><td class="c1">أختان لأب فأكثر</td><td class="c2">الثلثين</td><td class="c3">وجود المماثل وعدم وجود المعصب أو الفرع الوارث أو الأصل الوارث من الذكور أو أخ شقيق أو أخت شقيقة</td></tr>
+      <tr><td class="c1">أخت لأب فأكثر</td><td class="c2">السدس</td><td class="c3">وجود أخت شقيقة واحدة لها النصف وعدم وجود المعصب لها أو الفرع الوارث أو الأصل الوارث من الذكور</td></tr>
+      <tr><td class="c1">أخت لأب فأكثر</td><td class="c2">الباقي تعصيبا</td><td class="c3">إذا كانت مع الفرع الوارث من الإناث وعدم وجود أخ شقيق أو أخت شقيقة</td></tr>
+      <tr><td class="c1">الإخوة لأم</td><td class="c2">الثلث</td><td class="c3">أن يكونوا جمعا اثنين فأكثر وعدم وجود الفرع الوارث أو الأصل الوارث من الذكور</td></tr>
+      <tr><td class="c1">أخ أو أخت (لأم)</td><td class="c2">السدس</td><td class="c3">أن يكون منفردا وعدم وجود الفرع الوارث أو الأصل الوارث من الذكور</td></tr>
+      <tr><td class="c1">الابن</td><td class="c2">الباقي تعصيبا</td><td class="c3">يقدم على جميع الورثة في التعصيب</td></tr>
+      <tr><td class="c1">ابن الابن وإن نزل</td><td class="c2">الباقي تعصيبا</td><td class="c3">عدم وجود ابن أو ابن ابن أعلى منه في الدرجة</td></tr>
+      <tr><td class="c1">أخ ش</td><td class="c2">الباقي تعصيبا</td><td class="c3">عدم وجود الفرع الوارث من الذكور أو الأصل الوارث من الذكور</td></tr>
+      <tr><td class="c1">أخ لأب</td><td class="c2">الباقي تعصيبا</td><td class="c3">يُحجب بالأخ الشقيق وبمن يُحجب به الأخ الشقيق، وبالأخت الشقيقة إذا كانت عصبة مع الغير</td></tr>
+      <tr><td class="c1">ابن أخ ش</td><td class="c2">الباقي تعصيبا</td><td class="c3">يُحجب بالأخ لأب وبمن يُحجب به الأخ لأب، وبالأخت لأب إذا كانت عصبة مع الغير وبابن الأخ لأب الأعلى منه في الدرجة</td></tr>
+      <tr><td class="c1">ابن أخ لأب</td><td class="c2">الباقي تعصيبا</td><td class="c3">يُحجب بابن الأخ الشقيق المساوي له في الدرجة والأعلى منه وبمن يُحجب به ابن الأخ الشقيق</td></tr>
+      <tr><td class="c1">عم ش</td><td class="c2">الباقي تعصيبا</td><td class="c3">يُحجب بابن الأخ لأب وبمن يُحجب به ابن الأخ لأب</td></tr>
+      <tr><td class="c1">عم لأب</td><td class="c2">الباقي تعصيبا</td><td class="c3">يُحجب بالعم الشقيق وبمن يُحجب به العم الشقيق</td></tr>
+      <tr><td class="c1">ابن عم ش</td><td class="c2">الباقي تعصيبا</td><td class="c3">يُحجب بالعم لأب وبمن يُحجب به العم لأب وبابن العم لأب الأعلى منه في الدرجة</td></tr>
+      <tr><td class="c1">ابن عم لأب</td><td class="c2">الباقي تعصيبا</td><td class="c3">يُحجب بابن العم الشقيق المساوي له في الدرجة والأعلى منه وبمن يُحجب به ابن العم الشقيق</td></tr>
+      <tr><td class="c1">معتق أو معتقة</td><td class="c2">الباقي تعصيبا</td><td class="c3">كل عاصب بالسبب يُحجب بكل عاصب بالنسب</td></tr>
+    </table>
+  </div>
 </section>
 
 <div class="nxt-box" id="next-gate">

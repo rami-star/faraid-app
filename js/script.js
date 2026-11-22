@@ -739,8 +739,8 @@ document.addEventListener("input", e => {
 });
 
 document.addEventListener("keydown", e => {
-  const keys = ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
-  if (!keys.includes(e.key)) return;
+  const keys = ["Enter", "Tab", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+  if (!keys.includes(e.key) || (e.key === "Tab" && e.shiftKey)) return;
   const t = e.target;
   if (!t || t.tagName !== "INPUT") return;
 
@@ -757,7 +757,7 @@ document.addEventListener("keydown", e => {
 
   let target = null;
 
-  if (e.key === "ArrowDown" || e.key === "Enter") {
+  if (e.key === "ArrowDown" || e.key === "Enter" || e.key === "Tab") {
     const below = allInputs
       .filter(el => el !== t && ((el.getBoundingClientRect().top + el.getBoundingClientRect().bottom) / 2) > cy + 4 && Math.abs(((el.getBoundingClientRect().left + el.getBoundingClientRect().right) / 2) - cx) < tolX)
       .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
@@ -807,7 +807,7 @@ document.addEventListener("keydown", e => {
   if (target) {
     target.focus();
     target.select();
-  } else if (e.key === "Enter") {
+  } else if (e.key === "Enter" || e.key === "Tab") {
     const card = t.closest(".ec");
     const scope = card && (card.closest(".eg") || card.closest("section.pg") || document);
     if (card && scope) {
