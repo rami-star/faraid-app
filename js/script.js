@@ -1364,14 +1364,28 @@ document.addEventListener("keydown", e => {
 
   if (e.key === "Enter") {
     e.preventDefault();
-    moveToNextMi(ki);
-  } else if (e.key === "Backspace" || e.key === "Delete") {
-    e.preventDefault();
-    const delBtn = kp.querySelector('button[data-a="d"]');
-    if (delBtn) delBtn.click();
-  } else if (e.key === "Escape") {
-    e.preventDefault();
-    closeKp();
+    const tbl = ki.closest("table");
+    const mis = tbl ? Array.from(tbl.querySelectorAll(".mi")).filter(el => {
+      const td = el.closest("td");
+      return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
+    }) : [];
+
+    const idx = mis.indexOf(ki);
+    if (idx !== -1 && idx < mis.length - 1) {
+      // الانتقال للسطر التالي في العمود الأول
+      const nextMi = mis[idx + 1];
+      if (!nextMi.hasAttribute("tabindex")) nextMi.tabIndex = 0;
+      nextMi.focus();
+      openKpFor(nextMi);
+    } else if (tbl) {
+      // آخر سطر في العمود الأول -> إغلاق الكيبورد والانتقال مباشرة لأول خانة في العمود الثاني (الأصل)
+      closeKp();
+      const firstInp = tbl.querySelector("input");
+      if (firstInp) {
+        firstInp.focus();
+        firstInp.select();
+      }
+    }
   }
 });
 
