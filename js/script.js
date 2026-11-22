@@ -403,11 +403,9 @@ function unmergeCell(cell) {
   delete td.dataset.mergedRows;
 }
 
-function checkMandatoryMerge(g, i, item, table, card) {
+function checkMandatoryMerge(g, i, item, table, started) {
   const rows = getMiRows(table);
   const required = item.merge || [];
-  let ok = true;
-
   const actual = [];
   rows.forEach((r, idx) => {
     if (r.td.style.display !== "none" && (r.td.rowSpan || 1) > 1) {
@@ -416,18 +414,10 @@ function checkMandatoryMerge(g, i, item, table, card) {
       actual.push(grp.join(","));
     }
   });
-
   const expected = required.map(grp => grp.join(","));
-  if (actual.length !== expected.length || !expected.every(e => actual.includes(e))) {
-    ok = false;
-  }
+  const ok = actual.length === expected.length && expected.every(e => actual.includes(e));
 
-  const key = `${g}-${i}`;
-  const oldHint = card ? card.querySelector(".merge-hint") : null;
-  if (oldHint) oldHint.remove();
-
-  if (!ok) {
-    mergeErrCount[key] = (mergeErrCount[key] || 0) + 1;
+  if (!ok && started) {
     required.flat().forEach(rIdx => {
       const mi = rows[rIdx] && rows[rIdx].td.querySelector(".mi");
       if (mi) {
@@ -435,16 +425,7 @@ function checkMandatoryMerge(g, i, item, table, card) {
         mi.style.outline = "2px solid #c0392b";
       }
     });
-    if (required.length > 0 && mergeErrCount[key] >= 3 && card) {
-      const hint = document.createElement("div");
-      hint.className = "merge-hint";
-      hint.textContent = "💡 تلميح: هذه المسألة تحتاج إلى دمج بعض الخانات باستخدام زر «دمج ↕» في الكيبورد.";
-      card.appendChild(hint);
-    }
-  } else {
-    mergeErrCount[key] = 0;
   }
-
   return ok;
 }
 
@@ -564,11 +545,9 @@ function unmergeCellS(inp) {
   td.rowSpan = 1;
 }
 
-function checkMandatoryMergeS(g, i, item, table, card, started) {
+function checkMandatoryMergeS(g, i, item, table, started) {
   const rows = getShareRows(table);
   const required = item.mergeS || [];
-  let ok = true;
-
   const actual = [];
   rows.forEach((r, idx) => {
     if (r.td.style.display !== "none" && (r.td.rowSpan || 1) > 1) {
@@ -577,33 +556,17 @@ function checkMandatoryMergeS(g, i, item, table, card, started) {
       actual.push(grp.join(","));
     }
   });
-
   const expected = required.map(grp => grp.join(","));
-  if (actual.length !== expected.length || !expected.every(e => actual.includes(e))) {
-    ok = false;
-  }
+  const ok = actual.length === expected.length && expected.every(e => actual.includes(e));
 
-  const key = `${g}-${i}-s`;
-  if (!ok) {
-    if (started) {
-      mergeErrCount[key] = (mergeErrCount[key] || 0) + 1;
-      required.flat().forEach(rIdx => {
-        if (rows[rIdx] && rows[rIdx].inp) {
-          rows[rIdx].inp.style.outlineOffset = "-2px";
-          rows[rIdx].inp.style.outline = "2px solid #c0392b";
-        }
-      });
-      if (required.length > 0 && mergeErrCount[key] >= 3 && card && !card.querySelector(".merge-hint")) {
-        const hint = document.createElement("div");
-        hint.className = "merge-hint";
-        hint.textContent = "💡 تلميح: هذه المسألة تحتاج إلى دمج بعض خانات السهام باستخدام زر «دمج السهام ↕».";
-        card.appendChild(hint);
+  if (!ok && started) {
+    required.flat().forEach(rIdx => {
+      if (rows[rIdx] && rows[rIdx].inp) {
+        rows[rIdx].inp.style.outlineOffset = "-2px";
+        rows[rIdx].inp.style.outline = "2px solid #c0392b";
       }
-    }
-  } else {
-    mergeErrCount[key] = 0;
+    });
   }
-
   return ok;
 }
 
@@ -1227,7 +1190,9 @@ document.addEventListener("click", e => {
 
   document.addEventListener("focusin", (e) => {
     const inp = e.target;
-    if (!inp || inp.tagName !== "INPUT") return;
+    if (!inp || inp.tagName !== "INPUT") 
+      lastInput = null;
+      return;
 
     const prevInp = lastInput;
     lastInput = inp;
@@ -1363,6 +1328,9 @@ document.addEventListener("keydown", e => {
   }
 
   if (e.key === "Enter") {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
     e.preventDefault();
     const tbl = ki.closest("table");
     const mis = tbl ? Array.from(tbl.querySelectorAll(".mi")).filter(el => {
