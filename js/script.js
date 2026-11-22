@@ -491,10 +491,11 @@ kpS.onclick = e => {
   if (b.dataset.a === "unmerge-s") unmergeCellS(si);
 };
 
-function getShareRows(table) {
+function getShareRows(table, prefix = "s") {
+  const re = new RegExp("^" + prefix + "\\d+$");
   return Array.from(table.querySelectorAll("tr"))
     .map(tr => {
-      const inp = Array.from(tr.querySelectorAll("input[data-k]")).find(el => /^s\d+$/.test(el.dataset.k));
+      const inp = Array.from(tr.querySelectorAll("input[data-k]")).find(el => re.test(el.dataset.k));
       return inp ? { tr, td: inp.closest("td"), inp } : null;
     })
     .filter(Boolean);
@@ -505,7 +506,8 @@ function mergeDownS(inp) {
   const td = inp.closest("td");
   const table = td && td.closest("table");
   if (!table) return;
-  const rows = getShareRows(table);
+  const prefix = (inp.dataset.k || "s")[0];
+  const rows = getShareRows(table, prefix);
   const idx = rows.findIndex(r => r.td === td);
   if (idx === -1) return;
 
@@ -532,7 +534,8 @@ function unmergeCellS(inp) {
   const span = td ? (td.rowSpan || 1) : 1;
   if (!table || span <= 1) return;
 
-  const rows = getShareRows(table);
+  const prefix = (inp.dataset.k || "s")[0];
+  const rows = getShareRows(table, prefix);
   const idx = rows.findIndex(r => r.td === td);
 
   for (let i = idx + 1; i < idx + span; i++) {
@@ -570,10 +573,10 @@ function checkMandatoryMergeS(g, i, item, table, started) {
   return ok;
 }
 
-/* إظهار الشريط المصغر عند التركيز على خانة سهم فقط */
+/* إظهار الشريط المصغر عند التركيز على خانة سهم أو محفوظ */
 document.addEventListener("focusin", e => {
   const t = e.target;
-  if (t.tagName === "INPUT" && /^s\d+$/.test(t.dataset.k || "")) {
+  if (t.tagName === "INPUT" && /^[sh]\d+$/.test(t.dataset.k || "")) {
     si = t;
     kpS.hidden = false;
   } else if (!kpS.contains(t)) {
@@ -900,9 +903,17 @@ document.addEventListener("click", e => {
       }
     });
 
+    const qhFn = k => {
+      for (let j = k; j >= 0; j--) {
+        const el = q("h" + j);
+        if (el && el.closest("td")?.style.display !== "none") return el;
+      }
+      return null;
+    };
+
     /* ٣. فحص الخانات الفرعية الإضافية (x.c) */
     Object.entries(x.c || {}).forEach(([key, val]) => {
-      const el = q(key);
+      const el = /^h(\d+)$/.test(key) ? qhFn(parseInt(RegExp.$1, 10)) : q(key);
       const raw = el ? String(el.value || "").trim() : "";
       if (typeof val === "string") {
         const uVal = norm(raw);
@@ -1249,7 +1260,7 @@ document.addEventListener("click", e => {
       const val = String(el.value || "").trim();
       if (val !== "") data[fieldKey(el)] = val;
       const td = el.closest("td");
-      if (td && td.style.display !== "none" && (td.rowSpan || 1) > 1 && /^s\d+$/.test(el.dataset.k || "")) {
+      if (td && td.style.display !== "none" && (td.rowSpan || 1) > 1 && /^[sh]\d+$/.test(el.dataset.k || "")) {
         data["__s|" + fieldKey(el)] = td.rowSpan;
       }
     });

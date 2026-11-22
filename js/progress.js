@@ -128,8 +128,16 @@
           }
         });
         
+        var qhFn = function (k) {
+          for (var jh = k; jh >= 0; jh--) {
+            var elH = q("h" + jh);
+            if (elH && (!elH.closest("td") || elH.closest("td").style.display !== "none")) return elH;
+          }
+          return null;
+        };
+
         Object.keys(x.c || {}).forEach(function (key) {
-          var el = q(key);
+          var el = /^h(\d+)$/.test(key) ? qhFn(parseInt(RegExp.$1, 10)) : q(key);
           var val = x.c[key];
           if (typeof val === "string") {
             var uVal = el ? norm(el.value) : "";
