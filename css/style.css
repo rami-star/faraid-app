@@ -1092,3 +1092,13 @@ html, body {
   text-decoration-thickness: 2px !important;
   color: #555 !important;
 }
+
+
+    /* شطب أصل مسألة الرد القديم (data-k="ar") بخط أحمر تلقائياً عند الكتابة */
+    #p71 input[data-k="ar"] {
+      text-decoration: line-through !important;
+      text-decoration-color: #d92b2b !important;
+      text-decoration-thickness: 2px !important;
+      color: #555 !important;
+    }
+  
