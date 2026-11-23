@@ -93,86 +93,33 @@
   function compute(g) {
     var L = EXD[g];
     if (!L) return null;
-    var ok = 0;
-    var ns = function (v) { return String(v || "").replace(/\s/g, ""); };
-    var norm = function (s) { return ns(s).replace(/ـ/g, "").replace(/[أإآ]/g, "ا").replace(/ة/g, "ه"); };
 
+    /* التحقق هل قام script.js بتصحيح هذه المجموعة بالفعل */
+    var graded = false;
     L.forEach(function (x, i) {
-      var q = function (k) {
-        return document.querySelector('[data-g="' + g + '"][data-i="' + i + '"][data-k="' + k + '"]');
-      };
-      var good = true;
-      try {
-        var qt = q("t");
-        if (!qt || String(qt.value || "").trim() === "") {
-          good = false;
-        } else {
-          good = nv(qt.value) === x.t;
-        }
-        (x.hs || []).forEach(function (h, k) {
-          if (h[1] !== null && h[1] !== undefined) {
-            var qs = null;
-            for (var js = k; js >= 0 && !qs; js--) {
-              var elS = q("s" + js);
-              if (elS && (!elS.closest("td") || elS.closest("td").style.display !== "none")) qs = elS;
-            }
-            good = (!!qs && String(qs.value || "").trim() !== "" && nv(qs.value) === h[1]) && good;
-          }
-          if (h[2]) {
-            var qm = null;
-            for (var j = k; j >= 0 && !qm; j--) {
-              var elM = q("m" + j);
-              if (elM && (!elM.closest("td") || elM.closest("td").style.display !== "none")) qm = elM;
-            }
-            good = (!!qm && ns(qm.dataset.v) === ns(h[2])) && good;
-          }
-        });
-        
-        var qhFn = function (k) {
-          for (var jh = k; jh >= 0; jh--) {
-            var elH = q("h" + jh);
-            if (elH && (!elH.closest("td") || elH.closest("td").style.display !== "none")) return elH;
-          }
-          return null;
-        };
-
-        Object.keys(x.c || {}).forEach(function (key) {
-          var el = /^h(\d+)$/.test(key) ? qhFn(parseInt(RegExp.$1, 10)) : q(key);
-          var val = x.c[key];
-          if (typeof val === "string") {
-            var uVal = el ? norm(el.value) : "";
-            var okStr = val.split("|").some(function (opt) { return uVal !== "" && uVal === norm(opt); });
-            good = okStr && good;
-          } else {
-            good = (!!el && String(el.value || "").trim() !== "" && nv(el.value) === val) && good;
-          }
-        });
-        /* حماية الخانات التي يُفترض أن تبقى فارغة */
-        Array.prototype.forEach.call(
-          document.querySelectorAll('[data-g="' + g + '"][data-i="' + i + '"]'),
-          function (el) {
-            var k = el.dataset.k;
-            if (!k || k === "t" || (x.c && k in x.c)) return;
-            if (/^s(\d+)$/.test(k)) {
-              var idx = parseInt(RegExp.$1, 10);
-              if (x.hs && x.hs[idx] && x.hs[idx][1] !== null && x.hs[idx][1] !== undefined) return;
-            }
-            if (/^m(\d+)$/.test(k)) {
-              var idx2 = parseInt(RegExp.$1, 10);
-              if (x.hs && x.hs[idx2] && x.hs[idx2][2]) return;
-            }
-            var hasVal = el.matches && el.matches(".mi") ? !!(el.dataset.v || "") : String(el.value || "").trim() !== "";
-            if (hasVal) good = false;
-          }
-        );
-      } catch (e) {
-        good = false;
-      }
       var mmEl = document.getElementById(g + "-" + i);
-      if (mmEl && mmEl.classList.contains("no")) good = false;
-      if (good) ok++;
+      if (mmEl && (mmEl.classList.contains("ok") || mmEl.classList.contains("no"))) {
+        graded = true;
+      }
     });
-    return { ok: ok, total: L.length };
+
+    /* إذا تم التصحيح: نعتمد نتيجة script.js مباشرةً (✓ = صحيح، ✗ = خطأ) */
+    if (graded) {
+      var ok = 0;
+      L.forEach(function (x, i) {
+        var mmEl = document.getElementById(g + "-" + i);
+        if (mmEl && mmEl.classList.contains("ok")) ok++;
+      });
+      return { ok: ok, total: L.length };
+    }
+
+    /* قبل الضغط على زر التصحيح: نسترجع التقدم المحفوظ سابقاً إن وُجد */
+    var st = loadState();
+    if (st[g] && st[g].total === L.length && st[g].ok > 0) {
+      return { ok: st[g].ok, total: st[g].total, prev: st[g].ok === st[g].total };
+    }
+
+    return { ok: 0, total: L.length };
   }
 
   /* ===== إدراج بوابة انتقال واحدة فقط لكل مجموعة تدريبية إلى بداية المجموعة التي تليها ===== */

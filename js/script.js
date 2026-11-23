@@ -895,7 +895,9 @@ document.addEventListener("click", e => {
     (x.hs || []).forEach(([n, s, m], k) => {
       if (s !== null && s !== undefined) {
         const qs = qsFn(k);
-        good = mark(qs, !!qs && String(qs.value || "").trim() !== "" && nv(qs.value) === s) && good;
+        const rawS = qs ? String(qs.value || "").trim() : "";
+        const okS = !!qs && ((s === 0 && rawS === "") || (rawS !== "" && nv(rawS) === s));
+        good = mark(qs, okS) && good;
       }
       if (m) {
         const mc = qm(k);
