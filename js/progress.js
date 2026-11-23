@@ -231,7 +231,89 @@
   var doneMap = {};
 
   function applyLock() {
-   /* return; /* تم تعطيل القفل مؤقتاً */
+    // return;  // ← መዕጸዊ
+
+    var unitLocked = isLocked();
+    var prevTitle = unitName(prevN) ? "باب «" + unitName(prevN) + "»" : "الباب السابق";
+    var allTargets = document.querySelectorAll(".eg, [data-chk], .qz-wrap, #qz-chk-btn");
+
+    /* دالة مساعدة لقفل أو فتح مجموعة عناصر */
+    function setLock(els, locked) {
+      els.forEach(function (el) {
+        el.style.opacity = locked ? "0.4" : "";
+        el.style.pointerEvents = locked ? "none" : "";
+        el.style.userSelect = locked ? "none" : "";
+        if (el.tagName === "BUTTON") {
+          el.disabled = locked;
+        } else {
+          el.querySelectorAll("input, button").forEach(function (inp) {
+            inp.disabled = locked;
+          });
+        }
+      });
+    }
+
+    /* إزالة أي رسائل قفل قديمة لإعادة بنائها بدقة */
+    document.querySelectorAll(".lock-banner-msg").forEach(function (m) { m.remove(); });
+
+    /* ١) إذا كان الباب السابق غير مكتمل: يُقفل الباب الحالي بالكامل */
+    if (unitLocked) {
+      setLock(allTargets, true);
+      if (allTargets.length) {
+        var prevFile = "";
+        try { prevFile = localStorage.getItem("miras_file_" + prevN) || ""; } catch (e) {}
+        var msg = document.createElement("div");
+        msg.className = "lock-banner-msg";
+        msg.style.cssText =
+          "background:#fff3cd;color:#856404;border:1px solid #ffeeba;border-radius:8px;" +
+          "padding:10px 14px;margin:10px 0;text-align:center;font-weight:700;font-size:15px;";
+        var a = document.createElement("a");
+        a.href = prevFile || "index.html";
+        a.textContent = prevTitle;
+        a.style.cssText = "color:#0d47a1;text-decoration:underline;margin:0 3px;";
+        msg.appendChild(document.createTextNode("🔒 تمارين هذا الباب مقفلة — أكمل تمارين "));
+        msg.appendChild(a);
+        msg.appendChild(document.createTextNode(" بشكل صحيح لفتحها."));
+        allTargets[0].parentNode.insertBefore(msg, allTargets[0]);
+      }
+      return;
+    }
+
+    /* ٢) الباب مفتوح: نفك القفل العام أولاً ثم نقفل كل تدريب لم يكتمل ما قبله */
+    setLock(allTargets, false);
+
+    groups.forEach(function (g, idx) {
+      if (idx === 0) return; // التدريب الأول في الباب مفتوح دائماً
+
+      /* يُقفل التدريب إذا لم يكتمل أي تدريب قبله */
+      var prevDone = true;
+      for (var p = 0; p < idx; p++) {
+        if (!doneMap[groups[p]]) { prevDone = false; break; }
+      }
+      if (prevDone) return;
+
+      /* جمع جميع الجداول والأزرار التابعة لهذا التدريب */
+      var grpEls = [];
+      document.querySelectorAll('[data-g="' + g + '"]').forEach(function (inp) {
+        var box = inp.closest(".eg") || inp.closest(".ec");
+        if (box && grpEls.indexOf(box) === -1) grpEls.push(box);
+      });
+      document.querySelectorAll('[data-chk="' + g + '"]').forEach(function (btn) {
+        if (grpEls.indexOf(btn) === -1) grpEls.push(btn);
+      });
+
+      setLock(grpEls, true);
+
+      if (grpEls.length) {
+        var gMsg = document.createElement("div");
+        gMsg.className = "lock-banner-msg";
+        gMsg.style.cssText =
+          "background:#fff3cd;color:#856404;border:1px solid #ffeeba;border-radius:8px;" +
+          "padding:8px 12px;margin:10px 0;text-align:center;font-weight:700;font-size:14px;";
+        gMsg.textContent = "🔒 هذا التدريب مقفل — أكمل التدريب السابق بشكل صحيح لفتحه.";
+        grpEls[0].parentNode.insertBefore(gMsg, grpEls[0]);
+      }
+    });
   }
 
   function update() {

@@ -1228,9 +1228,10 @@ document.addEventListener("click", e => {
 
   document.addEventListener("focusin", (e) => {
     const inp = e.target;
-    if (!inp || inp.tagName !== "INPUT") 
+    if (!inp || inp.tagName !== "INPUT") {
       lastInput = null;
       return;
+    }
 
     const prevInp = lastInput;
     lastInput = inp;
