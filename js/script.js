@@ -958,6 +958,33 @@ document.addEventListener("click", e => {
 
     if (good) ok++;
 
+    /* عرض نصيب الفرد الواحد تلقائياً بجانب السهام النهائية بعد نجاح التصحيح */
+    if (table) {
+      table.querySelectorAll(".per-head").forEach(sp => sp.remove());
+      table.querySelectorAll("td.has-ph").forEach(td => td.classList.remove("has-ph"));
+      if (good) {
+        table.querySelectorAll('input[data-k^="f"]').forEach(inp => {
+          const tr = inp.closest("tr");
+          const nm = tr && tr.querySelector(".nm");
+          const m = nm && nm.textContent.trim().match(/^([٠-٩0-9]+)\s+/);
+          if (!m) return;
+          const heads = nv(m[1]);
+          const val = nv(inp.value);
+          if (heads > 1 && !isNaN(val) && val > 0 && val % heads === 0) {
+            const td = inp.closest("td");
+            if (td) {
+              td.classList.add("has-ph");
+              inp.style.width = (inp.value.trim().length + 0.5) + "ch";
+              const sp = document.createElement("span");
+              sp.className = "per-head";
+              sp.textContent = "/ " + ar(val / heads);
+              td.appendChild(sp);
+            }
+          }
+        });
+      }
+    }
+
     const mm = document.getElementById(g + "-" + i);
     if (mm) {
       clearTimeout(mm._t);
@@ -1389,4 +1416,15 @@ document.addEventListener("keydown", e => {
   window.visualViewport.addEventListener("scroll", keepBarAboveKeyboard);
   document.addEventListener("focusin", () => setTimeout(keepBarAboveKeyboard, 120));
 })();
+
+document.addEventListener("input", e => {
+  const td = e.target && e.target.closest && e.target.closest("td.has-ph");
+  if (td) {
+    td.querySelectorAll(".per-head").forEach(sp => sp.remove());
+    td.classList.remove("has-ph");
+    e.target.style.width = "";
+  }
+});
+
+
 
