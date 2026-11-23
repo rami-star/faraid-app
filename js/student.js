@@ -48,10 +48,39 @@
     localStorage.setItem(STUDENT_KEY, JSON.stringify(obj));
   }
 
+  function nv(s) {
+    return parseInt(String(s).replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d)), 10);
+  }
+
+  function unitNum(name) {
+    try { name = decodeURIComponent(name); } catch (_) {}
+    const m = /(?:الباب|الوحدة)[_\s-]*([٠-٩0-9]+)/.exec(name);
+    return m ? nv(m[1]) : null;
+  }
+
+  function isUnitCompleted(n) {
+    if (localStorage.getItem("miras_done_" + n) === "1") return true;
+    if (localStorage.getItem("faraid_ch_done_" + n) === "1") return true;
+    if (localStorage.getItem("ch_done_" + n) === "1") return true;
+
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (!k || !k.startsWith("miras_prog_") || unitNum(k.slice(11)) !== n) continue;
+      try {
+        const st = JSON.parse(localStorage.getItem(k) || "{}");
+        const ks = Object.keys(st);
+        if (ks.length && ks.every(g => st[g] && ((st[g].total && st[g].ok === st[g].total) || st[g].done))) {
+          return true;
+        }
+      } catch (_) {}
+    }
+    return false;
+  }
+
   function countCompletedChapters() {
     let count = 0;
     for (let i = 1; i <= 25; i++) {
-      if (localStorage.getItem("miras_done_" + i) === "1") count++;
+      if (isUnitCompleted(i)) count++;
     }
     return count;
   }
@@ -196,9 +225,11 @@
 
     bar.querySelector("#st-edit-btn").onclick = () => openRegModal(false);
     bar.querySelector("#st-sync-btn").onclick = async function () {
+      const progEl = bar.querySelector(".st-prog b");
+      if (progEl) progEl.textContent = arNum(countCompletedChapters()) + " / ٢٥";
       this.textContent = "تم التحديث ✓";
       await syncToSheet();
-      setTimeout(() => { this.textContent = "مزامنة ↻"; }, 1800);
+      setTimeout(() => { this.textContent = "تحديث التقدم ↻"; }, 1800);
     };
   }
 
@@ -225,4 +256,9 @@
   } else {
     initStudent();
   }
+
+  window.addEventListener("pageshow", () => {
+    const isHome = !!document.getElementById("mainView") || /(?:^|\/)(?:index\.html)?$/i.test(location.pathname);
+    if (isHome && getStudent()) renderStudentBar();
+  });
 })();
