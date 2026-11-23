@@ -168,6 +168,8 @@
       } catch (e) {
         good = false;
       }
+      var mmEl = document.getElementById(g + "-" + i);
+      if (mmEl && mmEl.classList.contains("no")) good = false;
       if (good) ok++;
     });
     return { ok: ok, total: L.length };

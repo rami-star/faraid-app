@@ -189,7 +189,7 @@
         <span class="st-prog">الأبواب المنجزة: <b>${arNum(done)} / ٢٥</b></span>
       </div>
       <div class="st-actions">
-        <button type="button" id="st-sync-btn">مزامنة ↻</button>
+        <button type="button" id="st-sync-btn"> تحديث التقدم↻</button>
         <button type="button" id="st-edit-btn">تعديل</button>
       </div>
     `;
