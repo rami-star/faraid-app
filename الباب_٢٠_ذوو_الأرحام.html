@@ -170,7 +170,33 @@
 
     /* تمارين ص ١١٥ و ١١٦ (٢٠ مسألة مع أحد الزوجين) */
     .eg.e2 { gap: 16px 12px; margin: 1em 0 .8em; }
-    .ec table.x.rh2 { font-size: .78em; }
+    .ec table.x.rh2 {
+      font-size: .78em;
+      table-layout: fixed;
+      width: 100%;
+    }
+    .ec table.x.rh2 input {
+      width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    /* جداول ٦ أعمدة (مسائل ٧–١٤، ١٦، ١٩، ٢٠) */
+    .ec table.x.rh2 col:nth-child(1) { width: 10% !important; }
+    .ec table.x.rh2 col:nth-child(2) { width: 23% !important; }
+    .ec table.x.rh2 col:nth-child(3) { width: 9%  !important; } /* عمود مسألة الزوجية */
+    .ec table.x.rh2 col:nth-child(4) { width: 34% !important; } /* عمود التنزيل */
+    .ec table.x.rh2 col:nth-child(5) { width: 12% !important; }
+    .ec table.x.rh2 col:nth-child(6) { width: 12% !important; }
+
+    /* جداول ٧ أعمدة (مسائل ١٥، ١٧، ١٨) */
+    .ec table.x.rh2:has(col:nth-child(7)) col:nth-child(1) { width: 9%  !important; }
+    .ec table.x.rh2:has(col:nth-child(7)) col:nth-child(2) { width: 21% !important; }
+    .ec table.x.rh2:has(col:nth-child(7)) col:nth-child(3) { width: 8%  !important; } /* عمود مسألة الزوجية */
+    .ec table.x.rh2:has(col:nth-child(7)) col:nth-child(4) { width: 29% !important; } /* عمود التنزيل */
+    .ec table.x.rh2:has(col:nth-child(7)) col:nth-child(5) { width: 11% !important; }
+    .ec table.x.rh2:has(col:nth-child(7)) col:nth-child(6) { width: 11% !important; }
+    .ec table.x.rh2:has(col:nth-child(7)) col:nth-child(7) { width: 11% !important; }
     .ec table.x.rh2 .mi { min-height: 1.85em; font-size: 1.05em; }
     .ec table.x.rh2 td.sp-empty { background: #fff; }
     .ec table.x.rh2 td.f-aux { background: #fff; }
