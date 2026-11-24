@@ -783,7 +783,8 @@ document.addEventListener("keydown", e => {
   e.preventDefault();
 
   const allInputs = Array.from(table.querySelectorAll("input:not(:disabled)"));
-  const curRect = t.getBoundingClientRect();
+  const boxOf = el => (el.closest("td") || el).getBoundingClientRect();
+  const curRect = boxOf(t);
   const cx = (curRect.left + curRect.right) / 2;
   const cy = (curRect.top + curRect.bottom) / 2;
   const tolX = curRect.width * 0.6;
@@ -797,42 +798,50 @@ document.addEventListener("keydown", e => {
     target = (idx !== -1 && idx < ordered.length - 1) ? ordered[idx + 1] : null;
   } else if (e.key === "ArrowDown" || e.key === "Enter" || e.key === "Tab") {
     const below = allInputs
-      .filter(el => el !== t && ((el.getBoundingClientRect().top + el.getBoundingClientRect().bottom) / 2) > cy + 4 && Math.abs(((el.getBoundingClientRect().left + el.getBoundingClientRect().right) / 2) - cx) < tolX)
-      .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
+      .filter(el => {
+        if (el === t) return false;
+        const r = boxOf(el);
+        return ((r.top + r.bottom) / 2) > cy + 4 && Math.abs(((r.left + r.right) / 2) - cx) < tolX;
+      })
+      .sort((a, b) => boxOf(a).top - boxOf(b).top);
     target = below[0];
 
     if (!target) {
       const nextCol = allInputs
-        .filter(el => ((el.getBoundingClientRect().left + el.getBoundingClientRect().right) / 2) < cx - tolX)
+        .filter(el => ((boxOf(el).left + boxOf(el).right) / 2) < cx - tolX)
         .sort((a, b) => {
-          const ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
-          const dx = rb.left - ra.left;
+          const ra = boxOf(a), rb = boxOf(b);
+          const dx = rb.right - ra.right;
           return Math.abs(dx) > 8 ? dx : ra.top - rb.top;
         });
       target = nextCol[0];
     }
   } else if (e.key === "ArrowUp") {
     const above = allInputs
-      .filter(el => el !== t && ((el.getBoundingClientRect().top + el.getBoundingClientRect().bottom) / 2) < cy - 4 && Math.abs(((el.getBoundingClientRect().left + el.getBoundingClientRect().right) / 2) - cx) < tolX)
-      .sort((a, b) => b.getBoundingClientRect().top - a.getBoundingClientRect().top);
+      .filter(el => {
+        if (el === t) return false;
+        const r = boxOf(el);
+        return ((r.top + r.bottom) / 2) < cy - 4 && Math.abs(((r.left + r.right) / 2) - cx) < tolX;
+      })
+      .sort((a, b) => boxOf(b).top - boxOf(a).top);
     target = above[0];
   } else if (e.key === "ArrowLeft") {
     const lefts = allInputs
-      .filter(el => el !== t && ((el.getBoundingClientRect().left + el.getBoundingClientRect().right) / 2) < cx - 4)
+      .filter(el => el !== t && ((boxOf(el).left + boxOf(el).right) / 2) < cx - 4)
       .sort((a, b) => {
-        const ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
+        const ra = boxOf(a), rb = boxOf(b);
         const sameRowA = Math.abs(((ra.top + ra.bottom) / 2) - cy) < tolY ? 0 : 1;
         const sameRowB = Math.abs(((rb.top + rb.bottom) / 2) - cy) < tolY ? 0 : 1;
         if (sameRowA !== sameRowB) return sameRowA - sameRowB;
-        const dx = rb.left - ra.left;
+        const dx = rb.right - ra.right;
         return Math.abs(dx) > 8 ? dx : Math.abs(((ra.top + ra.bottom) / 2) - cy) - Math.abs(((rb.top + rb.bottom) / 2) - cy);
       });
     target = lefts[0];
   } else if (e.key === "ArrowRight") {
     const rights = allInputs
-      .filter(el => el !== t && ((el.getBoundingClientRect().left + el.getBoundingClientRect().right) / 2) > cx + 4)
+      .filter(el => el !== t && ((boxOf(el).left + boxOf(el).right) / 2) > cx + 4)
       .sort((a, b) => {
-        const ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
+        const ra = boxOf(a), rb = boxOf(b);
         const sameRowA = Math.abs(((ra.top + ra.bottom) / 2) - cy) < tolY ? 0 : 1;
         const sameRowB = Math.abs(((rb.top + rb.bottom) / 2) - cy) < tolY ? 0 : 1;
         if (sameRowA !== sameRowB) return sameRowA - sameRowB;
@@ -920,8 +929,7 @@ document.addEventListener("click", e => {
 
     allInputs.forEach(el => { el.style.outline = ""; });
     const ns = v => String(v || "").replace(/\s/g, "");
-    const norm = s => String(s || "").trim().replace(/ـ/g, "").replace(/[أإآ]/g, "ا").replace(/ة/g, "ه").replace(/(^|\s)ال/g, "$1").replace(/شقيقه|شقيق/g, "ش").replace(/\s+/g, "");
-
+    const norm = s => String(s || "").trim().replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d)).replace(/ـ/g, "").replace(/[أإآ]/g, "ا").replace(/ة/g, "ه").replace(/(^|\s)ال/g, "$1").replace(/شقيقه|شقيق/g, "ش").replace(/\s+/g, "");
     /* ١. فحص أصل/جامعة المسألة النهائية (t) */
     const tEl = q("t");
     let good = mark(tEl, !!tEl && String(tEl.value || "").trim() !== "" && nv(tEl.value) === x.t);
@@ -949,9 +957,20 @@ document.addEventListener("click", e => {
     };
 
     /* ٣. فحص الخانات الفرعية الإضافية (x.c) */
+    const qfFn = k => {
+      for (let j = k; j >= 0; j--) {
+        const el = q("f" + j);
+        if (el && el.closest("td")?.style.display !== "none") return el;
+      }
+      return null;
+    };
+
+    /* ٣. فحص الخانات الفرعية الإضافية (x.c) */
     Object.entries(x.c || {}).forEach(([key, val]) => {
-      const el = /^h(\d+)$/.test(key) ? qhFn(parseInt(RegExp.$1, 10)) : q(key);
-      const raw = el ? String(el.value || "").trim() : "";
+      const el = /^h(\d+)$/.test(key) ? qhFn(parseInt(RegExp.$1, 10))
+               : /^f(\d+)$/.test(key) ? qfFn(parseInt(RegExp.$1, 10))
+               : q(key);
+      const raw = el ? String((el.matches && el.matches(".mi") ? el.dataset.v : el.value) || "").trim() : "";
       if (typeof val === "string") {
         const uVal = norm(raw);
         const okStr = val.split("|").some(opt =>

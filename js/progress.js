@@ -178,7 +178,7 @@
   var doneMap = {};
 
   function applyLock() {
-    // return;  // ← መዕጸዊ
+     return;  // ← መዕጸዊ
 
     var unitLocked = isLocked();
     var prevTitle = unitName(prevN) ? "باب «" + unitName(prevN) + "»" : "الباب السابق";

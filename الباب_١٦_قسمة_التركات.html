@@ -550,6 +550,110 @@
 
 <!-- ==================== صفحة ١٠٢ (مسألة ٤ و ٥) ==================== -->
 <section class="pg" id="p102">
+  <style>
+    #p102 .tk-book-box {
+      border: 1.5px solid #4f81bd;
+      background: #fff;
+      margin-top: .4em;
+    }
+    #p102 .tk-book-box + .tk-book-box {
+      margin-top: 1.2em;
+    }
+    #p102 .tk-q-head {
+      background: #ebf1de;
+      color: #1f497d;
+      padding: .5em .75em;
+      font-weight: 700;
+      font-size: .96em;
+      line-height: 1.7;
+      border-bottom: 1.5px solid #4f81bd;
+      text-align: justify;
+    }
+    #p102 .tk-q-head .ms-num {
+      color: #1f497d;
+      font-weight: 800;
+    }
+    #p102 table.tk102 {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      direction: rtl;
+      margin: 0;
+    }
+    #p102 table.tk102 td {
+      border: 1px solid #4f81bd;
+      text-align: center;
+      vertical-align: middle;
+      height: 2.35em;
+      padding: 2px 3px;
+      font-size: 1.05em;
+      background: #fff;
+    }
+    #p102 table.tk102 td.th-b {
+      background: #c6d9f1;
+      color: #17375e;
+      font-weight: 700;
+    }
+    #p102 table.tk102 td.nm {
+      background: #ebf1de;
+      color: #1f3b2c;
+      font-weight: 700;
+    }
+    #p102 table.tk102 td.dead {
+      background: #f2dcdb;
+      color: #555;
+      font-weight: 700;
+    }
+    #p102 table.tk102 td.dead.tlbl {
+      color: #a61c1c;
+      font-weight: 800;
+    }
+    #p102 table.tk102 td.wh {
+      background: #fff;
+    }
+    #p102 table.tk102 td.nl { border-left: none; }
+    #p102 table.tk102 td.nr { border-right: none; }
+    #p102 table.tk102 td.in {
+      padding: 0;
+      background: #fff;
+    }
+    #p102 table.tk102 td.nm.in {
+      background: #ebf1de;
+    }
+    #p102 table.tk102 td.in input {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: transparent;
+      text-align: center;
+      font: inherit;
+      font-size: 1.12em;
+      font-weight: 700;
+      color: #111;
+      outline: none;
+    }
+    #p102 table.tk102 td.nm.in input {
+      font-size: .95em;
+      color: #1f3b2c;
+    }
+    /* مقاس متوازن لعمودي النسبة والمال حتى لا تخرج الأرقام الطويلة من الخانة */
+    #p102 table.tk102 td.in input[data-k^="p"],
+    #p102 table.tk102 td.in input[data-k^="m"] {
+      font-size: 1em;
+    }
+    #p102 table.tk102 .u-sfx {
+      font-size: .85em;
+    }
+    #p102 .ec {
+      margin: 0;
+      width: 100%;
+    }
+    #p102 .mm {
+      text-align: center;
+      min-height: 1.3em;
+    }
+  </style>
+
   <div class="hd">
     <div class="no">١٠٢</div>
     <div class="bt">الفوائد في تسهيل مسائل الفرائض</div>
@@ -557,126 +661,147 @@
   </div>
 
   <div class="eg" data-group="g102" style="display:block">
-    <!-- مسألة (٤) -->
-    <div class="ms-title">
-      <span class="ms-num">مسألة (٤):</span> توفيت عن زوج وأم وأب، ثم توفي الأب عن أم وأخت شقيقة وبقية ورثة الميت الأول، ثم توفيت الأم عن أم وأخ لأم، حل المسألة ثم قسم التركة بالنسبة المئوية وبالمال.
-    </div>
 
-    <div class="tk-ex-wrap ec">
-      <table class="bx tk-solve">
+    <!-- مسألة (٤) -->
+    <div class="tk-book-box ec">
+      <div class="tk-q-head">
+        <span class="ms-num">مسألة (٤):</span> توفيت عن زوج وأم وأب، ثم توفي الأب عن أم وأخت شقيقة وبقية ورثة الميت الأول، ثم توفيت الأم عن أم وأخ لأم، حل المسألة ثم قسم التركة بالنسبة المئوية وبالمال.
+      </div>
+      <table class="tk102">
         <colgroup>
-          <col style="width:12%"><col style="width:8%"><col style="width:11%"><col style="width:8%"><col style="width:8%"><col style="width:11%"><col style="width:8%"><col style="width:8%"><col style="width:12%"><col style="width:14%">
+          <col style="width:12%"><col style="width:7%"><col style="width:11%"><col style="width:7%"><col style="width:7%"><col style="width:11%"><col style="width:7%"><col style="width:8%"><col style="width:14%"><col style="width:16%">
         </colgroup>
+        <!-- صف الجامعات والرؤوس -->
         <tr>
-          <td class="t">التصحيح</td>
-          <td class="in"><input data-g="g102" data-i="0" data-k="c_m1" inputmode="decimal"></td>
-          <td class="gt"></td>
-          <td class="in"><input data-g="g102" data-i="0" data-k="c_m2" inputmode="decimal"></td>
-          <td class="t">ج (١)</td>
-          <td class="gt"></td>
-          <td class="in"><input data-g="g102" data-i="0" data-k="c_m3" inputmode="decimal"></td>
-          <td class="t">ج (٢)</td>
-          <td class="pk b">تقسيم النسبة</td>
-          <td class="t">تقسيم المال</td>
+          <td class="wh nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr"></td>
+          <td class="th-b">ج (١)</td>
+          <td class="wh nl"></td>
+          <td class="wh nr"></td>
+          <td class="th-b">ج (٢)</td>
+          <td class="th-b" rowspan="2">تقسيم النسبة</td>
+          <td class="th-b" rowspan="2">تقسيم المال</td>
         </tr>
+        <!-- صف التصحيح -->
         <tr>
-          <td class="t">أصل المسألة</td>
+          <td class="th-b">التصحيح</td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="c_m1" inputmode="decimal"></td>
+          <td class="wh"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="c_m2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="c_j1" inputmode="decimal"></td>
+          <td class="wh"></td>
+          <td class="in"><input data-g="g102" data-i="0" data-k="c_m3" inputmode="decimal"></td>
+          <td class="wh"></td>
+        </tr>
+        <!-- صف أصل المسألة -->
+        <tr>
+          <td class="th-b">أصل المسألة</td>
           <td class="in"><input data-g="g102" data-i="0" data-k="b_m1" inputmode="decimal"></td>
-          <td class="gt"></td>
+          <td class="wh"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="b_m2" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="j1" inputmode="decimal"></td>
-          <td class="gt"></td>
+          <td class="wh"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="b_m3" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="t" inputmode="decimal"></td>
-          <td class="pk b">١٠٠٪</td>
-          <td class="t">٢٣٥٦٨٠٠</td>
+          <td class="th-b">١٠٠ ٪</td>
+          <td class="th-b">٢٣٥٦٨٠٠</td>
         </tr>
+        <!-- زوج -->
         <tr>
           <td class="nm">زوج</td>
           <td class="in"><input data-g="g102" data-i="0" data-k="m1_0" inputmode="decimal"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="wh nl"></td>
+          <td class="wh nr"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="j1_0" inputmode="decimal"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="wh nl"></td>
+          <td class="wh nr"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="s0" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="p0" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="m0" inputmode="decimal"></td>
         </tr>
+        <!-- أم / زوجة / ت (٣) -->
         <tr>
           <td class="nm">أم</td>
           <td class="in"><input data-g="g102" data-i="0" data-k="m1_1" inputmode="decimal"></td>
           <td class="nm">زوجة</td>
           <td class="in"><input data-g="g102" data-i="0" data-k="m2_1" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="j1_1" inputmode="decimal"></td>
-          <td class="pk b">ت (٣)</td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="dead tlbl">ت (٣)</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
         </tr>
+        <!-- أب / ت (٢) -->
         <tr>
           <td class="nm">أب</td>
           <td class="in"><input data-g="g102" data-i="0" data-k="m1_2" inputmode="decimal"></td>
-          <td class="pk b">ت (٢)</td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="dead tlbl">ت (٢)</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
         </tr>
+        <!-- أم (مسألة الأب) -->
         <tr>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="wh nl"></td>
+          <td class="wh nr"></td>
           <td class="nm">أم</td>
           <td class="in"><input data-g="g102" data-i="0" data-k="m2_3" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="j1_3" inputmode="decimal"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="wh nl"></td>
+          <td class="wh nr"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="s1" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="p1" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="m1" inputmode="decimal"></td>
         </tr>
+        <!-- أخت ش -->
         <tr>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="wh nl"></td>
+          <td class="wh nr"></td>
           <td class="nm">أخت ش</td>
           <td class="in"><input data-g="g102" data-i="0" data-k="m2_4" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="j1_4" inputmode="decimal"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="wh nl"></td>
+          <td class="wh nr"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="s2" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="p2" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="m2" inputmode="decimal"></td>
         </tr>
+        <!-- أم (مسألة الأم) -->
         <tr>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="wh nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr"></td>
           <td class="nm">أم</td>
           <td class="in"><input data-g="g102" data-i="0" data-k="m3_5" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="s3" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="p3" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="m3" inputmode="decimal"></td>
         </tr>
+        <!-- أخ لأم -->
         <tr>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="wh nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr"></td>
           <td class="nm">أخ لأم</td>
           <td class="in"><input data-g="g102" data-i="0" data-k="m3_6" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="s4" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="p4" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="m4" inputmode="decimal"></td>
         </tr>
+        <!-- تأكد من المجموع -->
         <tr>
-          <td class="tot-lbl" colspan="7">تأكد من المجموع</td>
+          <td class="th-b" colspan="7">تأكد من المجموع</td>
           <td class="in"><input data-g="g102" data-i="0" data-k="st" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="pt" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="0" data-k="mt" inputmode="decimal"></td>
@@ -686,137 +811,158 @@
     </div>
 
     <!-- مسألة (٥) -->
-    <div class="ms-title" style="margin-top:1.1em">
-      <span class="ms-num">مسألة (٥):</span> توفي عن زوجة هي بنت عمه وبنت وبنت ابن وأم وأب، ثم توفيت الزوجة عن بقية ورثة الميت الأول، ثم توفيت البنت عن زوج وبنت وبنت ابن وبقية ورثة الميت الأول، حل المسألة ثم قسم التركة بالنسبة المئوية وبالمال.
-    </div>
-
-    <div class="tk-ex-wrap ec">
-      <table class="bx tk-solve">
+    <div class="tk-book-box ec">
+      <div class="tk-q-head">
+        <span class="ms-num">مسألة (٥):</span> توفي عن زوجة هي بنت عمه وبنت وبنت ابن وأم وأب، ثم توفيت الزوجة عن بقية ورثة الميت الأول، ثم توفيت البنت عن زوج وبنت وبنت ابن وبقية ورثة الميت الأول، حل المسألة ثم قسم التركة بالنسبة المئوية وبالمال.
+      </div>
+      <table class="tk102">
         <colgroup>
-          <col style="width:12%"><col style="width:8%"><col style="width:11%"><col style="width:8%"><col style="width:8%"><col style="width:11%"><col style="width:8%"><col style="width:8%"><col style="width:12%"><col style="width:14%">
+          <col style="width:12%"><col style="width:7%"><col style="width:11%"><col style="width:7%"><col style="width:7%"><col style="width:11%"><col style="width:7%"><col style="width:8%"><col style="width:14%"><col style="width:16%">
         </colgroup>
+        <!-- صف الجامعات والرؤوس -->
         <tr>
-          <td class="t">التصحيح</td>
-          <td class="in"><input data-g="g102" data-i="1" data-k="c_m1" inputmode="decimal"></td>
-          <td class="gt"></td>
-          <td class="in"><input data-g="g102" data-i="1" data-k="c_m2" inputmode="decimal"></td>
-          <td class="t">ج (١)</td>
-          <td class="gt"></td>
-          <td class="in"><input data-g="g102" data-i="1" data-k="c_m3" inputmode="decimal"></td>
-          <td class="t">ج (٢)</td>
-          <td class="pk b">تقسيم النسبة</td>
-          <td class="t">تقسيم المال</td>
+          <td class="wh nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr"></td>
+          <td class="th-b">ج (١)</td>
+          <td class="wh nl"></td>
+          <td class="wh nr"></td>
+          <td class="th-b">ج (٢)</td>
+          <td class="th-b" rowspan="2">تقسيم النسبة</td>
+          <td class="th-b" rowspan="2">تقسيم المال</td>
         </tr>
+        <!-- صف التصحيح -->
         <tr>
-          <td class="t">أصل المسألة</td>
+          <td class="th-b">التصحيح</td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="c_m1" inputmode="decimal"></td>
+          <td class="wh"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="c_m2" inputmode="decimal"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="c_j1" inputmode="decimal"></td>
+          <td class="wh"></td>
+          <td class="in"><input data-g="g102" data-i="1" data-k="c_m3" inputmode="decimal"></td>
+          <td class="wh"></td>
+        </tr>
+        <!-- صف أصل المسألة -->
+        <tr>
+          <td class="th-b">أصل المسألة</td>
           <td class="in"><input data-g="g102" data-i="1" data-k="b_m1" inputmode="decimal"></td>
-          <td class="gt"></td>
+          <td class="wh"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="b_m2" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="j1" inputmode="decimal"></td>
-          <td class="gt"></td>
+          <td class="wh"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="b_m3" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="t" inputmode="decimal"></td>
-          <td class="pk b">١٠٠٪</td>
-          <td class="t">٤٥٥٠٣٣٠</td>
+          <td class="th-b">١٠٠ ٪</td>
+          <td class="th-b">٤٥٥٠٣٣٠</td>
         </tr>
+        <!-- زوجة / ت (٢) -->
         <tr>
           <td class="nm">زوجة</td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m1_0" inputmode="decimal"></td>
-          <td class="pk b">ت (٢)</td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="dead tlbl">ت (٢)</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
         </tr>
+        <!-- بنت / (بنت) / ت (٣) -->
         <tr>
           <td class="nm">بنت</td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m1_1" inputmode="decimal"></td>
-          <td class="nm">بنت</td>
+          <td class="nm in"><input data-g="g102" data-i="1" data-k="r2_1" type="text"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m2_1" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="j1_1" inputmode="decimal"></td>
-          <td class="pk b">ت (٣)</td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="dead tlbl">ت (٣)</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
+          <td class="dead">-</td>
         </tr>
+        <!-- بنت ابن / (بنت ابن) -->
         <tr>
           <td class="nm">بنت ابن</td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m1_2" inputmode="decimal"></td>
-          <td class="nm">بنت ابن</td>
+          <td class="nm in"><input data-g="g102" data-i="1" data-k="r2_2" type="text"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m2_2" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="j1_2" inputmode="decimal"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="wh nl"></td>
+          <td class="wh nr"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="s0" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="p0" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m0" inputmode="decimal"></td>
         </tr>
+        <!-- أم / (أم أب) -->
         <tr>
           <td class="nm">أم</td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m1_3" inputmode="decimal"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="wh nl"></td>
+          <td class="wh nr"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="j1_3" inputmode="decimal"></td>
-          <td class="nm">أم أب</td>
+          <td class="nm in"><input data-g="g102" data-i="1" data-k="r3_3" type="text"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m3_3" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="s1" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="p1" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m1" inputmode="decimal"></td>
         </tr>
+        <!-- أب / (عم ش) / (أب أب) -->
         <tr>
           <td class="nm">أب</td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m1_4" inputmode="decimal"></td>
-          <td class="nm">عم ش</td>
+          <td class="nm in"><input data-g="g102" data-i="1" data-k="r2_4" type="text"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m2_4" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="j1_4" inputmode="decimal"></td>
-          <td class="nm">أب أب</td>
+          <td class="nm in"><input data-g="g102" data-i="1" data-k="r3_4" type="text"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m3_4" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="s2" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="p2" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m2" inputmode="decimal"></td>
         </tr>
+        <!-- زوج -->
         <tr>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="wh nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr"></td>
           <td class="nm">زوج</td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m3_5" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="s3" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="p3" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m3" inputmode="decimal"></td>
         </tr>
+        <!-- بنت -->
         <tr>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="wh nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr"></td>
           <td class="nm">بنت</td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m3_6" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="s4" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="p4" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m4" inputmode="decimal"></td>
         </tr>
+        <!-- بنت ابن -->
         <tr>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
-          <td class="gt"></td>
+          <td class="wh nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr nl"></td>
+          <td class="wh nr"></td>
           <td class="nm">بنت ابن</td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m3_7" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="s5" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="p5" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="m5" inputmode="decimal"></td>
         </tr>
+        <!-- تأكد من المجموع -->
         <tr>
-          <td class="tot-lbl" colspan="7">تأكد من المجموع</td>
+          <td class="th-b" colspan="7">تأكد من المجموع</td>
           <td class="in"><input data-g="g102" data-i="1" data-k="st" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="pt" inputmode="decimal"></td>
           <td class="in"><input data-g="g102" data-i="1" data-k="mt" inputmode="decimal"></td>
@@ -824,6 +970,7 @@
       </table>
       <div class="mm" id="g102-1"></div>
     </div>
+
   </div>
 
   <button class="btn" data-chk="g102" type="button">تصحيح تمارين ص ١٠٢</button>
@@ -936,7 +1083,7 @@
 
     /* بيانات تصحيح صفحة ١٠٢ (مسألة ٤ و ٥) */
     g102: [
-      /* مسألة (٤): الجامعة النهائية ٢٣٤ */
+      
       {
         t: 234,
         hs: [
@@ -947,23 +1094,24 @@
           ["أخ لأم", 19]
         ],
         c: {
-          c_m1: "|13", b_m1: 6, m1_0: 3, m1_1: 1, m1_2: 2,
-          c_m2: "13|2", b_m2: "12|13", m2_1: 3, m2_3: 4, m2_4: 6,
-          j1: 78, j1_0: 39, j1_1: 19, j1_3: 8, j1_4: 12,
-          c_m3: "3|19", b_m3: "3|6", m3_5: 2, m3_6: 1,
+          c_m1: 13, b_m1: 6, m1_0: 3, m1_1: 1, m1_2: 2,
+          c_m2: 2,  b_m2: "13|12", m2_1: 3, m2_3: 4, m2_4: 6,
+          c_j1: 3,  j1: 78, j1_0: 39, j1_1: 19, j1_3: 8, j1_4: 12,
+          c_m3: 19, b_m3: "3|6", m3_5: 2, m3_6: 1,
           p0: decOpts("50", "50.00"),
           p1: decOpts("10.26", "10.25"),
           p2: decOpts("15.38", "15.39"),
           p3: decOpts("16.24", "16.23"),
-          p4: decOpts("8.12"),
+          p4: decOpts("8.12", "8.11"),
           m0: decOpts("1178400", "1178400.21"),
-          m1: decOpts("241723.08", "241723.12"),
-          m2: decOpts("362584.62", "362584.68"),
-          m3: decOpts("382728.21", "382728.27"),
+          m1: decOpts("241723.08", "241723.07", "241723.12"),
+          m2: decOpts("362584.62", "362584.61", "362584.68"),
+          m3: decOpts("382728.21", "382728.20", "382728.27"),
           m4: decOpts("191364.1", "191364.10", "191364.14"),
           st: 234,
           pt: decOpts("100", "99.99"),
-          mt: decOpts("2356800")
+          mt: decOpts("2356800", "2356800.01")
+          
         }
       },
       /* مسألة (٥): الجامعة النهائية ٢٧٠ */
@@ -978,10 +1126,12 @@
           ["بنت ابن", 18]
         ],
         c: {
-          c_m1: "27|2", b_m1: "24|27", m1_0: 3, m1_1: 12, m1_2: 4, m1_3: 4, m1_4: 4,
-          c_m2: "|1|2", b_m2: 6, m2_1: 3, m2_2: 1, m2_4: 2,
-          j1: 54, j1_1: 27, j1_2: 9, j1_3: 8, j1_4: 10,
-          c_m3: "15|9", b_m3: "12|15", m3_3: 2, m3_4: 2, m3_5: 3, m3_6: 6, m3_7: 2,
+          c_m1: 2,  b_m1: "27|24", m1_0: 3, m1_1: 12, m1_2: 4, m1_3: 4, m1_4: 4,
+          r2_1: "بنت|ابنة", r2_2: "بنت ابن|ابنة ابن", r2_4: "عم ش|عم",
+          c_m2: "1|", b_m2: 6, m2_1: 3, m2_2: 1, m2_4: 2,
+          c_j1: 5,  j1: 54, j1_1: 27, j1_2: 9, j1_3: 8, j1_4: 10,
+          r3_3: "أم أب|جدة|جدة لأب", r3_4: "أب أب|جد|جد لأب",
+          c_m3: 9,  b_m3: "15|12", m3_3: 2, m3_4: 2, m3_5: 3, m3_6: 6, m3_7: 2,
           p0: decOpts("16.67", "16.66"),
           p1: decOpts("21.48"),
           p2: decOpts("25.19", "25.18"),
@@ -989,8 +1139,8 @@
           p4: decOpts("20", "20.00"),
           p5: decOpts("6.67", "6.66"),
           m0: decOpts("758388.33", "758388.15"),
-          m1: decOpts("977478.29", "977478.06"),
-          m2: decOpts("1146009.04", "1146008.76"),
+          m1: decOpts("977478.3", "977478.30", "977478.29", "977478.06"),
+          m2: decOpts("1146009.04", "1146009.03", "1146008.76"),
           m3: decOpts("455033", "455032.89"),
           m4: decOpts("910066", "910065.78"),
           m5: decOpts("303355.33", "303355.26"),
