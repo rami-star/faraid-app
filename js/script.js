@@ -616,6 +616,35 @@ const openKpFor = el => {
   showCard(el);
 };
 
+const getOrderedInputs = card => {
+  if (!card) return [];
+  const isVis = el => {
+    const td = el.closest("td");
+    return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
+  };
+  const tbl = card.querySelector("table.x12c");
+  if (!tbl) {
+    return Array.from(card.querySelectorAll("input:not(:disabled)")).filter(isVis);
+  }
+  const byK = {};
+  tbl.querySelectorAll("input[data-k]:not(:disabled)").forEach(el => {
+    if (isVis(el)) byK[el.dataset.k] = el;
+  });
+  const oKeys = Object.keys(byK).filter(k => /^o\d+$/.test(k)).sort((a, b) => parseInt(a.slice(1), 10) - parseInt(b.slice(1), 10));
+  const sKeys = Object.keys(byK).filter(k => /^s\d+$/.test(k)).sort((a, b) => parseInt(a.slice(1), 10) - parseInt(b.slice(1), 10));
+  return ["az", "zs", "rem", "ar", "rt", ...oKeys, "mr", "mz", "t", ...sKeys]
+    .map(k => byK[k])
+    .filter(Boolean);
+};
+
+/* ضبط ترتيب زر «التالي» لكيبورد الجوال تلقائياً في جداول الرد (.x12c) */
+if (document.querySelector("table.x12c")) {
+  let tabSeq = 1;
+  document.querySelectorAll(".ec").forEach(card => {
+    getOrderedInputs(card).forEach(inp => { inp.tabIndex = tabSeq++; });
+  });
+}
+
 const moveToNextMi = currentEl => {
   const card = currentEl.closest(".ec");
   if (card) {
@@ -632,7 +661,9 @@ const moveToNextMi = currentEl => {
       openKpFor(nextMi);
       return;
     }
-    const firstInput = card.querySelector('input[data-k="t"]:not(:disabled), input:not(:disabled)');
+    const firstInput = card.querySelector("table.x12c")
+      ? getOrderedInputs(card)[0]
+      : card.querySelector('input[data-k="t"]:not(:disabled), input:not(:disabled)');
     if (firstInput) {
       closeKp();
       firstInput.focus();
@@ -760,7 +791,11 @@ document.addEventListener("keydown", e => {
 
   let target = null;
 
-  if (e.key === "ArrowDown" || e.key === "Enter" || e.key === "Tab") {
+  if (table.classList.contains("x12c") && (e.key === "Enter" || e.key === "Tab")) {
+    const ordered = getOrderedInputs(t.closest(".ec"));
+    const idx = ordered.indexOf(t);
+    target = (idx !== -1 && idx < ordered.length - 1) ? ordered[idx + 1] : null;
+  } else if (e.key === "ArrowDown" || e.key === "Enter" || e.key === "Tab") {
     const below = allInputs
       .filter(el => el !== t && ((el.getBoundingClientRect().top + el.getBoundingClientRect().bottom) / 2) > cy + 4 && Math.abs(((el.getBoundingClientRect().left + el.getBoundingClientRect().right) / 2) - cx) < tolX)
       .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
@@ -1246,10 +1281,7 @@ document.addEventListener("click", e => {
     const curCard = inp.closest(".ec");
     if (!prevCard || !curCard || prevCard === curCard) return;
 
-    const prevInputs = Array.from(prevCard.querySelectorAll("input:not(:disabled)")).filter(el => {
-      const td = el.closest("td");
-      return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
-    });
+    const prevInputs = getOrderedInputs(prevCard);
 
     /* إذا كان الطالب في آخر خانة رقمية من الشباك السابق وانتقل عبر زر التالي في الكيبورد */
     if (prevInputs.length && prevInputs[prevInputs.length - 1] === prevInp) {
@@ -1389,7 +1421,9 @@ document.addEventListener("keydown", e => {
     } else if (tbl) {
       // آخر سطر في العمود الأول -> إغلاق الكيبورد والانتقال مباشرة لأول خانة في العمود الثاني (الأصل)
       closeKp();
-      const firstInp = tbl.querySelector("input");
+      const firstInp = tbl.classList.contains("x12c")
+        ? getOrderedInputs(tbl.closest(".ec"))[0]
+        : tbl.querySelector("input");
       if (firstInp) {
         firstInp.focus();
         firstInp.select();
