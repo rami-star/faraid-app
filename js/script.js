@@ -855,21 +855,36 @@ document.addEventListener("keydown", e => {
     target.focus();
     target.select();
   } else if (e.key === "Enter" || e.key === "Tab") {
-    const card = t.closest(".ec");
+    const hasEc = !!t.closest(".ec");
+    const card = hasEc ? t.closest(".ec") : table;
     const scope = card && (card.closest(".eg") || card.closest("section.pg") || document);
     if (card && scope) {
-      const cards = Array.from(scope.querySelectorAll(".ec"));
+      const cards = Array.from(scope.querySelectorAll(hasEc ? ".ec" : "table"));
       const nextCard = cards[cards.indexOf(card) + 1];
-      const firstMi = nextCard && Array.from(nextCard.querySelectorAll(".mi")).find(el => {
+      const isVis = el => {
         const td = el.closest("td");
         return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
-      });
+      };
+      const firstMi = nextCard && Array.from(nextCard.querySelectorAll(".mi")).find(isVis);
       if (firstMi) {
         e.stopImmediatePropagation();
         t.blur();
         if (!firstMi.hasAttribute("tabindex")) firstMi.tabIndex = 0;
         firstMi.focus();
         openKpFor(firstMi);
+      } else if (nextCard) {
+        const getBox = el => (el.closest("td") || el).getBoundingClientRect();
+        const firstInp = Array.from(nextCard.querySelectorAll("input:not(:disabled)"))
+          .filter(isVis)
+          .sort((a, b) => {
+            const ra = getBox(a), rb = getBox(b);
+            const dx = rb.right - ra.right;
+            return Math.abs(dx) > 8 ? dx : ra.top - rb.top;
+          })[0];
+        if (firstInp) {
+          firstInp.focus();
+          firstInp.select();
+        }
       }
     }
   }
@@ -1482,5 +1497,75 @@ document.addEventListener("input", e => {
   }
 });
 
+/* ===== ضبط ترتيب زر «التالي» للجوال واللابتوب في جداول التنزيل (ص ١١٣) ===== */
+(function initTanzeelOrder() {
+  const isVis = el => {
+    const td = el.closest("td");
+    return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
+  };
 
+  const getBox = el => (el.closest("td") || el).getBoundingClientRect();
+
+  const isTanzeelTable = tbl =>
+    Array.from(tbl.querySelectorAll("th, td")).some(c => c.textContent.trim() === "التنزيل");
+
+  function getOrderedTanzeelInputs() {
+    const tables = Array.from(document.querySelectorAll("table")).filter(isTanzeelTable);
+    if (!tables.length) return [];
+
+    const orderedAll = [];
+    tables.forEach(tbl => {
+      const inputs = Array.from(tbl.querySelectorAll("input:not(:disabled)"))
+        .filter(isVis)
+        .sort((a, b) => {
+          const ra = getBox(a), rb = getBox(b);
+          const dx = rb.right - ra.right;
+          return Math.abs(dx) > 4 ? dx : ra.top - rb.top;
+        });
+      orderedAll.push(...inputs);
+    });
+    return orderedAll;
+  }
+
+  function applyTanzeelTabOrder() {
+    const orderedAll = getOrderedTanzeelInputs();
+    if (!orderedAll.length) return;
+
+    orderedAll.forEach((inp, idx) => {
+      inp.tabIndex = idx + 1;
+      inp.setAttribute("enterkeyhint", idx === orderedAll.length - 1 ? "done" : "next");
+    });
+  }
+
+  /* توحيد سلوك زر Enter / Tab مع نفس الترتيب على الجوال واللابتوب */
+  document.addEventListener("keydown", e => {
+    if ((e.key !== "Enter" && e.key !== "Tab") || (e.key === "Tab" && e.shiftKey)) return;
+    const t = e.target;
+    if (!t || t.tagName !== "INPUT") return;
+    const tbl = t.closest("table");
+    if (!tbl || !isTanzeelTable(tbl)) return;
+
+    const orderedAll = getOrderedTanzeelInputs();
+    const idx = orderedAll.indexOf(t);
+    if (idx === -1) return;
+
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    const nextInp = orderedAll[idx + 1];
+    if (nextInp) {
+      nextInp.focus();
+      try { nextInp.select(); } catch (_) {}
+    } else {
+      t.blur();
+    }
+  }, true);
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => requestAnimationFrame(applyTanzeelTabOrder));
+  } else {
+    requestAnimationFrame(applyTanzeelTabOrder);
+  }
+  window.addEventListener("load", applyTanzeelTabOrder);
+})();
 
