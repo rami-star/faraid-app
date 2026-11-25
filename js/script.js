@@ -1569,3 +1569,59 @@ document.addEventListener("input", e => {
   window.addEventListener("load", applyTanzeelTabOrder);
 })();
 
+
+/* ===== ضبط الترتيب العمودي لزر «التالي» على الجوال لجميع جداول .x ===== */
+(function initVerticalMobileOrder() {
+  const isVis = el => {
+    const td = el.closest("td");
+    return el.offsetParent !== null && (!td || getComputedStyle(td).display !== "none");
+  };
+
+  const getBox = el => (el.closest("td") || el).getBoundingClientRect();
+
+  function applyVerticalTabOrder() {
+    const tables = Array.from(document.querySelectorAll(".ec table.x:not(.x12c)"));
+    if (!tables.length) return;
+
+    let seq = 1;
+    tables.forEach(tbl => {
+      // تخطي جداول التنزيل لأن لها ترتيباً مستقلاً بالفعل
+      if (Array.from(tbl.querySelectorAll("th, td")).some(c => c.textContent.trim() === "التنزيل")) return;
+
+      const allInps = Array.from(tbl.querySelectorAll("input"));
+      allInps.forEach(inp => {
+        if (!isVis(inp) || inp.disabled) inp.tabIndex = -1;
+      });
+
+      const visible = allInps
+        .filter(inp => !inp.disabled && isVis(inp))
+        .sort((a, b) => {
+          const ra = getBox(a), rb = getBox(b);
+          const dx = rb.right - ra.right; // العمود الأيمن أولاً (RTL)
+          return Math.abs(dx) > 6 ? dx : ra.top - rb.top; // من الأعلى للأسفل داخل كل عمود
+        });
+
+      visible.forEach((inp, idx) => {
+        inp.tabIndex = seq++;
+        inp.setAttribute("enterkeyhint", idx === visible.length - 1 ? "done" : "next");
+      });
+    });
+  }
+
+  window.refreshVerticalTabOrder = applyVerticalTabOrder;
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => requestAnimationFrame(applyVerticalTabOrder));
+  } else {
+    requestAnimationFrame(applyVerticalTabOrder);
+  }
+  window.addEventListener("load", applyVerticalTabOrder);
+  window.addEventListener("resize", applyVerticalTabOrder);
+
+  // إعادة الترتيب تلقائياً بعد أي دمج أو فك دمج للخلايا
+  document.addEventListener("click", e => {
+    if (e.target && e.target.closest("#kp-s")) {
+      setTimeout(applyVerticalTabOrder, 30);
+    }
+  });
+})();

@@ -127,6 +127,29 @@
       .eg.e3 { grid-template-columns: 1fr !important; }
       .ec table.x.ms-ex { font-size: .88em; }
     }
+
+    /* إلغاء الشطب الأحمر التلقائي في تمارين المشتركة */
+    
+#p118 .ec table.x.ms-ex:has(tr:first-child th[rowspan="2"]) tr:nth-child(2) td:only-child input {
+  text-decoration: none !important;
+  color: #111827 !important;
+}
+
+/* توحيد مظهر أرقام العمودين الثالث والرابع وضبط الخلية المدموجة */
+#p118 .ec table.x.ms-ex input[data-k="a"],
+#p118 .ec table.x.ms-ex input[data-k="x"],
+#p118 .ec table.x.ms-ex input[data-k^="f"] {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  font-family: system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif !important;
+  color: #111827 !important;
+}
+#p118 .ec table.x.ms-ex td.in[rowspan="2"] input {
+  min-height: 3.4em;
+}
+#p118 .ec table.x.ms-ex td.in[rowspan="3"] input {
+  min-height: 5.1em;
+}
   </style>
 </head>
 <body>
@@ -299,26 +322,26 @@
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="0" data-k="m0"></div></td>
           <td class="nm">زوج</td>
-          <td class="in"><input data-g="g118" data-i="0" data-k="a0" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="0" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="0" data-k="f0" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="0" data-k="m1"></div></td>
           <td class="nm">أم</td>
-          <td class="in"><input data-g="g118" data-i="0" data-k="a1" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="0" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="0" data-k="f1" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="0" data-k="m2"></div></td>
           <td class="nm">٣ أخ لأم</td>
-          <td class="in"><input data-g="g118" data-i="0" data-k="a2" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="0" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="0" data-k="f2" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="0" data-k="m3"></div></td>
           <td class="nm">أخ ش</td>
-          <td class="in"><input inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="0" data-k="s3" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="0" data-k="f3" inputmode="numeric"></td>
         </tr>
       </table>
       <div class="mm" id="g118-0"></div>
@@ -339,26 +362,26 @@
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="1" data-k="m0"></div></td>
           <td class="nm">زوج</td>
-          <td class="in"><input data-g="g118" data-i="1" data-k="a0" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="1" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="1" data-k="f0" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="1" data-k="m1"></div></td>
           <td class="nm">أم</td>
-          <td class="in"><input data-g="g118" data-i="1" data-k="a1" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="1" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="1" data-k="f1" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="1" data-k="m2"></div></td>
           <td class="nm">أخ لأم</td>
-          <td class="in"><input data-g="g118" data-i="1" data-k="a2" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="1" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="1" data-k="f2" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="1" data-k="m3"></div></td>
           <td class="nm">٤ أخ ش</td>
-          <td class="in"><input data-g="g118" data-i="1" data-k="a3" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="1" data-k="s3" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="1" data-k="f3" inputmode="numeric"></td>
         </tr>
       </table>
       <div class="mm" id="g118-1"></div>
@@ -379,26 +402,26 @@
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="2" data-k="m0"></div></td>
           <td class="nm">زوج</td>
-          <td class="in"><input data-g="g118" data-i="2" data-k="a0" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="2" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="2" data-k="f0" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="2" data-k="m1"></div></td>
           <td class="nm">أم</td>
-          <td class="in"><input data-g="g118" data-i="2" data-k="a1" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="2" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="2" data-k="f1" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="2" data-k="m2"></div></td>
           <td class="nm">٧ أخت لأم</td>
-          <td class="in"><input data-g="g118" data-i="2" data-k="a2" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="2" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="2" data-k="f2" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="2" data-k="m3"></div></td>
           <td class="nm">أخ ش</td>
-          <td class="in"><input inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="2" data-k="s3" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="2" data-k="f3" inputmode="numeric"></td>
         </tr>
       </table>
       <div class="mm" id="g118-2"></div>
@@ -465,32 +488,32 @@
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="4" data-k="m0"></div></td>
           <td class="nm">زوج</td>
-          <td class="in"><input data-g="g118" data-i="4" data-k="a0" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="4" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="4" data-k="f0" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="4" data-k="m1"></div></td>
           <td class="nm">أم أب</td>
-          <td class="in"><input data-g="g118" data-i="4" data-k="a1" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="4" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="4" data-k="f1" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="4" data-k="m2"></div></td>
           <td class="nm">٢ أخ لأم</td>
-          <td class="in"><input data-g="g118" data-i="4" data-k="a2" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="4" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="4" data-k="f2" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="4" data-k="m3"></div></td>
           <td class="nm">أخ ش</td>
-          <td class="in"><input inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="4" data-k="s3" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="4" data-k="f3" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="4" data-k="m4"></div></td>
           <td class="nm">٢ أخت ش</td>
-          <td class="in"><input inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="4" data-k="s4" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="4" data-k="f4" inputmode="numeric"></td>
         </tr>
       </table>
       <div class="mm" id="g118-4"></div>
@@ -511,32 +534,32 @@
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="5" data-k="m0"></div></td>
           <td class="nm">زوج</td>
-          <td class="in"><input data-g="g118" data-i="5" data-k="a0" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="5" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="5" data-k="f0" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="5" data-k="m1"></div></td>
           <td class="nm">أم</td>
-          <td class="in"><input data-g="g118" data-i="5" data-k="a1" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="5" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="5" data-k="f1" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="5" data-k="m2"></div></td>
           <td class="nm">٦ أخت لأم</td>
-          <td class="in"><input data-g="g118" data-i="5" data-k="a2" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="5" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="5" data-k="f2" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="5" data-k="m3"></div></td>
           <td class="nm">٦ أخ ش</td>
-          <td class="in"><input inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="5" data-k="s3" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="5" data-k="f3" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="5" data-k="m4"></div></td>
           <td class="nm">٦ أخ لأب</td>
-          <td class="in"><input inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="5" data-k="s4" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="5" data-k="f4" inputmode="numeric"></td>
         </tr>
       </table>
       <div class="mm" id="g118-5"></div>
@@ -557,26 +580,26 @@
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="6" data-k="m0"></div></td>
           <td class="nm">زوج</td>
-          <td class="in"><input data-g="g118" data-i="6" data-k="a0" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="6" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="6" data-k="f0" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="6" data-k="m1"></div></td>
           <td class="nm">أم</td>
-          <td class="in"><input data-g="g118" data-i="6" data-k="a1" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="6" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="6" data-k="f1" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="6" data-k="m2"></div></td>
           <td class="nm">٥ أخ لأم</td>
-          <td class="in"><input data-g="g118" data-i="6" data-k="a2" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="6" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="6" data-k="f2" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="6" data-k="m3"></div></td>
           <td class="nm">٤ أخت ش</td>
-          <td class="in"><input data-g="g118" data-i="6" data-k="a3" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="6" data-k="s3" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="6" data-k="f3" inputmode="numeric"></td>
         </tr>
       </table>
       <div class="mm" id="g118-6"></div>
@@ -597,26 +620,26 @@
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="7" data-k="m0"></div></td>
           <td class="nm">زوج</td>
-          <td class="in"><input data-g="g118" data-i="7" data-k="a0" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="7" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="7" data-k="f0" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="7" data-k="m1"></div></td>
           <td class="nm">أم أب</td>
-          <td class="in"><input data-g="g118" data-i="7" data-k="a1" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="7" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="7" data-k="f1" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="7" data-k="m2"></div></td>
           <td class="nm">٦ أخ لأم</td>
-          <td class="in"><input data-g="g118" data-i="7" data-k="a2" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="7" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="7" data-k="f2" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="7" data-k="m3"></div></td>
           <td class="nm">٨ أخ ش</td>
-          <td class="in"><input inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="7" data-k="s3" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="7" data-k="f3" inputmode="numeric"></td>
         </tr>
       </table>
       <div class="mm" id="g118-7"></div>
@@ -662,41 +685,41 @@
       <div class="mm" id="g118-8"></div>
     </div>
 
-    <!-- مسألة (١٠): ليست مشتركة (عول من ٦ إلى ٩) -->
+    <!-- مسألة (١٠): ليست مشتركة (عول من ٦ إلى ٩ بلا انكسار) -->
     <div class="ec">
       <table class="x ms-ex">
         <colgroup><col style="width:18%"><col style="width:44%"><col style="width:18%"><col style="width:20%"></colgroup>
         <tr>
           <th class="t" colspan="2" rowspan="2">مسألة (١٠)</th>
           <td class="in"><input inputmode="numeric"></td>
-          <td class="in" rowspan="2"><input data-g="g118" data-i="9" data-k="t" inputmode="numeric"></td>
+          <td class="in" rowspan="2"><input inputmode="numeric"></td>
         </tr>
         <tr>
-          <td class="in"><input data-g="g118" data-i="9" data-k="a" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="9" data-k="t" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="9" data-k="m0"></div></td>
           <td class="nm">زوج</td>
-          <td class="in"><input data-g="g118" data-i="9" data-k="a0" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="9" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="9" data-k="m1"></div></td>
           <td class="nm">أم أب</td>
-          <td class="in"><input data-g="g118" data-i="9" data-k="a1" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="9" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="9" data-k="m2"></div></td>
           <td class="nm">٢ أخت لأم</td>
-          <td class="in"><input data-g="g118" data-i="9" data-k="a2" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="9" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="9" data-k="m3"></div></td>
           <td class="nm">أخت ش</td>
-          <td class="in"><input data-g="g118" data-i="9" data-k="a3" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="9" data-k="s3" inputmode="numeric"></td>
+          <td class="in"><input inputmode="numeric"></td>
         </tr>
       </table>
       <div class="mm" id="g118-9"></div>
@@ -717,26 +740,26 @@
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="10" data-k="m0"></div></td>
           <td class="nm">زوجة</td>
-          <td class="in"><input data-g="g118" data-i="10" data-k="a0" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="10" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="10" data-k="f0" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="10" data-k="m1"></div></td>
           <td class="nm">أم أم</td>
-          <td class="in"><input data-g="g118" data-i="10" data-k="a1" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="10" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="10" data-k="f1" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="10" data-k="m2"></div></td>
           <td class="nm">أخ لأم</td>
-          <td class="in"><input data-g="g118" data-i="10" data-k="a2" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="10" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="10" data-k="f2" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="10" data-k="m3"></div></td>
           <td class="nm">٧ أخ ش</td>
-          <td class="in"><input data-g="g118" data-i="10" data-k="a3" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="10" data-k="s3" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="10" data-k="f3" inputmode="numeric"></td>
         </tr>
       </table>
       <div class="mm" id="g118-10"></div>
@@ -757,26 +780,26 @@
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="11" data-k="m0"></div></td>
           <td class="nm">زوج</td>
-          <td class="in"><input data-g="g118" data-i="11" data-k="a0" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="11" data-k="s0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="11" data-k="f0" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="11" data-k="m1"></div></td>
           <td class="nm">أم</td>
-          <td class="in"><input data-g="g118" data-i="11" data-k="a1" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="11" data-k="s1" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="11" data-k="f1" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="11" data-k="m2"></div></td>
           <td class="nm">٣ أخت لأم</td>
-          <td class="in"><input data-g="g118" data-i="11" data-k="a2" inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="11" data-k="s2" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="11" data-k="f2" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="in"><div class="mi" tabindex="0" data-g="g118" data-i="11" data-k="m3"></div></td>
           <td class="nm">٣ أخ لأب</td>
-          <td class="in"><input inputmode="numeric"></td>
           <td class="in"><input data-g="g118" data-i="11" data-k="s3" inputmode="numeric"></td>
+          <td class="in"><input data-g="g118" data-i="11" data-k="f3" inputmode="numeric"></td>
         </tr>
       </table>
       <div class="mm" id="g118-11"></div>
@@ -808,78 +831,134 @@
       /* مسألة (١): مشتركة — زوج، أم، ٣ أخ لأم، أخ ش (٦×٢ = ١٢) */
       {
         t: 12,
-        hs: [["زوج", 6, "1/2"], ["أم", 2, "1/6"], ["٣ أخ لأم", 3, "1/3"], ["أخ ش", 1, "1/3"]],
-        c: { x: 2, a: 6, a0: 3, a1: 1, a2: 2 }
+        hs: [["زوج", 3, "1/2"], ["أم", 1, "1/6"], ["٣ أخ لأم", 2, "1/3"], ["أخ ش", 2, "1/3"]],
+        merge: [[2, 3]],
+        mergeS: [[2, 3]],
+        c: { x: 2, a: 6, f0: 6, f1: 2, f2: 3, f3: 1 }
       },
       /* مسألة (٢): ليست مشتركة (أخ لأم واحد) — ٦×٤ = ٢٤ */
       {
         t: 24,
-        hs: [["زوج", 12, "1/2"], ["أم", 4, "1/6"], ["أخ لأم", 4, "1/6"], ["٤ أخ ش", 4, "ب"]],
-        c: { x: 4, a: 6, a0: 3, a1: 1, a2: 1, a3: 1 }
+        hs: [["زوج", 3, "1/2"], ["أم", 1, "1/6"], ["أخ لأم", 1, "1/6"], ["٤ أخ ش", 1, "ب"]],
+        c: { x: 4, a: 6, f0: 12, f1: 4, f2: 4, f3: 4 }
       },
       /* مسألة (٣): مشتركة — زوج، أم، ٧ أخت لأم، أخ ش (٦×٤ = ٢٤) */
       {
         t: 24,
-        hs: [["زوج", 12, "1/2"], ["أم", 4, "1/6"], ["٧ أخت لأم", 7, "1/3"], ["أخ ش", 1, "1/3"]],
-        c: { x: 4, a: 6, a0: 3, a1: 1, a2: 2 }
+        hs: [["زوج", 3, "1/2"], ["أم", 1, "1/6"], ["٧ أخت لأم", 2, "1/3"], ["أخ ش", 2, "1/3"]],
+        merge: [[2, 3]],
+        mergeS: [[2, 3]],
+        c: { x: 4, a: 6, f0: 12, f1: 4, f2: 7, f3: 1 }
       },
       /* مسألة (٤): ليست مشتركة (٣ زوجة) — ١٢ بلا انكسار */
       {
         t: 12,
-        hs: [["٣ زوجة", 3, "1/4"], ["أم أم", 2, "1/6"], ["٤ أخ لأم", 4, "1/3"], ["أخ ش", 2, "ب"], ["أخت ش", 1, "ب"]],
+        hs: [["٣ زوجة", 3, "1/4"], ["أم أم", 2, "1/6"], ["٤ أخ لأم", 4, "1/3"], ["أخ ش", 2, "ب"], ["أخت ش", 1, "ب"]],merge:[[3,4]],
         c: {}
       },
       /* مسألة (٥): مشتركة — زوج، أم أب، ٢ أخ لأم، أخ ش، ٢ أخت ش (٦×٥ = ٣٠) */
       {
         t: 30,
-        hs: [["زوج", 15, "1/2"], ["أم أب", 5, "1/6"], ["٢ أخ لأم", 4, "1/3"], ["أخ ش", 2, "1/3"], ["٢ أخت ش", 4, "1/3"]],
-        c: { x: 5, a: 6, a0: 3, a1: 1, a2: 2 }
+        hs: [["زوج", 3, "1/2"], ["أم أب", 1, "1/6"], ["٢ أخ لأم", 2, "1/3"], ["أخ ش", 2, "1/3"], ["٢ أخت ش", 2, "1/3"]],
+        merge: [[2, 3, 4]],
+        mergeS: [[2, 3, 4]],
+        c: { x: 5, a: 6, f0: 15, f1: 5, f2: 4, f3: 2, f4: 4 }
       },
       /* مسألة (٦): مشتركة — ٦×٦ = ٣٦ (و٦ أخ لأب محجوبون بالأشقاء) */
       {
         t: 36,
-        hs: [["زوج", 18, "1/2"], ["أم", 6, "1/6"], ["٦ أخت لأم", 6, "1/3"], ["٦ أخ ش", 6, "1/3"], ["٦ أخ لأب", 0, "م"]],
-        c: { x: 6, a: 6, a0: 3, a1: 1, a2: 2 }
+        hs: [["زوج", 3, "1/2"], ["أم", 1, "1/6"], ["٦ أخت لأم", 2, "1/3"], ["٦ أخ ش", 2, "1/3"], ["٦ أخ لأب", 0, "م"]],
+        merge: [[2, 3]],
+        mergeS: [[2, 3]],
+        c: { x: 6, a: 6, f0: 18, f1: 6, f2: 6, f3: 6, f4: 0 }
       },
       /* مسألة (٧): ليست مشتركة (شقيقات إناث فقط) — عول من ٦ إلى ١٠ وتصحيح ١٠×٥ = ٥٠ */
       {
         t: 50,
-        hs: [["زوج", 15, "1/2"], ["أم", 5, "1/6"], ["٥ أخ لأم", 10, "1/3"], ["٤ أخت ش", 20, "2/3"]],
-        c: { x: 5, a: 10, a0: 3, a1: 1, a2: 2, a3: 4 }
+        hs: [["زوج", 3, "1/2"], ["أم", 1, "1/6"], ["٥ أخ لأم", 2, "1/3"], ["٤ أخت ش", 4, "2/3"]],
+        c: { x: 5, a: 10, f0: 15, f1: 5, f2: 10, f3: 20 }
       },
       /* مسألة (٨): مشتركة — زوج، أم أب، ٦ أخ لأم، ٨ أخ ش (٦×٧ = ٤٢) */
       {
         t: 42,
-        hs: [["زوج", 21, "1/2"], ["أم أب", 7, "1/6"], ["٦ أخ لأم", 6, "1/3"], ["٨ أخ ش", 8, "1/3"]],
-        c: { x: 7, a: 6, a0: 3, a1: 1, a2: 2 }
+        hs: [["زوج", 3, "1/2"], ["أم أب", 1, "1/6"], ["٦ أخ لأم", 2, "1/3"], ["٨ أخ ش", 2, "1/3"]],
+        merge: [[2, 3]],
+        mergeS: [[2, 3]],
+        c: { x: 7, a: 6, f0: 21, f1: 7, f2: 6, f3: 8 }
       },
-      /* مسألة (٩): ليست مشتركة (أخت لأم واحدة) — ٦ بلا انكسار */
+      /* مسألة (٩): */
       {
         t: 6,
         hs: [["زوج", 3, "1/2"], ["أم", 1, "1/6"], ["أخت لأم", 1, "1/6"], ["أخ ش", 1, "ب"]],
         c: {}
       },
-      /* مسألة (١٠): ليست مشتركة (شقيقة واحدة فقط) — عول من ٦ إلى ٩ بلا انكسار */
+      /* مسألة (١٠): ليست مشتركة (عول من ٦ إلى ٩ بلا انكسار) */
       {
         t: 9,
         hs: [["زوج", 3, "1/2"], ["أم أب", 1, "1/6"], ["٢ أخت لأم", 2, "1/3"], ["أخت ش", 3, "1/2"]],
-        c: { a: 6, a0: 3, a1: 1, a2: 2, a3: 3 }
+        c: {}
       },
+
       /* مسألة (١١): ليست مشتركة (زوجة وأخ لأم واحد) — ١٢×٧ = ٨٤ */
       {
         t: 84,
-        hs: [["زوجة", 21, "1/4"], ["أم أم", 14, "1/6"], ["أخ لأم", 14, "1/6"], ["٧ أخ ش", 35, "ب"]],
-        c: { x: 7, a: 12, a0: 3, a1: 2, a2: 2, a3: 5 }
+        hs: [["زوجة", 3, "1/4"], ["أم أم", 2, "1/6"], ["أخ لأم", 2, "1/6"], ["٧ أخ ش", 5, "ب"]],
+        c: { x: 7, a: 12, f0: 21, f1: 14, f2: 14, f3: 35 }
       },
       /* مسألة (١٢): ليست مشتركة (إخوة لأب يسقطون) — ٦×٣ = ١٨ */
       {
         t: 18,
-        hs: [["زوج", 9, "1/2"], ["أم", 3, "1/6"], ["٣ أخت لأم", 6, "1/3"], ["٣ أخ لأب", 0, "ب"]],
-        c: { x: 3, a: 6, a0: 3, a1: 1, a2: 2 }
+        hs: [["زوج", 3, "1/2"], ["أم", 1, "1/6"], ["٣ أخت لأم", 2, "1/3"], ["٣ أخ لأب", 0, "ب"]],
+        c: { x: 3, a: 6, f0: 9, f1: 3, f2: 6, f3: 0 }
       }
     ]
   };
 </script>
+<script src="js/script.js?v=3"></script>
+<script src="js/progress.js?v=3"></script>
+<script>
+/* ضبط التنقل العمودي في الجوال وإخراج الخلايا المدموجة المخفية من التنقل — خاص بالباب ٢١ */
+(function () {
+  const root = document.getElementById("p118");
+  if (!root) return;
+
+  function syncAndOrder() {
+    let seq = 1;
+    root.querySelectorAll("table.ms-ex").forEach(tbl => {
+      const inputs = Array.from(tbl.querySelectorAll("input"));
+      inputs.forEach(inp => {
+        const td = inp.closest("td");
+        const hidden = !td || td.style.display === "none";
+        inp.disabled = hidden;
+        if (hidden) inp.tabIndex = -1;
+      });
+
+      const visible = inputs
+        .filter(inp => !inp.disabled && inp.offsetParent !== null)
+        .sort((a, b) => {
+          const ra = (a.closest("td") || a).getBoundingClientRect();
+          const rb = (b.closest("td") || b).getBoundingClientRect();
+          const dx = rb.right - ra.right;
+          return Math.abs(dx) > 6 ? dx : ra.top - rb.top;
+        });
+
+      visible.forEach((inp, idx) => {
+        inp.tabIndex = seq++;
+        inp.setAttribute("enterkeyhint", idx === visible.length - 1 ? "done" : "next");
+      });
+    });
+  }
+
+  const obs = new MutationObserver(() => requestAnimationFrame(syncAndOrder));
+  obs.observe(root, { subtree: true, attributes: true, attributeFilter: ["style", "rowspan"] });
+
+  window.addEventListener("load", () => requestAnimationFrame(syncAndOrder));
+  window.addEventListener("resize", () => requestAnimationFrame(syncAndOrder));
+  setTimeout(syncAndOrder, 80);
+})();
+</script>
+</body>
+</html>
 <script src="js/script.js?v=3"></script>
 <script src="js/progress.js?v=3"></script>
 </body>

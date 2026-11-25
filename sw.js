@@ -1,4 +1,4 @@
-const CACHE_NAME = "faraid-app-v1.0.0.4.7";
+const CACHE_NAME = "faraid-app-v1.0.0.4.8";
 
 const CORE_ASSETS = [
   "./",
@@ -11,7 +11,7 @@ const CORE_ASSETS = [
   "./js/student.js",
   "./js/progress.js",
   "./js/exam-data.js",
-  "./images/cover.jpg",
+  "./images/cover.png",
   "./images/icon-192.png",
   "./images/icon-512.png",
   "./الباب_١_المدخل.html",
