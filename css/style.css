@@ -109,6 +109,22 @@ body {
   overflow-x: auto;
 }
 
+/* منع قفزة الحجم قبل اكتمال التصغير الأولي على الجوال */
+@keyframes pgSafetyReveal {
+  to { opacity: 1; }
+}
+
+html:not(.book-ready) .pg:not(:has(.eg, .qz-wrap, [data-chk], .ec)),
+html:not(.book-ready) .pg:has(.sw15) {
+  opacity: 0;
+  animation: pgSafetyReveal 0.15s ease 1.2s forwards;
+}
+
+html.book-ready .pg {
+  opacity: 1;
+  transition: opacity 0.12s ease-out;
+}
+
 .pg.book-pg {
   width: 680px !important;
   max-width: 680px !important;
@@ -119,9 +135,12 @@ body {
   line-height: 1.78;
   box-sizing: border-box;
   transform-origin: top center;
-  transition: transform 0.18s ease;
   flex-shrink: 0;
   cursor: zoom-in;
+}
+
+.pg.book-pg.zoom-anim {
+  transition: transform 0.18s ease;
 }
 
 .pg.book-pg.is-zoomed {
@@ -1219,4 +1238,5 @@ td.has-ph input { display: inline-block !important; padding: 0 !important; text-
   #zoom-ctrl { display: none !important; }
   .pg-stage { height: auto !important; margin: 0 !important; }
   .pg.book-pg { transform: none !important; width: 100% !important; max-width: 100% !important; }
+  .pg { opacity: 1 !important; }
 }

@@ -240,8 +240,10 @@ const bookPageFit = (function () {
         if (e.target.closest("a, button, input")) return;
         zoomMode = (zoomMode === "fit" && zoomFactor === 1) ? "width" : "fit";
         zoomFactor = 1;
+        pg.classList.add("zoom-anim");
         updateCtrlUI();
         applyScale();
+        setTimeout(() => pg.classList.remove("zoom-anim"), 220);
       });
     });
 
@@ -279,6 +281,7 @@ const bookPageFit = (function () {
   function resetScale() {
     initPages();
     document.querySelectorAll(".pg.book-pg").forEach(pg => {
+      if (!pg.querySelector(".bxw")) return;
       pg.style.transform = "none";
       if (pg.parentElement && pg.parentElement.classList.contains("pg-stage")) {
         pg.parentElement.style.height = "auto";
@@ -287,6 +290,7 @@ const bookPageFit = (function () {
   }
 
   function applyScale() {
+    initPages();
     const availW = document.documentElement.clientWidth - 20;
     const availH = window.innerHeight - 24;
 
@@ -301,14 +305,18 @@ const bookPageFit = (function () {
         : Math.min(availW / naturalW, availH / naturalH, 1.1);
 
       const finalScale = Math.max(0.35, Math.min(2.2, baseScale * zoomFactor));
-      pg.style.transform = `scale(${finalScale})`;
+      const scaleVal = `scale(${finalScale})`;
+      if (pg.style.transform !== scaleVal) pg.style.transform = scaleVal;
       pg.classList.toggle("is-zoomed", finalScale > baseScale + 0.05 || zoomMode === "width");
 
       if (stage && stage.classList.contains("pg-stage")) {
-        stage.style.height = Math.ceil(naturalH * finalScale) + "px";
+        const newH = Math.ceil(naturalH * finalScale) + "px";
+        if (stage.style.height !== newH) stage.style.height = newH;
         stage.style.overflowX = (naturalW * finalScale > availW + 4) ? "auto" : "hidden";
       }
     });
+
+    document.documentElement.classList.add("book-ready");
   }
 
   return { resetScale, applyScale };
@@ -325,16 +333,13 @@ const refreshLayout = () => {
 
 let _resizeTimer;
 refreshLayout();
-window.addEventListener("load", refreshLayout);
+window.addEventListener("load", () => requestAnimationFrame(refreshLayout));
 window.addEventListener("resize", () => {
   clearTimeout(_resizeTimer);
   _resizeTimer = setTimeout(() => requestAnimationFrame(refreshLayout), 120);
 });
 if (document.fonts && document.fonts.ready) {
-  document.fonts.ready.then(() => {
-    requestAnimationFrame(refreshLayout);
-    setTimeout(refreshLayout, 800);
-  });
+  document.fonts.ready.then(() => requestAnimationFrame(refreshLayout));
 }
 
 /* ==========================================================================
