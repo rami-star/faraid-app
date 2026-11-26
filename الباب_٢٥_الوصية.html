@@ -187,7 +187,36 @@
 #p134 table.x.ws-tr2 col:nth-child(n+4):nth-child(-n+8) { width: 3.6% !important; }
 #p134 table.x.ws-tr2 col:nth-child(n+9) { width: 15% !important; }
 
-#p135 table.x.ws-m td:last-child input { font-size: .50em; }
+#kp-s { display: none !important; }
+
+#p134 table.x.ws-tr2 td.nm,
+#p134 table.x.ws-tr2 td:has(.mi),
+#p136 table.x.ws-m td.nm,
+#p136 table.x.ws-m td:has(.mi),
+#p136 table.x.ws-m td.in { width: auto !important; }
+
+#p136 table.x.ws-m .mi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.85em;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+#p135 .ec table.x.ws-m td:last-child input,
+#p136 .ec table.x.ws-m td:last-child input {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  padding: 0 1px !important;
+}
+
+#p136 .ec table.x.ws-m td:not(:last-child) input[data-k="t"] {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #000 !important;
+  font-family: inherit !important;
+}
   </style>
 </head>
 <body>
@@ -1100,7 +1129,7 @@
         </tr>
         <tr>
           <td class="nm">ابن</td>
-          <td class="w"></td>
+          <td class="in"><div class="mi" tabindex="0" data-g="g136" data-i="0" data-k="ibn"></div></td>
           <td class="in"><input data-g="g136" data-i="0" data-k="i2" inputmode="numeric"></td>
           <td class="in"><input data-g="g136" data-i="0" data-k="r2" inputmode="numeric"></td>
           <td class="in"><input data-g="g136" data-i="0" data-k="m2" inputmode="numeric"></td>
@@ -1144,7 +1173,7 @@
         </tr>
         <tr>
           <td class="nm">ابن</td>
-          <td class="w"></td>
+          <td class="in"><div class="mi" tabindex="0" data-g="g136" data-i="1" data-k="ibn"></div></td>
           <td class="in"><input data-g="g136" data-i="1" data-k="i2" inputmode="numeric"></td>
           <td class="in"><input data-g="g136" data-i="1" data-k="r2" inputmode="numeric"></td>
           <td class="in"><input data-g="g136" data-i="1" data-k="m2" inputmode="numeric"></td>
@@ -1188,7 +1217,7 @@
         </tr>
         <tr>
           <td class="nm">ابن</td>
-          <td class="w"></td>
+          <td class="in"><div class="mi" tabindex="0" data-g="g136" data-i="2" data-k="ibn"></div></td>
           <td class="in"><input data-g="g136" data-i="2" data-k="i2" inputmode="numeric"></td>
           <td class="in"><input data-g="g136" data-i="2" data-k="r2" inputmode="numeric"></td>
           <td class="in"><input data-g="g136" data-i="2" data-k="m2" inputmode="numeric"></td>
@@ -1214,12 +1243,12 @@
           <td class="gv">٥٠٠٠</td>
           <td class="in"><input data-g="g136" data-i="3" data-k="r0" inputmode="numeric"></td>
           <td class="in"><input data-g="g136" data-i="3" data-k="rm" inputmode="numeric"></td>
-          <td class="in"><input data-g="g136" data-i="3" data-k="t" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="3" data-k="t2" inputmode="numeric"></td>
         </tr>
         <tr>
           <td class="nm">زيد</td>
           <td class="gv">١٠٠</td>
-          <td class="in"><input data-g="g136" data-i="3" data-k="i0" inputmode="numeric"></td>
+          <td class="in"><input data-g="g136" data-i="3" data-k="t" inputmode="numeric"></td>
           <td class="in" rowspan="2"><input data-g="g136" data-i="3" data-k="r1" inputmode="numeric"></td>
           <td class="in" rowspan="2"><input data-g="g136" data-i="3" data-k="m1" inputmode="numeric"></td>
           <td class="in"><input data-g="g136" data-i="3" data-k="s0" inputmode="decimal"></td>
@@ -1232,7 +1261,7 @@
         </tr>
         <tr>
           <td class="nm">ابن</td>
-          <td class="w"></td>
+          <td class="in"><div class="mi" tabindex="0" data-g="g136" data-i="3" data-k="ibn"></div></td>
           <td class="in"><input data-g="g136" data-i="3" data-k="i2" inputmode="numeric"></td>
           <td class="in"><input data-g="g136" data-i="3" data-k="r2" inputmode="numeric"></td>
           <td class="in"><input data-g="g136" data-i="3" data-k="m2" inputmode="numeric"></td>
@@ -1374,15 +1403,15 @@
       { t: 1200, hs: [["زيد", 320], ["عمرو", 80], ["ابن", 800]], c: { r0: 3, r1: 1, r2: 2, rm: 1200, m1: 400, m2: 800 } }, // مسألة (٢)
       { t: 750, hs: [["زيد", 220], ["عمرو", 30], ["ابن", 500]], c: { r0: 3, r1: 1, r2: 2, rm: 750, m1: 250, m2: 500 } }, // مسألة (٣)
       { t: 666, hs: [["زيد", 74], ["عمرو", 148], ["ابن", 444]], c: { r0: 3, r1: 1, r2: 2, rm: 666, m1: 222, m2: 444 } }, // مسألة (٤)
-      { t: 1455, hs: [["زيد", null], ["عمرو", null], ["ابن", 970]], c: { r0: 3, r1: 1, r2: 2, rm: 1455, m1: 485, m2: 970, s0: "346.43", s1: "138.57" } }, // مسألة (٥)
-      { t: 900, hs: [["زيد", null], ["عمرو", null], ["ابن", 600]], c: { r0: 3, r1: 1, r2: 2, rm: 900, m1: 300, m2: 600, s0: "196.72", s1: "103.28" } } // مسألة (٦)
+      { t: 1455, hs: [["زيد", null], ["عمرو", null], ["ابن", 970]], c: { r0: 3, r1: 1, r2: 2, rm: 1455, m1: 485, m2: 970, s0: "346.4|346,4|346.43|346,43", s1: "138.6|138,6|138.57|138,57" } }, // مسألة (٥)
+      { t: 900, hs: [["زيد", null], ["عمرو", null], ["ابن", 600]], c: { r0: 3, r1: 1, r2: 2, rm: 900, m1: 300, m2: 600, s0: "196.7|196,7|196.72|196,72|196.73|196,73", s1: "103.3|103,3|103.28|103,28" } } // مسألة (٦)
     ],
 
     g136: [
-      { t: 900, hs: [["زيد", 225], ["عمرو", 75], ["ابن", 600]], c: { i0: 300, i1: 100, i2: 500, r0: 3, r1: 1, r2: 2, rm: 900, m1: 300, m2: 600 } }, // مسألة (١)
-      { t: 1500, hs: [["زيد", null], ["عمرو", null], ["ابن", 1000]], c: { i0: 300, i1: 400, i2: 800, r0: 3, r1: 1, r2: 2, rm: 1500, m1: 500, m2: 1000, s0: "214.29", s1: "285.71" } }, // مسألة (٢)
-      { t: 3300, hs: [["زيد", null], ["عمرو", null], ["ابن", 2200]], c: { i0: 1000, i1: 1320, i2: 980, r0: 3, r1: 1, r2: 2, rm: 3300, m1: 1100, m2: 2200, s0: "474.14", s1: "625.86" } }, // مسألة (٣)
-      { t: 5000, hs: [["زيد", 100], ["عمرو", 1500], ["ابن", 3400]], c: { i0: 100, i1: 1500, i2: 3400, r0: "|0|-", r1: "|0|-", r2: "|0|-", rm: "|0|-", m1: "|0|-", m2: "|0|-" } } // مسألة (٤)
+      { t: 900, hs: [["زيد", 225], ["عمرو", 75], ["ابن", 600]], c: { ibn: "ع|ب", i0: 300, i1: 100, i2: 500, r0: 3, r1: 1, r2: 2, rm: 900, m1: 300, m2: 600 } }, // مسألة (١)
+      { t: 1500, hs: [["زيد", null], ["عمرو", null], ["ابن", 1000]], c: { ibn: "ع|ب", i0: 300, i1: 400, i2: 800, r0: 3, r1: 1, r2: 2, rm: 1500, m1: 500, m2: 1000, s0: "214.3|214,3|214.29|214,29", s1: "285.7|285,7|285.71|285,71" } }, // مسألة (٢)
+      { t: 3300, hs: [["زيد", null], ["عمرو", null], ["ابن", 2200]], c: { ibn: "ع|ب", i0: 1000, i1: 1320, i2: 980, r0: 3, r1: 1, r2: 2, rm: 3300, m1: 1100, m2: 2200, s0: "474.1|474,1|474.14|474,14", s1: "625.9|625,9|625.86|625,86" } }, // مسألة (٣)
+      { t: 100, hs: [["زيد", 0], ["عمرو", 0], ["ابن", 0]], c: { ibn: "ع|ب", i1: 1500, i2: 3400, r0: "|0|-", r1: "|0|-", r2: "|0|-", rm: "|0|-", m1: "|0|-", m2: "|0|-", t2: "|0|-" } } // مسألة (٤)
     ]
   };
 
@@ -1451,5 +1480,51 @@
 </script>
 <script src="js/script.js?v=3"></script>
 <script src="js/progress.js?v=3"></script>
+<script>
+  document.addEventListener("click", function (e) {
+    const btn = e.target.closest?.("[data-chk]");
+    if (!btn || typeof EXD === "undefined") return;
+    const g = btn.dataset.chk;
+    const val = (grp, i, k) => document.querySelector(`[data-g="${grp}"][data-i="${i}"][data-k="${k}"]`)?.value.trim() || "";
+    const toF = s => parseFloat(String(s).replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d)).replace(/[,،]/g, "."));
+  
+    if (g === "g134") {
+      Object.assign(EXD.g134[0].c, nv(val("g134", 0, "ar")) === 18
+        ? { mh2: 2, mr: 6, jr: 8, ar: 18, rm0: 4, rm1: 2, rm2: 3, rm3: 9 }
+        : { mh2: 4, mr: 12, jr: 4, ar: 36, rm0: 8, rm1: 4, rm2: 6, rm3: 18 });
+  
+      Object.assign(EXD.g134[1].c, nv(val("g134", 1, "ar")) === 132
+        ? { mh2: 4, mr: 44, jr: 10, ar: 132, rm0: 20, rm1: 24, rm2: 22, rm3: 66 }
+        : { mh2: 2, mr: 22, jr: 20, ar: 66, rm0: 10, rm1: 12, rm2: 11, rm3: 33 });
+  
+      const big3 = nv(val("g134", 2, "ar")) === 132;
+      EXD.g134[2].t = big3 ? 660 : 330;
+      Object.assign(EXD.g134[2].c, big3
+        ? {
+            mh2: 4, ji: 44, mr: 44, jr: 5, ar: 132, rm0: 24, rm1: 20, rm2: 22, rm3: 66,
+            s0: "156|120+36", s1: "130|100+30", s2: "44", s3: "330",
+            g2: 660, b0: "228|120+108", b1: "190|100+90", b2: "110", b3: "132",
+            g3: 660, c0: "156|120+36", c1: "100", c2: "74|44+30", c3: "330",
+            g4: 660, d0: "120", d1: "190|100+90", d2: "110", d3: "240|132+108"
+          }
+        : {
+            mh2: 2, ji: 22, mr: 22, jr: 5, ar: 66, rm0: 12, rm1: 10, rm2: 11, rm3: 33,
+            s0: "78|60+18", s1: "65|50+15", s2: "22", s3: "165",
+            g2: 330, b0: "114|60+54", b1: "95|50+45", b2: "55", b3: "66",
+            g3: 330, c0: "78|60+18", c1: "50", c2: "37|22+15", c3: "165",
+            g4: 330, d0: "60", d1: "95|50+45", d2: "55", d3: "120|66+54"
+          });
+    }
+  
+    const approx = {
+      g135: [[4, "s0", 346.43], [4, "s1", 138.57], [5, "s0", 196.72], [5, "s1", 103.28]],
+      g136: [[1, "s0", 214.29], [1, "s1", 285.71], [2, "s0", 474.14], [2, "s1", 625.86]]
+    };
+    (approx[g] || []).forEach(([i, k, exp]) => {
+      const raw = val(g, i, k), n = toF(raw);
+      EXD[g][i].c[k] = (!isNaN(n) && Math.abs(n - exp) <= 1.5) ? raw : String(exp);
+    });
+  }, true);
+</script>
 </body>
 </html>
