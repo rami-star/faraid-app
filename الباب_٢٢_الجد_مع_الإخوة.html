@@ -99,6 +99,8 @@
       .case-grid.c3 { grid-template-columns: 1fr; }
       #p125 .eg { grid-template-columns: repeat(2, 1fr); }
     }
+    #p125 .ec table.x.jd-ex td.in[rowspan="2"] input { min-height: 3.4em; }
+#p125 .ec table.x.jd-ex td.in[rowspan="3"] input { min-height: 5.1em; }
   </style>
 </head>
 <body>
@@ -616,7 +618,7 @@
   </table>
 </section>
 
-<!-- ==================== صفحة ١٢٥ (تمارين الجد والإخوة مع أصحاب الفروض: ١ – ٢٠) ==================== -->
+<!-- صفحة (125) التدريبات -->
 <section class="pg" id="p125">
   <div class="hd">
     <div class="no">١٢٥</div>
@@ -678,8 +680,31 @@
       { t: 3, hs: [["جد", 1], ["٤ أخ لأب", 2]],   c: { ts: 6, c0: 2, c1: 4 } },             // ٢٦
       { t: 3, hs: [["جد", 1], ["١٤ أخ ش", 2]],    c: { ts: 21, c0: 7, c1: 14 } },           // ٢٧
       { t: 3, hs: [["جد", 1], ["١٧ أخت ش", 2]],   c: { ts: 51, c0: 17, c1: 34 } }           // ٢٨
-    ]
+    ],
     /* === هنا سنضيف g125 لتمارين صفحة ١٢٥ === */
+
+    g125: [
+      { t: 2, hs: [["زوج", 1], ["جد", 1], ["أخت ش", 1]], mergeS: [[1, 2]], c: { ts: 6, c0: 3, c1: 2, c2: 1 } }, // ١
+      { t: 2, hs: [["زوج", 1], ["جد", 1], ["أخ لأب", 1]], mergeS: [[1, 2]], c: { ts: 4, c0: 2, c1: 1, c2: 1 } }, // ٢
+      { t: 4, hs: [["زوجة", 1], ["جد", 3], ["أخت لأب", 3]], mergeS: [[1, 2]], c: { ts: 4, c0: 1, c1: 2, c2: 1 } }, // ٣
+      { t: 4, hs: [["زوجة", 1], ["جد", 3], ["أخ ش", 3]], mergeS: [[1, 2]], c: { ts: 8, c0: 2, c1: 3, c2: 3 } }, // ٤
+      { t: 3, hs: [["٤ بنت", 2], ["جد", 1], ["٢ أخت ش", 1]], mergeS: [[1, 2]], c: { ts: 12, c0: 8, c1: 2, c2: 2 } }, // ٥
+      { t: 6, hs: [["أم", 1], ["جد", 5], ["٢ أخ لأب", 5]], mergeS: [[1, 2]], c: { ts: 18, c0: 3, c1: 5, c2: 10 } }, // ٦
+      { t: 3, hs: [["أخ لأم", 0], ["جد", 1], ["٥ أخت لأب", 2]], c: { ts: 15, c0: Z, c1: 5, c2: 10 } }, // ٧
+      { t: 6, hs: [["بنت ابن", 3], ["جد", 1], ["٤ أخ ش", 2]], c: { ts: 12, c0: 6, c1: 2, c2: 4 } }, // ٨
+      { t: 4, hs: [["زوجة", 1], ["جد", 1], ["٨ أخت ش", 2]], c: { ts: 16, c0: 4, c1: 4, c2: 8 } }, // ٩
+      { t: 6, hs: [["أم", 1], ["جد", 5], ["٣ أخت ش", 5]], mergeS: [[1, 2]], c: { ts: 6, c0: 1, c1: 2, c2: 3 } }, // ١٠
+      { t: 6, hs: [["زوج", 3], ["جد", 1], ["٤ أخت لأب", 2]], c: { ts: 12, c0: 6, c1: 2, c2: 4 } }, // ١١
+      { t: 6, hs: [["٤ بنت", 4], ["جد", 1], ["٤ أخت لأب", 1]], c: { ts: 24, c0: 16, c1: 4, c2: 4 } }, // ١٢
+      { t: 8, hs: [["زوجة", 1], ["بنت", 4], ["جد", 3], ["أخت ش", 3]], mergeS: [[2, 3]], c: { ts: 8, c0: 1, c1: 4, c2: 2, c3: 1 } }, // ١٣
+      { t: 6, hs: [["بنت", 3], ["بنت ابن", 1], ["جد", 1], ["٥ أخ ش", 1]], c: { ts: 30, c0: 15, c1: 5, c2: 5, c3: 5 } }, // ١٤
+      { t: 6, hs: [["زوج", 3], ["أم أم", 1], ["جد", 2], ["أخت ش", 2]], mergeS: [[2, 3]], c: { ts: 18, c0: 9, c1: 3, c2: 4, c3: 2 } }, // ١٥
+      { t: 4, hs: [["زوجة", 1], ["جد", 3], ["أخت لأب", 3], ["أخ لأب", 3]], mergeS: [[1, 2, 3]], c: { ts: 20, c0: 5, c1: 6, c2: 3, c3: 6 } }, // ١٦
+      { t: 24, hs: [["زوجة", 3], ["أم أم", 4], ["٣ بنت", 16], ["جد", 1], ["أخت ش", 1]], mergeS: [[3, 4]], c: { ts: 27, c0: 3, c1: 4, c2: 16, c3: 4, c4: Z } }, // ١٧
+      { t: 12, hs: [["زوج", 3], ["بنت", 6], ["بنت ابن", 2], ["جد", 1], ["أخ لأب", 1]], mergeS: [[3, 4]], c: { ts: 13, c0: 3, c1: 6, c2: 2, c3: 2, c4: Z } }, // ١٨
+      { t: 12, hs: [["زوجة", 3], ["أم", 2], ["جد", 7], ["أخت لأب", 7], ["أخ لأب", 7]], mergeS: [[2, 3, 4]], c: { ts: 60, c0: 15, c1: 10, c2: 14, c3: 7, c4: 14 } }, // ١٩
+      { t: 24, hs: [["زوجة", 3], ["بنت", 12], ["جد", 9], ["أخ لأب", 9], ["٣ أخت لأب", 9]], mergeS: [[2, 3, 4]], c: { ts: 24, c0: 3, c1: 12, c2: 4, c3: 2, c4: 3 } } // ٢٠
+    ]
   };
 
   /* توليد جداول تمارين ص ١٢١ (٢٨ مسألة) بشكل نظيف ومطابق تماماً للكتاب */
@@ -710,8 +735,152 @@
       </div>
     `).join("");
   })();
+
+  (function buildG125() {
+    const grid = document.getElementById("g125-grid");
+    if (!grid) return;
+    grid.innerHTML = EXD.g125.map((item, i) => `
+      <div class="ec">
+        <table class="x jd-ex">
+          <colgroup><col style="width:56%"><col style="width:22%"><col style="width:22%"></colgroup>
+          <tr>
+            <th class="t">مسألة (${arN(i + 1)})</th>
+            <td class="in"><input data-g="g125" data-i="${i}" data-k="t" inputmode="numeric"></td>
+            <td class="in"><input data-g="g125" data-i="${i}" data-k="ts" inputmode="numeric"></td>
+          </tr>
+          ${item.hs.map((h, k) => `
+          <tr>
+            <td class="nm">${h[0]}</td>
+            <td class="in"><input data-g="g125" data-i="${i}" data-k="s${k}" inputmode="numeric"></td>
+            <td class="in"><input data-g="g125" data-i="${i}" data-k="c${k}" inputmode="numeric"></td>
+          </tr>`).join("")}
+        </table>
+        <div class="mm" id="g125-${i}"></div>
+      </div>
+    `).join("");
+  })();
+
+
 </script>
 <script src="js/script.js?v=3"></script>
 <script src="js/progress.js?v=3"></script>
+<script>
+  (function () {
+    const sections = document.querySelectorAll("#p121, #p125");
+    if (!sections.length) return;
+  
+    function syncInputs() {
+      let seq = 1;
+      sections.forEach(sec => {
+        sec.querySelectorAll("table.jd-ex").forEach(tbl => {
+          const inputs = Array.from(tbl.querySelectorAll("input"));
+          inputs.forEach(inp => {
+            const td = inp.closest("td");
+            const hidden = !td || td.style.display === "none";
+            inp.disabled = hidden;
+            if (hidden) inp.tabIndex = -1;
+          });
+  
+          inputs
+            .filter(inp => !inp.disabled && inp.offsetParent !== null)
+            .sort((a, b) => {
+              const ra = (a.closest("td") || a).getBoundingClientRect();
+              const rb = (b.closest("td") || b).getBoundingClientRect();
+              const dx = rb.right - ra.right;
+              return Math.abs(dx) > 6 ? dx : ra.top - rb.top;
+            })
+            .forEach((inp, idx, arr) => {
+              inp.tabIndex = seq++;
+              inp.setAttribute("enterkeyhint", idx === arr.length - 1 ? "done" : "next");
+            });
+        });
+      });
+    }
+  
+    const obs = new MutationObserver(() => requestAnimationFrame(syncInputs));
+    sections.forEach(sec => obs.observe(sec, { subtree: true, attributes: true, attributeFilter: ["style", "rowspan"] }));
+  
+    window.addEventListener("load", () => requestAnimationFrame(syncInputs));
+    window.addEventListener("resize", () => requestAnimationFrame(syncInputs));
+    setTimeout(syncInputs, 80);
+  })();
+</script>
+<script>
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest?.('[data-chk="g125"]') || typeof EXD === "undefined" || !EXD.g125) return;
+  
+    const getT = i => nv(document.querySelector(`[data-g="g125"][data-i="${i}"][data-k="t"]`)?.value);
+    const isMerged = (i, r) => (document.querySelector(`[data-g="g125"][data-i="${i}"][data-k="s${r}"]`)?.closest("td")?.rowSpan || 1) > 1;
+    const hasCol2 = i => !!document.querySelector(`[data-g="g125"][data-i="${i}"][data-k="ts"]`)?.value.trim()
+      || Array.from(document.querySelectorAll(`[data-g="g125"][data-i="${i}"][data-k^="c"]`)).some(el => el.value.trim() !== "");
+    const c2 = (i, ts, arr) => {
+      const o = { ts: hasCol2(i) ? ts : Z };
+      arr.forEach((v, k) => { o["c" + k] = hasCol2(i) ? v : Z; });
+      return o;
+    };
+  
+    // مسألة (٣)
+    EXD.g125[2] = isMerged(2, 1)
+      ? { t: 4, hs: [["زوجة", 1], ["جد", 3], ["أخت لأب", 3]], mergeS: [[1, 2]], c: { ts: 4, c0: 1, c1: 2, c2: 1 } }
+      : { t: 4, hs: [["زوجة", 1], ["جد", 2], ["أخت لأب", 1]], c: c2(2, 4, [1, 2, 1]) };
+  
+    // مسألة (٥)
+    EXD.g125[4] = getT(4) === 6
+      ? { t: 6, hs: [["٤ بنت", 4], ["جد", 1], ["٢ أخت ش", 1]], c: { ts: 12, c0: 8, c1: 2, c2: 2 } }
+      : { t: 3, hs: [["٤ بنت", 2], ["جد", 1], ["٢ أخت ش", 1]], mergeS: [[1, 2]], c: { ts: 12, c0: 8, c1: 2, c2: 2 } };
+  
+    // مسألة (٨)
+    EXD.g125[7] = getT(7) === 2
+      ? { t: 2, hs: [["بنت ابن", 1], ["جد", 1], ["٤ أخ ش", 1]], mergeS: [[1, 2]], c: { ts: 12, c0: 6, c1: 2, c2: 4 } }
+      : { t: 6, hs: [["بنت ابن", 3], ["جد", 1], ["٤ أخ ش", 2]], c: { ts: 12, c0: 6, c1: 2, c2: 4 } };
+  
+    // مسألة (٩)
+    EXD.g125[8] = isMerged(8, 1)
+      ? { t: 4, hs: [["زوجة", 1], ["جد", 3], ["٨ أخت ش", 3]], mergeS: [[1, 2]], c: { ts: 16, c0: 4, c1: 4, c2: 8 } }
+      : { t: 4, hs: [["زوجة", 1], ["جد", 1], ["٨ أخت ش", 2]], c: { ts: 16, c0: 4, c1: 4, c2: 8 } };
+  
+    // مسألة (١٠)
+    EXD.g125[9] = isMerged(9, 1)
+      ? { t: 6, hs: [["أم", 1], ["جد", 5], ["٣ أخت ش", 5]], mergeS: [[1, 2]], c: { ts: 6, c0: 1, c1: 2, c2: 3 } }
+      : { t: 6, hs: [["أم", 1], ["جد", 2], ["٣ أخت ش", 3]], c: c2(9, 6, [1, 2, 3]) };
+  
+    // مسألة (١١)
+    EXD.g125[10] = getT(10) === 2
+      ? { t: 2, hs: [["زوج", 1], ["جد", 1], ["٤ أخت لأب", 1]], mergeS: [[1, 2]], c: { ts: 12, c0: 6, c1: 2, c2: 4 } }
+      : { t: 6, hs: [["زوج", 3], ["جد", 1], ["٤ أخت لأب", 2]], c: { ts: 12, c0: 6, c1: 2, c2: 4 } };
+  
+    // مسألة (١٢)
+    EXD.g125[11] = isMerged(11, 1)
+      ? { t: 6, hs: [["٤ بنت", 4], ["جد", 2], ["٤ أخت لأب", 2]], mergeS: [[1, 2]], c: { ts: 24, c0: 16, c1: 4, c2: 4 } }
+      : { t: 6, hs: [["٤ بنت", 4], ["جد", 1], ["٤ أخت لأب", 1]], c: { ts: 24, c0: 16, c1: 4, c2: 4 } };
+  
+    // مسألة (١٣)
+    EXD.g125[12] = isMerged(12, 2)
+      ? { t: 8, hs: [["زوجة", 1], ["بنت", 4], ["جد", 3], ["أخت ش", 3]], mergeS: [[2, 3]], c: { ts: 8, c0: 1, c1: 4, c2: 2, c3: 1 } }
+      : { t: 8, hs: [["زوجة", 1], ["بنت", 4], ["جد", 2], ["أخت ش", 1]], c: c2(12, 8, [1, 4, 2, 1]) };
+  
+    // مسألة (١٤)
+    EXD.g125[13] = isMerged(13, 2)
+      ? { t: 6, hs: [["بنت", 3], ["بنت ابن", 1], ["جد", 2], ["٥ أخ ش", 2]], mergeS: [[2, 3]], c: { ts: 30, c0: 15, c1: 5, c2: 5, c3: 5 } }
+      : { t: 6, hs: [["بنت", 3], ["بنت ابن", 1], ["جد", 1], ["٥ أخ ش", 1]], c: { ts: 30, c0: 15, c1: 5, c2: 5, c3: 5 } };
+  
+    // مسألة (١٧)
+    EXD.g125[16] = getT(16) === 27
+      ? { t: 27, hs: [["زوجة", 3], ["أم أم", 4], ["٣ بنت", 16], ["جد", 4], ["أخت ش", 0]], c: { ts: 81, c0: 9, c1: 12, c2: 48, c3: 12, c4: Z } }
+      : { t: 24, hs: [["زوجة", 3], ["أم أم", 4], ["٣ بنت", 16], ["جد", 1], ["أخت ش", 1]], mergeS: [[3, 4]], c: { ts: 27, c0: 3, c1: 4, c2: 16, c3: 4, c4: Z } };
+  
+    // مسألة (١٨)
+    EXD.g125[17] = getT(17) === 13
+      ? { t: 13, hs: [["زوج", 3], ["بنت", 6], ["بنت ابن", 2], ["جد", 2], ["أخ لأب", 0]], c: c2(17, 13, [3, 6, 2, 2, Z]) }
+      : (isMerged(17, 3)
+        ? { t: 12, hs: [["زوج", 3], ["بنت", 6], ["بنت ابن", 2], ["جد", 1], ["أخ لأب", 1]], mergeS: [[3, 4]], c: { ts: 13, c0: 3, c1: 6, c2: 2, c3: 2, c4: Z } }
+        : { t: 12, hs: [["زوج", 3], ["بنت", 6], ["بنت ابن", 2], ["جد", 2], ["أخ لأب", 0]], c: { ts: 13, c0: 3, c1: 6, c2: 2, c3: 2, c4: Z } });
+  
+    // مسألة (٢٠)
+    EXD.g125[19] = isMerged(19, 2)
+      ? { t: 24, hs: [["زوجة", 3], ["بنت", 12], ["جد", 9], ["أخ لأب", 9], ["٣ أخت لأب", 9]], mergeS: [[2, 3, 4]], c: { ts: 24, c0: 3, c1: 12, c2: 4, c3: 2, c4: 3 } }
+      : { t: 24, hs: [["زوجة", 3], ["بنت", 12], ["جد", 4], ["أخ لأب", 2], ["٣ أخت لأب", 3]], c: c2(19, 24, [3, 12, 4, 2, 3]) };
+  }, true);
+  </script>
 </body>
 </html>
