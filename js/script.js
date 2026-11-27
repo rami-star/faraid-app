@@ -1610,3 +1610,60 @@ document.addEventListener("input", e => {
     }
   });
 })();
+
+/* ترتيب الانتقال عمودياً (من الأعلى للأسفل ثم العمود التالي) في جداول التمارين */
+(function setupVerticalTabOrder() {
+  let tabCounter = 1;
+
+  document.querySelectorAll(".ec table").forEach(table => {
+    const rows = Array.from(table.rows);
+    const grid = [];
+    const items = [];
+
+    rows.forEach((tr, r) => {
+      if (!grid[r]) grid[r] = [];
+      let c = 0;
+
+      Array.from(tr.cells).forEach(cell => {
+        while (grid[r][c]) c++;
+        const rs = cell.rowSpan || 1;
+        const cs = cell.colSpan || 1;
+
+        for (let dr = 0; dr < rs; dr++) {
+          if (!grid[r + dr]) grid[r + dr] = [];
+          for (let dc = 0; dc < cs; dc++) {
+            grid[r + dr][c + dc] = true;
+          }
+        }
+
+        const inputs = cell.querySelectorAll("input:not([disabled]):not([readonly])");
+        inputs.forEach((inp, idx) => {
+          items.push({ inp, r, c, idx });
+        });
+
+        c += cs;
+      });
+    });
+
+    // الترتيب: العمود أولاً (من اليمين لليسار) ثم الصف (من الأعلى للأسفل)
+    items.sort((a, b) => (a.c - b.c) || (a.r - b.r) || (a.idx - b.idx));
+
+    items.forEach((item, i) => {
+      item.inp.setAttribute("tabindex", tabCounter++);
+      item.inp.setAttribute("enterkeyhint", i === items.length - 1 ? "done" : "next");
+
+      item.inp.addEventListener("keydown", e => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          const next = items[i + 1];
+          if (next) {
+            next.inp.focus();
+            next.inp.select?.();
+          } else {
+            item.inp.blur();
+          }
+        }
+      });
+    });
+  });
+})();
