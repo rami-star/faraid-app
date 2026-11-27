@@ -246,28 +246,6 @@ const bookPageFit = (function () {
         setTimeout(() => pg.classList.remove("zoom-anim"), 220);
       });
     });
-
-    if (document.querySelector(".pg.book-pg") && !document.getElementById("zoom-ctrl")) {
-      const ctrl = document.createElement("div");
-      ctrl.id = "zoom-ctrl";
-      ctrl.innerHTML = `
-        <button type="button" data-z="out" title="تصغير">➖</button>
-        <button type="button" data-z="fit" class="active" title="إظهار الصفحة كاملة">صفحة كاملة</button>
-        <button type="button" data-z="in" title="تكبير">➕</button>
-      `;
-      document.body.appendChild(ctrl);
-
-      ctrl.addEventListener("click", e => {
-        const btn = e.target.closest("button");
-        if (!btn) return;
-        const act = btn.dataset.z;
-        if (act === "fit") { zoomMode = "fit"; zoomFactor = 1; }
-        else if (act === "in") zoomFactor = Math.min(2.2, +(zoomFactor + 0.15).toFixed(2));
-        else if (act === "out") zoomFactor = Math.max(0.6, +(zoomFactor - 0.15).toFixed(2));
-        updateCtrlUI();
-        applyScale();
-      });
-    }
   }
 
   function updateCtrlUI() {
@@ -291,7 +269,8 @@ const bookPageFit = (function () {
 
   function applyScale() {
     initPages();
-    const availW = document.documentElement.clientWidth - 20;
+    const isMobile = document.documentElement.clientWidth <= 820;
+    const availW = document.documentElement.clientWidth - (isMobile ? 8 : 20);
     const availH = window.innerHeight - 24;
 
     document.querySelectorAll(".pg.book-pg").forEach(pg => {
@@ -299,7 +278,8 @@ const bookPageFit = (function () {
       const naturalW = pg.offsetWidth || 680;
       const naturalH = pg.offsetHeight || 930;
 
-      const useWidthFit = zoomMode === "width" || pg.classList.contains("fit-w");
+      // على الجوال: ملء عرض الشاشة بالكامل لجميع صفحات الكتاب لتوحيد الشكل
+      const useWidthFit = isMobile || zoomMode === "width" || pg.classList.contains("fit-w");
       const baseScale = useWidthFit
         ? Math.min(availW / naturalW, 1.15)
         : Math.min(availW / naturalW, availH / naturalH, 1.1);

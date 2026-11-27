@@ -1,6 +1,6 @@
 /* ==========================================================================
    الفوائد في تسهيل مسائل الفرائض — ملف التنسيق الموحد (style.css)
-   مرتّب وخالٍ من التكرار
+   مرتّب وخالٍ من التكرار — شامل تعديلات ملء الشاشة والمناسخات والانكسار ومنع القفزة
    ========================================================================== */
 
 /* ==========================================================================
@@ -41,8 +41,23 @@ body {
 }
 
 /* ==========================================================================
-   ٢. إطار الصفحات وترويسة الكتاب والعناوين
+   ٢. إطار الصفحات وترويسة الكتاب والعناوين ومنع قفزة الحجم
    ========================================================================== */
+@keyframes pgSafetyReveal {
+  to { opacity: 1; }
+}
+
+html:not(.book-ready) .pg:not(:has(.eg, .qz-wrap, [data-chk], .ec)),
+html:not(.book-ready) .pg:has(.sw15) {
+  opacity: 0;
+  animation: pgSafetyReveal 0.15s ease 1.2s forwards;
+}
+
+html.book-ready .pg {
+  opacity: 1;
+  transition: opacity 0.12s ease-out;
+}
+
 .pg {
   max-width: 820px;
   margin: 14px auto;
@@ -95,7 +110,7 @@ body {
   box-shadow: 2px 3px 5px #888;
 }
 
-/* حاوية الاحتواء التلقائي لصفحات الشرح */
+/* حاوية الاحتواء التلقائي لصفحات الشرح والمناسخات العريضة */
 .pg-stage {
   width: 100%;
   display: flex;
@@ -107,22 +122,6 @@ body {
 
 .pg-stage:has(.is-zoomed) {
   overflow-x: auto;
-}
-
-/* منع قفزة الحجم قبل اكتمال التصغير الأولي على الجوال */
-@keyframes pgSafetyReveal {
-  to { opacity: 1; }
-}
-
-html:not(.book-ready) .pg:not(:has(.eg, .qz-wrap, [data-chk], .ec)),
-html:not(.book-ready) .pg:has(.sw15) {
-  opacity: 0;
-  animation: pgSafetyReveal 0.15s ease 1.2s forwards;
-}
-
-html.book-ready .pg {
-  opacity: 1;
-  transition: opacity 0.12s ease-out;
 }
 
 .pg.book-pg {
@@ -155,8 +154,8 @@ html.book-ready .pg {
   margin-right: auto;
 }
 
-/* توحيد عرض صفحات التدريبات (.eg و .qz-wrap) وصفحات الشرح */
-.pg:has(.eg, .qz-wrap) {
+/* توحيد عرض صفحات التدريبات (.eg و .qz-wrap) باستثناء شبابيك المناسخات العريضة (.sw15) */
+.pg:has(.eg, .qz-wrap):not(:has(.sw15)) {
   width: 100% !important;
   max-width: 820px !important;
   min-height: auto !important;
@@ -174,7 +173,8 @@ html.book-ready .pg {
   padding: 16px 26px 22px !important;
 }
 
-.pg-stage > .pg:not(:has(.eg, .qz-wrap)):not(#pc1) {
+.pg-stage > .pg:not(:has(.eg, .qz-wrap)):not(#pc1),
+.pg-stage > .pg:has(.sw15) {
   margin: 0 !important;
 }
 
@@ -707,9 +707,10 @@ html.book-ready .pg {
 
 .ec table td input[data-k="t"] { color: #1e3a5f !important; }
 
-.sw15 .ec table td input[data-k="t"],
-.sw15 .ec table td input[data-k^="s"] {
-  font-size: 15px !important;
+/* تصغير أرقام شبابيك المناسخات العريضة لتبقى داخل الخلايا */
+.ec .sw15 table td input[data-k="t"],
+.ec .sw15 table td input[data-k^="s"] {
+  font-size: 13px !important;
 }
 
 /* شطب أصل المسألة القديم في العول والرد بخط أحمر */
@@ -737,13 +738,13 @@ html.book-ready .pg {
 .u-wrap .u-sfx { font-size: .85em; font-weight: 700; color: #17375e; white-space: nowrap; user-select: none; pointer-events: none; display: none; }
 .u-wrap.filled .u-sfx { display: inline; }
 
-/* نصيب الفرد الواحد بجانب السهام النهائية */
-td.has-ph { text-align: center !important; white-space: nowrap; }
+/* نصيب الفرد الواحد بجانب السهام النهائية (الانكسار) */
+td.has-ph { text-align: center !important; white-space: nowrap; overflow: hidden; }
 td.has-ph input { display: inline-block !important; padding: 0 !important; text-align: center; }
 .per-head {
   display: inline-block;
-  margin-right: 3px;
-  font-size: 0.92em;
+  margin-right: 2px;
+  font-size: 0.88em;
   font-weight: 700;
   color: #1e8449;
   pointer-events: none;
@@ -1212,6 +1213,17 @@ td.has-ph input { display: inline-block !important; padding: 0 !important; text-
 
 @media (max-width: 600px) {
   .asaba-tbl { height: 640px; font-size: .7em; }
+  /* إبقاء أرقام باب الانكسار ونصيب الفرد داخل الخلية على الجوال */
+  td.has-ph { padding: 0 1px !important; }
+  td.has-ph input,
+  .ec table td.has-ph input[data-k^="s"] {
+    font-size: 13px !important;
+    letter-spacing: -0.3px;
+  }
+  .per-head {
+    font-size: 11px !important;
+    margin-right: 1px !important;
+  }
 }
 
 @media (max-width: 560px) {
@@ -1220,7 +1232,7 @@ td.has-ph input { display: inline-block !important; padding: 0 !important; text-
 }
 
 @media (max-width: 520px) {
-  .pg { padding: 12px 12px 16px; }
+  .pg { padding: 12px 10px 16px; }
   .pm { width: 92%; font-size: 4.1vw; }
   .nodes.n5, .nodes.n6, .nodes.n7 { grid-template-columns: repeat(3, 1fr); }
   .nodes.n4 { grid-template-columns: repeat(2, 1fr); }
@@ -1236,7 +1248,7 @@ td.has-ph input { display: inline-block !important; padding: 0 !important; text-
 
 @media print {
   #zoom-ctrl { display: none !important; }
+  .pg { opacity: 1 !important; }
   .pg-stage { height: auto !important; margin: 0 !important; }
   .pg.book-pg { transform: none !important; width: 100% !important; max-width: 100% !important; }
-  .pg { opacity: 1 !important; }
 }

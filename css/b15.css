@@ -1,52 +1,95 @@
 /* b15.css — إضافات الباب ١٥ (المناسخات) فقط؛ لا يغيّر style.css */
-.mx{width:100%;border-collapse:collapse;table-layout:fixed;font-size:.92em;margin:.9em 0}
-.mx td{border:1px solid #e36c09;padding:.25em .5em;text-align:center;vertical-align:middle}
-.mx .ds{background:#ebf1de;text-align:justify;line-height:1.9;padding:.5em .8em}
-.mx .lb{background:#c5d9f1;color:#17375e;font-weight:700;width:22%}
-.mx .nu{background:#fff;font-weight:700;width:9%}
+.mx { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: .92em; margin: .9em 0; }
+.mx td { border: 1px solid #e36c09; padding: .25em .5em; text-align: center; vertical-align: middle; }
+.mx .ds { background: #ebf1de; text-align: justify; line-height: 1.9; padding: .5em .8em; }
+.mx .lb { background: #c5d9f1; color: #17375e; font-weight: 700; width: 22%; }
+.mx .nu { background: #fff; font-weight: 700; width: 9%; }
 
 /* ضبط جداول مسائل الحالة الأولى (ص ٨١) */
-.q15{font-size:.95em}
-.q15 .ec th.st{background:#ebf1de;color:#000;font-weight:400;text-align:right;line-height:1.7;padding:.3em .5em;font-size:.95em;white-space:normal}
-.q15 .ec th.st b{color:#17375e}
+.q15 { font-size: .95em; }
+.q15 .ec th.st { background: #ebf1de; color: #000; font-weight: 400; text-align: right; line-height: 1.7; padding: .3em .5em; font-size: .95em; white-space: normal; }
+.q15 .ec th.st b { color: #17375e; }
 .q15 .ec tr:not(:first-child) th,
-.q15 .ec td.nm{width:74%;background:#c5d9f1;color:#17375e;font-weight:700}
-.q15 .ec td.in{width:26%}
+.q15 .ec td.nm { width: 74%; background: #c5d9f1; color: #17375e; font-weight: 700; }
+.q15 .ec td.in { width: 26%; }
 
 /* جداول الأمثلة المحلولة للحالة الثانية والثالثة (ص ٨٢ و ص ٨٧-٩٠) */
-.sw15{position:relative;margin:.9em 0;overflow-x:auto}
-.sw15 svg.a15{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}
-.st15{width:100%;border-collapse:collapse;table-layout:fixed;font-size:.74em;text-align:center}
-.st15 td,.st15 th{border:1px solid #e36c09;padding:.1em .05em;height:2.15em;line-height:1.3;vertical-align:middle;background:#fff}
-.st15 .h{background:#c5d9f1;color:#17375e;font-weight:700}
-.st15 .gn{background:#ebf1de;font-weight:700}
-.st15 .pk{background:#f2dcdb;font-weight:700}
-.st15 .tt{color:#8b1a1a;font-weight:700;white-space:nowrap}
-.st15 .ms{background:#ebf1de;color:#17375e;font-weight:700;font-size:1.05em}
-.st15 .cr{min-width:1.9em;height:1.9em;line-height:1.7em}
+.sw15 { position: relative; margin: .7em 0; overflow-x: auto; }
+.sw15 svg.a15 { position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.st15 { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: .74em; text-align: center; }
+.st15 td, .st15 th {
+  border: 1px solid #e36c09;
+  padding: .12em .05em;
+  height: 2.15em;
+  line-height: 1.25;
+  vertical-align: middle;
+  background: #fff;
+  overflow: hidden;
+}
+.st15 .h {
+  background: #c5d9f1;
+  color: #17375e;
+  font-weight: 700;
+  font-size: .88em;
+  line-height: 1.2;
+  padding: 2px 1px;
+}
+.st15 .gn { background: #ebf1de; font-weight: 700; font-size: .92em; line-height: 1.2; }
+.st15 .pk { background: #f2dcdb; font-weight: 700; }
+.st15 .tt { color: #8b1a1a; font-weight: 700; white-space: nowrap; font-size: .88em; }
+.st15 .ms { background: #ebf1de; color: #17375e; font-weight: 700; font-size: 1.05em; }
+.st15 .cr { min-width: 1.9em; height: 1.9em; line-height: 1.7em; }
 
 /* جداول تمارين الحالة الثانية والثالثة الكاملة (ص ٨٣–٨٦ و ص ٩١–٩٨) */
-.eg.e1{grid-template-columns:1fr}
-.ec table.st15 td.in{background:#fff;padding:0}
-.ec table.st15 input{width:100%;height:100%;box-sizing:border-box;border:0;background:transparent;text-align:center;font:inherit;font-weight:700;color:#000}
-
-.eg.e2{grid-template-columns:repeat(2,1fr);gap:.65em}
-@media(max-width:640px){.eg.e2{grid-template-columns:1fr}}
-.ec th.st{background:#ebf1de;color:#000;font-weight:400;text-align:right;line-height:1.7;padding:.35em .6em;font-size:1.5em;white-space:normal}
-.ec th.st b{color:#1f497d}
-
-.st15 .msw{background:#fff;color:#000;font-weight:700;text-align:right;padding-right:.8em;font-size:1.05em}
-.st15 .msw b{color:#1f497d}
-
-/* ضبط صفحات تدريبات المناسخات داخل نظام الاحتواء التلقائي */
-.pg.book-pg.fit-w {
-  min-height: auto !important;
-  cursor: default !important;
-}
-.eg.e1 .ec {
-  min-width: 0;
-}
+.eg.e1 { grid-template-columns: 1fr; }
+.eg.e1 .ec { min-width: 0; }
+.ec table.st15 td.in { width: auto !important; background: #fff; padding: 0; }
 .ec table.st15 input {
+  width: 100%;
+  height: 100%;
   min-width: 0;
   padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  background: transparent;
+  text-align: center;
+  font: inherit;
+  font-weight: 700;
+  color: #000;
+}
+
+.eg.e2 { grid-template-columns: repeat(2, 1fr); gap: .65em; }
+@media (max-width: 640px) { .eg.e2 { grid-template-columns: 1fr; } }
+
+.ec th.st {
+  background: #ebf1de;
+  color: #000;
+  font-weight: 400;
+  text-align: right;
+  line-height: 1.65;
+  padding: .35em .6em;
+  font-size: 1.35em;
+  white-space: normal;
+}
+.ec th.st b { color: #1f497d; }
+
+.st15 .msw { background: #fff; color: #000; font-weight: 700; text-align: right; padding-right: .8em; font-size: 1.05em; }
+.st15 .msw b { color: #1f497d; }
+
+/* ضبط صفحات تدريبات المناسخات العريضة لتملأ الشاشة بلا فراغ جانبي */
+.pg.book-pg.fit-w {
+  min-height: auto !important;
+  padding: 12px 10px 16px !important;
+  cursor: default !important;
+}
+
+/* ضبط خاص لمسألتي ١٤ (ص ٩٥) و١٥ (ص ٩٦) لمنع تداخل عمودي الجامعة والاختصار */
+#p95 .st15,
+#p96 .st15 {
+  font-size: .68em;
+}
+#p95 .st15 .h,
+#p96 .st15 .h {
+  font-size: .82em;
+  letter-spacing: -0.2px;
 }
